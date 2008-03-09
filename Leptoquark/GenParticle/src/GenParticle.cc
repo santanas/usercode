@@ -120,7 +120,7 @@ GenParticle::GenParticle(const edm::ParameterSet& iConfig)
   h_phi_lepton = fs->make<TH1F>("h_phi_lepton" , "h_phi_lepton" , 50 , -5. , 5. );
   h_phi_quark = fs->make<TH1F>("h_phi_quark" , "h_phi_quark" , 50 , -5. , 5. );
 
-  h_invMass_LQ = fs->make<TH1F>("h_invMass_LQ" , "h_invMass_LQ" , 2000 , 0. , 500. );
+  h_invMass_LQ = fs->make<TH1F>("h_invMass_LQ" , "h_invMass_LQ" , 4000 , 0. , 2000. );
   h_delta_invMass_LQ = fs->make<TH1F>("h_delta_invMass_LQ" , "h_delta_invMass_LQ" , 1000 , -1. , 1. );
 
   h_decayRadius_LQ = fs->make<TH1F>("h_decayRadius_LQ" , "h_decayRadius_LQ" , 1500 , 0. , 150. );
@@ -171,6 +171,7 @@ void GenParticle::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
    // the replacement for this from release 1.6.8. on is:
    // Handle<GenParticleCollection> genParticles
    // event.getByLabel("genParticles", genParticles);
+
 
    for(size_t i = 0; i < genParticles->size(); ++ i) 
      {

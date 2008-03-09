@@ -13,7 +13,7 @@ c1->SetLeftMargin(0.117547);
 c1->SetRightMargin(0.0817717);
 c1->SetTopMargin(0.0837563);
 c1->SetBottomMargin(0.116751);
-c1->Divide(2,2,0,0);
+c1->Divide(2,2);
 
 c1.cd(1);
 h_pT_LQ->Rebin(rebin);
@@ -65,7 +65,7 @@ c2->SetLeftMargin(0.117547);
 c2->SetRightMargin(0.0817717);
 c2->SetTopMargin(0.0837563);
 c2->SetBottomMargin(0.116751);
-c2->Divide(2,2,0,0);
+c2->Divide(2,2);
 
 c2.cd(1);
 h_eta_LQ->Rebin(rebin);
@@ -117,7 +117,7 @@ c3->SetLeftMargin(0.117547);
 c3->SetRightMargin(0.0817717);
 c3->SetTopMargin(0.0837563);
 c3->SetBottomMargin(0.116751);
-c3->Divide(2,2,0,0);
+c3->Divide(2,2);
 
 c3.cd(1);
 h_phi_LQ->Rebin(rebin);
