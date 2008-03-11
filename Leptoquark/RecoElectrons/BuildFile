@@ -8,7 +8,7 @@
 <flags EDM_PLUGIN=1>
 <use name=PhysicsTools/UtilAlgos>
 <export>
-   <lib name=workspaceRecoElectrons>
+   <lib name=RecoElectronsRecoElectrons>
    <use name=FWCore/Framework>
    <use name=FWCore/PluginManager>
    <use name=FWCore/ParameterSet>
