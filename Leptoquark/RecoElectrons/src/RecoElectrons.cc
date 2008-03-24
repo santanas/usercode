@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id$
+// $Id: RecoElectrons.cc,v 1.1 2008/03/11 11:11:29 santanas Exp $
 //
 //
 
@@ -75,6 +75,9 @@ class RecoElectrons : public edm::EDAnalyzer {
 
       // ----------member data ---------------------------
       TH1F * h_N_recoEle; 
+      TH1F * h_energy_recoEle;
+      TH1F * h_pT_recoEle;
+      TH1F * h_eta_recoEle;
       TH2F * h_p_minus_Esc_recoEle_vs_Esc; 
       TH2F * h_p_minus_Esc_recoEle_vs_ETsc; 
       TH2F * h_p_minus_Esc_recoEle_vs_etasc; 
@@ -118,14 +121,21 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
    //now do what ever initialization is needed
   edm::Service<TFileService> fs;
   //histo = fs->make<TH1D>("charge" , "Charges" , 200 , -2 , 2 );
+
+  //## number of reco electrons
   h_N_recoEle = fs->make<TH1F>("h_N_recoEle","h_N_recoEle",30,-0.5,30.5);
-  
+
+  //## pT/eta reco electrons
+  h_energy_recoEle = fs->make<TH1F>("h_energy_recoEle","h_energy_recoEle",100,0,1000);
+  h_pT_recoEle = fs->make<TH1F>("h_pT_recoEle","h_pT_recoEle",100,0,1000);
+  h_eta_recoEle = fs->make<TH1F>("h_eta_recoEle","h_eta_recoEle",100,-4,4);
+
+  //## p_at_Vtx - E_sc  
   h_p_minus_Esc_recoEle_vs_Esc =  fs->make<TH2F>("h_p_minus_Esc_recoEle_vs_Esc",
  						 "h_p_minus_Esc_recoEle_vs_Esc",
  						 20,0,500,
  						 100,-200,200);
 
-  //## p_at_Vtx - E_sc
   h_p_minus_Esc_recoEle_vs_ETsc =  fs->make<TH2F>("h_p_minus_Esc_recoEle_vs_ETsc",
 						  "h_p_minus_Esc_recoEle_vs_ETsc",
 						  20,0,500,
@@ -216,6 +226,10 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       //       float E_sc_ele=electron->caloEnergy();
       //       float eta_ele=electron->eta();
       //       float phi_ele=electron->phi();
+
+      h_energy_recoEle->Fill(electron->energy());
+      h_pT_recoEle->Fill(electron->pt());
+      h_eta_recoEle->Fill(electron->eta());
       
       //## Cluster shape variables
       bool hasBarrel=true;
@@ -316,7 +330,6 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       h_p_minus_Esc_recoEle_vs_ETsc->Fill(ET_sc,p_minus_Esc_recoEle);
       h_p_minus_Esc_recoEle_vs_etasc->Fill(electron->eta(),p_minus_Esc_recoEle);
       h_p_minus_Esc_recoEle_vs_fBrem->Fill(fBrem,p_minus_Esc_recoEle);
-
 
       //
       ele_idx++;
