@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.1 2008/03/11 11:11:29 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.2 2008/03/24 10:27:12 santanas Exp $
 //
 //
 
@@ -75,6 +75,7 @@ class RecoElectrons : public edm::EDAnalyzer {
 
       // ----------member data ---------------------------
       TH1F * h_N_recoEle; 
+      TH1F * h_N_recoEle_pTcut; 
       TH1F * h_energy_recoEle;
       TH1F * h_pT_recoEle;
       TH1F * h_eta_recoEle;
@@ -101,6 +102,9 @@ int id_electron=11;
 int id_down=1;
 int id_up=2;
 
+float pTcut_genEle=50; //GeV
+float pTcut_recoEle=50; //GeV
+
 // namespaces
 using namespace std;
 using namespace reco;
@@ -118,12 +122,13 @@ float DeltaR_genEle_recoEle_min_cut=0.1;
 RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
 
 {
-   //now do what ever initialization is needed
+  //now do what ever initialization is needed
   edm::Service<TFileService> fs;
   //histo = fs->make<TH1D>("charge" , "Charges" , 200 , -2 , 2 );
 
   //## number of reco electrons
   h_N_recoEle = fs->make<TH1F>("h_N_recoEle","h_N_recoEle",30,-0.5,30.5);
+  h_N_recoEle_pTcut = fs->make<TH1F>("h_N_recoEle_pTcut","h_N_recoEle_pTcut",30,-0.5,30.5);
 
   //## pT/eta reco electrons
   h_energy_recoEle = fs->make<TH1F>("h_energy_recoEle","h_energy_recoEle",100,0,1000);
@@ -212,9 +217,9 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     cout << "******************* electron->size() : " << electrons->size() << endl;
   h_N_recoEle->Fill(electrons->size());
 
-
   // Loop over gsf electrons
   int ele_idx=0;
+  int N_recoEle_pTcut=0;
   reco::PixelMatchGsfElectronCollection::const_iterator electron;
   for (electron = (*electrons).begin();
        electron != (*electrons).end(); ++electron) 
@@ -226,6 +231,9 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       //       float E_sc_ele=electron->caloEnergy();
       //       float eta_ele=electron->eta();
       //       float phi_ele=electron->phi();
+
+      if(electron->pt()>pTcut_recoEle)
+	N_recoEle_pTcut++;
 
       h_energy_recoEle->Fill(electron->energy());
       h_pT_recoEle->Fill(electron->pt());
@@ -336,6 +344,12 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     }//end loop over gsf electrons
 
 
+  if(printOut)
+    cout << "******************* electron->size() : " << electrons->size() << endl;
+
+  h_N_recoEle->Fill(electrons->size());
+  h_N_recoEle_pTcut->Fill(N_recoEle_pTcut);
+
   //## Energy resolution with MC matching
   //loop over gen particle
   
@@ -361,6 +375,10 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  if(abs(mom->pdgId())==id_LQ)
 	    {
 	      
+	      //select high pT gen electrons
+	      if(pt_genEle<pTcut_genEle)
+		continue;
+
 	      float DeltaR_genEle_recoEle_min=1000;
 	      int idx_nearest_recoEle=-1;
 	      int idx_ele_it=0;
