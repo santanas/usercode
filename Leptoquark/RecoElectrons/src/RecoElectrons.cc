@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.2 2008/03/24 10:27:12 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.3 2008/03/27 14:01:34 santanas Exp $
 //
 //
 
@@ -86,6 +86,11 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_DeltaR_genEle_recoEle;
       TH1F * h_DeltaR_genEle_recoEle_min;
       TH1F * h_E_recoEle_over_E_genEle_DeltaRmatch;
+      TH1F * h_hOverE_recoEle_pTcut;
+      TH1F * h_sigmaee_recoEle_pTcut;
+      TH1F * h_deltaPhiIn_recoEle_pTcut;
+      TH1F * h_deltaEtaIn_recoEle_pTcut;
+
       int event;
 };
 
@@ -162,6 +167,12 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   h_DeltaR_genEle_recoEle_min = fs->make<TH1F>("h_DeltaR_genEle_recoEle_min","h_DeltaR_genEle_recoEle_min",200,0.,10.);
   h_E_recoEle_over_E_genEle_DeltaRmatch = fs->make<TH1F>("h_E_recoEle_over_E_genEle_DeltaRmatch",
 							 "h_E_recoEle_over_E_genEle_DeltaRmatch",1000,0.,2.);
+
+  //## Electron ID variables
+  h_hOverE_recoEle_pTcut = fs->make<TH1F>("h_hOverE_recoEle_pTcut","h_hOverE_recoEle_pTcut",200,0.,0.5);
+  h_sigmaee_recoEle_pTcut = fs->make<TH1F>("h_sigmaee_recoEle_pTcut","h_sigmaee_recoEle_pTcut",200,0.,0.5);
+  h_deltaPhiIn_recoEle_pTcut = fs->make<TH1F>("h_deltaPhiIn_recoEle_pTcut","h_deltaPhiIn_recoEle_pTcut",200,0.,0.2);
+  h_deltaEtaIn_recoEle_pTcut = fs->make<TH1F>("h_deltaEtaIn_recoEle_pTcut","h_deltaEtaIn_recoEle_pTcut",200,0.,0.2);
 
 }
 
@@ -290,6 +301,14 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       //Per quanto riguarda la correzione a sigmaee questa e` una semplice valutazione della variazione di sigmaee dovuta alla
       //particolare geometria dei cristalli nell'endcap. In pratica si corregge la sigmaee in funzione di eta per la diversa
       //area dei cristalli vista dal punto di interazione.
+
+      if(electron->energy()>pTcut_recoEle)
+	{
+	  h_hOverE_recoEle_pTcut->Fill(hOverE);
+	  h_sigmaee_recoEle_pTcut->Fill(sigmaee);
+	  h_deltaPhiIn_recoEle_pTcut->Fill(deltaPhiIn);
+	  h_deltaEtaIn_recoEle_pTcut->Fill(deltaEtaIn);
+   	}
 
       //## Other useful variables       
       //       float eOverP = electron->eSuperClusterOverP();
