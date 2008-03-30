@@ -1,11 +1,13 @@
-void drawcompare2(char* namehisto1, char* namehisto2,TFile *file1, TFile *file2, TCanvas *canv){
+void drawcompare2(char* namehisto1, char* namehisto2,TFile *file1, TFile *file2, TCanvas *canv, bool logY1, bool logY2){
 
   TPad fPads1("pad1", "", 0.00, 0.25, 0.50, 0.99);   fPads1.Draw();
   TPad fPads2("pad2", "", 0.00, 0.00, 0.50, 0.25);   fPads2.Draw();
   TPad fPads3("pad3", "", 0.50, 0.25, 0.99, 0.99);   fPads3.Draw();
   TPad fPads4("pad4", "", 0.50, 0.00, 0.99, 0.25);   fPads4.Draw();
 
-  fPads1.cd(); 
+  fPads1.cd();
+  if(logY1) 
+    fPads1.SetLogy();  //------------------------------------
   file1->cd();
   TH1F y1;
   ((TH1D*)gDirectory->Get(namehisto1))->Copy(y1); y1.Sumw2();
@@ -42,6 +44,8 @@ void drawcompare2(char* namehisto1, char* namehisto2,TFile *file1, TFile *file2,
 //   line.Draw();
 
   fPads3.cd(); 
+  if(logY2) 
+    fPads3.SetLogy();  //------------------------------------
   file1->cd();
   TH1F y3;
   ((TH1D*)gDirectory->Get(namehisto2))->Copy(y3); y3.Sumw2();
@@ -117,17 +121,15 @@ void comparison(char *inputfile1, char *inputfile2){
   ((TH1D*)gDirectory->Get("myeleplots/h_DeltaR_genEle_recoEle"))->SetTitle("\\DeltaR gen ele - gsf ele");
   ((TH1D*)gDirectory->Get("myeleplots/h_DeltaR_genEle_recoEle"))->Rebin(3);
   ((TH1D*)gDirectory->Get("myeleplots/h_hOverE_recoEle_pTcut"))->SetTitle("H/E - gsf ele - pTreco>50GeV");
-  ((TH1D*)gDirectory->Get("myeleplots/h_hOverE_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_hOverE_recoEle_pTcut"))->Rebin(4);
   ((TH1D*)gDirectory->Get("myeleplots/h_sigmaee_recoEle_pTcut"))->SetTitle("sigmaee - gsf ele - pTreco>50GeV");
   ((TH1D*)gDirectory->Get("myeleplots/h_sigmaee_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_sigmaee_recoEle_pTcut"))->SetAxisRange(0.,0.3);
   ((TH1D*)gDirectory->Get("myeleplots/h_deltaPhiIn_recoEle_pTcut"))->SetTitle("\\Delta\\phi at Vtx - gsf ele - pTreco>50GeV");
-  ((TH1D*)gDirectory->Get("myeleplots/h_deltaPhiIn_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_deltaPhiIn_recoEle_pTcut"))->Rebin(4);
   ((TH1D*)gDirectory->Get("myeleplots/h_deltaEtaIn_recoEle_pTcut"))->SetTitle("\\Delta\\eta at Vtx - gsf ele - pTreco>50GeV");
-  ((TH1D*)gDirectory->Get("myeleplots/h_deltaEtaIn_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_deltaEtaIn_recoEle_pTcut"))->Rebin(4);
 
-  //((TH1D*)gDirectory->Get("DQMData/Photon/hist_EtaOverTruth_"))->SetAxisRange(.9,1.1);
-  //((TH1D*)gDirectory->Get("DQMData/METTask/METTask_GenMETPhi"))->SetTitle("MET Phi");
-  //((TH1D*)gDirectory->Get("myeleplots/h_pT_recoEle"))->Rebin(1);
 
   input2.cd(); 
   ((TH1D*)gDirectory->Get("myeleplots/h_pT_recoEle"))->SetTitle("gsf ele pT (GeV)");
@@ -144,25 +146,20 @@ void comparison(char *inputfile1, char *inputfile2){
   ((TH1D*)gDirectory->Get("myeleplots/h_DeltaR_genEle_recoEle"))->SetTitle("\\DeltaR gen ele - gsf ele");
   ((TH1D*)gDirectory->Get("myeleplots/h_DeltaR_genEle_recoEle"))->Rebin(3);
   ((TH1D*)gDirectory->Get("myeleplots/h_hOverE_recoEle_pTcut"))->SetTitle("H/E - gsf ele - pTreco>50GeV");
-  ((TH1D*)gDirectory->Get("myeleplots/h_hOverE_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_hOverE_recoEle_pTcut"))->Rebin(4);
   ((TH1D*)gDirectory->Get("myeleplots/h_sigmaee_recoEle_pTcut"))->SetTitle("sigmaee - gsf ele - pTreco>50GeV");
   ((TH1D*)gDirectory->Get("myeleplots/h_sigmaee_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_sigmaee_recoEle_pTcut"))->SetAxisRange(0.,0.3);
   ((TH1D*)gDirectory->Get("myeleplots/h_deltaPhiIn_recoEle_pTcut"))->SetTitle("\\Delta\\phi at Vtx - gsf ele - pTreco>50GeV");
-  ((TH1D*)gDirectory->Get("myeleplots/h_deltaPhiIn_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_deltaPhiIn_recoEle_pTcut"))->Rebin(4);
   ((TH1D*)gDirectory->Get("myeleplots/h_deltaEtaIn_recoEle_pTcut"))->SetTitle("\\Delta\\eta at Vtx - gsf ele - pTreco>50GeV");
-  ((TH1D*)gDirectory->Get("myeleplots/h_deltaEtaIn_recoEle_pTcut"))->Rebin(2);
+  ((TH1D*)gDirectory->Get("myeleplots/h_deltaEtaIn_recoEle_pTcut"))->Rebin(4);
 
-  //((TH1D*)gDirectory->Get("DQMData/Photon/hist_EtaOverTruth_"))->SetAxisRange(.9,1.1);
-  //((TH1D*)gDirectory->Get("DQMData/METTask/METTask_GenMETPhi"))->SetTitle("MET Phi");
-  //((TH1D*)gDirectory->Get("myeleplots/h_pT_recoEle"))->Rebin(1);
-
-  drawcompare2("myeleplots/h_pT_recoEle","myeleplots/h_energy_recoEle",&input1 , &input2, c0);
-  drawcompare2("myeleplots/h_eta_recoEle","myeleplots/h_E_recoEle_over_E_genEle_DeltaRmatch",&input1 , &input2, c0);
-  drawcompare2("myeleplots/h_N_recoEle","myeleplots/h_N_recoEle_pTcut",&input1 , &input2, c0);
-  drawcompare2("myeleplots/h_hOverE_recoEle_pTcut","myeleplots/h_sigmaee_recoEle_pTcut",&input1 , &input2, c0);
-  drawcompare2("myeleplots/h_deltaPhiIn_recoEle_pTcut","myeleplots/h_deltaEtaIn_recoEle_pTcut",&input1 , &input2, c0);
-  //drawcompare2("DQMData/Electron/hist_EtaOverTruth_","DQMData/Electron/hist_PhiOverTruth_",&input1 , &input2, c0);
-  //drawcompare2("DQMData/METTask/METTask_GenMETPhi","DQMData/CaloJetTask_iterativeCone5CaloJets/Phi" ,&input1 , &input2, c0);
+  drawcompare2("myeleplots/h_pT_recoEle","myeleplots/h_energy_recoEle",&input1 , &input2, c0, true, true);
+  drawcompare2("myeleplots/h_eta_recoEle","myeleplots/h_E_recoEle_over_E_genEle_DeltaRmatch",&input1 , &input2, c0, true, false);
+  drawcompare2("myeleplots/h_N_recoEle","myeleplots/h_N_recoEle_pTcut",&input1 , &input2, c0, true, true);
+  drawcompare2("myeleplots/h_hOverE_recoEle_pTcut","myeleplots/h_sigmaee_recoEle_pTcut",&input1 , &input2, c0, true, true);
+  drawcompare2("myeleplots/h_deltaPhiIn_recoEle_pTcut","myeleplots/h_deltaEtaIn_recoEle_pTcut",&input1 , &input2, c0, true, true);
  
   c0->Print("comparison.ps]"); 
   
