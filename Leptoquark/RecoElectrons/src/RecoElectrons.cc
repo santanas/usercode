@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.3 2008/03/27 14:01:34 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.4 2008/03/28 09:22:11 santanas Exp $
 //
 //
 
@@ -29,6 +29,7 @@
 #include "FWCore/Framework/interface/MakerMacros.h"
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
+#include "FWCore/ParameterSet/interface/InputTag.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "PhysicsTools/UtilAlgos/interface/TFileService.h"
 #include "TH1.h"
@@ -79,19 +80,61 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_energy_recoEle;
       TH1F * h_pT_recoEle;
       TH1F * h_eta_recoEle;
+      TH1F * h_N_recoEle_pTcut_IDcut; 
+      TH1F * h_energy_recoEle_IDcut;
+      TH1F * h_pT_recoEle_IDcut;
+      TH1F * h_eta_recoEle_IDcut;
       TH2F * h_p_minus_Esc_recoEle_vs_Esc; 
       TH2F * h_p_minus_Esc_recoEle_vs_ETsc; 
       TH2F * h_p_minus_Esc_recoEle_vs_etasc; 
       TH2F * h_p_minus_Esc_recoEle_vs_fBrem;
       TH1F * h_DeltaR_genEle_recoEle;
       TH1F * h_DeltaR_genEle_recoEle_min;
-      TH1F * h_E_recoEle_over_E_genEle_DeltaRmatch;
+      TH1F * h_E_recoEle_over_E_genEle_MCmatch_barrel;
+      TH1F * h_Eraw_recoEle_over_E_genEle_MCmatch_barrel;
+      TH1F * h_E_recoEle_over_E_genEle_MCmatch_endcap;
+      TH1F * h_Eraw_recoEle_over_E_genEle_MCmatch_endcap;
       TH1F * h_hOverE_recoEle_pTcut;
       TH1F * h_sigmaee_recoEle_pTcut;
       TH1F * h_deltaPhiIn_recoEle_pTcut;
       TH1F * h_deltaEtaIn_recoEle_pTcut;
 
+      TH1F * h_hOverE_recoEle_MCmatch;
+      TH1F * h_sigmaee_recoEle_MCmatch;
+      TH1F * h_deltaPhiIn_recoEle_MCmatch;
+      TH1F * h_deltaEtaIn_recoEle_MCmatch;
+      TH1F * h_N_recoEle_MCmatch; 
+      TH1F * h_energy_recoEle_MCmatch;
+      TH1F * h_pT_recoEle_MCmatch;
+      TH1F * h_eta_recoEle_MCmatch;
+
+      TH1F * h_hOverE_recoEle_noMCmatch;
+      TH1F * h_sigmaee_recoEle_noMCmatch;
+      TH1F * h_deltaPhiIn_recoEle_noMCmatch;
+      TH1F * h_deltaEtaIn_recoEle_noMCmatch;
+      TH1F * h_N_recoEle_noMCmatch; 
+      TH1F * h_energy_recoEle_noMCmatch;
+      TH1F * h_pT_recoEle_noMCmatch;
+      TH1F * h_eta_recoEle_noMCmatch;
+
+
       int event;
+
+      //cuts
+      double hOverEBarrelCut;
+      double sigmaeeBarrelCut;
+      double deltaPhiInBarrelCut;
+      double deltaEtaInBarrelCut;
+
+      double hOverEEndcapCut;
+      double sigmaeeEndcapCut;
+      double deltaPhiInEndcapCut;
+      double deltaEtaInEndcapCut;
+
+      double pTcut_genEle;
+      double pTcut_recoEle;
+
+      double DeltaR_genEle_recoEle_min_cut;
 };
 
 //Options
@@ -107,8 +150,6 @@ int id_electron=11;
 int id_down=1;
 int id_up=2;
 
-float pTcut_genEle=50; //GeV
-float pTcut_recoEle=50; //GeV
 
 // namespaces
 using namespace std;
@@ -119,7 +160,7 @@ using namespace reco;
 // static data member definitions
 //
 
-float DeltaR_genEle_recoEle_min_cut=0.1;
+
 
 //
 // constructors and destructor
@@ -127,18 +168,48 @@ float DeltaR_genEle_recoEle_min_cut=0.1;
 RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
 
 {
+  //parameter from cfg file
+  hOverEBarrelCut = iConfig.getUntrackedParameter<double>("hOverEBarrelCut"); 
+  sigmaeeBarrelCut = iConfig.getUntrackedParameter<double>("sigmaeeBarrelCut"); 
+  deltaPhiInBarrelCut = iConfig.getUntrackedParameter<double>("deltaPhiInBarrelCut"); 
+  deltaEtaInBarrelCut = iConfig.getUntrackedParameter<double>("deltaEtaInBarrelCut"); 
+
+  hOverEEndcapCut = iConfig.getUntrackedParameter<double>("hOverEEndcapCut"); 
+  sigmaeeEndcapCut = iConfig.getUntrackedParameter<double>("sigmaeeEndcapCut"); 
+  deltaPhiInEndcapCut = iConfig.getUntrackedParameter<double>("deltaPhiInEndcapCut"); 
+  deltaEtaInEndcapCut = iConfig.getUntrackedParameter<double>("deltaEtaInEndcapCut"); 
+
+  pTcut_genEle = iConfig.getUntrackedParameter<double>("pTcutGenEle"); 
+  pTcut_recoEle = iConfig.getUntrackedParameter<double>("pTcutRecoEle"); 
+
+  DeltaR_genEle_recoEle_min_cut = iConfig.getUntrackedParameter<double>("DeltaRgenElerecoEleMinCut"); 
+
   //now do what ever initialization is needed
   edm::Service<TFileService> fs;
   //histo = fs->make<TH1D>("charge" , "Charges" , 200 , -2 , 2 );
 
+  //### Plots for all reco candidates
+
+  //## Electron ID variables
+  h_hOverE_recoEle_pTcut = fs->make<TH1F>("h_hOverE_recoEle_pTcut","h_hOverE_recoEle_pTcut",200,0.,0.5);
+  h_sigmaee_recoEle_pTcut = fs->make<TH1F>("h_sigmaee_recoEle_pTcut","h_sigmaee_recoEle_pTcut",200,0.,0.5);
+  h_deltaPhiIn_recoEle_pTcut = fs->make<TH1F>("h_deltaPhiIn_recoEle_pTcut","h_deltaPhiIn_recoEle_pTcut",200,0.,0.2);
+  h_deltaEtaIn_recoEle_pTcut = fs->make<TH1F>("h_deltaEtaIn_recoEle_pTcut","h_deltaEtaIn_recoEle_pTcut",200,0.,0.2);
+
   //## number of reco electrons
   h_N_recoEle = fs->make<TH1F>("h_N_recoEle","h_N_recoEle",30,-0.5,30.5);
   h_N_recoEle_pTcut = fs->make<TH1F>("h_N_recoEle_pTcut","h_N_recoEle_pTcut",30,-0.5,30.5);
+  h_N_recoEle_pTcut_IDcut = fs->make<TH1F>("h_N_recoEle_pTcut_IDcut","h_N_recoEle_pTcut_IDcut",30,-0.5,30.5);
 
   //## pT/eta reco electrons
   h_energy_recoEle = fs->make<TH1F>("h_energy_recoEle","h_energy_recoEle",100,0,1000);
   h_pT_recoEle = fs->make<TH1F>("h_pT_recoEle","h_pT_recoEle",100,0,1000);
   h_eta_recoEle = fs->make<TH1F>("h_eta_recoEle","h_eta_recoEle",100,-4,4);
+
+  h_energy_recoEle_IDcut = fs->make<TH1F>("h_energy_recoEle_IDcut","h_energy_recoEle_IDcut",100,0,1000);
+  h_pT_recoEle_IDcut = fs->make<TH1F>("h_pT_recoEle_IDcut","h_pT_recoEle_IDcut",100,0,1000);
+  h_eta_recoEle_IDcut = fs->make<TH1F>("h_eta_recoEle_IDcut","h_eta_recoEle_IDcut",100,-4,4);
+
 
   //## p_at_Vtx - E_sc  
   h_p_minus_Esc_recoEle_vs_Esc =  fs->make<TH2F>("h_p_minus_Esc_recoEle_vs_Esc",
@@ -162,17 +233,41 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
 						   100,-200,200);
 
 
-  //## Energy Resolution with MC matching
+  //### Plots with/without MC matching
+
+  //## DeltaR plots
   h_DeltaR_genEle_recoEle = fs->make<TH1F>("h_DeltaR_genEle_recoEle","h_DeltaR_genEle_recoEle",200,0.,10.);
   h_DeltaR_genEle_recoEle_min = fs->make<TH1F>("h_DeltaR_genEle_recoEle_min","h_DeltaR_genEle_recoEle_min",200,0.,10.);
-  h_E_recoEle_over_E_genEle_DeltaRmatch = fs->make<TH1F>("h_E_recoEle_over_E_genEle_DeltaRmatch",
-							 "h_E_recoEle_over_E_genEle_DeltaRmatch",1000,0.,2.);
 
-  //## Electron ID variables
-  h_hOverE_recoEle_pTcut = fs->make<TH1F>("h_hOverE_recoEle_pTcut","h_hOverE_recoEle_pTcut",200,0.,0.5);
-  h_sigmaee_recoEle_pTcut = fs->make<TH1F>("h_sigmaee_recoEle_pTcut","h_sigmaee_recoEle_pTcut",200,0.,0.5);
-  h_deltaPhiIn_recoEle_pTcut = fs->make<TH1F>("h_deltaPhiIn_recoEle_pTcut","h_deltaPhiIn_recoEle_pTcut",200,0.,0.2);
-  h_deltaEtaIn_recoEle_pTcut = fs->make<TH1F>("h_deltaEtaIn_recoEle_pTcut","h_deltaEtaIn_recoEle_pTcut",200,0.,0.2);
+  //## matched ele
+  h_E_recoEle_over_E_genEle_MCmatch_barrel = fs->make<TH1F>("h_E_recoEle_over_E_genEle_MCmatch_barrel",
+								"h_E_recoEle_over_E_genEle_MCmatch_barrel",1000,0.,2.);
+  h_Eraw_recoEle_over_E_genEle_MCmatch_barrel = fs->make<TH1F>("h_Eraw_recoEle_over_E_genEle_MCmatch_barrel",
+								  "h_Eraw_recoEle_over_E_genEle_MCmatch_barrel",1000,0.,2.);
+  h_E_recoEle_over_E_genEle_MCmatch_endcap = fs->make<TH1F>("h_E_recoEle_over_E_genEle_MCmatch_endcap",
+								"h_E_recoEle_over_E_genEle_MCmatch_endcap",1000,0.,2.);
+  h_Eraw_recoEle_over_E_genEle_MCmatch_endcap = fs->make<TH1F>("h_Eraw_recoEle_over_E_genEle_MCmatch_endcap",
+								  "h_Eraw_recoEle_over_E_genEle_MCmatch_endcap",1000,0.,2.);
+
+  h_hOverE_recoEle_MCmatch = fs->make<TH1F>("h_hOverE_recoEle_MCmatch","h_hOverE_recoEle_MCmatch",200,0.,0.5);
+  h_sigmaee_recoEle_MCmatch = fs->make<TH1F>("h_sigmaee_recoEle_MCmatch","h_sigmaee_recoEle_MCmatch",200,0.,0.5);
+  h_deltaPhiIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_MCmatch","h_deltaPhiIn_recoEle_MCmatch",200,0.,0.2);
+  h_deltaEtaIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_MCmatch","h_deltaEtaIn_recoEle_MCmatch",200,0.,0.2);
+  h_N_recoEle_MCmatch = fs->make<TH1F>("h_N_recoEle_MCmatch","h_N_recoEle_MCmatch",30,-0.5,30.5);
+  h_energy_recoEle_MCmatch = fs->make<TH1F>("h_energy_recoEle_MCmatch","h_energy_recoEle_MCmatch",100,0,1000);
+  h_pT_recoEle_MCmatch = fs->make<TH1F>("h_pT_recoEle_MCmatch","h_pT_recoEle_MCmatch",100,0,1000);
+  h_eta_recoEle_MCmatch = fs->make<TH1F>("h_eta_recoEle_MCmatch","h_eta_recoEle_MCmatch",100,-4,4);
+
+  //## NOT matched ele
+
+  h_hOverE_recoEle_noMCmatch = fs->make<TH1F>("h_hOverE_recoEle_noMCmatch","h_hOverE_recoEle_noMCmatch",200,0.,0.5);
+  h_sigmaee_recoEle_noMCmatch = fs->make<TH1F>("h_sigmaee_recoEle_noMCmatch","h_sigmaee_recoEle_noMCmatch",200,0.,0.5);
+  h_deltaPhiIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_noMCmatch","h_deltaPhiIn_recoEle_noMCmatch",200,0.,0.2);
+  h_deltaEtaIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_noMCmatch","h_deltaEtaIn_recoEle_noMCmatch",200,0.,0.2);
+  h_N_recoEle_noMCmatch = fs->make<TH1F>("h_N_recoEle_noMCmatch","h_N_recoEle_noMCmatch",30,-0.5,30.5);
+  h_energy_recoEle_noMCmatch = fs->make<TH1F>("h_energy_recoEle_noMCmatch","h_energy_recoEle_noMCmatch",100,0,1000);
+  h_pT_recoEle_noMCmatch = fs->make<TH1F>("h_pT_recoEle_noMCmatch","h_pT_recoEle_noMCmatch",100,0,1000);
+  h_eta_recoEle_noMCmatch = fs->make<TH1F>("h_eta_recoEle_noMCmatch","h_eta_recoEle_noMCmatch",100,-4,4);
 
 }
 
@@ -226,11 +321,14 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   
   if(printOut)
     cout << "******************* electron->size() : " << electrons->size() << endl;
-  h_N_recoEle->Fill(electrons->size());
 
   // Loop over gsf electrons
   int ele_idx=0;
   int N_recoEle_pTcut=0;
+  int N_recoEle_pTcut_IDcut=0;
+  int N_recoEle_MCmatch=0;
+  int N_recoEle_noMCmatch=0;
+
   reco::PixelMatchGsfElectronCollection::const_iterator electron;
   for (electron = (*electrons).begin();
        electron != (*electrons).end(); ++electron) 
@@ -243,14 +341,8 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       //       float eta_ele=electron->eta();
       //       float phi_ele=electron->phi();
 
-      if(electron->pt()>pTcut_recoEle)
-	N_recoEle_pTcut++;
-
-      h_energy_recoEle->Fill(electron->energy());
-      h_pT_recoEle->Fill(electron->pt());
-      h_eta_recoEle->Fill(electron->eta());
       
-      //## Cluster shape variables
+      //## Cluster shape collection
       bool hasBarrel=true;
       bool hasEndcap=true;
 
@@ -295,20 +387,35 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       float deltaEtaIn = electron->deltaEtaSuperClusterTrackAtVtx();
 
       //correct sigmaetaeta dependence on eta in endcap
-      sigmaee = sigmaee - 0.02*(fabs(electron->eta()) - 2.3); 
+      //sigmaee = sigmaee - 0.02*(fabs(electron->eta()) - 2.3);   ?????????????
       
       //Matteo Sani's comment ( in italian, sorry:) )
       //Per quanto riguarda la correzione a sigmaee questa e` una semplice valutazione della variazione di sigmaee dovuta alla
       //particolare geometria dei cristalli nell'endcap. In pratica si corregge la sigmaee in funzione di eta per la diversa
       //area dei cristalli vista dal punto di interazione.
 
-      if(electron->energy()>pTcut_recoEle)
-	{
-	  h_hOverE_recoEle_pTcut->Fill(hOverE);
-	  h_sigmaee_recoEle_pTcut->Fill(sigmaee);
-	  h_deltaPhiIn_recoEle_pTcut->Fill(deltaPhiIn);
-	  h_deltaEtaIn_recoEle_pTcut->Fill(deltaEtaIn);
-   	}
+      //     # cut value arrays of form {hoe, sigmaEtaEta, dPhiIn, dEtaIn}
+      //     PSet robustEleIDCuts =
+      //     {
+      //         vdouble barrel     = {0.115, 0.0140, 0.053, 0.0090}
+      //         vdouble endcap     = {0.150, 0.0275, 0.092, 0.0105}
+      //     }
+
+      bool passIDbarrel = false;
+      bool passIDendcap = false;
+      if(electron->eta()<1.4
+	 && hOverE<hOverEBarrelCut 
+	 && sigmaee<sigmaeeBarrelCut
+	 && deltaPhiIn<deltaPhiInBarrelCut
+	 && deltaEtaIn<deltaEtaInBarrelCut)
+	passIDbarrel=true;
+
+      if(electron->eta()>1.6
+	 && hOverE<hOverEEndcapCut 
+	 && sigmaee<sigmaeeEndcapCut
+	 && deltaPhiIn<deltaPhiInEndcapCut
+	 && deltaEtaIn<deltaEtaInEndcapCut)
+	passIDendcap=true;
 
       //## Other useful variables       
       //       float eOverP = electron->eSuperClusterOverP();
@@ -316,6 +423,7 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       float pin  = electron->trackMomentumAtVtx().R();   
       float pout = electron->trackMomentumOut().R(); 
       float fBrem = (pin-pout)/pin;
+
 
       //## Some print out
       if(printOut)
@@ -347,7 +455,6 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  cout << endl; 
 	}
 
-      //*******************************************************************************************************
 
       //## p_at_Vtx - E_sc
       float p_minus_Esc_recoEle = electron->trackMomentumAtVtx().R() - electron->caloEnergy();
@@ -358,94 +465,163 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       h_p_minus_Esc_recoEle_vs_etasc->Fill(electron->eta(),p_minus_Esc_recoEle);
       h_p_minus_Esc_recoEle_vs_fBrem->Fill(fBrem,p_minus_Esc_recoEle);
 
-      //
-      ele_idx++;
-    }//end loop over gsf electrons
+      //## Electron plots
 
-
-  if(printOut)
-    cout << "******************* electron->size() : " << electrons->size() << endl;
-
-  h_N_recoEle->Fill(electrons->size());
-  h_N_recoEle_pTcut->Fill(N_recoEle_pTcut);
-
-  //## Energy resolution with MC matching
-  //loop over gen particle
-  
-  for(size_t i = 0; i < genParticles->size(); ++ i) 
-    {
-      const Candidate & p = (*genParticles)[i];
-      const Candidate * mom = p.mother();
-      
-      int id = p.pdgId();
-      
-      //select gen electron
-      if(abs(id)==id_electron)
+      // ID variables
+      if(electron->pt()>pTcut_recoEle)
 	{
-	  float E_genEle = p.energy();
-	  float pt_genEle = p.pt();
-	  float eta_genEle = p.eta();
-	  float phi_genEle = p.phi();
-	  
-	  TVector3 genEle_vec;
-	  genEle_vec.SetPtEtaPhi(pt_genEle,eta_genEle,phi_genEle);
-	  
-	  //select gen electron from LQ decay
-	  if(abs(mom->pdgId())==id_LQ)
-	    {
-	      
-	      //select high pT gen electrons
-	      if(pt_genEle<pTcut_genEle)
-		continue;
+	  h_hOverE_recoEle_pTcut->Fill(hOverE);
+	  h_sigmaee_recoEle_pTcut->Fill(sigmaee);
+	  h_deltaPhiIn_recoEle_pTcut->Fill(deltaPhiIn);
+	  h_deltaEtaIn_recoEle_pTcut->Fill(deltaEtaIn);
+   	}
 
-	      float DeltaR_genEle_recoEle_min=1000;
-	      int idx_nearest_recoEle=-1;
-	      int idx_ele_it=0;
-	      reco::PixelMatchGsfElectronCollection::const_iterator electron_it;
-	      for (electron_it = (*electrons).begin();
-		   electron_it != (*electrons).end(); ++electron_it) 
+      // no electron ID
+      if(electron->pt()>pTcut_recoEle)
+	N_recoEle_pTcut++;
+
+      h_energy_recoEle->Fill(electron->energy());
+      h_pT_recoEle->Fill(electron->pt());
+      h_eta_recoEle->Fill(electron->eta());
+
+      // electron ID applied
+      if(passIDbarrel || passIDendcap)
+	{
+	  if(electron->pt()>pTcut_recoEle)
+	    N_recoEle_pTcut_IDcut++;
+	  
+	  h_energy_recoEle_IDcut->Fill(electron->energy());
+	  h_pT_recoEle_IDcut->Fill(electron->pt());
+	  h_eta_recoEle_IDcut->Fill(electron->eta());
+	}
+
+      //## Plots for MC matched/NOT matched electrons
+      float E_recoEle=electron->energy();
+      float Eraw_recoEle=electron->superCluster()->rawEnergy();
+      float pT_recoEle=electron->pt();
+      float eta_recoEle=electron->eta();
+      float phi_recoEle=electron->phi();
+      
+      TVector3 recoEle_vec;
+      recoEle_vec.SetPtEtaPhi(pT_recoEle,eta_recoEle,phi_recoEle);
+      
+      float DeltaR_genEle_recoEle_min=9999;
+      int idx_nearest_genEle=-1;
+      int idx_ele_it=0;
+
+      //loop over gen particles      
+      for(size_t i = 0; i < genParticles->size(); ++ i) 
+	{
+	  const Candidate & p = (*genParticles)[i];
+	  const Candidate * mom = p.mother();
+	  
+	  int id = p.pdgId();
+	  
+	  //select gen electron
+	  if(abs(id)==id_electron)
+	    {
+	      float E_genEle = p.energy();
+	      float pt_genEle = p.pt();
+	      float eta_genEle = p.eta();
+	      float phi_genEle = p.phi();
+	      
+	      TVector3 genEle_vec;
+	      genEle_vec.SetPtEtaPhi(pt_genEle,eta_genEle,phi_genEle);
+	      
+	      //select gen electron from LQ decay
+	      //if(abs(mom->pdgId())==id_LQ)
+	      if(true)
 		{
-		  float E_recoEle=electron_it->energy();
-		  float pT_recoEle=electron_it->pt();
-		  float eta_recoEle=electron_it->eta();
-		  float phi_recoEle=electron_it->phi();
 		  
-		  TVector3 recoEle_vec;
-		  recoEle_vec.SetPtEtaPhi(pT_recoEle,eta_recoEle,phi_recoEle);
-		  
+		  //select high pT gen electrons
+		  if(pt_genEle<pTcut_genEle)
+		    continue;
+
 		  float DeltaR_genEle_recoEle=genEle_vec.DeltaR(recoEle_vec);
-		  
+
 		  h_DeltaR_genEle_recoEle->Fill(DeltaR_genEle_recoEle);
 		  
 		  if(DeltaR_genEle_recoEle<DeltaR_genEle_recoEle_min)
 		    {
 		      DeltaR_genEle_recoEle_min=DeltaR_genEle_recoEle;
-		      idx_nearest_recoEle=idx_ele_it;
+		      idx_nearest_genEle=i;
 		    }
-		  
-		  idx_ele_it++;
-		}//end loop over reco electrons
-	      
-	      if(idx_nearest_recoEle==-1)
-		continue;
-	      
-	      h_DeltaR_genEle_recoEle_min->Fill(DeltaR_genEle_recoEle_min);
-	      
-	      const Candidate & nearest_recoEle = (*electrons)[idx_nearest_recoEle];
-	      float E_recoEle_over_E_genEle = nearest_recoEle.energy() / E_genEle;
-	      
-	      //match genEle and recoEle using DeltaRmin
-	      if(DeltaR_genEle_recoEle_min<DeltaR_genEle_recoEle_min_cut)
-		{
-		  h_E_recoEle_over_E_genEle_DeltaRmatch->Fill(E_recoEle_over_E_genEle);
-		}
-	      
-	    }//end select electrons from LQ decay
-	  
-	}//end select electrons
+
+		}//end select electron from LQ decay
+	    }//end select gen electron
+
+	}//end loop over gen particles
+
+      //match genEle and recoEle using DeltaRmin
+      bool IsMatched=false;
+
+      if(idx_nearest_genEle==-1)
+	continue;
       
-    }//end loop over gen particles
-  
+      h_DeltaR_genEle_recoEle_min->Fill(DeltaR_genEle_recoEle_min);
+
+      if(DeltaR_genEle_recoEle_min<DeltaR_genEle_recoEle_min_cut)
+	IsMatched=true;
+
+      if(IsMatched==true)
+	{
+	  float E_recoEle_over_E_genEle = E_recoEle / (*genParticles)[idx_nearest_genEle].energy();
+	  float Eraw_recoEle_over_E_genEle = Eraw_recoEle / (*genParticles)[idx_nearest_genEle].energy();
+
+	  if(eta_recoEle<1.4)
+	    {
+	      h_E_recoEle_over_E_genEle_MCmatch_barrel->Fill(E_recoEle_over_E_genEle);
+	      h_Eraw_recoEle_over_E_genEle_MCmatch_barrel->Fill(Eraw_recoEle_over_E_genEle);
+	    }
+	  
+	  if(eta_recoEle>1.6)
+	    {
+	      h_E_recoEle_over_E_genEle_MCmatch_endcap->Fill(E_recoEle_over_E_genEle);
+	      h_Eraw_recoEle_over_E_genEle_MCmatch_endcap->Fill(Eraw_recoEle_over_E_genEle);
+	    }
+
+	  h_hOverE_recoEle_MCmatch->Fill(hOverE);
+	  h_sigmaee_recoEle_MCmatch->Fill(sigmaee);
+	  h_deltaPhiIn_recoEle_MCmatch->Fill(deltaPhiIn);
+	  h_deltaEtaIn_recoEle_MCmatch->Fill(deltaEtaIn);
+
+	  h_energy_recoEle_MCmatch->Fill(electron->energy());
+	  h_pT_recoEle_MCmatch->Fill(electron->pt());
+	  h_eta_recoEle_MCmatch->Fill(electron->eta());
+
+	  N_recoEle_MCmatch++;
+	}//matched electrons
+
+      else if(IsMatched==false)
+
+	{
+	  h_hOverE_recoEle_noMCmatch->Fill(hOverE);
+	  h_sigmaee_recoEle_noMCmatch->Fill(sigmaee);
+	  h_deltaPhiIn_recoEle_noMCmatch->Fill(deltaPhiIn);
+	  h_deltaEtaIn_recoEle_noMCmatch->Fill(deltaEtaIn);
+	  
+	  h_energy_recoEle_noMCmatch->Fill(electron->energy());
+	  h_pT_recoEle_noMCmatch->Fill(electron->pt());
+	  h_eta_recoEle_noMCmatch->Fill(electron->eta());
+	  
+	  N_recoEle_noMCmatch++;
+	    
+	}//not matched electrons
+
+      //
+      ele_idx++;
+    }//end loop over gsf electrons
+
+  //## Electron multiplicity
+  if(printOut)
+    cout << "******************* electron->size() : " << electrons->size() << endl;
+
+  h_N_recoEle->Fill(electrons->size());
+  h_N_recoEle_pTcut->Fill(N_recoEle_pTcut);
+  h_N_recoEle_pTcut_IDcut->Fill(N_recoEle_pTcut_IDcut);
+  h_N_recoEle_MCmatch->Fill(N_recoEle_MCmatch);
+  h_N_recoEle_noMCmatch->Fill(N_recoEle_noMCmatch);
+
 }//end loop over events
 
 
