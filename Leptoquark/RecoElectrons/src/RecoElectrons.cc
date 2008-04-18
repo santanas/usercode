@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.4 2008/03/28 09:22:11 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.5 2008/04/17 12:03:50 santanas Exp $
 //
 //
 
@@ -77,23 +77,34 @@ class RecoElectrons : public edm::EDAnalyzer {
       // ----------member data ---------------------------
       TH1F * h_N_recoEle; 
       TH1F * h_N_recoEle_pTcut; 
+      TH1F * h_N_recoEle_pTcut_IDcut; 
+
       TH1F * h_energy_recoEle;
       TH1F * h_pT_recoEle;
       TH1F * h_eta_recoEle;
-      TH1F * h_N_recoEle_pTcut_IDcut; 
+
       TH1F * h_energy_recoEle_IDcut;
       TH1F * h_pT_recoEle_IDcut;
       TH1F * h_eta_recoEle_IDcut;
+
       TH2F * h_p_minus_Esc_recoEle_vs_Esc; 
       TH2F * h_p_minus_Esc_recoEle_vs_ETsc; 
       TH2F * h_p_minus_Esc_recoEle_vs_etasc; 
       TH2F * h_p_minus_Esc_recoEle_vs_fBrem;
+
       TH1F * h_DeltaR_genEle_recoEle;
       TH1F * h_DeltaR_genEle_recoEle_min;
+
       TH1F * h_E_recoEle_over_E_genEle_MCmatch_barrel;
       TH1F * h_Eraw_recoEle_over_E_genEle_MCmatch_barrel;
       TH1F * h_E_recoEle_over_E_genEle_MCmatch_endcap;
       TH1F * h_Eraw_recoEle_over_E_genEle_MCmatch_endcap;
+
+      TH1F * h_E_recoEle_over_E_genEle_MCmatch_IDcut_barrel;
+      TH1F * h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_barrel;
+      TH1F * h_E_recoEle_over_E_genEle_MCmatch_IDcut_endcap;
+      TH1F * h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_endcap;
+
       TH1F * h_hOverE_recoEle_pTcut;
       TH1F * h_sigmaee_recoEle_pTcut;
       TH1F * h_deltaPhiIn_recoEle_pTcut;
@@ -104,6 +115,7 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_deltaPhiIn_recoEle_MCmatch;
       TH1F * h_deltaEtaIn_recoEle_MCmatch;
       TH1F * h_N_recoEle_MCmatch; 
+      TH1F * h_N_recoEle_MCmatch_IDcut; 
       TH1F * h_energy_recoEle_MCmatch;
       TH1F * h_pT_recoEle_MCmatch;
       TH1F * h_eta_recoEle_MCmatch;
@@ -113,10 +125,10 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_deltaPhiIn_recoEle_noMCmatch;
       TH1F * h_deltaEtaIn_recoEle_noMCmatch;
       TH1F * h_N_recoEle_noMCmatch; 
+      TH1F * h_N_recoEle_noMCmatch_IDcut; 
       TH1F * h_energy_recoEle_noMCmatch;
       TH1F * h_pT_recoEle_noMCmatch;
       TH1F * h_eta_recoEle_noMCmatch;
-
 
       int event;
 
@@ -236,8 +248,8 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   //### Plots with/without MC matching
 
   //## DeltaR plots
-  h_DeltaR_genEle_recoEle = fs->make<TH1F>("h_DeltaR_genEle_recoEle","h_DeltaR_genEle_recoEle",200,0.,10.);
-  h_DeltaR_genEle_recoEle_min = fs->make<TH1F>("h_DeltaR_genEle_recoEle_min","h_DeltaR_genEle_recoEle_min",200,0.,10.);
+  h_DeltaR_genEle_recoEle = fs->make<TH1F>("h_DeltaR_genEle_recoEle","h_DeltaR_genEle_recoEle",200,0.,0.5);
+  h_DeltaR_genEle_recoEle_min = fs->make<TH1F>("h_DeltaR_genEle_recoEle_min","h_DeltaR_genEle_recoEle_min",200,0.,0.5);
 
   //## matched ele
   h_E_recoEle_over_E_genEle_MCmatch_barrel = fs->make<TH1F>("h_E_recoEle_over_E_genEle_MCmatch_barrel",
@@ -249,11 +261,23 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   h_Eraw_recoEle_over_E_genEle_MCmatch_endcap = fs->make<TH1F>("h_Eraw_recoEle_over_E_genEle_MCmatch_endcap",
 								  "h_Eraw_recoEle_over_E_genEle_MCmatch_endcap",1000,0.,2.);
 
+
+  h_E_recoEle_over_E_genEle_MCmatch_IDcut_barrel = fs->make<TH1F>("h_E_recoEle_over_E_genEle_MCmatch_IDcut_barrel",
+								"h_E_recoEle_over_E_genEle_MCmatch_IDcut_barrel",1000,0.,2.);
+  h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_barrel = fs->make<TH1F>("h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_barrel",
+								  "h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_barrel",1000,0.,2.);
+  h_E_recoEle_over_E_genEle_MCmatch_IDcut_endcap = fs->make<TH1F>("h_E_recoEle_over_E_genEle_MCmatch_IDcut_endcap",
+								"h_E_recoEle_over_E_genEle_MCmatch_IDcut_endcap",1000,0.,2.);
+  h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_endcap = fs->make<TH1F>("h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_endcap",
+								  "h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_endcap",1000,0.,2.);
+
+
   h_hOverE_recoEle_MCmatch = fs->make<TH1F>("h_hOverE_recoEle_MCmatch","h_hOverE_recoEle_MCmatch",200,0.,0.5);
   h_sigmaee_recoEle_MCmatch = fs->make<TH1F>("h_sigmaee_recoEle_MCmatch","h_sigmaee_recoEle_MCmatch",200,0.,0.5);
   h_deltaPhiIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_MCmatch","h_deltaPhiIn_recoEle_MCmatch",200,0.,0.2);
   h_deltaEtaIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_MCmatch","h_deltaEtaIn_recoEle_MCmatch",200,0.,0.2);
   h_N_recoEle_MCmatch = fs->make<TH1F>("h_N_recoEle_MCmatch","h_N_recoEle_MCmatch",30,-0.5,30.5);
+  h_N_recoEle_MCmatch_IDcut = fs->make<TH1F>("h_N_recoEle_MCmatch_IDcut","h_N_recoEle_MCmatch_IDcut",30,-0.5,30.5);
   h_energy_recoEle_MCmatch = fs->make<TH1F>("h_energy_recoEle_MCmatch","h_energy_recoEle_MCmatch",100,0,1000);
   h_pT_recoEle_MCmatch = fs->make<TH1F>("h_pT_recoEle_MCmatch","h_pT_recoEle_MCmatch",100,0,1000);
   h_eta_recoEle_MCmatch = fs->make<TH1F>("h_eta_recoEle_MCmatch","h_eta_recoEle_MCmatch",100,-4,4);
@@ -265,6 +289,7 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   h_deltaPhiIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_noMCmatch","h_deltaPhiIn_recoEle_noMCmatch",200,0.,0.2);
   h_deltaEtaIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_noMCmatch","h_deltaEtaIn_recoEle_noMCmatch",200,0.,0.2);
   h_N_recoEle_noMCmatch = fs->make<TH1F>("h_N_recoEle_noMCmatch","h_N_recoEle_noMCmatch",30,-0.5,30.5);
+  h_N_recoEle_noMCmatch_IDcut = fs->make<TH1F>("h_N_recoEle_noMCmatch_IDcut","h_N_recoEle_noMCmatch_IDcut",30,-0.5,30.5);
   h_energy_recoEle_noMCmatch = fs->make<TH1F>("h_energy_recoEle_noMCmatch","h_energy_recoEle_noMCmatch",100,0,1000);
   h_pT_recoEle_noMCmatch = fs->make<TH1F>("h_pT_recoEle_noMCmatch","h_pT_recoEle_noMCmatch",100,0,1000);
   h_eta_recoEle_noMCmatch = fs->make<TH1F>("h_eta_recoEle_noMCmatch","h_eta_recoEle_noMCmatch",100,-4,4);
@@ -327,7 +352,9 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   int N_recoEle_pTcut=0;
   int N_recoEle_pTcut_IDcut=0;
   int N_recoEle_MCmatch=0;
+  int N_recoEle_MCmatch_IDcut=0;
   int N_recoEle_noMCmatch=0;
+  int N_recoEle_noMCmatch_IDcut=0;
 
   reco::PixelMatchGsfElectronCollection::const_iterator electron;
   for (electron = (*electrons).begin();
@@ -572,12 +599,24 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	    {
 	      h_E_recoEle_over_E_genEle_MCmatch_barrel->Fill(E_recoEle_over_E_genEle);
 	      h_Eraw_recoEle_over_E_genEle_MCmatch_barrel->Fill(Eraw_recoEle_over_E_genEle);
+
+	      if(passIDbarrel)
+		{
+		  h_E_recoEle_over_E_genEle_MCmatch_IDcut_barrel->Fill(E_recoEle_over_E_genEle);
+		  h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_barrel->Fill(Eraw_recoEle_over_E_genEle);
+		}
 	    }
 	  
 	  if(eta_recoEle>1.6)
 	    {
 	      h_E_recoEle_over_E_genEle_MCmatch_endcap->Fill(E_recoEle_over_E_genEle);
 	      h_Eraw_recoEle_over_E_genEle_MCmatch_endcap->Fill(Eraw_recoEle_over_E_genEle);
+
+	      if(passIDendcap)
+		{
+		  h_E_recoEle_over_E_genEle_MCmatch_IDcut_endcap->Fill(E_recoEle_over_E_genEle);
+		  h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_endcap->Fill(Eraw_recoEle_over_E_genEle);
+		}
 	    }
 
 	  h_hOverE_recoEle_MCmatch->Fill(hOverE);
@@ -590,6 +629,10 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  h_eta_recoEle_MCmatch->Fill(electron->eta());
 
 	  N_recoEle_MCmatch++;
+	  
+	  if(passIDbarrel || passIDendcap)
+	    N_recoEle_MCmatch_IDcut++;
+
 	}//matched electrons
 
       else if(IsMatched==false)
@@ -605,6 +648,9 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  h_eta_recoEle_noMCmatch->Fill(electron->eta());
 	  
 	  N_recoEle_noMCmatch++;
+
+	  if(passIDbarrel || passIDendcap)
+	    N_recoEle_noMCmatch_IDcut++;
 	    
 	}//not matched electrons
 
@@ -621,6 +667,8 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   h_N_recoEle_pTcut_IDcut->Fill(N_recoEle_pTcut_IDcut);
   h_N_recoEle_MCmatch->Fill(N_recoEle_MCmatch);
   h_N_recoEle_noMCmatch->Fill(N_recoEle_noMCmatch);
+  h_N_recoEle_MCmatch_IDcut->Fill(N_recoEle_MCmatch_IDcut);
+  h_N_recoEle_noMCmatch_IDcut->Fill(N_recoEle_noMCmatch_IDcut);
 
 }//end loop over events
 
