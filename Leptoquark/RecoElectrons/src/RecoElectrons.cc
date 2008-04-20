@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.5 2008/04/17 12:03:50 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.6 2008/04/18 12:53:12 santanas Exp $
 //
 //
 
@@ -414,10 +414,12 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       float deltaEtaIn = electron->deltaEtaSuperClusterTrackAtVtx();
 
       //correct sigmaetaeta dependence on eta in endcap
-      //sigmaee = sigmaee - 0.02*(fabs(electron->eta()) - 2.3);   ?????????????
+      if (electron->eta() > 1.479) 
+	sigmaee = sigmaee - 0.02*(fabs(electron->eta()) - 2.3);   
       
       //Matteo Sani's comment ( in italian, sorry:) )
-      //Per quanto riguarda la correzione a sigmaee questa e` una semplice valutazione della variazione di sigmaee dovuta alla
+      //Per quanto riguarda la correzione a sigmaee questa e` una semplice valutazione della variazione di sigmaee  
+      //dovuta alla
       //particolare geometria dei cristalli nell'endcap. In pratica si corregge la sigmaee in funzione di eta per la diversa
       //area dei cristalli vista dal punto di interazione.
 
