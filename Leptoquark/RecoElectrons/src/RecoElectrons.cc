@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.6 2008/04/18 12:53:12 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.7 2008/04/20 10:14:03 santanas Exp $
 //
 //
 
@@ -30,6 +30,7 @@
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/ParameterSet/interface/InputTag.h"
+#include "DataFormats/Common/interface/Handle.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "PhysicsTools/UtilAlgos/interface/TFileService.h"
 #include "TH1.h"
@@ -58,6 +59,12 @@
 //HLT
 #include "FWCore/Framework/interface/TriggerNames.h"
 
+
+//Isolation
+#include "DataFormats/Candidate/interface/CandAssociation.h"
+#include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
+#include "DataFormats/EgammaCandidates/interface/PMGsfElectronIsoCollection.h"
+#include "DataFormats/EgammaCandidates/interface/PMGsfElectronIsoNumCollection.h"
 
 //
 // class decleration
@@ -119,6 +126,10 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_energy_recoEle_MCmatch;
       TH1F * h_pT_recoEle_MCmatch;
       TH1F * h_eta_recoEle_MCmatch;
+      TH1F * h_EcalIsoRel_recoEle_MCmatch;
+      TH1F * h_TrkIsoRel_recoEle_MCmatch;
+      TH1F * h_TrkNumIso_recoEle_MCmatch;
+
 
       TH1F * h_hOverE_recoEle_noMCmatch;
       TH1F * h_sigmaee_recoEle_noMCmatch;
@@ -129,6 +140,12 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_energy_recoEle_noMCmatch;
       TH1F * h_pT_recoEle_noMCmatch;
       TH1F * h_eta_recoEle_noMCmatch;
+      TH1F * h_EcalIsoRel_recoEle_noMCmatch;
+      TH1F * h_TrkIsoRel_recoEle_noMCmatch;
+      TH1F * h_TrkNumIso_recoEle_noMCmatch;
+
+
+
 
       int event;
 
@@ -282,6 +299,11 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   h_pT_recoEle_MCmatch = fs->make<TH1F>("h_pT_recoEle_MCmatch","h_pT_recoEle_MCmatch",100,0,1000);
   h_eta_recoEle_MCmatch = fs->make<TH1F>("h_eta_recoEle_MCmatch","h_eta_recoEle_MCmatch",100,-4,4);
 
+  h_EcalIsoRel_recoEle_MCmatch = fs->make<TH1F>("h_EcalIsoRel_recoEle_MCmatch","h_EcalIsoRel_recoEle_MCmatch",200,0.,2.);
+  h_TrkIsoRel_recoEle_MCmatch = fs->make<TH1F>("h_TrkIsoRel_recoEle_MCmatch","h_TrkIsoRel_recoEle_MCmatch",200,0.,2.);
+  h_TrkNumIso_recoEle_MCmatch = fs->make<TH1F>("h_TrkNumIso_recoEle_MCmatch","h_TrkNumIso_recoEle_MCmatch",16,-0.5,15.5);
+
+
   //## NOT matched ele
 
   h_hOverE_recoEle_noMCmatch = fs->make<TH1F>("h_hOverE_recoEle_noMCmatch","h_hOverE_recoEle_noMCmatch",200,0.,0.5);
@@ -293,6 +315,11 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   h_energy_recoEle_noMCmatch = fs->make<TH1F>("h_energy_recoEle_noMCmatch","h_energy_recoEle_noMCmatch",100,0,1000);
   h_pT_recoEle_noMCmatch = fs->make<TH1F>("h_pT_recoEle_noMCmatch","h_pT_recoEle_noMCmatch",100,0,1000);
   h_eta_recoEle_noMCmatch = fs->make<TH1F>("h_eta_recoEle_noMCmatch","h_eta_recoEle_noMCmatch",100,-4,4);
+
+  h_EcalIsoRel_recoEle_noMCmatch = fs->make<TH1F>("h_EcalIsoRel_recoEle_noMCmatch","h_EcalIsoRel_recoEle_noMCmatch",200,0.,2.);
+  h_TrkIsoRel_recoEle_noMCmatch = fs->make<TH1F>("h_TrkIsoRel_recoEle_noMCmatch","h_TrkIsoRel_recoEle_noMCmatch",200,0.,2.);
+  h_TrkNumIso_recoEle_noMCmatch = fs->make<TH1F>("h_TrkNumIso_recoEle_noMCmatch","h_TrkNumIso_recoEle_noMCmatch",16,-0.5,15.5);
+
 
 }
 
@@ -335,14 +362,44 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 #endif
 
   // Read in Gsf electrons
-  const reco::PixelMatchGsfElectronCollection* electrons;
   edm::Handle<reco::PixelMatchGsfElectronCollection> pElectrons;
   iEvent.getByLabel(edm::InputTag("pixelMatchGsfElectrons",""), pElectrons);
+  const reco::PixelMatchGsfElectronCollection* electrons;
   electrons = pElectrons.product();
 
   // Read in GenParticles
   edm::Handle<reco::CandidateCollection> genParticles;
   iEvent.getByLabel ( "genParticleCandidates", genParticles);
+
+  //*******************************************************
+  // Get the objects that were fed into the isolation producer (not necessary for method 2)
+  edm::Handle< edm::View<reco::Candidate> > emObjectHandle_;
+  iEvent.getByLabel("pixelMatchGsfElectrons",emObjectHandle_);
+  const edm::View<reco::Candidate> *emObjectHandle = emObjectHandle_.product();
+  
+  // Get the association vector for isolations 
+  // --> REMEMBER to correctly set the cut values of the isolations in
+  // EgammaAnalysis/EgammaIsolationProducers/data 
+
+  //hcaliso ( EgammaTowerIsolationProducer )
+  //   edm::Handle< reco::CandViewDoubleAssociations > hcalIsolationHandle;
+  //   iEvent.getByLabel("egammaTowerIsolation",hcalIsolationHandle);
+
+  //ecaliso ( EgammaEcalIsolationProducer )
+  edm::Handle< reco::CandViewDoubleAssociations > ecalIsolationHandle;
+  iEvent.getByLabel("egammaEcalRelIsolation",ecalIsolationHandle);
+
+  //trkiso ( EgammaElectronTkIsolationProducer )
+  edm::Handle< reco::PMGsfElectronIsoCollection > trkIsolationHandle;
+  iEvent.getByLabel("egammaElectronTkRelIsolation",trkIsolationHandle);
+
+  //numtrksio ( EgammaElectronTkNumIsolationProducer )
+  edm::Handle< reco::PMGsfElectronIsoNumCollection > trkNumIsolationHandle;
+  iEvent.getByLabel("egammaElectronTkNumIsolation",trkNumIsolationHandle);
+
+
+  //*******************************************************
+
   
   if(printOut)
     cout << "******************* electron->size() : " << electrons->size() << endl;
@@ -355,12 +412,24 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   int N_recoEle_MCmatch_IDcut=0;
   int N_recoEle_noMCmatch=0;
   int N_recoEle_noMCmatch_IDcut=0;
-
-  reco::PixelMatchGsfElectronCollection::const_iterator electron;
-  for (electron = (*electrons).begin();
-       electron != (*electrons).end(); ++electron) 
+  
+  
+  //   reco::PixelMatchGsfElectronCollection::const_iterator electron;
+  //   for (electron = (*electrons).begin();
+  //        electron != (*electrons).end(); ++electron) 
+  //     {
+  
+      //**************************************************
+  //   for(edm::View<reco::Candidate>::const_iterator iter = emObjectHandle->begin()  ; iter != emObjectHandle->end(); ++iter) 
+  //     {
+  
+  for(int elecand_idx = 0; elecand_idx < (int)emObjectHandle->size(); elecand_idx++) 
     {
-
+      
+      const PixelMatchGsfElectronRef electron = emObjectHandle->refAt(elecand_idx).castTo<PixelMatchGsfElectronRef>();
+      //**************************************************      
+      
+      
       //## Main variables       
       //       float pT_ele=electron->pt();
       //       float E_ele=electron->energy();
@@ -445,6 +514,35 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	 && deltaPhiIn<deltaPhiInEndcapCut
 	 && deltaEtaIn<deltaEtaInEndcapCut)
 	passIDendcap=true;
+
+
+      //********************************************************
+      //## Electron isolation variables
+      // first follow the instructions at
+      // https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideEgammaIsolation 
+      // 
+      // example at EgammaAnalysis/Examples/src/EgammaIsolationAnalyser.cc
+      // and at http://cmssw.cvs.cern.ch/cgi-bin/cmssw.cgi/CMSSW/HiggsAnalysis/HiggsToWW2e/src/CmsEleIDTreeFiller.cc?revision=1.15&view=markup
+
+      // this retrieves the index in the original collection associated to the reference to electron
+      int index = electron.key();
+
+      //-- hcal tower isolation
+      //double hcalIso = (*hcalIsolationHandle)[index].second;
+      double ecalIso = (*ecalIsolationHandle)[index].second;
+      double trkIso = (*trkIsolationHandle)[index].second; 
+      double trkNumIso = (*trkNumIsolationHandle)[index].second; 
+
+      if(printOut)
+       	{
+	  cout << "ecalIso: " << ecalIso  
+	       << "trkIso: " << trkIso  
+	       << "trkNumIso: " << trkNumIso 
+	       << endl;
+      	}  
+      
+      //********************************************************      
+
 
       //## Other useful variables       
       //       float eOverP = electron->eSuperClusterOverP();
@@ -626,6 +724,10 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  h_deltaPhiIn_recoEle_MCmatch->Fill(deltaPhiIn);
 	  h_deltaEtaIn_recoEle_MCmatch->Fill(deltaEtaIn);
 
+	  h_EcalIsoRel_recoEle_MCmatch->Fill(ecalIso);
+	  h_TrkIsoRel_recoEle_MCmatch->Fill(trkIso);
+	  h_TrkNumIso_recoEle_MCmatch->Fill(trkNumIso);
+
 	  h_energy_recoEle_MCmatch->Fill(electron->energy());
 	  h_pT_recoEle_MCmatch->Fill(electron->pt());
 	  h_eta_recoEle_MCmatch->Fill(electron->eta());
@@ -644,6 +746,10 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  h_sigmaee_recoEle_noMCmatch->Fill(sigmaee);
 	  h_deltaPhiIn_recoEle_noMCmatch->Fill(deltaPhiIn);
 	  h_deltaEtaIn_recoEle_noMCmatch->Fill(deltaEtaIn);
+
+	  h_EcalIsoRel_recoEle_noMCmatch->Fill(ecalIso);
+	  h_TrkIsoRel_recoEle_noMCmatch->Fill(trkIso);
+	  h_TrkNumIso_recoEle_noMCmatch->Fill(trkNumIso);
 	  
 	  h_energy_recoEle_noMCmatch->Fill(electron->energy());
 	  h_pT_recoEle_noMCmatch->Fill(electron->pt());
