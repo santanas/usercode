@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/34
 //         Created:  Sat Apr 26 17:19:59 CEST 2008
-// $Id$
+// $Id: Trigger.cc,v 1.1 2008/04/26 16:31:13 santanas Exp $
 //
 //
 
@@ -75,6 +75,24 @@ class Trigger : public edm::EDAnalyzer {
       std::vector<std::string>  hlNames_;  // name of each HLT algorithm
       bool init_;                          // vectors initialised or not
 
+      unsigned int  nPassHE;           // # number of events passing HLT1EMHighEt
+      unsigned int  nPassVHE;           // # number of events passing HLT1EMVeryHighEt
+      unsigned int  nPassSingleEleRel;           // # number of events passing HLT1ElectronRelaxed
+      unsigned int  nPassHE_VHE;           // # number of events passing HLT1EMHighEt OR HLT1EMVeryHighEt
+      unsigned int  nPassHE_VHE_SingleEleRel;           // # number of events passing HLT1EMHighEt OR HLT1EMVeryHighEt
+
+      float  effHE;      
+      float  effVHE;     
+      float  effSingleEleRel; 
+      float  effHE_VHE;       
+      float  effHE_VHE_SingleEleRel;
+
+      float  e_effHE;      
+      float  e_effVHE;     
+      float  e_effSingleEleRel; 
+      float  e_effHE_VHE;       
+      float  e_effHE_VHE_SingleEleRel;
+
 
   //TH1D * histo; 
 
@@ -102,6 +120,23 @@ Trigger::Trigger(const edm::ParameterSet& iConfig)
   nErrors_ = 0;
   init_ = false;
 
+  nPassHE = 0;         
+  nPassVHE = 0;        
+  nPassSingleEleRel = 0;
+  nPassHE_VHE = 0;           
+  nPassHE_VHE_SingleEleRel = 0;
+
+  effHE = 0;      
+  effVHE = 0;     
+  effSingleEleRel = 0; 
+  effHE_VHE = 0;       
+  effHE_VHE_SingleEleRel = 0;
+  
+  e_effHE = 0;      
+  e_effVHE = 0;     
+  e_effSingleEleRel = 0; 
+  e_effHE_VHE = 0;       
+  e_effHE_VHE_SingleEleRel = 0;
 
   //now do what ever initialization is needed
   edm::Service<TFileService> fs;
@@ -181,8 +216,17 @@ Trigger::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
      if (HLTR->wasrun(i)) hlWasRun_[i]++;
      if (HLTR->accept(i)) hlAccept_[i]++;
      if (HLTR->error(i) ) hlErrors_[i]++;
+
    }
 
+
+   if(HLTR->accept(40)==true)  nPassHE++;  
+   if(HLTR->accept(41)==true)  nPassVHE++;  
+   if(HLTR->accept(33)==true)  nPassSingleEleRel++;  
+   if(HLTR->accept(40)==true || HLTR->accept(41)==true) 
+     nPassHE_VHE++;
+   if(HLTR->accept(40)==true || HLTR->accept(41)==true || HLTR->accept(33)==true)
+     nPassHE_VHE_SingleEleRel++;
    
 
    //end of analyze
@@ -240,6 +284,84 @@ Trigger::endJob() {
   cout << endl;
   cout << "HLT-Report end!" << endl;
   cout << endl;
+
+
+  //*************************************
+
+  cout << "*****************************************" << endl;
+  cout << "Trigger efficiency report for LQ analyzis" << endl;
+  cout << "*****************************************" << endl;
+
+  //   nEvents_;
+  
+  effHE = float(nPassHE) / float(nEvents_);
+  e_effHE = sqrt(effHE*(1-effHE)/float(nEvents_));
+
+  effVHE = float(nPassVHE) / float(nEvents_);
+  e_effVHE = sqrt(effVHE*(1-effVHE)/float(nEvents_));
+
+  effSingleEleRel = float(nPassSingleEleRel) / float(nEvents_);
+  e_effSingleEleRel = sqrt(effSingleEleRel*(1-effSingleEleRel)/float(nEvents_));
+
+  effHE_VHE = float(nPassHE_VHE) / float(nEvents_);
+  e_effHE_VHE = sqrt(effHE_VHE*(1-effHE_VHE)/float(nEvents_));
+
+  effHE_VHE_SingleEleRel = float(nPassHE_VHE_SingleEleRel) / float(nEvents_);
+  e_effHE_VHE_SingleEleRel = sqrt(effHE_VHE_SingleEleRel*(1-effHE_VHE_SingleEleRel)/float(nEvents_));
+
+  //   float  effVHE;     
+  //   float  effSingleEleRel; 
+  //   float  effHE_VHE;       
+  //   float  effHE_VHE_SingleEleRel;
+  
+  //   float  e_effHE;      
+  //   float  e_effVHE;     
+  //   float  e_effSingleEleRel; 
+  //   float  e_effHE_VHE;       
+  //   float  e_effHE_VHE_SingleEleRel;
+
+  cout << endl;
+  cout << "nEvents: " << nEvents_ << endl; 
+  cout << endl;  
+
+  cout << "Eff-Report "
+       << right << setw(10) << "Eff" << " "
+       << right << setw(10) << "Err Eff" << " "
+       << right << setw(10) << "Passed" << " "
+       << "Name" << "\n";
+
+  cout << "Eff-Report "
+       << right << setw(10) << scientific << setprecision(2) << effHE << " "
+       << right << setw(10) << scientific << setprecision(2) << e_effHE << " "
+       << right << setw(10) << nPassHE << " "
+       << hlNames_[40] << "(" << 40 << ")" <<"\n";
+
+  cout << "Eff-Report "
+       << right << setw(10) << scientific << setprecision(2) << effVHE << " "
+       << right << setw(10) << scientific << setprecision(2) << e_effVHE << " "
+       << right << setw(10) << nPassVHE << " "
+       << hlNames_[41] << "(" << 41 << ")" <<"\n";
+
+  cout << "Eff-Report "
+       << right << setw(10) << scientific << setprecision(2) << effSingleEleRel << " "
+       << right << setw(10) << scientific << setprecision(2) << e_effSingleEleRel << " "
+       << right << setw(10) << nPassSingleEleRel << " "
+       << hlNames_[33] << "(" << 33 << ")" <<"\n";
+
+  cout << "Eff-Report "
+       << right << setw(10) << scientific << setprecision(2) << effHE_VHE << " "
+       << right << setw(10) << scientific << setprecision(2) << e_effHE_VHE << " "
+       << right << setw(10) << nPassHE_VHE << " "
+       << hlNames_[40] << "(" << 40 << ")" << "," 
+       << hlNames_[41] << "(" << 41 << ")" << "\n";
+
+  cout << "Eff-Report "
+       << right << setw(10) << scientific << setprecision(2) << effHE_VHE_SingleEleRel << " "
+       << right << setw(10) << scientific << setprecision(2) << e_effHE_VHE_SingleEleRel << " "
+       << right << setw(10) << nPassHE_VHE_SingleEleRel << " "
+       << hlNames_[40] << "(" << 40 << ")" << "," 
+       << hlNames_[41] << "(" << 41 << ")" << ","
+       << hlNames_[33] << "(" << 33 << ")" << "\n";
 
   return;
 
