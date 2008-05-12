@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.7 2008/04/20 10:14:03 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.8 2008/04/22 16:32:40 santanas Exp $
 //
 //
 
@@ -53,8 +53,12 @@
 #include "DataFormats/DetId/interface/DetId.h"
 #include "DataFormats/Candidate/interface/CandMatchMap.h"
 
-//genparticles
+//Reco jets
+#include "DataFormats/JetReco/interface/CaloJet.h"
+
+//Genparticles
 #include "DataFormats/Candidate/interface/Candidate.h"
+#include "DataFormats/JetReco/interface/GenJet.h"
 
 //HLT
 #include "FWCore/Framework/interface/TriggerNames.h"
@@ -143,8 +147,6 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_EcalIsoRel_recoEle_noMCmatch;
       TH1F * h_TrkIsoRel_recoEle_noMCmatch;
       TH1F * h_TrkNumIso_recoEle_noMCmatch;
-
-
 
 
       int event;
@@ -320,7 +322,6 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   h_TrkIsoRel_recoEle_noMCmatch = fs->make<TH1F>("h_TrkIsoRel_recoEle_noMCmatch","h_TrkIsoRel_recoEle_noMCmatch",200,0.,2.);
   h_TrkNumIso_recoEle_noMCmatch = fs->make<TH1F>("h_TrkNumIso_recoEle_noMCmatch","h_TrkNumIso_recoEle_noMCmatch",16,-0.5,15.5);
 
-
 }
 
 
@@ -371,6 +372,10 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   edm::Handle<reco::CandidateCollection> genParticles;
   iEvent.getByLabel ( "genParticleCandidates", genParticles);
 
+  // Read in genJets
+  edm::Handle<reco::GenJetCollection> genJets;
+  iEvent.getByLabel ("iterativeCone5GenJets", genJets);
+
   //*******************************************************
   // Get the objects that were fed into the isolation producer (not necessary for method 2)
   edm::Handle< edm::View<reco::Candidate> > emObjectHandle_;
@@ -419,17 +424,36 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   //        electron != (*electrons).end(); ++electron) 
   //     {
   
-      //**************************************************
+  //**************************************************
   //   for(edm::View<reco::Candidate>::const_iterator iter = emObjectHandle->begin()  ; iter != emObjectHandle->end(); ++iter) 
   //     {
   
   for(int elecand_idx = 0; elecand_idx < (int)emObjectHandle->size(); elecand_idx++) 
     {
-      
+
       const PixelMatchGsfElectronRef electron = emObjectHandle->refAt(elecand_idx).castTo<PixelMatchGsfElectronRef>();
-      //**************************************************      
-      
-      
+      const reco::SuperClusterRef& SCref = electron->superCluster();  
+
+      //## Remove electrons associated to the same SC ##
+      bool IsCopy=false;      
+      for(int elecand_idx_1 = elecand_idx+1; elecand_idx_1 < (int)emObjectHandle->size(); elecand_idx_1++) 
+	{
+	  const PixelMatchGsfElectronRef electron_1 = emObjectHandle->refAt(elecand_idx_1).castTo<PixelMatchGsfElectronRef>();
+	  const reco::SuperClusterRef& SCref_1 = electron_1->superCluster();  
+
+	  if(SCref==SCref_1)
+	    {
+	      IsCopy=true;
+	      break;
+	    }
+	}
+
+      //skip this electron 
+      if(IsCopy==true)
+	continue;
+      //#################################################
+
+
       //## Main variables       
       //       float pT_ele=electron->pt();
       //       float E_ele=electron->energy();
@@ -656,8 +680,8 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	      genEle_vec.SetPtEtaPhi(pt_genEle,eta_genEle,phi_genEle);
 	      
 	      //select gen electron from LQ decay
-	      //if(abs(mom->pdgId())==id_LQ)
-	      if(true)
+	      if(abs(mom->pdgId())==id_LQ)
+	      //if(true)
 		{
 		  
 		  //select high pT gen electrons
@@ -736,7 +760,7 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  
 	  if(passIDbarrel || passIDendcap)
 	    N_recoEle_MCmatch_IDcut++;
-
+	  
 	}//matched electrons
 
       else if(IsMatched==false)
