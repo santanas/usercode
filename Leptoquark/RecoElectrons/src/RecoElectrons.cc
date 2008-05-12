@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.8 2008/04/22 16:32:40 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.9 2008/05/12 10:34:52 santanas Exp $
 //
 //
 
@@ -371,10 +371,6 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   // Read in GenParticles
   edm::Handle<reco::CandidateCollection> genParticles;
   iEvent.getByLabel ( "genParticleCandidates", genParticles);
-
-  // Read in genJets
-  edm::Handle<reco::GenJetCollection> genJets;
-  iEvent.getByLabel ("iterativeCone5GenJets", genJets);
 
   //*******************************************************
   // Get the objects that were fed into the isolation producer (not necessary for method 2)
