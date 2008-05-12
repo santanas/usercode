@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.9 2008/05/12 10:34:52 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.10 2008/05/12 10:45:22 santanas Exp $
 //
 //
 
@@ -503,7 +503,7 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       float deltaEtaIn = electron->deltaEtaSuperClusterTrackAtVtx();
 
       //correct sigmaetaeta dependence on eta in endcap
-      if (electron->eta() > 1.479) 
+      if (fabs(electron->eta()) > 1.479) 
 	sigmaee = sigmaee - 0.02*(fabs(electron->eta()) - 2.3);   
       
       //Matteo Sani's comment ( in italian, sorry:) )
@@ -521,14 +521,14 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
       bool passIDbarrel = false;
       bool passIDendcap = false;
-      if(electron->eta()<1.4
+      if(fabs(electron->eta())<1.4
 	 && hOverE<hOverEBarrelCut 
 	 && sigmaee<sigmaeeBarrelCut
 	 && deltaPhiIn<deltaPhiInBarrelCut
 	 && deltaEtaIn<deltaEtaInBarrelCut)
 	passIDbarrel=true;
 
-      if(electron->eta()>1.6
+      if(fabs(electron->eta())>1.6
 	 && hOverE<hOverEEndcapCut 
 	 && sigmaee<sigmaeeEndcapCut
 	 && deltaPhiIn<deltaPhiInEndcapCut
