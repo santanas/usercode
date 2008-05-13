@@ -7,6 +7,7 @@ usage ()
         exit 1;
 }
 
+if [ $# -ne 4 ]; then usage ; fi
 
 while [ $# -gt 0 ]; # till there are parameters
 do    
