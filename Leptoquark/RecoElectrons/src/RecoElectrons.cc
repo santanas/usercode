@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.10 2008/05/12 10:45:22 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.11 2008/05/12 14:41:27 santanas Exp $
 //
 //
 
@@ -521,14 +521,14 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
       bool passIDbarrel = false;
       bool passIDendcap = false;
-      if(fabs(electron->eta())<1.4
+      if(fabs(electron->eta())<1.479
 	 && hOverE<hOverEBarrelCut 
 	 && sigmaee<sigmaeeBarrelCut
 	 && deltaPhiIn<deltaPhiInBarrelCut
 	 && deltaEtaIn<deltaEtaInBarrelCut)
 	passIDbarrel=true;
 
-      if(fabs(electron->eta())>1.6
+      if(fabs(electron->eta())>1.479
 	 && hOverE<hOverEEndcapCut 
 	 && sigmaee<sigmaeeEndcapCut
 	 && deltaPhiIn<deltaPhiInEndcapCut
@@ -715,7 +715,7 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	  float E_recoEle_over_E_genEle = E_recoEle / (*genParticles)[idx_nearest_genEle].energy();
 	  float Eraw_recoEle_over_E_genEle = Eraw_recoEle / (*genParticles)[idx_nearest_genEle].energy();
 
-	  if(eta_recoEle<1.4)
+	  if(fabs(eta_recoEle)<1.479)
 	    {
 	      h_E_recoEle_over_E_genEle_MCmatch_barrel->Fill(E_recoEle_over_E_genEle);
 	      h_Eraw_recoEle_over_E_genEle_MCmatch_barrel->Fill(Eraw_recoEle_over_E_genEle);
@@ -727,7 +727,7 @@ RecoElectrons::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 		}
 	    }
 	  
-	  if(eta_recoEle>1.6)
+	  if(fabs(eta_recoEle)>1.479)
 	    {
 	      h_E_recoEle_over_E_genEle_MCmatch_endcap->Fill(E_recoEle_over_E_genEle);
 	      h_Eraw_recoEle_over_E_genEle_MCmatch_endcap->Fill(Eraw_recoEle_over_E_genEle);
