@@ -100,8 +100,8 @@ void drawcompare2(char* namehisto1, char* namehisto2,TFile *file1, TFile *file2,
   hratio2->SetTitle();
   hratio2->Draw("pe");
 
-  //canv->Print("comparison.ps"); 
-  canv->Print("comparison.gif"); 
+  canv->Print("comparison.ps"); 
+  //canv->Print("comparison.gif"); 
 }
 
 
@@ -128,7 +128,7 @@ void comparison(char *inputfile1, char *inputfile2){
   TFile input2(inputfile2);
 
 
-  //c0->Print("comparison.ps["); 
+  c0->Print("comparison.ps["); 
 
   // rebinnings and reranging
   input1.cd(); 
@@ -192,6 +192,6 @@ void comparison(char *inputfile1, char *inputfile2){
   //  drawcompare2("myeleplots/h_hOverE_recoEle_pTcut","myeleplots/h_sigmaee_recoEle_pTcut",&input1 , &input2, c0, true, true, true, true);
   // drawcompare2("myeleplots/h_deltaPhiIn_recoEle_pTcut","myeleplots/h_deltaEtaIn_recoEle_pTcut",&input1 , &input2, c0, true, true,true, true);
  
-  //c0->Print("comparison.ps]"); 
+  c0->Print("comparison.ps]"); 
   
 }
