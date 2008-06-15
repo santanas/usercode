@@ -13,7 +13,7 @@
 //
 // Original Author:  Francesco Santanastasio
 //         Created:  Thu May 22 21:54:39 CEST 2008
-// $Id$
+// $Id: RootNtupleMaker.cc,v 1.1 2008/06/04 09:40:51 santanas Exp $
 //
 //
 
@@ -134,7 +134,7 @@ class RootNtupleMaker : public edm::EDAnalyzer {
 
   void SetTriggers(const edm::Event& iEvent);
 
-
+  int singleEleRelHLTCounter;
 
   // ----------member data ---------------------------
 
@@ -151,6 +151,8 @@ class RootNtupleMaker : public edm::EDAnalyzer {
   double               luminosity_;
   int                  numEvents_;              
   bool                 saveTrigger_;
+  std::string          skim_;
+  int                  prescaleSingleEleRel_;
 
   //Output RootNtuple
   TTree *              m_tree;
@@ -274,8 +276,12 @@ RootNtupleMaker::RootNtupleMaker(const edm::ParameterSet& iConfig)
 
   saveTrigger_         = iConfig.getUntrackedParameter<bool>("saveTrigger",1);
   hltTriggerResultTag_ =  iConfig.getParameter<edm::InputTag> ("HLTTriggerResultsTag");
+  prescaleSingleEleRel_         = iConfig.getUntrackedParameter<int>("prescaleSingleEleRel",20); 
+  skim_              = iConfig.getUntrackedParameter<std::string>("skim","electron");
 
   //Initialize some variables
+  singleEleRelHLTCounter=0;
+
   event=-999;
   runnum=-999;
 
@@ -289,6 +295,7 @@ RootNtupleMaker::RootNtupleMaker(const edm::ParameterSet& iConfig)
 
   genMET=-999.;
   MET=-999.;
+
 }
 
 
@@ -463,14 +470,19 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       m_auto_cross_section = gi->cross_section()*float(pow(10.0,9)); // is automatically calculated at the end of each RUN --  units in mb (converted to pb)
 
       m_filter_eff = gi->filter_efficiency();
-      
-//       Handle< HepMCProduct > mc;
-//       iEvent.getByLabel( "source", mc );
-//       const HepMC::GenEvent * genEvt = mc->GetEvent();
-//       m_processID = genEvt->signal_process_id();
-//       m_pthat = genEvt->event_scale(); 
-//       m_ALPGENprocessID = -999;
-//       m_weight = m_cross_section * luminosity_ / (float) numEvents_;
+
+      //TO BE CHANGED      
+      //for the moment I don't have processID and pthat in fast sim 
+      //(new fast sim needed with PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi
+      //and  PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi )
+
+      //       Handle< HepMCProduct > mc;
+      //       iEvent.getByLabel( "source", mc );
+      //       const HepMC::GenEvent * genEvt = mc->GetEvent();
+      //       m_processID = genEvt->signal_process_id();
+      //       m_pthat = genEvt->event_scale(); 
+      //       m_ALPGENprocessID = -999;
+      //       m_weight = m_cross_section * luminosity_ / (float) numEvents_;
 
       m_processID = -999;
       m_pthat = -999; 
@@ -550,9 +562,10 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   //   edm::Handle< reco::CandViewDoubleAssociations > hcalIsolationHandle;
   //   iEvent.getByLabel("egammaTowerIsolation",hcalIsolationHandle);
 
-  // ADD ISOLATIONMAPS RELATIVE TO DIFFERENT ISOLATION PARAMETERS
+  //******** ADD ISOLATIONMAPS RELATIVE TO DIFFERENT ISOLATION PARAMETERS ********
 
-  //loop over electrons
+
+  //Loop over electrons
   eleCount  = 0;
   int eleidx=-1;
   std::list<const Candidate*>::const_iterator cand;
@@ -771,18 +784,86 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   MET = recomet.et();
 
 
-  //  Fill tree for each event
-  //  ********************************************************
-  //  ********************************************************
-  //  ********************************************************
-   
-  if(debug_==true)
-    cout << "About to fill tree" << endl;
-  m_tree->Fill();
-   
-  //  ********************************************************
-  //  ********************************************************
-  //  ********************************************************
+  //######### Skim "none" ###########
+  if(skim_=="none")
+    {
+      //  Fill tree for each event
+      //  ********************************************************
+      //  ********************************************************
+      
+      if(debug_==true)
+	cout << "About to fill tree" << endl;
+      m_tree->Fill();
+      
+      //  ********************************************************
+      //  ********************************************************
+    }//end skim "none"      
+
+  //######### Skim "electron" ###########
+  if(skim_=="electron" && saveTrigger_==true)
+    {
+      bool passHLT=false;
+      bool passHLTprescale=false;
+      bool pass2Ele=false;
+      bool passPt2ndEle=false;
+      bool passSkim=false;
+      
+      //main triggers
+      if(aHLTResults[40] || aHLTResults[41])
+	passHLT=true;
+
+      //prescaled single electron trigger
+      if(aHLTResults[33]==true)
+	{
+	  singleEleRelHLTCounter++;
+	  if(singleEleRelHLTCounter==prescaleSingleEleRel_)
+	    {
+	      passHLTprescale=true;
+	      singleEleRelHLTCounter=0;
+	    }
+	}
+
+      //2 electrons
+      if(eleCount>=2)
+	pass2Ele=true;
+
+      //pT cut on 2nd electron
+      if(pass2Ele)
+	{
+	  if(elePt[1]>20.)
+	    passPt2ndEle=true;
+	}
+
+      //skim selection
+      if( (passHLT==true || passHLTprescale==true) 
+	  && pass2Ele==true && passPt2ndEle==true)
+	{
+	  passSkim=true;
+	}
+
+      //skip event if not pass skim
+      if(passSkim==true)
+	{
+	  //  Fill tree for each event
+	  //  ********************************************************
+	  //  ********************************************************
+	  
+	  if(debug_==true)
+	    cout << "About to fill tree" << endl;
+	  m_tree->Fill();
+	  
+	  //  ********************************************************
+	  //  ********************************************************
+	}//end if pass skim
+
+    }//end skim "electron"
+
+  //######### Skim "muon" ###########
+  if(skim_=="muon" && saveTrigger_==true)
+    {
+      //########## Add muon skim here ############
+    }//end skim "muon"
+
 
 }
 
