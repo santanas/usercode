@@ -11,7 +11,8 @@
 ........
 ........
 
-2) edit prepare_crab.py
+2) edit prepare_crab.py (or prepare_crab_castor.py to store output on 
+CASTOR)
 
 ## root dir for output and log
 rootdir =  "/u1/santanas/Leptoquark/LQRootNtupleTest"
@@ -30,7 +31,8 @@ where YourCfg.cfg is the cfg that you use interactively (as it is).
 
 Edit it as you wish.
 
-4) edit template_crab_rtuple.cfg (facultative)
+4) edit template_crab_rtuple.cfg or template_crab_rtuple_castor.cfg 
+(facultative)
 
 e.g. 
 scheduler = xxx
@@ -52,5 +54,9 @@ Check if all jobs have been submitted
 
 7) Retrieve jobs
 
-For the moment use the standard CRAB commands by hand. Maybe in future we will write a script to do it
-automatically.
+For the moment use the standard CRAB commands by hand. 
+Maybe in future we will write a script to do it automatically.
+Note that if you use the "castor" scripts the file will be saved automatically 
+to CASTOR at the end of the job and you don't need to make "-getoutput" 
+(unless if you want to check the logs).
+If a job fail (you will see from "crab -status") you can resubmit it.
