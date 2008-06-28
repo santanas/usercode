@@ -1,3 +1,0 @@
-comparison.C : root macro which compares two distributions making ratio
-stage_in.pl : shell script to prestage files on castor 
-prestage.sh : perl script to prestage files on castor
