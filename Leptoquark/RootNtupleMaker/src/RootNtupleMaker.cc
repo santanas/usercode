@@ -13,7 +13,7 @@
 //
 // Original Author:  Francesco Santanastasio
 //         Created:  Thu May 22 21:54:39 CEST 2008
-// $Id: RootNtupleMaker.cc,v 1.2 2008/06/15 17:49:43 santanas Exp $
+// $Id: RootNtupleMaker.cc,v 1.3 2008/06/28 15:11:26 santanas Exp $
 //
 //
 
@@ -88,7 +88,7 @@
 #include "DataFormats/METReco/interface/CaloMET.h"
 #include "DataFormats/METReco/interface/GenMET.h"
 
-//Muons ## TO BE CHECKED ##
+//Muons
 #include "DataFormats/MuonReco/interface/Muon.h"
 #include "DataFormats/MuonReco/interface/MuonFwd.h"
 #include "RecoMuon/MuonIdentification/interface/IdGlobalFunctions.h"
@@ -107,20 +107,12 @@
 using namespace std;
 using namespace reco;
 
+typedef std::pair<const PixelMatchGsfElectron*, int> my_pair;
 
-bool ComparePt(const Candidate * first, const Candidate * second)
+bool ComparePtPair(const my_pair& left , const my_pair& right)
 {
-       if(first != NULL && second != NULL)
-       {
-          if( first->pt() > second->pt())
-              return true;
-          else
-              return false;
-        }
-       cout << "Compare failed!!!!" <<endl;
-       return false;
+  return left.first->pt() > right.first->pt();
 }
-
 
 bool sortByET(const reco::Muon &x, const reco::Muon &y)
     {
@@ -272,11 +264,6 @@ class RootNtupleMaker : public edm::EDAnalyzer {
 //
 // static data member definitions
 //
-
-//  bool sortByET(reco::PixelMatchGsfElectron& x, reco::PixelMatchGsfElectron& y)
-//  {
-//    return x.et()>y.et();
-//  }
 
 
 //
@@ -558,22 +545,26 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	cout << "HLT bits not filled" << endl;
     }
 
+
   // Fill Electrons quantities
   // -------------------------
-  //pixelMatchGsfElectronsClone created by PixelMatchGsfElectronShallowCloneProducer (see cfg file) 
-  edm::Handle<reco::CandidateCollection> emObjectHandle_;
-  iEvent.getByLabel("pixelMatchGsfElectronsClone",emObjectHandle_);
-  const reco::CandidateCollection *emObjectHandle_tmp = emObjectHandle_.product();
+  // Get the objects that were fed into the isolation producer (not necessary for method 2)
+  edm::Handle< edm::View<reco::Candidate> > emObjectHandle_;
+  iEvent.getByLabel("pixelMatchGsfElectrons",emObjectHandle_);
+  const edm::View<reco::Candidate> *emObjectHandle = emObjectHandle_.product();
 
-  //create new electron list of pointers to candidates and sort it  
-  std::list<const Candidate*> emObjectHandle;
-  for( unsigned int i = 0 ; i < emObjectHandle_tmp->size(); i++)
+  //cout << "********** BEFORE SORTING **********" << endl;
+  std::list<my_pair> electronRefListPair;
+  for(int elecand_idx = 0; elecand_idx < (int)emObjectHandle->size(); elecand_idx++) 
     {
-      const Candidate & p = (*emObjectHandle_tmp)[i];
-      emObjectHandle.push_front( &p );
+      const PixelMatchGsfElectronRef electron = emObjectHandle->refAt(elecand_idx).castTo<PixelMatchGsfElectronRef>();
+      electronRefListPair.push_front( my_pair(&*electron,electron.key()) );
+
+      //cout << "pT: " << electron->pt() << " " << "key: " << electron.key() << endl;
+
     }
-  emObjectHandle.sort(ComparePt);
-  
+  electronRefListPair.sort(ComparePtPair);  
+
   //trkiso ( EgammaElectronTkIsolationProducer )
   edm::Handle< reco::PMGsfElectronIsoCollection > trkIsolationHandle;
   iEvent.getByLabel("egammaElectronTkRelIsolation",trkIsolationHandle);
@@ -591,33 +582,27 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
 
   //Loop over electrons
-  eleCount  = 0;
+  eleCount = 0;
   int eleidx=-1;
-  std::list<const Candidate*>::const_iterator cand;
-  for(cand=emObjectHandle.begin(); cand!=emObjectHandle.end(); cand++) 
+  std::list<my_pair>::const_iterator electron;
+  for(electron=electronRefListPair.begin(); electron!=electronRefListPair.end(); electron++) 
     {
       eleidx++;
 
-      CandidateBaseRef master = (*cand)->masterClone();
-      PixelMatchGsfElectronRef electron = (*cand)->masterClone().castTo<PixelMatchGsfElectronRef>();
-      
-      const reco::SuperClusterRef& SCref = electron->superCluster();  
+      const reco::SuperClusterRef& SCref = (*electron).first->superCluster();  
 
       //## Remove electrons associated to the same SC ##
       bool IsCopy=false;      
 
       int eleidx_1=-1;
-      std::list<const Candidate*>::const_iterator cand1;
-      for(cand1=emObjectHandle.begin(); cand1!=emObjectHandle.end(); cand1++) 
+      std::list<my_pair>::const_iterator electron_1;
+      for(electron_1=electronRefListPair.begin(); electron_1!=electronRefListPair.end(); electron_1++) 
 	{
 	  eleidx_1++;	  
 	  if(eleidx_1<=eleidx)
 	    continue;
 	  
-	  CandidateBaseRef master = (*cand1)->masterClone();
-	  PixelMatchGsfElectronRef electron_1 = (*cand1)->masterClone().castTo<PixelMatchGsfElectronRef>();
-	  
-  	  const reco::SuperClusterRef& SCref_1 = electron_1->superCluster();  
+	  const reco::SuperClusterRef& SCref_1 = (*electron_1).first->superCluster();  	  
 	  
   	  if(SCref==SCref_1)
   	    {
@@ -638,11 +623,11 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	break;
       
       //## Main variables       
-      //       float pT_ele=electron->pt();
-      //       float E_ele=electron->energy();
-      //       float E_sc_ele=electron->caloEnergy();
-      //       float eta_ele=electron->eta();
-      //       float phi_ele=electron->phi();
+      //       float pT_ele=(*electron).first->pt();
+      //       float E_ele=(*electron).first->energy();
+      //       float E_sc_ele=(*electron).first->caloEnergy();
+      //       float eta_ele=(*electron).first->eta();
+      //       float phi_ele=(*electron).first->phi();
       
       //## Cluster shape collection
       bool hasBarrel=true;
@@ -657,11 +642,11 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       const reco::BasicClusterShapeAssociationCollection& endcapClShpMap = *endcapClShpHandle;
 	  
       reco::BasicClusterShapeAssociationCollection::const_iterator seedShpItr;
-      seedShpItr = barrelClShpMap.find(electron->superCluster()->seed());
+      seedShpItr = barrelClShpMap.find((*electron).first->superCluster()->seed());
       if(seedShpItr==barrelClShpMap.end()) 
 	{
 	  hasBarrel=false;
-	  seedShpItr=endcapClShpMap.find(electron->superCluster()->seed());
+	  seedShpItr=endcapClShpMap.find((*electron).first->superCluster()->seed());
 	  if(seedShpItr==endcapClShpMap.end()) hasEndcap=false;
 	}
       
@@ -683,14 +668,14 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       // 	  privateData_->a42->push_back(sClShape->zernike42());
   
       //## Robust electron ID variables       
-      float hOverE = electron->hadronicOverEm();
+      float hOverE = (*electron).first->hadronicOverEm();
       float sigmaee = sqrt(sClShape->covEtaEta());
-      float deltaPhiIn = electron->deltaPhiSuperClusterTrackAtVtx();
-      float deltaEtaIn = electron->deltaEtaSuperClusterTrackAtVtx();
+      float deltaPhiIn = (*electron).first->deltaPhiSuperClusterTrackAtVtx();
+      float deltaEtaIn = (*electron).first->deltaEtaSuperClusterTrackAtVtx();
 
       //correct sigmaetaeta dependence on eta in endcap
-      if (fabs(electron->eta()) > 1.479) 
-	sigmaee = sigmaee - 0.02*(fabs(electron->eta()) - 2.3);   
+      if (fabs((*electron).first->eta()) > 1.479) 
+	sigmaee = sigmaee - 0.02*(fabs((*electron).first->eta()) - 2.3);   
 
       //     # cut value arrays of form {hoe, sigmaEtaEta, dPhiIn, dEtaIn}
       //     PSet robustEleIDCuts =
@@ -708,7 +693,7 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       // and at http://cmssw.cvs.cern.ch/cgi-bin/cmssw.cgi/CMSSW/HiggsAnalysis/HiggsToWW2e/src/CmsEleIDTreeFiller.cc?revision=1.15&view=markup
 
       // this retrieves the index in the original collection associated to the reference to electron
-      int index = electron.key();
+      int index = (*electron).second;
 
       //-- hcal tower isolation
       double trkIso = (*trkIsolationHandle)[index].second; 
@@ -718,11 +703,11 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
 
       // Set variables in RootNtuple
-      eleEta[eleCount]=electron->eta();
-      elePhi[eleCount]=electron->phi();
-      elePt[eleCount]=electron->pt();
-      eleEnergy[eleCount]=electron->energy();
-      eleCaloEnergy[eleCount]=electron->caloEnergy();
+      eleEta[eleCount]=(*electron).first->eta();
+      elePhi[eleCount]=(*electron).first->phi();
+      elePt[eleCount]=(*electron).first->pt();
+      eleEnergy[eleCount]=(*electron).first->energy();
+      eleCaloEnergy[eleCount]=(*electron).first->caloEnergy();
 
       eleHoE[eleCount]=hOverE;
       eleSigmaEE[eleCount]=sigmaee;
