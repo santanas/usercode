@@ -5,6 +5,7 @@
 <use name=DataFormats/EgammaReco>
 <use name=RecoEgamma/EgammaElectronProducers>
 <use name=RecoEgamma/EgammaMCTools>
+<use name=DataFormats/MuonReco>
 <flags EDM_PLUGIN=1>
 <use name=PhysicsTools/UtilAlgos> 
 <export>

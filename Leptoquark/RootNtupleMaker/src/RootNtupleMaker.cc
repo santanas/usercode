@@ -13,13 +13,14 @@
 //
 // Original Author:  Francesco Santanastasio
 //         Created:  Thu May 22 21:54:39 CEST 2008
-// $Id: RootNtupleMaker.cc,v 1.1 2008/06/04 09:40:51 santanas Exp $
+// $Id: RootNtupleMaker.cc,v 1.2 2008/06/15 17:49:43 santanas Exp $
 //
 //
 
 
 // system include files
 #include <memory>
+#include <typeinfo>
 
 // user include files
 #include "FWCore/Framework/interface/Frameworkfwd.h"
@@ -76,7 +77,6 @@
 #include <FWCore/Framework/interface/TriggerNames.h> 
 #include <DataFormats/Common/interface/TriggerResults.h> 
 
-
 // Isolation
 #include "DataFormats/Candidate/interface/CandAssociation.h"
 #include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
@@ -88,6 +88,11 @@
 #include "DataFormats/METReco/interface/CaloMET.h"
 #include "DataFormats/METReco/interface/GenMET.h"
 
+//Muons ## TO BE CHECKED ##
+#include "DataFormats/MuonReco/interface/Muon.h"
+#include "DataFormats/MuonReco/interface/MuonFwd.h"
+#include "RecoMuon/MuonIdentification/interface/IdGlobalFunctions.h"
+#include "DataFormats/TrackReco/interface/Track.h"
 
 // About tree
 #define MAXGENPARTICLES  2000
@@ -95,6 +100,7 @@
 #define MAXELECTRONS  100
 #define MAXGENJETS    100
 #define MAXCALOJETS   100
+#define MAXMUONS      100
 
 
 // namespaces
@@ -114,6 +120,12 @@ bool ComparePt(const Candidate * first, const Candidate * second)
        cout << "Compare failed!!!!" <<endl;
        return false;
 }
+
+
+bool sortByET(const reco::Muon &x, const reco::Muon &y)
+    {
+      return x.et()>y.et();
+    }
 
 //
 // class decleration
@@ -138,13 +150,13 @@ class RootNtupleMaker : public edm::EDAnalyzer {
 
   // ----------member data ---------------------------
 
-
   // read from cfg file
   std::string          rootfile_;
   int                  maxgenparticles_;
   int                  maxgenjets_;
   int                  maxelectrons_;
   int                  maxcalojets_;
+  int                  maxmuons_;
   bool                 soup_;
   bool                 fastSim_;
   bool                 debug_;
@@ -197,7 +209,6 @@ class RootNtupleMaker : public edm::EDAnalyzer {
 
   edm::InputTag hltTriggerResultTag_;
 
-
   // Electrons
   Int_t                eleCount;
   Float_t              eleEta[MAXELECTRONS];
@@ -233,10 +244,23 @@ class RootNtupleMaker : public edm::EDAnalyzer {
   Float_t              caloJetIC5EMF[MAXCALOJETS];
   Float_t              caloJetIC5HADF[MAXCALOJETS];
 
+  // Muons
+  Int_t                muonCount;
+  Float_t              muonEta[MAXMUONS];
+  Float_t              muonPhi[MAXMUONS];
+  Float_t              muonPt[MAXMUONS];
+  Float_t              muonEnergy[MAXMUONS];
+  Float_t              muonTrkHits[MAXMUONS];
+  Float_t              muonTrkD0[MAXMUONS];
+  Float_t              muonTrkDz[MAXMUONS];
+  Float_t              muonEcalIso[MAXMUONS];
+  Float_t              muonTrkIso[MAXMUONS];
+  Float_t              muonHcalIso[MAXMUONS];
+  Float_t              muonHOIso[MAXMUONS];
+
   // MET 
   Float_t              genMET;
   Float_t              MET;
-
 
 };
 
@@ -266,7 +290,8 @@ RootNtupleMaker::RootNtupleMaker(const edm::ParameterSet& iConfig)
   maxgenparticles_   = iConfig.getUntrackedParameter<int>("maxgenparticles",100); 
   maxgenjets_        = iConfig.getUntrackedParameter<int>("maxgenjets",10); 
   maxelectrons_      = iConfig.getUntrackedParameter<int>("maxelectrons",5); 
-  maxcalojets_           = iConfig.getUntrackedParameter<int>("maxcalojets",10); 
+  maxcalojets_       = iConfig.getUntrackedParameter<int>("maxcalojets",10); 
+  maxmuons_          = iConfig.getUntrackedParameter<int>("maxmuons",5); 
 
   soup_              = iConfig.getUntrackedParameter<bool>("soup",0);
   fastSim_           = iConfig.getUntrackedParameter<bool>("fastSim",0);
@@ -274,10 +299,10 @@ RootNtupleMaker::RootNtupleMaker(const edm::ParameterSet& iConfig)
   luminosity_        = iConfig.getUntrackedParameter<double>("luminosity",100); // pb -1
   numEvents_         = iConfig.getUntrackedParameter<int>("numEvents",100); 
 
-  saveTrigger_         = iConfig.getUntrackedParameter<bool>("saveTrigger",1);
-  hltTriggerResultTag_ =  iConfig.getParameter<edm::InputTag> ("HLTTriggerResultsTag");
-  prescaleSingleEleRel_         = iConfig.getUntrackedParameter<int>("prescaleSingleEleRel",20); 
-  skim_              = iConfig.getUntrackedParameter<std::string>("skim","electron");
+  saveTrigger_           = iConfig.getUntrackedParameter<bool>("saveTrigger",1);
+  hltTriggerResultTag_   =  iConfig.getParameter<edm::InputTag> ("HLTTriggerResultsTag");
+  prescaleSingleEleRel_  = iConfig.getUntrackedParameter<int>("prescaleSingleEleRel",30); 
+  skim_                  = iConfig.getUntrackedParameter<std::string>("skim","electron");
 
   //Initialize some variables
   singleEleRelHLTCounter=0;
@@ -739,6 +764,8 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       
       genJetCount++;
     }
+
+
   
   // Fill CaloJets quantities
   // -------------------------
@@ -766,6 +793,127 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
     }
 
 
+  // Muons
+  //***********
+  //testing
+  //edm::Handle<reco::CandidateCollection> MuonObjectHandle_;
+  //const reco::CandidateCollection *MuonObjectHandle_tmp = MuonObjectHandle_.product();
+
+  // Read in Muons
+  edm::Handle<reco::MuonCollection> MuonObjectHandle_;
+
+  if(fastSim_==1)
+    {
+      //FastSim
+      std::string m_muonModule = "paramMuons";
+      std::string m_muonLabel  = "ParamGlobalMuons";
+      iEvent.getByLabel(m_muonModule,m_muonLabel,MuonObjectHandle_);
+    }
+  else if(fastSim_==0)
+    {
+      //FullSim
+      std::string m_muonLabel  = "muons";
+      iEvent.getByLabel(m_muonLabel,MuonObjectHandle_);
+    }
+
+  const reco::MuonCollection* MuonObjectHandle_tmp;
+  MuonObjectHandle_tmp = MuonObjectHandle_.product();
+
+  /// sort muons in decending ET
+  reco::MuonCollection muonColl = *MuonObjectHandle_tmp;
+  std::sort(muonColl.begin(), muonColl.end(), sortByET);
+
+  muonCount = 0;  
+  for(reco::MuonCollection::const_iterator muon = muonColl.begin(); muon != muonColl.end(); muon++)
+    //for(reco::MuonCollection::const_iterator muon = MuonObjectHandle_tmp->begin(); muon != MuonObjectHandle_tmp->end(); muon++)
+    {
+
+      //exit from loop when you reach the required number of muons
+      if(muonCount > maxmuons_)
+	break;
+      
+      //std::cout << "My candidate is a " << typeid(&*candmu).name() << std::endl;
+      //https://hypernews.cern.ch/HyperNews/CMS/get/physTools/327/1.html
+      //PixelMatchGsfElectronRef electron = (*cand)->masterClone().castTo<PixelMatchGsfElectronRef>();
+      // CandidateBaseRef master = (*candmu)->masterClone();
+      // cout << master->pt() << endl;
+      //MuonRef muon = (*candmu)->masterClone().castTo<MuonRef>();
+
+      unsigned int trkhits = 0;
+      float trkd0 = 0.;
+      float trkdz = 0.;
+
+      if(fastSim_==1)
+	{
+	  //FastSim
+	  trkhits  = muon->track()->numberOfValidHits();
+	  trkd0    = muon->track()->d0();
+	  trkdz    = muon->track()->dz();
+	}	  
+      else if(fastSim_==0)
+	{
+	  //FullSim
+	  trkhits  = muon->combinedMuon()->numberOfValidHits();
+	  trkd0    = muon->combinedMuon()->d0();
+	  trkdz    = muon->combinedMuon()->dz();
+	}	  
+
+      float ptInCone       = 0.;
+      float coneEMenergy   = 0.;
+      float coneHADenergy  = 0.;
+      float coneHOenergy   = 0.;
+
+      bool m_useTrackConeSize03 = true;
+      bool m_useTrackConeSize05 = false;
+
+      if (m_useTrackConeSize03)
+	{
+	  ptInCone      = muon->getIsolationR03().sumPt;
+	  coneEMenergy  = muon->getIsolationR03().emEt;
+	  coneHADenergy = muon->getIsolationR03().hadEt;
+	  coneHOenergy  = muon->getIsolationR03().hoEt;
+	}
+      else if (m_useTrackConeSize05)
+	{
+ 	  ptInCone      = muon->getIsolationR05().sumPt;
+ 	  coneEMenergy  = muon->getIsolationR03().emEt;
+ 	  coneHADenergy = muon->getIsolationR03().hadEt;
+ 	  coneHOenergy  = muon->getIsolationR03().hoEt;
+ 	}
+
+      muonEta[muonCount] = muon->eta();
+      muonPhi[muonCount] = muon->phi();
+      muonPt[muonCount]= muon->pt();
+      muonEnergy[muonCount] = muon->energy();
+      muonTrkHits[muonCount] = trkhits;
+      muonTrkD0[muonCount] = trkd0;
+      muonTrkDz[muonCount] = trkdz;
+      muonEcalIso[muonCount] = coneEMenergy;
+      muonTrkIso[muonCount] = ptInCone;
+      muonHcalIso[muonCount] = coneHADenergy;
+      muonHOIso[muonCount] = coneHOenergy;
+
+      //       cout << "muon candidate: " << muonCount << endl;
+      //       cout << "pT: " << muon->pt() << endl;
+      //       cout << "p: " << muon->p() << endl;
+      //       cout << "energy: " << muon->energy() << endl;
+      //       cout << "eta: " << muon->eta() << endl;
+      //       cout << "phi: " << muon->phi() << endl;
+      //       cout << "theta: " << muon->theta() << endl;
+      //       cout << "pTInCone: " << ptInCone << endl;
+      //       cout << "coneEMenergy: " << coneEMenergy << endl;
+      //       cout << "coneHADenergy: " << coneHADenergy << endl;
+      //       cout << "coneHOenergy: " << coneHOenergy << endl;
+      //       cout << "trkhits: " << trkhits << endl;
+      //       cout << "trkd0: " << trkd0 << endl;
+      //       cout << "trkdz: " << trkdz << endl;
+      //       cout << "*************" << endl;
+      
+      muonCount++;
+
+    }
+
+
   // Fill MET and GenMET
   // -------------------
 
@@ -784,6 +932,9 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   MET = recomet.et();
 
 
+  // Skims
+  // -------------------
+
   //######### Skim "none" ###########
   if(skim_=="none")
     {
@@ -799,13 +950,17 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       //  ********************************************************
     }//end skim "none"      
 
+
   //######### Skim "electron" ###########
   if(skim_=="electron" && saveTrigger_==true)
     {
+      int N_GSFele=1;
+      float pT_GSFele=85.;
+
       bool passHLT=false;
       bool passHLTprescale=false;
-      bool pass2Ele=false;
-      bool passPt2ndEle=false;
+      bool passNEle=false;
+      bool passPtEle=false;
       bool passSkim=false;
       
       //main triggers
@@ -823,20 +978,22 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	    }
 	}
 
-      //2 electrons
-      if(eleCount>=2)
-	pass2Ele=true;
+      //N GSF electrons
+      if(eleCount>=N_GSFele)
+	passNEle=true;
 
-      //pT cut on 2nd electron
-      if(pass2Ele)
+      //pT cut on electrons
+      if(passNEle)
 	{
-	  if(elePt[1]>20.)
-	    passPt2ndEle=true;
+	  int n_ele = N_GSFele - 1;
+
+	  if(elePt[n_ele]>pT_GSFele)
+	    passPtEle=true;
 	}
 
       //skim selection
-      if( (passHLT==true || passHLTprescale==true) 
-	  && pass2Ele==true && passPt2ndEle==true)
+      if( (passHLT==true && passNEle==true && passPtEle==true) 
+	  || passHLTprescale==true)
 	{
 	  passSkim=true;
 	}
@@ -857,6 +1014,7 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 	}//end if pass skim
 
     }//end skim "electron"
+
 
   //######### Skim "muon" ###########
   if(skim_=="muon" && saveTrigger_==true)
@@ -940,6 +1098,19 @@ RootNtupleMaker::beginJob(const edm::EventSetup&)
   m_tree->Branch("caloJetIC5Energy",&caloJetIC5Energy,"caloJetIC5Energy[caloJetIC5Count]/F");
   m_tree->Branch("caloJetIC5EMF",&caloJetIC5EMF,"caloJetIC5EMF[caloJetIC5Count]/F");
   m_tree->Branch("caloJetIC5HADF",&caloJetIC5HADF,"caloJetIC5HADF[caloJetIC5Count]/F");
+
+  m_tree->Branch("muonCount",&muonCount,"muonCount/I");
+  m_tree->Branch("muonEta",&muonEta,"muonEta[muonCount]/F");
+  m_tree->Branch("muonPhi",&muonPhi,"muonPhi[muonCount]/F");
+  m_tree->Branch("muonPt",&muonPt,"muonPt[muonCount]/F");
+  m_tree->Branch("muonEnergy",&muonEnergy,"muonEnergy[muonCount]/F");
+  m_tree->Branch("muonTrkHits",&muonTrkHits,"muonTrkHits[muonCount]/F");
+  m_tree->Branch("muonTrkD0",&muonTrkD0,"muonTrkD0[muonCount]/F");
+  m_tree->Branch("muonTrkDz",&muonTrkDz,"muonTrkDz[muonCount]/F");
+  m_tree->Branch("muonEcalIso",&muonEcalIso,"muonEcalIso[muonCount]/F");
+  m_tree->Branch("muonTrkIso",&muonTrkIso,"muonTrkIso[muonCount]/F");
+  m_tree->Branch("muonHcalIso",&muonHcalIso,"muonHcalIso[muonCount]/F");
+  m_tree->Branch("muonHOIso",&muonHOIso,"muonHOIso[muonCount]/F");
 
   m_tree->Branch("genMET",&genMET,"genMET/F");
   m_tree->Branch("MET",&MET,"MET/F");
