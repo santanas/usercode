@@ -4,7 +4,7 @@ INC= -I.. -I. -I./include  -I${CLHEP}/include
 ROOTINC= -I${ROOTSYS}/include
 LIBS= -L.  ${ROOTLIBS} -L${CLHEP}/lib -L${CLHEP}/lib 
 SELECTIONLIB = Selection.o 
-EXE = main_finalSelection
+EXE = main_finalSelection main_ele_isolation_ID
 
 # ********** TEMPLATE *************
 # mainProg: mainProg.o $(SELECTIONLIB)
@@ -14,6 +14,9 @@ EXE = main_finalSelection
 all: ${EXE}
 
 main_finalSelection: main_finalSelection.o $(SELECTIONLIB)
+	$(COMP) $(INC) $(ROOTINC) $(LIBS) -o $@  $(SELECTIONLIB) $@.o
+
+main_ele_isolation_ID: main_ele_isolation_ID.o $(SELECTIONLIB)
 	$(COMP) $(INC) $(ROOTINC) $(LIBS) -o $@  $(SELECTIONLIB) $@.o
 
 clean:

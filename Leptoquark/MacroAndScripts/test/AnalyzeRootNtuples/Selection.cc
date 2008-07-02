@@ -123,10 +123,26 @@ void Selection::Init(TChain *chain)
    fChain->SetBranchAddress("caloJetIC5Phi",caloJetIC5Phi);
    fChain->SetBranchAddress("caloJetIC5Pt",caloJetIC5Pt);
    fChain->SetBranchAddress("caloJetIC5Energy",caloJetIC5Energy);
+   fChain->SetBranchAddress("caloJetIC5Pt_raw",caloJetIC5Pt_raw);
+   fChain->SetBranchAddress("caloJetIC5Energy_raw",caloJetIC5Energy_raw);
    fChain->SetBranchAddress("caloJetIC5EMF",caloJetIC5EMF);
    fChain->SetBranchAddress("caloJetIC5HADF",caloJetIC5HADF);
+   fChain->SetBranchAddress("caloJetIC5_L5corr",caloJetIC5_L5corr);
+   fChain->SetBranchAddress("muonCount",&muonCount);
+   fChain->SetBranchAddress("muonEta",muonEta);
+   fChain->SetBranchAddress("muonPhi",muonPhi);
+   fChain->SetBranchAddress("muonPt",muonPt);
+   fChain->SetBranchAddress("muonEnergy",muonEnergy);
+   fChain->SetBranchAddress("muonTrkHits",muonTrkHits);
+   fChain->SetBranchAddress("muonTrkD0",muonTrkD0);
+   fChain->SetBranchAddress("muonTrkDz",muonTrkDz);
+   fChain->SetBranchAddress("muonEcalIso",muonEcalIso);
+   fChain->SetBranchAddress("muonTrkIso",muonTrkIso);
+   fChain->SetBranchAddress("muonHcalIso",muonHcalIso);
+   fChain->SetBranchAddress("muonHOIso",muonHOIso);
    fChain->SetBranchAddress("genMET",&genMET);
    fChain->SetBranchAddress("MET",&MET);
+
 
    Notify();
 
@@ -196,8 +212,23 @@ Bool_t Selection::Notify()
    b_caloJetIC5Phi = fChain->GetBranch("caloJetIC5Phi");
    b_caloJetIC5Pt = fChain->GetBranch("caloJetIC5Pt");
    b_caloJetIC5Energy = fChain->GetBranch("caloJetIC5Energy");
+   b_caloJetIC5Pt_raw = fChain->GetBranch("caloJetIC5Pt_raw");
+   b_caloJetIC5Energy_raw = fChain->GetBranch("caloJetIC5Energy_raw");
    b_caloJetIC5EMF = fChain->GetBranch("caloJetIC5EMF");
    b_caloJetIC5HADF = fChain->GetBranch("caloJetIC5HADF");
+   b_caloJetIC5_L5corr = fChain->GetBranch("caloJetIC5_L5corr");
+   b_muonCount = fChain->GetBranch("muonCount");
+   b_muonEta = fChain->GetBranch("muonEta");
+   b_muonPhi = fChain->GetBranch("muonPhi");
+   b_muonPt = fChain->GetBranch("muonPt");
+   b_muonEnergy = fChain->GetBranch("muonEnergy");
+   b_muonTrkHits = fChain->GetBranch("muonTrkHits");
+   b_muonTrkD0 = fChain->GetBranch("muonTrkD0");
+   b_muonTrkDz = fChain->GetBranch("muonTrkDz");
+   b_muonEcalIso = fChain->GetBranch("muonEcalIso");
+   b_muonTrkIso = fChain->GetBranch("muonTrkIso");
+   b_muonHcalIso = fChain->GetBranch("muonHcalIso");
+   b_muonHOIso = fChain->GetBranch("muonHOIso");
    b_genMET = fChain->GetBranch("genMET");
    b_MET = fChain->GetBranch("MET");
 

@@ -50,12 +50,23 @@ float eleSigmaEE_end_cut=0.0275;
 float eleDeltaPhiTrkSC_end_cut=0.092;
 float eleDeltaEtaTrkSC_end_cut=0.0105;
 
-int eleNumTrkIso_cut=5;
-float eleTrkIso_cut=5.;
-float eleEcalIso_cut=5.;
+// int eleNumTrkIso_cut=5;
+// float eleTrkIso_cut=5.;
+// float eleEcalIso_cut=5.;
+
+int eleNumTrkIso_cut=1;
+float eleTrkIso_cut=0.01;
+float eleEcalIso_cut=0.01;
+
+float elePt_cut=20.;
 
 float ConeSizeJetCleaning_cut=0.5;
-float pTJet_loose_cut=20.;
+float jetPt_cut=20.;
+
+float ele1stPt_cut=85.;
+float ele2ndPt_cut=20.;
+
+float jetEta_cut=3.;
 
 float Mee_lowCut=80.;
 float Mee_highCut=100.;
@@ -205,8 +216,8 @@ void Selection::Loop()
   TH1F *h_nJetFinal = new TH1F ("h_nJetFinal","",11,-0.5,10.5);
   h_nJetFinal->Sumw2();
 
-  TH1F *h_nJetFinal_pTcut = new TH1F ("h_nJetFinal_pTcut","",11,-0.5,10.5);
-  h_nJetFinal_pTcut->Sumw2();
+  //   TH1F *h_nJetFinal_pTcut = new TH1F ("h_nJetFinal_pTcut","",11,-0.5,10.5);
+  //   h_nJetFinal_pTcut->Sumw2();
 
   //pT 1st jet
   TH1F *h_pT1stJet = new TH1F ("h_pT1stJet","",100,0,1000);
@@ -217,11 +228,11 @@ void Selection::Loop()
   h_pT2ndJet->Sumw2();
   
   //eta 1st jet
-  TH1F *h_Eta1stJet = new TH1F ("h_Eta1stJet","",100,-3,3);
+  TH1F *h_Eta1stJet = new TH1F ("h_Eta1stJet","",100,-5,5);
   h_Eta1stJet->Sumw2();
   
   //eta 2nd jet
-  TH1F *h_Eta2ndJet = new TH1F ("h_Eta2ndJet","",100,-3,3);
+  TH1F *h_Eta2ndJet = new TH1F ("h_Eta2ndJet","",100,-5,5);
   h_Eta2ndJet->Sumw2();
 
   //----------------------------------------------------------------------
@@ -364,6 +375,7 @@ void Selection::Loop()
 	bool pass_ECAL_FR=false;
 	bool pass_eleID=false;
 	bool pass_eleIso=false;
+	bool pass_elePt=false;
 	
 	//ECAL fiducial region
 	if(fabs(eleEta[iele]) < ECAL_FR_1_cut 
@@ -395,10 +407,15 @@ void Selection::Loop()
 	   )
 	  pass_eleIso=true;
 
+	if(elePt[iele] > elePt_cut)
+	  {
+	    pass_elePt=true;
+	  }
+	
 	if(pass_eleID)
 	  v_idx_ele_ID.push_back(iele);	  
 
-	if(pass_ECAL_FR && pass_eleID && pass_eleIso)
+	if(pass_ECAL_FR && pass_eleID && pass_eleIso && pass_elePt)
 	  v_idx_ele_final.push_back(iele);	  
 
       }
@@ -406,7 +423,7 @@ void Selection::Loop()
 
     //### Jet definition
     vector<int> v_idx_jet_final;
-    vector<int> v_idx_jet_final_pTcut;
+    //vector<int> v_idx_jet_final_pTcut;
     for(int ijet=0;ijet<caloJetIC5Count;ijet++)
       {
 	bool skipJet=false;
@@ -414,8 +431,10 @@ void Selection::Loop()
 	TVector3 calojet;
 	calojet.SetPtEtaPhi(caloJetIC5Pt[ijet],caloJetIC5Eta[ijet],caloJetIC5Phi[ijet]);	
 
-	for(int iele=0;iele<v_idx_ele_ID.size();iele++)
+	//for(int iele=0;iele<v_idx_ele_ID.size();iele++)
+	for(int iele=0;iele<min(int(v_idx_ele_ID.size()),2);iele++)
 	  {
+
 	    TVector3 ele;
 	    ele.SetPtEtaPhi(elePt[v_idx_ele_ID[iele]],
 			    eleEta[v_idx_ele_ID[iele]],
@@ -428,15 +447,15 @@ void Selection::Loop()
 		skipJet=true;
 		break;
 	      }
+
 	  }//end ele loop
 
 	if(skipJet==true)
 	  continue;
 
-	v_idx_jet_final.push_back(ijet);	  
 
-	if(caloJetIC5Pt[ijet]>pTJet_loose_cut)
-	  v_idx_jet_final_pTcut.push_back(ijet);	  
+	if(caloJetIC5Pt[ijet]>jetPt_cut)
+	  v_idx_jet_final.push_back(ijet);	  
 
       }
 
@@ -447,12 +466,42 @@ void Selection::Loop()
     bool pass_twoEle=false;
     bool pass_twoJet=false;
 
+    bool pass_1stElePtCut=false;
+    bool pass_2ndElePtCut=false;
+
+    bool pass_1stJetEtaCut=false;
+    bool pass_2ndJetEtaCut=false;
+
     //## Selection criteria
     if(v_idx_ele_final.size()>=2)
       pass_twoEle=true;
 
     if(v_idx_jet_final.size()>=2)
       pass_twoJet=true;
+
+    if(v_idx_ele_final.size()>=1)
+      {
+	if(elePt[v_idx_ele_final[0]] > ele1stPt_cut)
+	  pass_1stElePtCut=true;
+      }
+
+    if(pass_twoEle==true)
+      {
+	if(elePt[v_idx_ele_final[1]] > ele2ndPt_cut)
+	  pass_2ndElePtCut=true;
+      }
+
+    if(v_idx_jet_final.size()>=1)
+      {
+	if( fabs(caloJetIC5Eta[v_idx_jet_final[0]]) < jetEta_cut)
+	  pass_1stJetEtaCut=true;
+      }
+
+    if(pass_twoJet==true)
+      {
+	if( fabs(caloJetIC5Eta[v_idx_jet_final[1]]) < jetEta_cut)
+	  pass_2ndJetEtaCut=true;
+      }
 
 
     //## M(ele-ele)
@@ -521,7 +570,10 @@ void Selection::Loop()
 
       }
 
-    //## Plots
+
+
+    //## Plots, number of selected events and efficiencies
+
     h_pThat_unweight->Fill(pthat);
     h_pThat_weight->Fill(pthat,weight);
 
@@ -529,9 +581,11 @@ void Selection::Loop()
     h_nEleFinal->Fill(v_idx_ele_final.size(),weight);
 
     h_nJetFinal->Fill(v_idx_jet_final.size(),weight);
-    h_nJetFinal_pTcut->Fill(v_idx_jet_final_pTcut.size(),weight);
+    //h_nJetFinal_pTcut->Fill(v_idx_jet_final_pTcut.size(),weight);
 
-    if(pass_twoEle==true && pass_twoJet==true)
+    if(pass_twoEle==true && pass_twoJet==true 
+       && pass_1stElePtCut==true && pass_2ndElePtCut==true
+       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true)
       { 
 	float St = 
 	  elePt[v_idx_ele_final[0]] 
@@ -624,7 +678,7 @@ void Selection::Loop()
   h_Eta2ndEle->Write();
 
   h_nJetFinal->Write();
-  h_nJetFinal_pTcut->Write();
+  //h_nJetFinal_pTcut->Write();
 
   h_pT1stJet->Write();
   h_pT2ndJet->Write();

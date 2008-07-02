@@ -87,8 +87,23 @@ public :
    Float_t         caloJetIC5Phi[11];   //[caloJetIC5Count]
    Float_t         caloJetIC5Pt[11];   //[caloJetIC5Count]
    Float_t         caloJetIC5Energy[11];   //[caloJetIC5Count]
+   Float_t         caloJetIC5Pt_raw[11];   //[caloJetIC5Count]
+   Float_t         caloJetIC5Energy_raw[11];   //[caloJetIC5Count]
    Float_t         caloJetIC5EMF[11];   //[caloJetIC5Count]
    Float_t         caloJetIC5HADF[11];   //[caloJetIC5Count]
+   Float_t         caloJetIC5_L5corr[11];   //[caloJetIC5Count]
+   Int_t           muonCount;
+   Float_t         muonEta[3];   //[muonCount]
+   Float_t         muonPhi[3];   //[muonCount]
+   Float_t         muonPt[3];   //[muonCount]
+   Float_t         muonEnergy[3];   //[muonCount]
+   Float_t         muonTrkHits[3];   //[muonCount]
+   Float_t         muonTrkD0[3];   //[muonCount]
+   Float_t         muonTrkDz[3];   //[muonCount]
+   Float_t         muonEcalIso[3];   //[muonCount]
+   Float_t         muonTrkIso[3];   //[muonCount]
+   Float_t         muonHcalIso[3];   //[muonCount]
+   Float_t         muonHOIso[3];   //[muonCount]
    Float_t         genMET;
    Float_t         MET;
 
@@ -146,8 +161,23 @@ public :
    TBranch        *b_caloJetIC5Phi;   //!
    TBranch        *b_caloJetIC5Pt;   //!
    TBranch        *b_caloJetIC5Energy;   //!
+   TBranch        *b_caloJetIC5Pt_raw;   //!
+   TBranch        *b_caloJetIC5Energy_raw;   //!
    TBranch        *b_caloJetIC5EMF;   //!
    TBranch        *b_caloJetIC5HADF;   //!
+   TBranch        *b_caloJetIC5_L5corr;   //!
+   TBranch        *b_muonCount;   //!
+   TBranch        *b_muonEta;   //!
+   TBranch        *b_muonPhi;   //!
+   TBranch        *b_muonPt;   //!
+   TBranch        *b_muonEnergy;   //!
+   TBranch        *b_muonTrkHits;   //!
+   TBranch        *b_muonTrkD0;   //!
+   TBranch        *b_muonTrkDz;   //!
+   TBranch        *b_muonEcalIso;   //!
+   TBranch        *b_muonTrkIso;   //!
+   TBranch        *b_muonHcalIso;   //!
+   TBranch        *b_muonHOIso;   //!
    TBranch        *b_genMET;   //!
    TBranch        *b_MET;   //!
 
