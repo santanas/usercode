@@ -23,6 +23,10 @@ rootdir =  "/u1/santanas/Leptoquark/LQRootNtupleTest"
 Infact the script will create into it one directory for each 
 datasetName in the samples.txt list)
 
+P.S. when you create the directory on CASTOR castorDir you need to do 
+rfchmod +775 castorDir
+to make it writable by every user
+
 3) edit template_rtuple.cfg
 
 > cp YourCfg.cfg template_rtuple.cfg
