@@ -13,10 +13,9 @@
 //
 // Original Author:  Francesco Santanastasio
 //         Created:  Thu May 22 21:54:39 CEST 2008
-// $Id: RootNtupleMaker.cc,v 1.3 2008/06/28 15:11:26 santanas Exp $
+// $Id: RootNtupleMaker.cc,v 1.4 2008/06/28 16:30:24 santanas Exp $
 //
 //
-
 
 // system include files
 #include <memory>
@@ -67,6 +66,8 @@
 
 // Reco jets
 #include "DataFormats/JetReco/interface/CaloJet.h"
+#include "DataFormats/JetReco/interface/CaloJetCollection.h"
+#include "JetMETCorrections/Objects/interface/JetCorrector.h"
 
 // Genparticles and GenJets
 #include "DataFormats/Candidate/interface/Candidate.h"
@@ -149,6 +150,7 @@ class RootNtupleMaker : public edm::EDAnalyzer {
   int                  maxelectrons_;
   int                  maxcalojets_;
   int                  maxmuons_;
+  bool                 aodsim_;
   bool                 soup_;
   bool                 fastSim_;
   bool                 debug_;
@@ -231,10 +233,14 @@ class RootNtupleMaker : public edm::EDAnalyzer {
   Int_t                caloJetIC5Count;
   Float_t              caloJetIC5Eta[MAXCALOJETS];
   Float_t              caloJetIC5Phi[MAXCALOJETS];
-  Float_t              caloJetIC5Pt[MAXCALOJETS];
-  Float_t              caloJetIC5Energy[MAXCALOJETS];
   Float_t              caloJetIC5EMF[MAXCALOJETS];
   Float_t              caloJetIC5HADF[MAXCALOJETS];
+  Float_t              caloJetIC5Pt_raw[MAXCALOJETS];
+  Float_t              caloJetIC5Energy_raw[MAXCALOJETS];
+  Float_t              caloJetIC5Pt[MAXCALOJETS];
+  Float_t              caloJetIC5Energy[MAXCALOJETS];
+  Float_t              caloJetIC5_L5corr[MAXCALOJETS];
+
 
   // Muons
   Int_t                muonCount;
@@ -253,6 +259,10 @@ class RootNtupleMaker : public edm::EDAnalyzer {
   // MET 
   Float_t              genMET;
   Float_t              MET;
+
+  // Parameters from cfg
+  std::string mUDSCorrectorName;
+
 
 };
 
@@ -280,6 +290,7 @@ RootNtupleMaker::RootNtupleMaker(const edm::ParameterSet& iConfig)
   maxcalojets_       = iConfig.getUntrackedParameter<int>("maxcalojets",10); 
   maxmuons_          = iConfig.getUntrackedParameter<int>("maxmuons",5); 
 
+  aodsim_            = iConfig.getUntrackedParameter<bool>("aodsim",0);
   soup_              = iConfig.getUntrackedParameter<bool>("soup",0);
   fastSim_           = iConfig.getUntrackedParameter<bool>("fastSim",0);
   debug_             = iConfig.getUntrackedParameter<bool>("mydebug",0);
@@ -290,6 +301,8 @@ RootNtupleMaker::RootNtupleMaker(const edm::ParameterSet& iConfig)
   hltTriggerResultTag_   =  iConfig.getParameter<edm::InputTag> ("HLTTriggerResultsTag");
   prescaleSingleEleRel_  = iConfig.getUntrackedParameter<int>("prescaleSingleEleRel",30); 
   skim_                  = iConfig.getUntrackedParameter<std::string>("skim","electron");
+
+  mUDSCorrectorName = iConfig.getParameter <std::string> ("UDSQuarksCorrector");
 
   //Initialize some variables
   singleEleRelHLTCounter=0;
@@ -353,8 +366,11 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   runnum = iEvent.id().run();
 
   // Fill gen event info
-  if(soup_ == 1 && fastSim_ == 0)  //if running on soup
+  if(soup_ == 1 && fastSim_ == 0 && aodsim_==1)  //if running on soup
     {
+
+      if(debug_==true)
+	cout << "Running on soup" << endl;
 
       //PROCESS ID
       Handle< int > genProcessID;
@@ -446,9 +462,13 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
     }
   
-  else if(soup_ == 0 && fastSim_ == 0) // if *not* running on soup and not fastSim
+  else if(soup_ == 0 && fastSim_ == 0 && aodsim_==0) // if running on reco
     
     {
+
+      if(debug_==true)
+	cout << "Running on reco" << endl;
+
       
       Handle< GenInfoProduct > gi;
       iEvent.getRun().getByLabel( "source", gi);
@@ -471,9 +491,13 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
     }
 
-  else if(soup_ == 0 && fastSim_ == 1) // if *not* running on soup and running on fastSim
+  else if(soup_ == 0 && fastSim_ == 1 && aodsim_==1) // if *not* running on soup and running on fastSim
 
     {
+
+      if(debug_==true)
+	cout << "Running on fastSim" << endl;
+
 
       Handle< GenInfoProduct > gi;
       iEvent.getRun().getByLabel( "source", gi);
@@ -502,6 +526,102 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       m_weight = m_cross_section * luminosity_ / (float) numEvents_;
 
     }
+
+  else if(soup_ == 0 && fastSim_ == 0 && aodsim_ == 1)  //if running on aodsim (non soup)
+
+    {
+
+      if(debug_==true)
+	cout << "Running on aodsim" << endl;
+
+
+      //PROCESS ID
+      Handle< int > genProcessID;
+      iEvent.getByLabel( "genEventProcID", genProcessID );
+      m_processID = *genProcessID;
+
+
+      //ALPGEN PROCESS ID
+      if(m_processID==4)
+	{
+	  Handle< int > alpgenProcessID;
+	  iEvent.getByLabel( "weight","AlpgenProcessID", alpgenProcessID );
+	  m_ALPGENprocessID = *alpgenProcessID;
+	}
+      else
+	m_ALPGENprocessID = -999;
+
+
+      //PT HAT
+      if(m_processID==4) //alpgen process
+	{
+	  //code from CSA07WeightProducer
+	  Handle<CandidateCollection> genParticles;
+	  iEvent.getByLabel( "genParticleCandidates", genParticles );    
+	  double pT = 0.; //pThat
+	  
+	  // first loop: which process?
+	  for( size_t i = 0; i < genParticles->size(); ++ i ) {
+	    const Candidate & p = (*genParticles)[ i ];
+	    int id = p.pdgId();
+	    int st = p.status();  
+
+	    // W+jets
+	    if(st == 3 && (id == 24 || id == -24) ) {
+	      pT = p.pt();
+	      i = genParticles->size()-1; // get out of the loop
+	    }
+	    // Z+jets
+	    if(st == 3 && (id == 23 || id == -23) ) {
+	      pT = p.pt();
+	      i = genParticles->size()-1; // get out of the loop       
+	    }
+	    // tt+jets
+	    if(st == 3 && (id == 6 || id == -6) ) {
+	      pT = p.pt();
+	      i = genParticles->size()-1; // get out of the loop       
+	    }
+	  }
+	  m_pthat = pT;
+	} 
+      else // *not* alpgen process
+	{
+	  Handle< double > genEventScale;
+	  iEvent.getByLabel( "genEventScale", genEventScale );
+	  m_pthat = *genEventScale;
+	}
+
+
+      if (m_processID != 4) 
+	{
+	  //FILTER EFFICIENCY
+	  Handle< double > genFilterEff;
+	  iEvent.getByLabel( "genEventRunInfo", "FilterEfficiency", genFilterEff);
+	  m_filter_eff = *genFilterEff;
+
+	  //CROSS SECTION
+	  Handle< double > genCrossSect;
+	  iEvent.getByLabel( "genEventRunInfo", "PreCalculatedCrossSection", genCrossSect); 
+	  m_cross_section = *genCrossSect;
+	  
+	  Handle< double > genAutoCrossSect;
+	  iEvent.getByLabel( "genEventRunInfo", "AutoCrossSection", genAutoCrossSect);
+	  m_auto_cross_section = (*genAutoCrossSect)*float(pow(10.0,9));
+	}
+      else
+	{
+	  m_filter_eff=-999;
+	  m_cross_section=-999;
+	  m_auto_cross_section=-999.;
+	}
+
+      m_weight = m_cross_section * luminosity_ / (float) numEvents_;
+
+      if(debug_==true)
+	cout << "weight: " << m_weight << endl;
+
+    }
+
 
 
   if(debug_==true)
@@ -754,8 +874,17 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
   
   // Fill CaloJets quantities
   // -------------------------
+
+  //raw
+  edm::Handle<reco::CaloJetCollection> caloJetsIC5_raw;
+  iEvent.getByLabel ("iterativeCone5CaloJets", caloJetsIC5_raw); 
+
+  //L2+L3 correction
   edm::Handle<reco::CaloJetCollection> caloJetsIC5;
-  iEvent.getByLabel ("iterativeCone5CaloJets", caloJetsIC5);
+  iEvent.getByLabel ("L3JetCorJetIcone5", caloJetsIC5); 
+
+  // get Jet Flavor corrector (L5)
+  const JetCorrector* udsJetCorrector = JetCorrector::getJetCorrector (mUDSCorrectorName, iSetup);
 
   caloJetIC5Count=0;
   for( CaloJetCollection::const_iterator calojet = caloJetsIC5->begin(); calojet != caloJetsIC5->end(); calojet++ ) 
@@ -764,19 +893,24 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       if(caloJetIC5Count > maxcalojets_)
 	break;
 
+      float JEScorrection = float ( udsJetCorrector->correction( (*caloJetsIC5)[caloJetIC5Count], iEvent, iSetup) );
+
       float EMF = calojet->emEnergyFraction();
       float HADF = calojet->energyFractionHadronic();
 
-      caloJetIC5Pt[caloJetIC5Count]=calojet->pt();
+      caloJetIC5_L5corr[caloJetIC5Count]=JEScorrection;
+      caloJetIC5Pt[caloJetIC5Count]=calojet->pt()*JEScorrection;
+      caloJetIC5Energy[caloJetIC5Count]=calojet->energy()*JEScorrection;
+      caloJetIC5Pt_raw[caloJetIC5Count]=(*caloJetsIC5_raw)[caloJetIC5Count].pt();
+      caloJetIC5Energy_raw[caloJetIC5Count]=(*caloJetsIC5_raw)[caloJetIC5Count].energy();
       caloJetIC5Phi[caloJetIC5Count]=calojet->phi();
       caloJetIC5Eta[caloJetIC5Count]=calojet->eta();
-      caloJetIC5Energy[caloJetIC5Count]=calojet->energy();
       caloJetIC5EMF[caloJetIC5Count]=EMF;
       caloJetIC5HADF[caloJetIC5Count]=HADF;
       
       caloJetIC5Count++;
     }
-
+ 
 
   // Muons
   //***********
@@ -1081,8 +1215,12 @@ RootNtupleMaker::beginJob(const edm::EventSetup&)
   m_tree->Branch("caloJetIC5Phi",&caloJetIC5Phi,"caloJetIC5Phi[caloJetIC5Count]/F");
   m_tree->Branch("caloJetIC5Pt",&caloJetIC5Pt,"caloJetIC5Pt[caloJetIC5Count]/F");
   m_tree->Branch("caloJetIC5Energy",&caloJetIC5Energy,"caloJetIC5Energy[caloJetIC5Count]/F");
+  m_tree->Branch("caloJetIC5Pt_raw",&caloJetIC5Pt_raw,"caloJetIC5Pt_raw[caloJetIC5Count]/F");
+  m_tree->Branch("caloJetIC5Energy_raw",&caloJetIC5Energy_raw,"caloJetIC5Energy_raw[caloJetIC5Count]/F");
   m_tree->Branch("caloJetIC5EMF",&caloJetIC5EMF,"caloJetIC5EMF[caloJetIC5Count]/F");
   m_tree->Branch("caloJetIC5HADF",&caloJetIC5HADF,"caloJetIC5HADF[caloJetIC5Count]/F");
+  m_tree->Branch("caloJetIC5_L5corr",&caloJetIC5_L5corr,"caloJetIC5_L5corr[caloJetIC5Count]/F");
+
 
   m_tree->Branch("muonCount",&muonCount,"muonCount/I");
   m_tree->Branch("muonEta",&muonEta,"muonEta[muonCount]/F");
