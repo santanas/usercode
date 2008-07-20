@@ -61,12 +61,15 @@ float eleTrkIso_cut=0.05;
 float eleEcalIso_cut=0.05;
 
 float elePt_cut=20.;
+float muonPt_cut=20.;
 
 float ConeSizeJetCleaning_cut=0.5;
-float jetPt_cut=20.;
+float jetPt_cut=50.;
 
 float ele1stPt_cut=85.;
 float ele2ndPt_cut=20.;
+
+float muon1stPt_cut=20.;
 
 float jetEta_cut=3.;
 
@@ -246,7 +249,7 @@ void Selection::Loop()
   //----------------------------------------------------------------------
 
   //Mee
-  TH1F *h_Mee = new TH1F ("h_Mee","",100,0.,300.);
+  TH1F *h_Mee = new TH1F ("h_Mee","",200,0.,1000.);
   h_Mee->Sumw2();
 
   //Mej (all Comb)
@@ -282,6 +285,23 @@ void Selection::Loop()
 
   TH2F *h_2d_Mej_best_Meecut_vs_St = new TH2F ("h_2d_Mej_best_Meecut_vs_St","",200,0.,2000.,100,0.,1000.);
   h_2d_Mej_best_Meecut_vs_St->Sumw2();
+
+
+  //Mej (inside M(Z) window)
+  TH1F *h_Mej_allComb_MeecutInside_Stcut = new TH1F ("h_Mej_allComb_MeecutInside_Stcut","",100,0.,1000.);
+  h_Mej_allComb_MeecutInside_Stcut->Sumw2();
+
+  TH1F *h_Mej_best_MeecutInside_Stcut = new TH1F ("h_Mej_best_MeecutInside_Stcut","",100,0.,1000.);
+  h_Mej_best_MeecutInside_Stcut->Sumw2();
+
+
+  //Mej/Mmuj
+  TH1F *h_Memuj_allComb_Memucut_Stcut = new TH1F ("h_Memuj_allComb_Memucut_Stcut","",100,0.,1000.);
+  h_Memuj_allComb_Memucut_Stcut->Sumw2();
+
+  TH1F *h_Memuj_best_Memucut_Stcut = new TH1F ("h_Memuj_best_Memucut_Stcut","",100,0.,1000.);
+  h_Memuj_best_Memucut_Stcut->Sumw2();
+
 
   //----------------------------------------------------------------------
 
@@ -514,7 +534,6 @@ void Selection::Loop()
 	TVector3 calojet;
 	calojet.SetPtEtaPhi(caloJetIC5Pt[ijet],caloJetIC5Eta[ijet],caloJetIC5Phi[ijet]);	
 
-	//for(int iele=0;iele<v_idx_ele_ID.size();iele++)
 	for(int iele=0;iele<min(int(v_idx_ele_ID.size()),2);iele++)
 	  {
 
@@ -533,6 +552,7 @@ void Selection::Loop()
 
 	  }//end ele loop
 
+
 	if(skipJet==true)
 	  continue;
 
@@ -541,6 +561,72 @@ void Selection::Loop()
 	  v_idx_jet_final.push_back(ijet);	  
 
       }
+
+
+    //### Muon definition
+    vector<int> v_idx_muon_ID;
+    vector<int> v_idx_muon_final_noIso;
+    vector<int> v_idx_muon_final;
+
+    for(int imuon=0;imuon<muonCount;imuon++)
+      {
+
+	bool pass_MUON_FR=false;
+	bool pass_muonID=false;
+	bool pass_muonIso=false;
+	bool pass_muonPt=false;
+	
+	//MUON fiducial region matching ECAL one
+	if(fabs(muonEta[imuon]) < ECAL_FR_1_cut 
+           || 
+	   (fabs(muonEta[imuon]) > ECAL_FR_2_cut 
+	    && fabs(muonEta[imuon]) < ECAL_FR_3_cut)
+	   )
+	  pass_MUON_FR=true;
+
+	//????????????? ADD isolations ???????????????
+
+	//pT cut
+	if(muonPt[imuon] > muonPt_cut)
+	  {
+	    pass_muonPt=true;
+	  }
+
+	//remove fake muons coming from jets
+	bool skipMuon=false;
+
+	TVector3 muon;
+	muon.SetPtEtaPhi(muonPt[imuon],
+			 muonEta[imuon],
+			 muonPhi[imuon]);	
+	
+	for(int ijet=0;ijet<min(int(v_idx_jet_final.size()),2);ijet++)
+	  {
+
+	    TVector3 calojet;
+	    calojet.SetPtEtaPhi(caloJetIC5Pt[v_idx_jet_final[ijet]],
+				caloJetIC5Eta[v_idx_jet_final[ijet]],
+				caloJetIC5Phi[v_idx_jet_final[ijet]]);	
+
+	    float DeltaR_muon_jet = muon.DeltaR(calojet);
+
+	    if(DeltaR_muon_jet<ConeSizeJetCleaning_cut)
+	      {
+		skipMuon=true;
+		break;
+	      }
+
+	  }//end muon loop
+
+	if(skipMuon==true)
+	  continue;
+
+	//full selection
+	if(pass_MUON_FR && pass_muonPt)
+	  v_idx_muon_final.push_back(imuon);	  
+
+      }
+
 
 
     // -------------  Selection ------------------------
@@ -560,6 +646,12 @@ void Selection::Loop()
    
     bool pass_St=false;
 
+    //for muon control sample
+    bool pass_1Ele1Muon=false;
+    bool pass_1stMuonPtCut=false;
+    bool pass_Memu=false;
+    bool pass_St_mu=false;
+
     //## Selection criteria
 
     //## 2 ele non Iso
@@ -569,6 +661,10 @@ void Selection::Loop()
     //## 2 ele Iso
     if(v_idx_ele_final.size()>=2)
       pass_twoEle=true;
+
+    //## 1 ele Iso + 1 muon Iso
+    if(v_idx_muon_final.size()>=1 && v_idx_ele_final.size()>=1)
+      pass_1Ele1Muon=true;
 
     //## 2 jets
     if(v_idx_jet_final.size()>=2)
@@ -588,14 +684,21 @@ void Selection::Loop()
 	  pass_2ndElePtCut=true;
       }
 
-    //## eta cut 1st ele
+    //## pT cut 1st muon
+    if(v_idx_muon_final.size()>=1)
+      {
+	if(muonPt[v_idx_muon_final[0]] > muon1stPt_cut)
+	  pass_1stMuonPtCut=true;
+      }
+
+    //## eta cut 1st jet
     if(v_idx_jet_final.size()>=1)
       {
 	if( fabs(caloJetIC5Eta[v_idx_jet_final[0]]) < jetEta_cut)
 	  pass_1stJetEtaCut=true;
       }
 
-    //## eta cut 2nd ele
+    //## eta cut 2nd jet
     if(pass_twoJet==true)
       {
 	if( fabs(caloJetIC5Eta[v_idx_jet_final[1]]) < jetEta_cut)
@@ -620,10 +723,31 @@ void Selection::Loop()
 	Mee = v_ee.M();
       }
 
+    //## M(ele-muon) ##
+    TLorentzVector v_emu;
+
+    float Memu = -999.;
+
+    if(pass_1Ele1Muon==true)
+      {
+	TLorentzVector ele1;
+	ele1.SetPtEtaPhiM(elePt[v_idx_ele_final[0]],eleEta[v_idx_ele_final[0]],elePhi[v_idx_ele_final[0]],0);	
+	TLorentzVector muon1;
+	muon1.SetPtEtaPhiM(muonPt[v_idx_muon_final[0]],muonEta[v_idx_muon_final[0]],muonPhi[v_idx_muon_final[0]],0);	
+
+	v_emu = ele1 + muon1;
+
+	Memu = v_emu.M();
+      }
+
 
     //## Remove real Zs
     if(pass_twoEle==true && (Mee<Mee_lowCut || Mee>Mee_highCut))
       pass_Mee=true;
+
+    //simulate the cut above using emu events
+    if(pass_1Ele1Muon==true && (Memu<Mee_lowCut || Memu>Mee_highCut))
+      pass_Memu=true;
 
 
     //## St cut
@@ -634,13 +758,30 @@ void Selection::Loop()
 	St = 
 	  elePt[v_idx_ele_final[0]] 
 	  + elePt[v_idx_ele_final[1]] 
-	  + caloJetIC5Pt[v_idx_ele_final[0]]
-	  + caloJetIC5Pt[v_idx_ele_final[1]];
+	  + caloJetIC5Pt[v_idx_jet_final[0]]
+	  + caloJetIC5Pt[v_idx_jet_final[1]];
 	
 	//~~
 	
 	if(St>St_Cut)
 	  pass_St=true;
+      }
+
+    //## St cut (mu)
+    float St_mu=-999.;
+
+    if(pass_1Ele1Muon==true && pass_twoJet==true)
+      {
+	St_mu = 
+	  elePt[v_idx_ele_final[0]] 
+	  + muonPt[v_idx_muon_final[0]] 
+	  + caloJetIC5Pt[v_idx_jet_final[0]]
+	  + caloJetIC5Pt[v_idx_jet_final[1]];
+	
+	//~~
+	
+	if(St_mu>St_Cut)
+	  pass_St_mu=true;
       }
 
 
@@ -693,6 +834,61 @@ void Selection::Loop()
 	    bestLQMass2=LQ21.M();
 	    wrongLQMass1=LQ11.M();
 	    wrongLQMass2=LQ22.M();
+	  }
+
+      }
+
+
+
+    //## M(jet-ele/mu) ##
+    TLorentzVector LQ11_mu;
+    TLorentzVector LQ12_mu;
+    TLorentzVector LQ21_mu;
+    TLorentzVector LQ22_mu;
+
+    float bestLQMass1_mu=0.;
+    float bestLQMass2_mu=0.;
+    float wrongLQMass1_mu=0.;
+    float wrongLQMass2_mu=0.;
+
+    if(pass_1Ele1Muon==true && pass_twoJet==true)
+      { 
+
+	TLorentzVector ele1;
+	ele1.SetPtEtaPhiM(elePt[v_idx_ele_final[0]],eleEta[v_idx_ele_final[0]],elePhi[v_idx_ele_final[0]],0);	
+	TLorentzVector muon1;
+	muon1.SetPtEtaPhiM(muonPt[v_idx_muon_final[0]],muonEta[v_idx_muon_final[0]],muonPhi[v_idx_muon_final[0]],0);	
+
+	TLorentzVector jet1;
+	jet1.SetPtEtaPhiM(caloJetIC5Pt[v_idx_jet_final[0]],caloJetIC5Eta[v_idx_jet_final[0]],caloJetIC5Phi[v_idx_jet_final[0]],0);	
+	TLorentzVector jet2;
+	jet2.SetPtEtaPhiM(caloJetIC5Pt[v_idx_jet_final[1]],caloJetIC5Eta[v_idx_jet_final[1]],caloJetIC5Phi[v_idx_jet_final[1]],0);	
+
+	//comb1	
+	LQ11_mu = ele1 + jet1;
+	LQ22_mu = muon1 + jet2;
+
+	//comb2
+	LQ12_mu = ele1 + jet2;
+	LQ21_mu = muon1 + jet1;
+
+	//Best LQ mass algorithm
+	float DeltaM_comb1_mu=fabs(LQ11_mu.M()-LQ22_mu.M());
+	float DeltaM_comb2_mu=fabs(LQ21_mu.M()-LQ12_mu.M());
+
+	if(DeltaM_comb1_mu<DeltaM_comb2_mu)
+	  {
+	    bestLQMass1_mu=LQ11_mu.M();
+	    bestLQMass2_mu=LQ22_mu.M();
+	    wrongLQMass1_mu=LQ12_mu.M();
+	    wrongLQMass2_mu=LQ21_mu.M();
+	  }
+	else
+	  {
+	    bestLQMass1_mu=LQ12_mu.M();
+	    bestLQMass2_mu=LQ21_mu.M();
+	    wrongLQMass1_mu=LQ11_mu.M();
+	    wrongLQMass2_mu=LQ22_mu.M();
 	  }
 
       }
@@ -869,6 +1065,60 @@ void Selection::Loop()
       }
 
 
+
+    if(pass_twoEle==true && pass_twoJet==true 
+       && pass_1stElePtCut==true && pass_2ndElePtCut==true
+       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true
+       && pass_Mee==false
+       && pass_St==true)
+      { 
+
+// 	//~~~
+	
+// 	N_abs_St++;
+// 	N_Lint_St+=weight;
+// 	e_N_Lint_St+=weight*weight;
+	
+// 	//~~~
+
+	h_Mej_allComb_MeecutInside_Stcut->Fill(LQ11.M(),weight);
+	h_Mej_allComb_MeecutInside_Stcut->Fill(LQ12.M(),weight);
+	h_Mej_allComb_MeecutInside_Stcut->Fill(LQ21.M(),weight);
+	h_Mej_allComb_MeecutInside_Stcut->Fill(LQ22.M(),weight);
+
+	h_Mej_best_MeecutInside_Stcut->Fill(bestLQMass1,weight);
+	h_Mej_best_MeecutInside_Stcut->Fill(bestLQMass2,weight);
+
+      }
+
+
+    if(pass_1Ele1Muon==true && pass_twoJet==true 
+       && pass_1stElePtCut==true && pass_1stMuonPtCut==true
+       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true
+       && pass_Memu==true
+       && pass_St_mu==true)
+      { 
+
+// 	//~~~
+	
+// 	N_abs_St_mu++;
+// 	N_Lint_St_mu+=weight;
+// 	e_N_Lint_St_mu+=weight*weight;
+	
+// 	//~~~
+	
+	h_Memuj_allComb_Memucut_Stcut->Fill(LQ11_mu.M(),weight);
+	h_Memuj_allComb_Memucut_Stcut->Fill(LQ12_mu.M(),weight);
+	h_Memuj_allComb_Memucut_Stcut->Fill(LQ21_mu.M(),weight);
+	h_Memuj_allComb_Memucut_Stcut->Fill(LQ22_mu.M(),weight);
+
+	h_Memuj_best_Memucut_Stcut->Fill(bestLQMass1_mu,weight);
+	h_Memuj_best_Memucut_Stcut->Fill(bestLQMass2_mu,weight);
+
+      }
+
+
+
   }// end loop over events
 
 
@@ -1011,6 +1261,12 @@ void Selection::Loop()
 
   h_2d_Mej_allComb_Meecut_vs_St->Write();
   h_2d_Mej_best_Meecut_vs_St->Write();
+
+  h_Mej_allComb_MeecutInside_Stcut->Write();
+  h_Mej_best_MeecutInside_Stcut->Write();
+
+  h_Memuj_allComb_Memucut_Stcut->Write();
+  h_Memuj_best_Memucut_Stcut->Write();
 
   output_root->Close();
 
