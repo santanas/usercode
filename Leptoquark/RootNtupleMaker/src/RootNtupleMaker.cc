@@ -12,7 +12,7 @@
 */
 // Original Author:  Francesco Santanastasio
 //         Created:  Thu May 22 21:54:39 CEST 2008
-// $Id: RootNtupleMaker.cc,v 1.5 2008/07/19 16:59:12 santanas Exp $
+// $Id: RootNtupleMaker.cc,v 1.6 2008/07/19 17:30:44 santanas Exp $
 //
 //
 
@@ -490,7 +490,7 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
     }
 
-  else if(soup_ == 0 && fastSim_ == 1 && aodsim_==1) // if *not* running on soup and running on fastSim
+  else if(soup_ == 0 && fastSim_ == 1 && aodsim_==1) // if *not* running on soup and running on fastSim (aodsim)
 
     {
 
@@ -506,21 +506,22 @@ RootNtupleMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
 
       m_filter_eff = gi->filter_efficiency();
 
-      //TO BE CHANGED      
-      //for the moment I don't have processID and pthat in fast sim 
-      //(new fast sim needed with PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi
-      //and  PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi )
+      // (needed PhysicsTools/HepMCCandAlgos/data/genEventWeight.cfi
+      // and  PhysicsTools/HepMCCandAlgos/data/genEventScale.cfi,.. )
 
-      //       Handle< HepMCProduct > mc;
-      //       iEvent.getByLabel( "source", mc );
-      //       const HepMC::GenEvent * genEvt = mc->GetEvent();
-      //       m_processID = genEvt->signal_process_id();
-      //       m_pthat = genEvt->event_scale(); 
-      //       m_ALPGENprocessID = -999;
-      //       m_weight = m_cross_section * luminosity_ / (float) numEvents_;
+      //PROCESS ID
+      Handle< int > genProcessID;
+      iEvent.getByLabel( "genEventProcID", genProcessID );
+      m_processID = *genProcessID;
 
-      m_processID = -999;
-      m_pthat = -999; 
+      //PT HAT
+      Handle< double > genEventScale;
+      iEvent.getByLabel( "genEventScale", genEventScale );
+      m_pthat = *genEventScale;
+
+
+      //m_processID = -999;
+      //m_pthat = -999; 
       m_ALPGENprocessID = -999;
       m_weight = m_cross_section * luminosity_ / (float) numEvents_;
 
