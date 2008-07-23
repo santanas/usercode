@@ -22,8 +22,8 @@ int rebin=1;
 
 //## name of histo to fit
 char histoname[200];
-sprintf(histoname,"h_Mej_best_Meecut_Stcut");
-//sprintf(histoname,"h_Mej_allComb_Meecut_Stcut");
+//sprintf(histoname,"h_Mej_best_Meecut_Stcut");
+sprintf(histoname,"h_Mej_allComb_Meecut_Stcut");
 
 
 //## "Data" 
