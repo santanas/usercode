@@ -13,7 +13,7 @@
 //
 // Original Author:  pts/10
 //         Created:  Tue Feb 19 10:07:45 CET 2008
-// $Id: RecoElectrons.cc,v 1.11 2008/05/12 14:41:27 santanas Exp $
+// $Id: RecoElectrons.cc,v 1.12 2008/05/21 08:36:12 santanas Exp $
 //
 //
 
@@ -62,7 +62,6 @@
 
 //HLT
 #include "FWCore/Framework/interface/TriggerNames.h"
-
 
 //Isolation
 #include "DataFormats/Candidate/interface/CandAssociation.h"
@@ -148,7 +147,6 @@ class RecoElectrons : public edm::EDAnalyzer {
       TH1F * h_TrkIsoRel_recoEle_noMCmatch;
       TH1F * h_TrkNumIso_recoEle_noMCmatch;
 
-
       int event;
 
       //cuts
@@ -222,10 +220,10 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
   //### Plots for all reco candidates
 
   //## Electron ID variables
-  h_hOverE_recoEle_pTcut = fs->make<TH1F>("h_hOverE_recoEle_pTcut","h_hOverE_recoEle_pTcut",200,0.,0.5);
+  h_hOverE_recoEle_pTcut = fs->make<TH1F>("h_hOverE_recoEle_pTcut","h_hOverE_recoEle_pTcut",200,-0.5,0.5);
   h_sigmaee_recoEle_pTcut = fs->make<TH1F>("h_sigmaee_recoEle_pTcut","h_sigmaee_recoEle_pTcut",200,0.,0.5);
-  h_deltaPhiIn_recoEle_pTcut = fs->make<TH1F>("h_deltaPhiIn_recoEle_pTcut","h_deltaPhiIn_recoEle_pTcut",200,0.,0.2);
-  h_deltaEtaIn_recoEle_pTcut = fs->make<TH1F>("h_deltaEtaIn_recoEle_pTcut","h_deltaEtaIn_recoEle_pTcut",200,0.,0.2);
+  h_deltaPhiIn_recoEle_pTcut = fs->make<TH1F>("h_deltaPhiIn_recoEle_pTcut","h_deltaPhiIn_recoEle_pTcut",200,-0.2,0.2);
+  h_deltaEtaIn_recoEle_pTcut = fs->make<TH1F>("h_deltaEtaIn_recoEle_pTcut","h_deltaEtaIn_recoEle_pTcut",200,-0.2,0.2);
 
   //## number of reco electrons
   h_N_recoEle = fs->make<TH1F>("h_N_recoEle","h_N_recoEle",30,-0.5,30.5);
@@ -291,34 +289,34 @@ RecoElectrons::RecoElectrons(const edm::ParameterSet& iConfig)
 								  "h_Eraw_recoEle_over_E_genEle_MCmatch_IDcut_endcap",1000,0.,2.);
 
 
-  h_hOverE_recoEle_MCmatch = fs->make<TH1F>("h_hOverE_recoEle_MCmatch","h_hOverE_recoEle_MCmatch",200,0.,0.5);
-  h_sigmaee_recoEle_MCmatch = fs->make<TH1F>("h_sigmaee_recoEle_MCmatch","h_sigmaee_recoEle_MCmatch",200,0.,0.5);
-  h_deltaPhiIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_MCmatch","h_deltaPhiIn_recoEle_MCmatch",200,0.,0.2);
-  h_deltaEtaIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_MCmatch","h_deltaEtaIn_recoEle_MCmatch",200,0.,0.2);
+  h_hOverE_recoEle_MCmatch = fs->make<TH1F>("h_hOverE_recoEle_MCmatch","h_hOverE_recoEle_MCmatch",200,-0.5,0.5);
+  h_sigmaee_recoEle_MCmatch = fs->make<TH1F>("h_sigmaee_recoEle_MCmatch","h_sigmaee_recoEle_MCmatch",200,-0.5,0.5);
+  h_deltaPhiIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_MCmatch","h_deltaPhiIn_recoEle_MCmatch",200,-0.2,0.2);
+  h_deltaEtaIn_recoEle_MCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_MCmatch","h_deltaEtaIn_recoEle_MCmatch",200,-0.2,0.2);
   h_N_recoEle_MCmatch = fs->make<TH1F>("h_N_recoEle_MCmatch","h_N_recoEle_MCmatch",30,-0.5,30.5);
   h_N_recoEle_MCmatch_IDcut = fs->make<TH1F>("h_N_recoEle_MCmatch_IDcut","h_N_recoEle_MCmatch_IDcut",30,-0.5,30.5);
   h_energy_recoEle_MCmatch = fs->make<TH1F>("h_energy_recoEle_MCmatch","h_energy_recoEle_MCmatch",100,0,1000);
   h_pT_recoEle_MCmatch = fs->make<TH1F>("h_pT_recoEle_MCmatch","h_pT_recoEle_MCmatch",100,0,1000);
   h_eta_recoEle_MCmatch = fs->make<TH1F>("h_eta_recoEle_MCmatch","h_eta_recoEle_MCmatch",100,-4,4);
 
-  h_EcalIsoRel_recoEle_MCmatch = fs->make<TH1F>("h_EcalIsoRel_recoEle_MCmatch","h_EcalIsoRel_recoEle_MCmatch",200,0.,2.);
+  h_EcalIsoRel_recoEle_MCmatch = fs->make<TH1F>("h_EcalIsoRel_recoEle_MCmatch","h_EcalIsoRel_recoEle_MCmatch",200,-1.,2.);
   h_TrkIsoRel_recoEle_MCmatch = fs->make<TH1F>("h_TrkIsoRel_recoEle_MCmatch","h_TrkIsoRel_recoEle_MCmatch",200,0.,2.);
   h_TrkNumIso_recoEle_MCmatch = fs->make<TH1F>("h_TrkNumIso_recoEle_MCmatch","h_TrkNumIso_recoEle_MCmatch",16,-0.5,15.5);
 
 
   //## NOT matched ele
 
-  h_hOverE_recoEle_noMCmatch = fs->make<TH1F>("h_hOverE_recoEle_noMCmatch","h_hOverE_recoEle_noMCmatch",200,0.,0.5);
+  h_hOverE_recoEle_noMCmatch = fs->make<TH1F>("h_hOverE_recoEle_noMCmatch","h_hOverE_recoEle_noMCmatch",200,-0.5,0.5);
   h_sigmaee_recoEle_noMCmatch = fs->make<TH1F>("h_sigmaee_recoEle_noMCmatch","h_sigmaee_recoEle_noMCmatch",200,0.,0.5);
-  h_deltaPhiIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_noMCmatch","h_deltaPhiIn_recoEle_noMCmatch",200,0.,0.2);
-  h_deltaEtaIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_noMCmatch","h_deltaEtaIn_recoEle_noMCmatch",200,0.,0.2);
+  h_deltaPhiIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaPhiIn_recoEle_noMCmatch","h_deltaPhiIn_recoEle_noMCmatch",200,-0.2,0.2);
+  h_deltaEtaIn_recoEle_noMCmatch = fs->make<TH1F>("h_deltaEtaIn_recoEle_noMCmatch","h_deltaEtaIn_recoEle_noMCmatch",200,-0.2,0.2);
   h_N_recoEle_noMCmatch = fs->make<TH1F>("h_N_recoEle_noMCmatch","h_N_recoEle_noMCmatch",30,-0.5,30.5);
   h_N_recoEle_noMCmatch_IDcut = fs->make<TH1F>("h_N_recoEle_noMCmatch_IDcut","h_N_recoEle_noMCmatch_IDcut",30,-0.5,30.5);
   h_energy_recoEle_noMCmatch = fs->make<TH1F>("h_energy_recoEle_noMCmatch","h_energy_recoEle_noMCmatch",100,0,1000);
   h_pT_recoEle_noMCmatch = fs->make<TH1F>("h_pT_recoEle_noMCmatch","h_pT_recoEle_noMCmatch",100,0,1000);
   h_eta_recoEle_noMCmatch = fs->make<TH1F>("h_eta_recoEle_noMCmatch","h_eta_recoEle_noMCmatch",100,-4,4);
 
-  h_EcalIsoRel_recoEle_noMCmatch = fs->make<TH1F>("h_EcalIsoRel_recoEle_noMCmatch","h_EcalIsoRel_recoEle_noMCmatch",200,0.,2.);
+  h_EcalIsoRel_recoEle_noMCmatch = fs->make<TH1F>("h_EcalIsoRel_recoEle_noMCmatch","h_EcalIsoRel_recoEle_noMCmatch",200,-1.,2.);
   h_TrkIsoRel_recoEle_noMCmatch = fs->make<TH1F>("h_TrkIsoRel_recoEle_noMCmatch","h_TrkIsoRel_recoEle_noMCmatch",200,0.,2.);
   h_TrkNumIso_recoEle_noMCmatch = fs->make<TH1F>("h_TrkNumIso_recoEle_noMCmatch","h_TrkNumIso_recoEle_noMCmatch",16,-0.5,15.5);
 
