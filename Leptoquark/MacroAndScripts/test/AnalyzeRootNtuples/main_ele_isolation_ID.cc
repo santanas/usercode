@@ -54,7 +54,7 @@ int eleNumTrkIso_cut=5;
 float eleTrkIso_cut=5.;
 float eleEcalIso_cut=5.;
 
-float elePt_cut=30.;
+float elePt_cut=150.;
 
 float ConeSizeJetCleaning_cut=0.5;
 float pTJet_loose_cut=30.;
@@ -185,7 +185,7 @@ void Selection::Loop()
   h_Ereco_over_Etrue_matchLQ->Sumw2();
   
   //h_eleHoE_matchLQ
-  TH1F *h_eleHoE_matchLQ = new TH1F ("h_eleHoE_matchLQ","",100,0.,0.2);
+  TH1F *h_eleHoE_matchLQ = new TH1F ("h_eleHoE_matchLQ","",100,-0.02,0.2);
   h_eleHoE_matchLQ->Sumw2();
   
   //h_eleSigmaEE_matchLQ
@@ -212,11 +212,19 @@ void Selection::Loop()
   TH1F *h_eleEcalIso_matchLQ = new TH1F ("h_eleEcalIso_matchLQ","",100,0.,1.);
   h_eleEcalIso_matchLQ->Sumw2();
 
+  //h_eleTrkIsoAbs_matchLQ
+  TH1F *h_eleTrkIsoAbs_matchLQ = new TH1F ("h_eleTrkIsoAbs_matchLQ","",100,0.,40.);
+  h_eleTrkIsoAbs_matchLQ->Sumw2();
+
+  //h_eleEcalIsoAbs_matchLQ
+  TH1F *h_eleEcalIsoAbs_matchLQ = new TH1F ("h_eleEcalIsoAbs_matchLQ","",100,0.,40.);
+  h_eleEcalIsoAbs_matchLQ->Sumw2();
+
 
   //** NOmatchLQ **
 
   //h_eleHoE_NOmatchLQ
-  TH1F *h_eleHoE_NOmatchLQ = new TH1F ("h_eleHoE_NOmatchLQ","",100,0.,0.2);
+  TH1F *h_eleHoE_NOmatchLQ = new TH1F ("h_eleHoE_NOmatchLQ","",100,-0.02,0.2);
   h_eleHoE_NOmatchLQ->Sumw2();
   
   //h_eleSigmaEE_NOmatchLQ
@@ -243,6 +251,13 @@ void Selection::Loop()
   TH1F *h_eleEcalIso_NOmatchLQ = new TH1F ("h_eleEcalIso_NOmatchLQ","",100,0.,1.);
   h_eleEcalIso_NOmatchLQ->Sumw2();
 
+  //h_eleTrkIsoAbs_NOmatchLQ
+  TH1F *h_eleTrkIsoAbs_NOmatchLQ = new TH1F ("h_eleTrkIsoAbs_NOmatchLQ","",100,0.,40.);
+  h_eleTrkIsoAbs_NOmatchLQ->Sumw2();
+
+  //h_eleEcalIsoAbs_NOmatchLQ
+  TH1F *h_eleEcalIsoAbs_NOmatchLQ = new TH1F ("h_eleEcalIsoAbs_NOmatchLQ","",100,0.,40.);
+  h_eleEcalIsoAbs_NOmatchLQ->Sumw2();
 
 
   //----------------------------------------------------------------------
@@ -327,7 +342,14 @@ void Selection::Loop()
     if (processID == 102 || processID == 123 || processID == 124 || processID == 141) 
       continue;
 
+    // HLT selection
+    bool pass_HLT=false;
+    if(HLTResults[40]==true || HLTResults[41]==true) 
+      pass_HLT=true;
     
+    if(pass_HLT==false)
+      continue;
+      
     // -------------- Candidates -------------------
 
     
@@ -335,9 +357,10 @@ void Selection::Loop()
     for(int iele=0;iele<eleCount;iele++)
       {
 
-
 	bool pass_ECAL_FR = false;
+	bool pass_elePt = false;
 	bool EleIsMatched = false;
+
 
 	TVector3 ele;
 	ele.SetPtEtaPhi(elePt[iele],
@@ -352,8 +375,16 @@ void Selection::Loop()
 	   )
 	  pass_ECAL_FR=true;
 
+	//ele pT cut
+	if(elePt[iele]>elePt_cut)
+	  pass_elePt=true;
+
 	//skip electrons out of fiducial region
 	if(pass_ECAL_FR==false)
+	  continue;
+
+	//skip electrons with low pT
+	if(pass_elePt==false)
 	  continue;
 
 
@@ -375,7 +406,7 @@ void Selection::Loop()
 		
 		float DeltaR_ele_elegen = elegen.DeltaR(ele);
 
-		h_DeltaR_ele_elegen->Fill(DeltaR_ele_elegen);
+		h_DeltaR_ele_elegen->Fill(DeltaR_ele_elegen,weight);
 		
 		if(DeltaR_ele_elegen<ConeSizeMCmatch_cut)
 		  {
@@ -384,34 +415,41 @@ void Selection::Loop()
 
 		    h_Ereco_over_Etrue_matchLQ->Fill(eleEnergy[iele]/GenParticleE[igen]);
 
-		    h_eleHoE_matchLQ->Fill(eleHoE[iele]);
-		    h_eleSigmaEE_matchLQ->Fill(eleSigmaEE[iele]);
-		    h_eleDeltaPhiTrkSC_matchLQ->Fill(eleDeltaPhiTrkSC[iele]);
-		    h_eleDeltaEtaTrkSC_matchLQ->Fill(eleDeltaEtaTrkSC[iele]);
+		    h_eleHoE_matchLQ->Fill(eleHoE[iele],weight);
+		    h_eleSigmaEE_matchLQ->Fill(eleSigmaEE[iele],weight);
+		    h_eleDeltaPhiTrkSC_matchLQ->Fill(eleDeltaPhiTrkSC[iele],weight);
+		    h_eleDeltaEtaTrkSC_matchLQ->Fill(eleDeltaEtaTrkSC[iele],weight);
 
-		    h_eleNumTrkIso_matchLQ->Fill(eleNumTrkIso[iele]);
-		    h_eleTrkIso_matchLQ->Fill(eleTrkIso[iele]);
-		    h_eleEcalIso_matchLQ->Fill(eleEcalIso[iele]);
+		    h_eleNumTrkIso_matchLQ->Fill(eleNumTrkIso[iele],weight);
+		    h_eleTrkIso_matchLQ->Fill(eleTrkIso[iele],weight);
+		    h_eleEcalIso_matchLQ->Fill(eleEcalIso[iele],weight);
+
+		    h_eleTrkIsoAbs_matchLQ->Fill(eleTrkIso[iele]*elePt[iele],weight);
+		    h_eleEcalIsoAbs_matchLQ->Fill(eleEcalIso[iele]*elePt[iele],weight);
 
 		  }// end electrons matched with genele from LQ decay
 
 	      }// end select genele from LQ decay
 
 	    //exit from gen particle loop if electron has been matched
-	    if(EleIsMatched == true)
-	      continue;
+	    // 	    if(EleIsMatched == true)
+	    // 	      break;
 	  }
 
 	if(EleIsMatched == false)
 	  {
-	    h_eleHoE_NOmatchLQ->Fill(eleHoE[iele]);
-	    h_eleSigmaEE_NOmatchLQ->Fill(eleSigmaEE[iele]);
-	    h_eleDeltaPhiTrkSC_NOmatchLQ->Fill(eleDeltaPhiTrkSC[iele]);
-	    h_eleDeltaEtaTrkSC_NOmatchLQ->Fill(eleDeltaEtaTrkSC[iele]);
+	    h_eleHoE_NOmatchLQ->Fill(eleHoE[iele],weight);
+	    h_eleSigmaEE_NOmatchLQ->Fill(eleSigmaEE[iele],weight);
+	    h_eleDeltaPhiTrkSC_NOmatchLQ->Fill(eleDeltaPhiTrkSC[iele],weight);
+	    h_eleDeltaEtaTrkSC_NOmatchLQ->Fill(eleDeltaEtaTrkSC[iele],weight);
 	    
-	    h_eleNumTrkIso_NOmatchLQ->Fill(eleNumTrkIso[iele]);
-	    h_eleTrkIso_NOmatchLQ->Fill(eleTrkIso[iele]);
-	    h_eleEcalIso_NOmatchLQ->Fill(eleEcalIso[iele]);
+	    h_eleNumTrkIso_NOmatchLQ->Fill(eleNumTrkIso[iele],weight);
+	    h_eleTrkIso_NOmatchLQ->Fill(eleTrkIso[iele],weight);
+	    h_eleEcalIso_NOmatchLQ->Fill(eleEcalIso[iele],weight);
+
+	    h_eleTrkIsoAbs_NOmatchLQ->Fill(eleTrkIso[iele]*elePt[iele],weight);
+	    h_eleEcalIsoAbs_NOmatchLQ->Fill(eleEcalIso[iele]*elePt[iele],weight);
+
 	  }
 	
       }// loop over electrons
@@ -434,6 +472,10 @@ void Selection::Loop()
   h_eleNumTrkIso_matchLQ->Write();
   h_eleTrkIso_matchLQ->Write();
   h_eleEcalIso_matchLQ->Write();
+
+  h_eleTrkIsoAbs_matchLQ->Write();
+  h_eleEcalIsoAbs_matchLQ->Write();
+
   
   h_eleHoE_NOmatchLQ->Write();
   h_eleSigmaEE_NOmatchLQ->Write();
@@ -443,5 +485,9 @@ void Selection::Loop()
   h_eleNumTrkIso_NOmatchLQ->Write();
   h_eleTrkIso_NOmatchLQ->Write();
   h_eleEcalIso_NOmatchLQ->Write();
+
+  h_eleTrkIsoAbs_NOmatchLQ->Write();
+  h_eleEcalIsoAbs_NOmatchLQ->Write();
+
 	      
 }

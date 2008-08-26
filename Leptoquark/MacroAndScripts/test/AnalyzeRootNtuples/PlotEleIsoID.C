@@ -19,14 +19,14 @@ h_eleHoE_matchLQ->SetLineColor(kBlue);
 h_eleHoE_matchLQ->SetLineWidth(2);
 h_eleHoE_matchLQ->GetXaxis()->SetTitle("H/E");
 h_eleHoE_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleHoE_matchLQ->DrawNormalized("HIST");
+h_eleHoE_matchLQ->DrawNormalized("HISTE");
 
 legend1->AddEntry(h_eleHoE_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleHoE_NOmatchLQ->SetFillStyle(3003);
 h_eleHoE_NOmatchLQ->SetFillColor(kRed);
-h_eleHoE_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleHoE_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend1->AddEntry(h_eleHoE_NOmatchLQ,"fake electrons from QCD jets","f");
 
@@ -48,14 +48,14 @@ h_eleSigmaEE_matchLQ->SetLineColor(kBlue);
 h_eleSigmaEE_matchLQ->SetLineWidth(2);
 h_eleSigmaEE_matchLQ->GetXaxis()->SetTitle("\\sigma_{\\eta\\eta}");
 h_eleSigmaEE_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleSigmaEE_matchLQ->DrawNormalized("HIST");
+h_eleSigmaEE_matchLQ->DrawNormalized("HISTE");
 
 legend2->AddEntry(h_eleSigmaEE_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleSigmaEE_NOmatchLQ->SetFillStyle(3003);
 h_eleSigmaEE_NOmatchLQ->SetFillColor(kRed);
-h_eleSigmaEE_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleSigmaEE_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend2->AddEntry(h_eleSigmaEE_NOmatchLQ,"fake electrons from QCD jets","f");
 
@@ -77,14 +77,14 @@ h_eleDeltaPhiTrkSC_matchLQ->SetLineColor(kBlue);
 h_eleDeltaPhiTrkSC_matchLQ->SetLineWidth(2);
 h_eleDeltaPhiTrkSC_matchLQ->GetXaxis()->SetTitle("\\Delta\\phi Trk-SC @ ECAL");
 h_eleDeltaPhiTrkSC_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleDeltaPhiTrkSC_matchLQ->DrawNormalized("HIST");
+h_eleDeltaPhiTrkSC_matchLQ->DrawNormalized("HISTE");
 
 legend3->AddEntry(h_eleDeltaPhiTrkSC_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleDeltaPhiTrkSC_NOmatchLQ->SetFillStyle(3003);
 h_eleDeltaPhiTrkSC_NOmatchLQ->SetFillColor(kRed);
-h_eleDeltaPhiTrkSC_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleDeltaPhiTrkSC_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend3->AddEntry(h_eleDeltaPhiTrkSC_NOmatchLQ,"fake electrons from QCD jets","f");
 
@@ -106,14 +106,14 @@ h_eleDeltaEtaTrkSC_matchLQ->SetLineColor(kBlue);
 h_eleDeltaEtaTrkSC_matchLQ->SetLineWidth(2);
 h_eleDeltaEtaTrkSC_matchLQ->GetXaxis()->SetTitle("\\Delta\\eta Trk-SC @ ECAL");
 h_eleDeltaEtaTrkSC_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleDeltaEtaTrkSC_matchLQ->DrawNormalized("HIST");
+h_eleDeltaEtaTrkSC_matchLQ->DrawNormalized("HISTE");
 
 legend4->AddEntry(h_eleDeltaEtaTrkSC_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleDeltaEtaTrkSC_NOmatchLQ->SetFillStyle(3003);
 h_eleDeltaEtaTrkSC_NOmatchLQ->SetFillColor(kRed);
-h_eleDeltaEtaTrkSC_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleDeltaEtaTrkSC_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend4->AddEntry(h_eleDeltaEtaTrkSC_NOmatchLQ,"fake electrons from QCD jets","f");
 
@@ -135,14 +135,14 @@ h_eleNumTrkIso_matchLQ->SetLineColor(kBlue);
 h_eleNumTrkIso_matchLQ->SetLineWidth(2);
 h_eleNumTrkIso_matchLQ->GetXaxis()->SetTitle("NumTrkIso");
 h_eleNumTrkIso_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleNumTrkIso_matchLQ->DrawNormalized("HIST");
+h_eleNumTrkIso_matchLQ->DrawNormalized("HISTE");
 
 legend5->AddEntry(h_eleNumTrkIso_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleNumTrkIso_NOmatchLQ->SetFillStyle(3003);
 h_eleNumTrkIso_NOmatchLQ->SetFillColor(kRed);
-h_eleNumTrkIso_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleNumTrkIso_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend5->AddEntry(h_eleNumTrkIso_NOmatchLQ,"fake electrons from QCD jets","f");
 
@@ -164,14 +164,14 @@ h_eleTrkIso_matchLQ->SetLineColor(kBlue);
 h_eleTrkIso_matchLQ->SetLineWidth(2);
 h_eleTrkIso_matchLQ->GetXaxis()->SetTitle("TrkIso");
 h_eleTrkIso_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleTrkIso_matchLQ->DrawNormalized("HIST");
+h_eleTrkIso_matchLQ->DrawNormalized("HISTE");
 
 legend6->AddEntry(h_eleTrkIso_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleTrkIso_NOmatchLQ->SetFillStyle(3003);
 h_eleTrkIso_NOmatchLQ->SetFillColor(kRed);
-h_eleTrkIso_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleTrkIso_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend6->AddEntry(h_eleTrkIso_NOmatchLQ,"fake electrons from QCD jets","f");
 
@@ -193,19 +193,79 @@ h_eleEcalIso_matchLQ->SetLineColor(kBlue);
 h_eleEcalIso_matchLQ->SetLineWidth(2);
 h_eleEcalIso_matchLQ->GetXaxis()->SetTitle("EcalIso");
 h_eleEcalIso_matchLQ->GetYaxis()->SetTitle("a.u.");
-h_eleEcalIso_matchLQ->DrawNormalized("HIST");
+h_eleEcalIso_matchLQ->DrawNormalized("HISTE");
 
 legend7->AddEntry(h_eleEcalIso_matchLQ,"electrons from LQ","f");
 
 FileFakeEle.cd();
 h_eleEcalIso_NOmatchLQ->SetFillStyle(3003);
 h_eleEcalIso_NOmatchLQ->SetFillColor(kRed);
-h_eleEcalIso_NOmatchLQ->DrawNormalized("sameHIST");
+h_eleEcalIso_NOmatchLQ->DrawNormalized("sameHISTE");
 
 legend7->AddEntry(h_eleEcalIso_NOmatchLQ,"fake electrons from QCD jets","f");
 
 legend7->Draw();
 
 c7.SaveAs("h_eleEcalIso.gif");
+
+
+//h_eleTrkIso_matchLQ_matchLQ
+TCanvas c8;
+c8.SetLogy();
+
+TLegend *legend8 = new TLegend(0.56,0.62,0.86,0.85);
+legend8->SetFillColor(kWhite);
+
+FileTrueEle.cd(); 
+
+h_eleTrkIsoAbs_matchLQ->SetStats(0);
+h_eleTrkIsoAbs_matchLQ->SetLineColor(kBlue);
+h_eleTrkIsoAbs_matchLQ->SetLineWidth(2);
+h_eleTrkIsoAbs_matchLQ->GetXaxis()->SetTitle("TrkIsoAbs");
+h_eleTrkIsoAbs_matchLQ->GetYaxis()->SetTitle("a.u.");
+h_eleTrkIsoAbs_matchLQ->DrawNormalized("HISTE");
+
+legend8->AddEntry(h_eleTrkIsoAbs_matchLQ,"electrons from LQ","f");
+
+FileFakeEle.cd();
+h_eleTrkIsoAbs_NOmatchLQ->SetFillStyle(3003);
+h_eleTrkIsoAbs_NOmatchLQ->SetFillColor(kRed);
+h_eleTrkIsoAbs_NOmatchLQ->DrawNormalized("sameHISTE");
+
+legend8->AddEntry(h_eleTrkIsoAbs_NOmatchLQ,"fake electrons from QCD jets","f");
+
+legend8->Draw();
+
+c8.SaveAs("h_eleTrkIsoAbs.gif");
+
+//h_eleEcalIsoAbs_matchLQ_matchLQ
+TCanvas c9;
+c9.SetLogy();
+
+TLegend *legend9 = new TLegend(0.56,0.62,0.86,0.85);
+legend9->SetFillColor(kWhite);
+
+FileTrueEle.cd(); 
+
+h_eleEcalIsoAbs_matchLQ->SetStats(0);
+h_eleEcalIsoAbs_matchLQ->SetLineColor(kBlue);
+h_eleEcalIsoAbs_matchLQ->SetLineWidth(2);
+h_eleEcalIsoAbs_matchLQ->GetXaxis()->SetTitle("EcalIsoAbs");
+h_eleEcalIsoAbs_matchLQ->GetYaxis()->SetTitle("a.u.");
+h_eleEcalIsoAbs_matchLQ->DrawNormalized("HISTE");
+
+legend9->AddEntry(h_eleEcalIsoAbs_matchLQ,"electrons from LQ","f");
+
+FileFakeEle.cd();
+h_eleEcalIsoAbs_NOmatchLQ->SetFillStyle(3003);
+h_eleEcalIsoAbs_NOmatchLQ->SetFillColor(kRed);
+h_eleEcalIsoAbs_NOmatchLQ->DrawNormalized("sameHISTE");
+
+legend9->AddEntry(h_eleEcalIsoAbs_NOmatchLQ,"fake electrons from QCD jets","f");
+
+legend9->Draw();
+
+c9.SaveAs("h_eleEcalIsoAbs.gif");
+
 
 }

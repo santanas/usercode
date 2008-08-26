@@ -42,36 +42,43 @@ float ECAL_FR_3_cut = 2;
 //         vdouble barrel     = {0.115, 0.0140, 0.053, 0.0090}
 //         vdouble endcap     = {0.150, 0.0275, 0.092, 0.0105}
 
-float eleHoE_bar_cut=0.115; 
-float eleSigmaEE_bar_cut=0.0140;
-float eleDeltaPhiTrkSC_bar_cut=0.053;
-float eleDeltaEtaTrkSC_bar_cut=0.0090;
+float eleHoE_bar_cut=0.05; 
+float eleSigmaEE_bar_cut=0.011;
+float eleDeltaEtaTrkSC_bar_cut=0.005;
+float eleDeltaPhiTrkSC_bar_cut=0.09;
 
-float eleHoE_end_cut=0.150; 
+float eleHoE_end_cut=0.08; 
 float eleSigmaEE_end_cut=0.0275;
-float eleDeltaPhiTrkSC_end_cut=0.092;
-float eleDeltaEtaTrkSC_end_cut=0.0105;
+float eleDeltaEtaTrkSC_end_cut=0.007;
+float eleDeltaPhiTrkSC_end_cut=0.09;
 
-// int eleNumTrkIso_cut=5;
-// float eleTrkIso_cut=5.;
-// float eleEcalIso_cut=5.;
+float eleEcalIsoAbs_cut1=6;
+float eleEcalIsoAbs_cut2=0.01;
 
-int eleNumTrkIso_cut=1;
-float eleTrkIso_cut=0.05;
-float eleEcalIso_cut=0.05;
+float eleHcalIsoAbs_cut1=4;
+float eleHcalIsoAbs_cut2=0.005;
 
-float elePt_cut=20.;
-float muonPt_cut=20.;
+float eleTrkIsoAbs_bar_cut=7.5;
+float eleTrkIsoAbs_end_cut=15.;
+
+int eleNumTrkIso_cut=4;
+
+//** obsolete
+// int eleNumTrkIso_cut=2;
+// float eleTrkIso_cut=0.05;
+// float eleEcalIso_cut=0.05;
+//**
+
+float elePt_cut=30.;
+float muonPt_cut=30.;
 
 float ConeSizeJetCleaning_cut=0.5;
 float jetPt_cut=50.;
+float jetEta_cut=3.;
 
 float ele1stPt_cut=85.;
-float ele2ndPt_cut=20.;
-
-float muon1stPt_cut=20.;
-
-float jetEta_cut=3.;
+float ele2ndPt_cut=30.;
+float muon1stPt_cut=30.;
 
 float Mee_lowCut=80.;
 float Mee_highCut=100.;
@@ -253,53 +260,53 @@ void Selection::Loop()
   h_Mee->Sumw2();
 
   //Mej (all Comb)
-  TH1F *h_Mej_allComb = new TH1F ("h_Mej_allComb","",100,0.,1000.);
+  TH1F *h_Mej_allComb = new TH1F ("h_Mej_allComb","",150,0.,1500.);
   h_Mej_allComb->Sumw2();
 
-  TH1F *h_Mej_allComb_Meecut = new TH1F ("h_Mej_allComb_Meecut","",100,0.,1000.);
+  TH1F *h_Mej_allComb_Meecut = new TH1F ("h_Mej_allComb_Meecut","",150,0.,1500.);
   h_Mej_allComb_Meecut->Sumw2();
 
-  TH1F *h_Mej_allComb_Meecut_Stcut = new TH1F ("h_Mej_allComb_Meecut_Stcut","",100,0.,1000.);
+  TH1F *h_Mej_allComb_Meecut_Stcut = new TH1F ("h_Mej_allComb_Meecut_Stcut","",150,0.,1500.);
   h_Mej_allComb_Meecut_Stcut->Sumw2();
 
   //Mej (best Comb)
-  TH1F *h_Mej_best = new TH1F ("h_Mej_best","",100,0.,1000.);
+  TH1F *h_Mej_best = new TH1F ("h_Mej_best","",150,0.,1500.);
   h_Mej_best->Sumw2();
 
-  TH1F *h_Mej_best_Meecut = new TH1F ("h_Mej_best_Meecut","",100,0.,1000.);
+  TH1F *h_Mej_best_Meecut = new TH1F ("h_Mej_best_Meecut","",150,0.,1500.);
   h_Mej_best_Meecut->Sumw2();
 
-  TH1F *h_Mej_best_Meecut_Stcut = new TH1F ("h_Mej_best_Meecut_Stcut","",100,0.,1000.);
+  TH1F *h_Mej_best_Meecut_Stcut = new TH1F ("h_Mej_best_Meecut_Stcut","",150,0.,1500.);
   h_Mej_best_Meecut_Stcut->Sumw2();
 
   //Mej (wrong Comb)
-  TH1F *h_Mej_wrong = new TH1F ("h_Mej_wrong","",100,0.,1000.);
+  TH1F *h_Mej_wrong = new TH1F ("h_Mej_wrong","",150,0.,1500.);
   h_Mej_wrong->Sumw2();
 
-  TH2F *h_2d_Mej_best_vs_wrong = new TH2F ("h_2d_Mej_best_vs_wrong","",100,0.,1000.,100,0.,1000.);
+  TH2F *h_2d_Mej_best_vs_wrong = new TH2F ("h_2d_Mej_best_vs_wrong","",150,0.,1500.,150,0.,1500.);
   h_2d_Mej_best_vs_wrong->Sumw2();
 
   //St vs Mej (Meecut)
-  TH2F *h_2d_Mej_allComb_Meecut_vs_St = new TH2F ("h_2d_Mej_allComb_Meecut_vs_St","",200,0.,2000.,100,0.,1000.);
+  TH2F *h_2d_Mej_allComb_Meecut_vs_St = new TH2F ("h_2d_Mej_allComb_Meecut_vs_St","",200,0.,2000.,150,0.,1500.);
   h_2d_Mej_allComb_Meecut_vs_St->Sumw2();
 
-  TH2F *h_2d_Mej_best_Meecut_vs_St = new TH2F ("h_2d_Mej_best_Meecut_vs_St","",200,0.,2000.,100,0.,1000.);
+  TH2F *h_2d_Mej_best_Meecut_vs_St = new TH2F ("h_2d_Mej_best_Meecut_vs_St","",200,0.,2000.,150,0.,1500.);
   h_2d_Mej_best_Meecut_vs_St->Sumw2();
 
 
   //Mej (inside M(Z) window)
-  TH1F *h_Mej_allComb_MeecutInside_Stcut = new TH1F ("h_Mej_allComb_MeecutInside_Stcut","",100,0.,1000.);
+  TH1F *h_Mej_allComb_MeecutInside_Stcut = new TH1F ("h_Mej_allComb_MeecutInside_Stcut","",150,0.,1500.);
   h_Mej_allComb_MeecutInside_Stcut->Sumw2();
 
-  TH1F *h_Mej_best_MeecutInside_Stcut = new TH1F ("h_Mej_best_MeecutInside_Stcut","",100,0.,1000.);
+  TH1F *h_Mej_best_MeecutInside_Stcut = new TH1F ("h_Mej_best_MeecutInside_Stcut","",150,0.,1500.);
   h_Mej_best_MeecutInside_Stcut->Sumw2();
 
 
   //Mej/Mmuj
-  TH1F *h_Memuj_allComb_Memucut_Stcut = new TH1F ("h_Memuj_allComb_Memucut_Stcut","",100,0.,1000.);
+  TH1F *h_Memuj_allComb_Memucut_Stcut = new TH1F ("h_Memuj_allComb_Memucut_Stcut","",150,0.,1500.);
   h_Memuj_allComb_Memucut_Stcut->Sumw2();
 
-  TH1F *h_Memuj_best_Memucut_Stcut = new TH1F ("h_Memuj_best_Memucut_Stcut","",100,0.,1000.);
+  TH1F *h_Memuj_best_Memucut_Stcut = new TH1F ("h_Memuj_best_Memucut_Stcut","",150,0.,1500.);
   h_Memuj_best_Memucut_Stcut->Sumw2();
 
 
@@ -310,6 +317,7 @@ void Selection::Loop()
   //number of events (absolute)
   float N_abs_nocut=0;               //all events
   float N_abs_skim=0;                //+ LQ skim
+  float N_abs_hlt=0;                 //+ hlt
   float N_abs_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float N_abs_2ele=0;                //+ isolation criteria
   float N_abs_2ele_2jets=0;          //+ 2 jets
@@ -320,6 +328,7 @@ void Selection::Loop()
   //number of events (in Lint)
   float N_Lint_nocut=0;               //all events
   float N_Lint_skim=0;                //+ LQ skim
+  float N_Lint_hlt=0;                 //+ hlt
   float N_Lint_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float N_Lint_2ele=0;                //+ isolation criteria
   float N_Lint_2ele_2jets=0;          //+ 2 jets
@@ -330,6 +339,7 @@ void Selection::Loop()
   //error on number of events (absolute)
   float e_N_abs_nocut=0;               //all events
   float e_N_abs_skim=0;                //+ LQ skim
+  float e_N_abs_hlt=0;                 //+ hlt
   float e_N_abs_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float e_N_abs_2ele=0;                //+ isolation criteria
   float e_N_abs_2ele_2jets=0;          //+ 2 jets
@@ -340,6 +350,7 @@ void Selection::Loop()
   //error on number of events (in Lint)
   float e_N_Lint_nocut=0;               //all events
   float e_N_Lint_skim=0;                //+ LQ skim
+  float e_N_Lint_hlt=0;                 //+ hlt
   float e_N_Lint_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float e_N_Lint_2ele=0;                //+ isolation criteria
   float e_N_Lint_2ele_2jets=0;          //+ 2 jets
@@ -350,6 +361,7 @@ void Selection::Loop()
   //relative error on number of events (in Lint)
   float e_rel_N_Lint_nocut=0;               //all events
   float e_rel_N_Lint_skim=0;                //+ LQ skim
+  float e_rel_N_Lint_hlt=0;                 //+ hlt
   float e_rel_N_Lint_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float e_rel_N_Lint_2ele=0;                //+ isolation criteria
   float e_rel_N_Lint_2ele_2jets=0;          //+ 2 jets
@@ -360,6 +372,7 @@ void Selection::Loop()
   //efficiency
   float eff_N_Lint_nocut=0;               //all events
   float eff_N_Lint_skim=0;                //+ LQ skim
+  float eff_N_Lint_hlt=0;                 //+ hlt
   float eff_N_Lint_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float eff_N_Lint_2ele=0;                //+ isolation criteria
   float eff_N_Lint_2ele_2jets=0;          //+ 2 jets
@@ -371,6 +384,7 @@ void Selection::Loop()
   //error on efficiency
   float e_eff_N_Lint_nocut=0;               //all events
   float e_eff_N_Lint_skim=0;                //+ LQ skim
+  float e_eff_N_Lint_hlt=0;                 //+ hlt
   float e_eff_N_Lint_2ele_noiso=0;          //+ at least 2 electrons (with pT>LoosePtCut) without isolation
   float e_eff_N_Lint_2ele=0;                //+ isolation criteria
   float e_eff_N_Lint_2ele_2jets=0;          //+ 2 jets
@@ -466,6 +480,10 @@ void Selection::Loop()
     vector<int> v_idx_ele_final_noIso;
     vector<int> v_idx_ele_final;
 
+    float eleTrkIsoAbs[eleCount];
+    float eleEcalIsoAbs[eleCount];
+    float eleHcalIsoAbs[eleCount];
+
     for(int iele=0;iele<eleCount;iele++)
       {
 
@@ -482,6 +500,8 @@ void Selection::Loop()
 	   )
 	  pass_ECAL_FR=true;
 
+
+	///Electron ID
 	if(fabs(eleEta[iele]) < ECAL_barrel_limit
 	   && eleHoE[iele] < eleHoE_bar_cut 
 	   && eleSigmaEE[iele] < eleSigmaEE_bar_cut
@@ -498,12 +518,43 @@ void Selection::Loop()
 	   )
 	  pass_eleID=true;
 
-	if(eleNumTrkIso[iele] <= eleNumTrkIso_cut
-	   && eleTrkIso[iele] < eleTrkIso_cut
-	   && eleEcalIso[iele] < eleEcalIso_cut
+	//** obsolete
+	// 	if(eleNumTrkIso[iele] <= eleNumTrkIso_cut
+	// 	   && eleTrkIso[iele] < eleTrkIso_cut
+	// 	   && eleEcalIso[iele] < eleEcalIso_cut
+	// 	   )
+	// 	  pass_eleIso=true;
+	//** 
+
+	//Electron Isolation
+
+	float sinTheta=1/cosh(eleEta[iele]);
+	eleTrkIsoAbs[iele]=eleTrkIso[iele]*elePt[iele];
+	eleEcalIsoAbs[iele]=eleEcalIso[iele]*elePt[iele];
+	eleHcalIsoAbs[iele]=eleHoE[iele]*eleEnergy[iele]*sinTheta;
+
+
+	if(fabs(eleEta[iele]) < ECAL_barrel_limit
+	   && eleTrkIsoAbs[iele] < eleTrkIsoAbs_bar_cut
+	   && eleEcalIsoAbs[iele] < (eleEcalIsoAbs_cut1+eleEcalIsoAbs_cut2*elePt[iele])
+	   && eleHcalIsoAbs[iele] < 
+	   (eleHcalIsoAbs_cut1+eleHcalIsoAbs_cut2*elePt[iele])
+	   && eleNumTrkIso[iele] < eleNumTrkIso_cut
 	   )
 	  pass_eleIso=true;
 
+
+	if(fabs(eleEta[iele]) > ECAL_barrel_limit
+	   && eleTrkIsoAbs[iele] < eleTrkIsoAbs_end_cut
+	   && eleEcalIsoAbs[iele] < (eleEcalIsoAbs_cut1+eleEcalIsoAbs_cut2*elePt[iele])
+	   && eleHcalIsoAbs[iele] < 
+	   (eleHcalIsoAbs_cut1+eleHcalIsoAbs_cut2*elePt[iele])
+	   && eleNumTrkIso[iele] < eleNumTrkIso_cut
+	   )
+	  pass_eleIso=true;
+
+
+	//pT cut
 	if(elePt[iele] > elePt_cut)
 	  {
 	    pass_elePt=true;
@@ -527,6 +578,7 @@ void Selection::Loop()
     //### Jet definition
     vector<int> v_idx_jet_final;
     //vector<int> v_idx_jet_final_pTcut;
+
     for(int ijet=0;ijet<caloJetIC5Count;ijet++)
       {
 	bool skipJet=false;
@@ -557,7 +609,8 @@ void Selection::Loop()
 	  continue;
 
 
-	if(caloJetIC5Pt[ijet]>jetPt_cut)
+	if(caloJetIC5Pt[ijet] > jetPt_cut 
+	   && fabs(caloJetIC5Eta[ijet]) < jetEta_cut)
 	  v_idx_jet_final.push_back(ijet);	  
 
       }
@@ -632,6 +685,8 @@ void Selection::Loop()
     // -------------  Selection ------------------------
 
     //## Booleans
+    bool pass_HLT=false;
+
     bool pass_twoEle=false;
     bool pass_twoEle_noIso=false;
     bool pass_twoJet=false;
@@ -639,8 +694,8 @@ void Selection::Loop()
     bool pass_1stElePtCut=false;
     bool pass_2ndElePtCut=false;
 
-    bool pass_1stJetEtaCut=false;
-    bool pass_2ndJetEtaCut=false;
+//     bool pass_1stJetEtaCut=false;
+//     bool pass_2ndJetEtaCut=false;
 
     bool pass_Mee=false;
    
@@ -653,6 +708,13 @@ void Selection::Loop()
     bool pass_St_mu=false;
 
     //## Selection criteria
+
+    //## HLT
+    if(HLTResults[40]==true || HLTResults[41]==true 
+       || 
+       (strcmp(eventProcess, "leptoquark")==0 && processID == -999 && ALPGENprocessID == -999)
+       ) 
+      pass_HLT=true;
 
     //## 2 ele non Iso
     if(v_idx_ele_final_noIso.size()>=2)
@@ -691,20 +753,20 @@ void Selection::Loop()
 	  pass_1stMuonPtCut=true;
       }
 
-    //## eta cut 1st jet
-    if(v_idx_jet_final.size()>=1)
-      {
-	if( fabs(caloJetIC5Eta[v_idx_jet_final[0]]) < jetEta_cut)
-	  pass_1stJetEtaCut=true;
-      }
-
-    //## eta cut 2nd jet
-    if(pass_twoJet==true)
-      {
-	if( fabs(caloJetIC5Eta[v_idx_jet_final[1]]) < jetEta_cut)
-	  pass_2ndJetEtaCut=true;
-      }
-
+//      //## eta cut 1st jet
+//     if(v_idx_jet_final.size()>=1)
+//       {
+//  	if( fabs(caloJetIC5Eta[v_idx_jet_final[0]]) < jetEta_cut)
+//  	  pass_1stJetEtaCut=true;
+//       }
+    
+//     //## eta cut 2nd jet
+//     if(pass_twoJet==true)
+//       {
+//  	if( fabs(caloJetIC5Eta[v_idx_jet_final[1]]) < jetEta_cut)
+//  	  pass_2ndJetEtaCut=true;
+//       }
+    
 
     //## M(ele-ele) ##
     TLorentzVector v_ee;
@@ -742,13 +804,12 @@ void Selection::Loop()
 
 
     //## Remove real Zs
-    if(pass_twoEle==true && (Mee<Mee_lowCut || Mee>Mee_highCut))
+    if(pass_twoEle==true && Mee>Mee_highCut)
       pass_Mee=true;
 
     //simulate the cut above using emu events
-    if(pass_1Ele1Muon==true && (Memu<Mee_lowCut || Memu>Mee_highCut))
+    if(pass_1Ele1Muon==true && Memu>Mee_highCut)
       pass_Memu=true;
-
 
     //## St cut
     float St=-999.;
@@ -923,6 +984,15 @@ void Selection::Loop()
 
     //~~~
 
+    if(pass_HLT==true)
+      {
+	N_abs_hlt++;
+	N_Lint_hlt+=weight;
+	e_N_Lint_hlt+=weight*weight;
+      }
+
+    //~~~
+
     if(pass_twoEle_noIso==true)
       {
 	N_abs_2ele_noiso++;
@@ -970,8 +1040,7 @@ void Selection::Loop()
 
 
     if(pass_twoEle==true && pass_twoJet==true 
-       && pass_1stElePtCut==true && pass_2ndElePtCut==true
-       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true)
+       && pass_1stElePtCut==true) 
       { 
 
 	//~~~
@@ -982,8 +1051,6 @@ void Selection::Loop()
 
 	//~~~
 	
-
-	h_Mee->Fill(Mee,weight);
 
 	h_Mej_allComb->Fill(LQ11.M(),weight);
 	h_Mej_allComb->Fill(LQ12.M(),weight);
@@ -1002,9 +1069,8 @@ void Selection::Loop()
       }
 
 
-    if(pass_twoEle==true && pass_twoJet==true 
-       && pass_1stElePtCut==true && pass_2ndElePtCut==true
-       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true
+    if(pass_twoEle==true && pass_twoJet==true
+       && pass_1stElePtCut==true 
        && pass_Mee==true)
       { 
 	
@@ -1038,8 +1104,17 @@ void Selection::Loop()
 
 
     if(pass_twoEle==true && pass_twoJet==true 
-       && pass_1stElePtCut==true && pass_2ndElePtCut==true
-       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true
+       && pass_1stElePtCut==true 
+       && pass_St==true)
+      { 
+
+	h_Mee->Fill(Mee,weight);
+	
+      }
+
+
+    if(pass_twoEle==true && pass_twoJet==true 
+       && pass_1stElePtCut==true 
        && pass_Mee==true
        && pass_St==true)
       { 
@@ -1066,9 +1141,8 @@ void Selection::Loop()
 
 
 
-    if(pass_twoEle==true && pass_twoJet==true 
-       && pass_1stElePtCut==true && pass_2ndElePtCut==true
-       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true
+    if(pass_twoEle==true && pass_twoJet==true
+       && pass_1stElePtCut==true  
        && pass_Mee==false
        && pass_St==true)
       { 
@@ -1094,7 +1168,6 @@ void Selection::Loop()
 
     if(pass_1Ele1Muon==true && pass_twoJet==true 
        && pass_1stElePtCut==true && pass_1stMuonPtCut==true
-       && pass_1stJetEtaCut==true && pass_2ndJetEtaCut==true
        && pass_Memu==true
        && pass_St_mu==true)
       { 
@@ -1142,7 +1215,8 @@ void Selection::Loop()
 
   //## errors on number of events
   //e_N_abs_nocut=sqrt(N_abs_nocut);       
-  e_N_abs_skim=sqrt(N_abs_skim);        
+  //e_N_abs_skim=sqrt(N_abs_skim);        
+  e_N_abs_hlt=sqrt(N_abs_hlt);        
   e_N_abs_2ele_noiso=sqrt(N_abs_2ele_noiso);  
   e_N_abs_2ele=sqrt(N_abs_2ele);        
   e_N_abs_2ele_2jets=sqrt(N_abs_2ele_2jets);  
@@ -1150,11 +1224,14 @@ void Selection::Loop()
   e_N_abs_Mee=sqrt(N_abs_Mee);            
   e_N_abs_St=sqrt(N_abs_St);             
 
+
   //~~~
+
 
   //## error on number of events (in Lint)
   //e_N_Lint_nocut=sqrt(e_N_Lint_nocut);           
-  e_N_Lint_skim=sqrt(e_N_Lint_skim);               
+  //e_N_Lint_skim=sqrt(e_N_Lint_skim);               
+  e_N_Lint_hlt=sqrt(e_N_Lint_hlt);               
   e_N_Lint_2ele_noiso=sqrt(e_N_Lint_2ele_noiso);         
   e_N_Lint_2ele=sqrt(e_N_Lint_2ele);               
   e_N_Lint_2ele_2jets=sqrt(e_N_Lint_2ele_2jets);         
@@ -1166,7 +1243,8 @@ void Selection::Loop()
 
   //## relative error on number of events (in Lint)
   //e_rel_N_Lint_nocut=e_N_Lint_nocut/N_Lint_nocut;
-  e_rel_N_Lint_skim=e_N_Lint_skim/N_Lint_skim; 
+  //e_rel_N_Lint_skim=e_N_Lint_skim/N_Lint_skim; 
+  e_rel_N_Lint_hlt=e_N_Lint_hlt/N_Lint_hlt; 
   e_rel_N_Lint_2ele_noiso=e_N_Lint_2ele_noiso/N_Lint_2ele_noiso;
   e_rel_N_Lint_2ele=e_N_Lint_2ele/N_Lint_2ele;      
   e_rel_N_Lint_2ele_2jets=e_N_Lint_2ele_2jets/N_Lint_2ele_2jets;
@@ -1178,51 +1256,65 @@ void Selection::Loop()
 
   //## efficiency
   //eff_N_Lint_nocut=N_Lint_nocut/N_Lint_nocut; 
-  eff_N_Lint_skim=N_Lint_skim/N_Lint_nocut;  
-  eff_N_Lint_2ele_noiso=N_Lint_2ele_noiso/N_Lint_skim;
+  //eff_N_Lint_skim=N_Lint_skim/N_Lint_nocut;  
+
+  if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
+    { 
+      eff_N_Lint_hlt=N_Lint_hlt/N_Lint_nocut;  
+    }
+
+  eff_N_Lint_2ele_noiso=N_Lint_2ele_noiso/N_Lint_hlt;
   eff_N_Lint_2ele=N_Lint_2ele/N_Lint_2ele_noiso;      
   eff_N_Lint_2ele_2jets=N_Lint_2ele_2jets/N_Lint_2ele;
   eff_N_Lint_eleCuts_jetCuts=N_Lint_eleCuts_jetCuts/N_Lint_2ele_2jets;
   eff_N_Lint_Mee=N_Lint_Mee/N_Lint_eleCuts_jetCuts;            
   eff_N_Lint_St=N_Lint_St/N_Lint_Mee;   
-  eff_N_Lint_final=N_Lint_St/N_Lint_skim;             
+
+  if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
+    { 
+      eff_N_Lint_final=N_Lint_St/N_Lint_nocut;             
+    }
 
   //~~~
 
   //## error on efficiency
   //e_eff_N_Lint_nocut=eff_N_Lint_nocut * sqrt(e_rel_N_Lint_nocut*e_rel_N_Lint_nocut + e_rel_N_Lint_nocut*e_rel_N_Lint_nocut);
 
-
   if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
     { 
-      e_eff_N_Lint_skim = sqrt( eff_N_Lint_skim*(1 - eff_N_Lint_skim) / N_abs_nocut);
+      e_eff_N_Lint_hlt = sqrt( eff_N_Lint_hlt*(1 - eff_N_Lint_hlt) / N_abs_nocut);
     }
 
   //   e_eff_N_Lint_skim = eff_N_Lint_skim*sqrt(e_rel_N_Lint_skim*e_rel_N_Lint_skim 
   // 					 + e_rel_N_Lint_skim*e_rel_N_Lint_skim);
 
+  //   e_eff_N_Lint_hlt = eff_N_Lint_hlt*sqrt(e_rel_N_Lint_hlt*e_rel_N_Lint_hlt  
+  // 					 + e_rel_N_Lint_skim*e_rel_N_Lint_skim);
+
   e_eff_N_Lint_2ele_noiso = eff_N_Lint_2ele_noiso*sqrt(e_rel_N_Lint_2ele_noiso*e_rel_N_Lint_2ele_noiso  
-						       + e_rel_N_Lint_skim*e_rel_N_Lint_skim);
+						       + e_rel_N_Lint_hlt*e_rel_N_Lint_hlt);
   
   e_eff_N_Lint_2ele = eff_N_Lint_2ele*sqrt(e_rel_N_Lint_2ele*e_rel_N_Lint_2ele
 					   + e_rel_N_Lint_2ele_noiso*e_rel_N_Lint_2ele_noiso);
-
+  
   e_eff_N_Lint_2ele_2jets = eff_N_Lint_2ele_2jets*sqrt(e_rel_N_Lint_2ele_2jets*e_rel_N_Lint_2ele_2jets
 						       + e_rel_N_Lint_2ele*e_rel_N_Lint_2ele);
   
   e_eff_N_Lint_eleCuts_jetCuts 
     = eff_N_Lint_eleCuts_jetCuts*sqrt(e_rel_N_Lint_eleCuts_jetCuts*e_rel_N_Lint_eleCuts_jetCuts
 				      + e_rel_N_Lint_2ele_2jets*e_rel_N_Lint_2ele_2jets);    
-
+  
   e_eff_N_Lint_Mee = eff_N_Lint_Mee*sqrt(e_rel_N_Lint_Mee*e_rel_N_Lint_Mee
 					 + e_rel_N_Lint_eleCuts_jetCuts*e_rel_N_Lint_eleCuts_jetCuts);
   
   e_eff_N_Lint_St = eff_N_Lint_St*sqrt(e_rel_N_Lint_St*e_rel_N_Lint_St
 				       + e_rel_N_Lint_Mee*e_rel_N_Lint_Mee); 
-  
-  e_eff_N_Lint_final = eff_N_Lint_final*sqrt(e_rel_N_Lint_St*e_rel_N_Lint_St
-					     + e_rel_N_Lint_skim*e_rel_N_Lint_skim); 
-  
+
+  if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
+    { 
+      e_eff_N_Lint_final = sqrt( eff_N_Lint_final*(1 - eff_N_Lint_final) / N_abs_nocut);
+    }  
+
   //~~~
 
 
@@ -1301,71 +1393,91 @@ void Selection::Loop()
       output_txt << "\\hline" << endl; 
 
 
-      //output_txt << scientific << setprecision(1) << endl;
-      output_txt << fixed << setprecision(1) << endl;
+      //output_txt << scientific << setprecision(2) << endl;
+      output_txt << fixed << setprecision(2) << endl;
 
-      output_txt <<  "no cut " << "&"  
-       		 << N_Lint_nocut <<" $\\pm$ "<< e_N_Lint_nocut << "& " 
-		 << N_abs_nocut <<" & - \\\\" << endl;
-      
-      output_txt << "+ LQ skim " << "&"
-		 << N_Lint_skim <<" $\\pm$ "<< e_N_Lint_skim << "& " << N_abs_skim <<" & "
-		 << scientific << setprecision(1)  
-		 << eff_N_Lint_skim << " $\\pm$ " << e_eff_N_Lint_skim  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+      if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
+	{ 
+	  output_txt <<  "no cut " << "&"  
+		     << N_Lint_nocut <<" $\\pm$ "<< e_N_Lint_nocut << "& " 
+		     << N_abs_nocut <<" & - \\\\" << endl;
+	}      
 
-      output_txt << "+ 2 ele (no Iso) pT $>" << elePt_cut << "$ GeV " << "&" 
+      //       output_txt << "+ LQ skim " << "&"
+      // 		 << N_Lint_skim <<" $\\pm$ "<< e_N_Lint_skim << "& " << N_abs_skim <<" & "
+      // 		 << scientific << setprecision(2)  
+      // 		 << eff_N_Lint_skim << " $\\pm$ " << e_eff_N_Lint_skim  
+      // 		 << "\\\\" << fixed << setprecision(2) << endl; 
+
+      output_txt << "+ hlt (HE or VHE) " << "&"
+		 << N_Lint_hlt <<" $\\pm$ "<< e_N_Lint_hlt << "& " << N_abs_hlt <<" & "
+		 << scientific << setprecision(2)  
+		 << eff_N_Lint_hlt << " $\\pm$ " << e_eff_N_Lint_hlt  
+		 << "\\\\" << fixed << setprecision(2) << endl; 
+
+      output_txt << "+ 2 ele (ID) $P_{T} >" << elePt_cut << "$ GeV " << "&" 
 		 << N_Lint_2ele_noiso <<" $\\pm$ "<< e_N_Lint_2ele_noiso << "& " << N_abs_2ele_noiso <<" & "
-		 << scientific << setprecision(1)  
+		 << scientific << setprecision(2)  
 		 << eff_N_Lint_2ele_noiso << " $\\pm$ " << e_eff_N_Lint_2ele_noiso  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+		 << "\\\\" << fixed << setprecision(2) << endl; 
 
-      output_txt << "+ 2 ele (Iso) pT $>" << elePt_cut << "$ GeV " << "&" 
+      output_txt << "+ 2 ele (ID+Iso) $P_{T} >" << elePt_cut << "$ GeV " << "&" 
 		 << N_Lint_2ele <<" $\\pm$ "<< e_N_Lint_2ele << "& " << N_abs_2ele <<" & "
-		 << scientific << setprecision(1)  
+		 << scientific << setprecision(2)  
 		 << eff_N_Lint_2ele << " $\\pm$ " << e_eff_N_Lint_2ele  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+		 << "\\\\" << fixed << setprecision(2) << endl; 
 
       output_txt << "+ 2e, 2j " 
-		 << "pT$_{ele}$(pT$_{jet}$) $>$" 
+		 << "$P_{T}^{ele}$ ($P_{T}^{jet}$) $>$" 
 		 << elePt_cut << "(" << jetPt_cut <<")"<< " GeV " << "&"   
 		 << N_Lint_2ele_2jets <<" $\\pm$ "<< e_N_Lint_2ele_2jets << "& " << N_abs_2ele_2jets <<" & "
-		 << scientific << setprecision(1)  
+		 << scientific << setprecision(2)  
 		 << eff_N_Lint_2ele_2jets << " $\\pm$ " << e_eff_N_Lint_2ele_2jets  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+		 << "\\\\" << fixed << setprecision(2) << endl; 
 
-      output_txt << "+ ele, jet kinematics cuts " << "&"
+      //       output_txt << "+ ele, jet kinematics cuts " << "&"
+      //  		 << N_Lint_eleCuts_jetCuts <<" $\\pm$ "<< e_N_Lint_eleCuts_jetCuts << "& " 
+      //  		 << N_abs_eleCuts_jetCuts <<" & "
+      //  		 << scientific << setprecision(2)  
+      //  		 << eff_N_Lint_eleCuts_jetCuts << " $\\pm$ " << e_eff_N_Lint_eleCuts_jetCuts  
+      //  		 << "\\\\" << fixed << setprecision(2) << endl; 
+
+      output_txt << "+ $P_{T}$ $1^{st}$ ele $>$ " << ele1stPt_cut << " GeV " << "&"  
 		 << N_Lint_eleCuts_jetCuts <<" $\\pm$ "<< e_N_Lint_eleCuts_jetCuts << "& " 
-		 << N_abs_eleCuts_jetCuts <<" & "
-		 << scientific << setprecision(1)  
-		 << eff_N_Lint_eleCuts_jetCuts << " $\\pm$ " << e_eff_N_Lint_eleCuts_jetCuts  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+  		 << N_abs_eleCuts_jetCuts <<" & "
+  		 << scientific << setprecision(2)  
+  		 << eff_N_Lint_eleCuts_jetCuts << " $\\pm$ " << e_eff_N_Lint_eleCuts_jetCuts  
+  		 << "\\\\" << fixed << setprecision(2) << endl; 
 
-      output_txt << "+ Mee $<" << Mee_lowCut << "$ GeV or Mee $>" << Mee_highCut << "$ GeV" << "&" 
+      output_txt << "+ $M_{ee} >" << Mee_highCut << "$ GeV" << "&" 
 		 << N_Lint_Mee <<" $\\pm$ "<< e_N_Lint_Mee << "& " << N_abs_Mee <<" & "
-		 << scientific << setprecision(1)  
+		 << scientific << setprecision(2)  
 		 << eff_N_Lint_Mee << " $\\pm$ " << e_eff_N_Lint_Mee  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+		 << "\\\\" << fixed << setprecision(2) << endl; 
 
-      output_txt << "+ St $>" << St_Cut << "$ GeV " << "&" 
+      output_txt << "+ $S_{T} >" << St_Cut << "$ GeV " << "&" 
 		 << N_Lint_St <<" $\\pm$ "<< e_N_Lint_St << "& " << N_abs_St <<" & "
-		 << scientific << setprecision(1)  
+		 << scientific << setprecision(2)  
 		 << eff_N_Lint_St << " $\\pm$ " << e_eff_N_Lint_St  
-		 << "\\\\" << fixed << setprecision(1) << endl; 
+		 << "\\\\" << fixed << setprecision(2) << endl; 
 
-      output_txt << "\\hline" << endl;
-
-      output_txt << scientific << setprecision(1) << endl;
-      
-      output_txt << "full selection efficiency" << "&" 
-		 << " & " << " & "
-		 << eff_N_Lint_final << " $\\pm$ " << e_eff_N_Lint_final  << "\\\\" << endl;
+      if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
+	{ 
+	  
+	  output_txt << "\\hline" << endl;
+	  
+	  output_txt << scientific << setprecision(2) << endl;
+	  
+	  output_txt << "full selection efficiency" << "&" 
+		     << " & " << " & "
+		     << eff_N_Lint_final << " $\\pm$ " << e_eff_N_Lint_final  << "\\\\" << endl;
+	}
       
       output_txt << "\\hline" << endl; 
       
       output_txt << "\\end{tabular}" << endl; 
       output_txt << "\\end{center}" << endl; 
-      output_txt << "\\caption{MC Sample: " << eventProcess << " - $N_{ev}$ $100pb^{-1}$ is the number of selected events in $100pb^{-1}$, $N_{ev}$ is the absolute number of selected event, $\\varepsilon$ is the relative selection efficiency with respect to the previous cut}" << endl; 
+      output_txt << "\\caption{" << eventProcess << " sample: the first column lists the selection sequence, $N_{ev}$ $100pb^{-1}$ is the number of selected events in $100pb^{-1}$, $N_{ev}$ is the absolute number of selected events (unweighted for the cross section), $\\varepsilon$ is the relative selection efficiency with respect to the previous cut. The full selection efficiency is shown in the last line.}" << endl; 
       output_txt << "\\end{table}" << endl; 
       output_txt << "\\end{document}" << endl; 
     }
