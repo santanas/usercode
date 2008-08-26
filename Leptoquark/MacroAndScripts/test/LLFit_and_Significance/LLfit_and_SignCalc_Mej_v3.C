@@ -24,9 +24,9 @@
 
 
   //## "Data" 
-  TFile f_LQ("lq1stgen_M250_full167_100pb.root");
+  //TFile f_LQ("lq1stgen_M250_full167_100pb.root");
   //TFile f_LQ("lq1stgen_M400_full167_100pb.root");
-  //TFile f_LQ("lq1stgen_M650_full167_100pb.root");
+  TFile f_LQ("lq1stgen_M650_full167_100pb.root");
   //TFile f_LQ("lq1stgen_M1000_full167_100pb.root");
   TFile f_ttbar("ttbar.root");
   TFile f_zjet("zjet.root");
@@ -53,9 +53,9 @@
 
   //## Fit model for signal
 
-  TFile f_LQ_fit("lq1stgen_M250_full167_100pb.root");
+  //TFile f_LQ_fit("lq1stgen_M250_full167_100pb.root");
   //TFile f_LQ_fit("lq1stgen_M400_full167_100pb.root");
-  //TFile f_LQ_fit("lq1stgen_M650_full167_100pb.root");
+  TFile f_LQ_fit("lq1stgen_M650_full167_100pb.root");
   //TFile f_LQ_fit("lq1stgen_M1000_full167_100pb.root");
 
   // rebin signal histogram
@@ -88,33 +88,26 @@
 
 
   // ratio of ttbar/zjet in the signal sample and systematic error
-  //float e_MyRatioValue=0.22;
+  
+  int WhichR=+1;
 
-  //Rdown
-  //float MyRatioValue=3.3;
-  
-  //ideal
-  float MyRatioValue=4.2;
-  
-  //Rup
-  //float MyRatioValue=5.1;
-  
 
   //## Output file
-  TFile outputfile("LLfit_and_SignCalc_M250.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M250_Rdown.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M400_Rdown.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M650_Rdown.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M1000_Rdown.root","RECREATE");
+
+  //TFile outputfile("LLfit_and_SignCalc_M250.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M400.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M650.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M1000.root","RECREATE");
 
   //TFile outputfile("LLfit_and_SignCalc_M250_Rup.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M400_Rup.root","RECREATE");
-  //TFile outputfile("LLfit_and_SignCalc_M650_Rup.root","RECREATE");
+  TFile outputfile("LLfit_and_SignCalc_M650_Rup.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M1000_Rup.root","RECREATE");
 
-  //TFile outputfile("LLfit_and_SignCalc_M250_Rdown.root","RECREATE");
-  //TFile outputfile("LLfit_and_SignCalc_M400_Rdown.root","RECREATE");
-  //TFile outputfile("LLfit_and_SignCalc_M650_Rdown.root","RECREATE");
-  //TFile outputfile("LLfit_and_SignCalc_M1000_Rdown.root","RECREATE");
 
   outputfile.cd();
 
@@ -125,20 +118,20 @@
 
   //## Points for the LL fit and significance calculation 
 
-  //const int N_point = 1;
-  //int Nev_LQ_expect[N_point] = {50};
+//   const int N_point = 1;
+//   int Nev_LQ_expect[N_point] = {50};
     
   //M(LQ) 250 GeV
-  const int N_point = 6;
-  int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
+//   const int N_point = 6;
+//   int Nev_LQ_expect[N_point] = {10,15,20,30,50,200};
 
   //M(LQ) 400 GeV
-  //const int N_point = 6;
-  //int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
+//   const int N_point = 6;
+//   int Nev_LQ_expect[N_point] = {5,10,15,20,50,100};
 
   //M(LQ) 650 GeV
-  //const int N_point = 6;
-  //int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
+  const int N_point = 6;
+  int Nev_LQ_expect[N_point] = {5,8,10,15,20,30};
 
 
   //## Fit options
@@ -161,6 +154,10 @@
   float Nev_zz_expect[N_point]; 
   float Nev_all_expect[N_point];
   float Nev_bkg_expect[N_point];
+
+  float Nev_ttbar_cs_expect[N_point]; 
+  float Nev_zjet_cs_expect[N_point]; 
+
 
   //significance
   float Significance[N_point];
@@ -198,6 +195,9 @@
   float xsectionXeff_zz = h_Mej_zz->Integral()/(intLumi*N_comb);
   float xsectionXeff_qcdjet = h_Mej_qcdjet->Integral()/(intLumi*N_comb);
   float xsectionXeff_gammajet = h_Mej_gammajet->Integral()/(intLumi*N_comb);
+
+  float xsectionXeff_ttbar_cs = h_Mej_ttbar_cs->Integral()/(intLumi*N_comb);
+  float xsectionXeff_zjet_cs = h_Mej_zjet_cs->Integral()/(intLumi*N_comb);
 
   //## Rebin histo
   h_Mej_LQ->Rebin(rebin);
@@ -379,6 +379,9 @@
       Nev_qcdjet_expect[point] = float(xsectionXeff_qcdjet*currentLint);
       Nev_gammajet_expect[point] = float(xsectionXeff_gammajet*currentLint);
 
+      Nev_ttbar_cs_expect[point] = float(xsectionXeff_ttbar_cs*currentLint);
+      Nev_zjet_cs_expect[point] = float(xsectionXeff_zjet_cs*currentLint);
+
       Nev_bkg_expect[point] = Nev_zjet_expect[point] + Nev_ttbar_expect[point] 
 	+ Nev_wjet_expect[point] + Nev_qcdjet_expect[point] 
 	+ Nev_gammajet_expect[point] + Nev_zz_expect[point]  
@@ -392,7 +395,8 @@
       float Num_Bkg2=Nev_zjet_expect[point]*N_comb;
       float Num_AllBkg=Nev_bkg_expect[point]*N_comb;
       float Num_All=Nev_all_expect[point]*N_comb;
-
+      float Num_ttbar_cs=Nev_ttbar_cs_expect[point]*N_comb;
+      float Num_zjet_cs=Nev_zjet_cs_expect[point]*N_comb;
 
       //## Create histograms in Roofit format and PDF's
 
@@ -416,12 +420,39 @@
       //## Fit model
 
 
-      //all bkg
+      //Ratios control samples
       //------------------------------
-      //float ratioBkg=Num_Bkg1/Num_Bkg2;
-      float ratioBkg=MyRatioValue;
+      float ratio_cs=Num_ttbar_cs/Num_zjet_cs;
       //------------------------------
       
+      //relative error on ratioBkg 
+      //is the same as 
+      //relative error on ratio_cs
+
+      float e_r_Num_ttbar_cs=sqrt(Num_ttbar_cs)/Num_ttbar_cs;
+      float e_r_Num_zjet_cs=sqrt(Num_zjet_cs)/Num_zjet_cs;
+
+      float e_r_ratio_cs=sqrt(e_r_Num_ttbar_cs*e_r_Num_ttbar_cs 
+			      + e_r_Num_zjet_cs*e_r_Num_zjet_cs);
+
+      //Ratios signal samples
+      //------------------------------
+      float ratioBkgdef=Num_Bkg1/Num_Bkg2;
+      //float ratioBkg=MyRatioValue;
+      float ratioBkg=0.;
+      //------------------------------
+
+      if(WhichR==-1)
+	ratioBkg=ratioBkgdef-ratioBkgdef*e_r_ratio_cs;
+
+      else
+	if(WhichR==0)
+	  ratioBkg=ratioBkgdef;
+
+      else
+	if(WhichR==+1)
+	  ratioBkg=ratioBkgdef+ratioBkgdef*e_r_ratio_cs;
+
       //       RooRealVar N_bkg1("N_bkg1","N_bkg1", Num_Bkg2*ratioBkg);
       //       RooRealVar N_bkg2("N_bkg2","N_bkg2", Num_Bkg2);
       RooRealVar N_bkg1("N_bkg1","N_bkg1", ratioBkg/(1+ratioBkg) );
@@ -617,7 +648,6 @@
 		  h_Nbkg_fit_OneExp->Write();
 		  h_Ntot_fit_OneExp->Write();
 
-
 		  //###### TEMPORARY SOLUTION #######
 
 		  //S+B
@@ -718,6 +748,8 @@
       cout << "Nev_zz_expect["<<point<<"]: " << Nev_zz_expect[point] << endl;
       cout << "Nev_qcdjet_expect["<<point<<"]: " << Nev_qcdjet_expect[point] << endl;
       cout << "Nev_gammajet_expect["<<point<<"]: " << Nev_gammajet_expect[point] << endl;
+      cout << "Nev_ttbar_cs_expect["<<point<<"]: " << Nev_ttbar_cs_expect[point] << endl;
+      cout << "Nev_zjet_cs_expect["<<point<<"]: " << Nev_zjet_cs_expect[point] << endl;
       cout << "************************************" << endl;
       cout << "N_goodExp: " << N_goodExp << endl; 
       cout << "Significance["<<point<<"]: " << Significance[point] << endl;
