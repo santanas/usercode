@@ -698,6 +698,7 @@ void Selection::Loop()
 //     bool pass_2ndJetEtaCut=false;
 
     bool pass_Mee=false;
+    bool pass_Mee_at_Z=false;
    
     bool pass_St=false;
 
@@ -810,6 +811,10 @@ void Selection::Loop()
     //simulate the cut above using emu events
     if(pass_1Ele1Muon==true && Memu>Mee_highCut)
       pass_Memu=true;
+
+    //Mee around MZ
+    if(pass_twoEle==true && Mee<Mee_highCut && Mee>Mee_lowCut)
+      pass_Mee_at_Z=true;
 
     //## St cut
     float St=-999.;
@@ -1144,6 +1149,7 @@ void Selection::Loop()
     if(pass_twoEle==true && pass_twoJet==true
        && pass_1stElePtCut==true  
        && pass_Mee==false
+       && pass_Mee_at_Z==true
        && pass_St==true)
       { 
 
