@@ -24,9 +24,9 @@
 
 
   //## "Data" 
-  //TFile f_LQ("lq1stgen_M250_full167_100pb.root");
+  TFile f_LQ("lq1stgen_M250_full167_100pb.root");
   //TFile f_LQ("lq1stgen_M400_full167_100pb.root");
-  TFile f_LQ("lq1stgen_M650_full167_100pb.root");
+  //TFile f_LQ("lq1stgen_M650_full167_100pb.root");
   //TFile f_LQ("lq1stgen_M1000_full167_100pb.root");
   TFile f_ttbar("ttbar.root");
   TFile f_zjet("zjet.root");
@@ -53,9 +53,9 @@
 
   //## Fit model for signal
 
-  //TFile f_LQ_fit("lq1stgen_M250_full167_100pb.root");
+  TFile f_LQ_fit("lq1stgen_M250_full167_100pb.root");
   //TFile f_LQ_fit("lq1stgen_M400_full167_100pb.root");
-  TFile f_LQ_fit("lq1stgen_M650_full167_100pb.root");
+  //TFile f_LQ_fit("lq1stgen_M650_full167_100pb.root");
   //TFile f_LQ_fit("lq1stgen_M1000_full167_100pb.root");
 
   // rebin signal histogram
@@ -87,12 +87,35 @@
   //int rebin_zjet_cs=4;
 
 
+  // ratio of ttbar/zjet in the signal sample and systematic error
+  //float e_MyRatioValue=0.22;
+
+  //Rdown
+  //float MyRatioValue=3.3;
+  
+  //ideal
+  float MyRatioValue=4.2;
+  
+  //Rup
+  //float MyRatioValue=5.1;
+  
 
   //## Output file
-  //TFile outputfile("LLfit_and_SignCalc_M250.root","RECREATE");
+  TFile outputfile("LLfit_and_SignCalc_M250.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M400.root","RECREATE");
-  TFile outputfile("LLfit_and_SignCalc_M650.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M650.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M1000.root","RECREATE");
+
+  //TFile outputfile("LLfit_and_SignCalc_M250_Rup.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M400_Rup.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M650_Rup.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M1000_Rup.root","RECREATE");
+
+  //TFile outputfile("LLfit_and_SignCalc_M250_Rdown.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M400_Rdown.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M650_Rdown.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M1000_Rdown.root","RECREATE");
+
   outputfile.cd();
 
 
@@ -102,8 +125,8 @@
 
   //## Points for the LL fit and significance calculation 
 
-  //   const int N_point = 1;
-  //   int Nev_LQ_expect[N_point] = {50};
+  //const int N_point = 1;
+  //int Nev_LQ_expect[N_point] = {50};
     
   //M(LQ) 250 GeV
   const int N_point = 6;
@@ -395,18 +418,20 @@
 
       //all bkg
       //------------------------------
-      float ratioBkg=Num_Bkg1/Num_Bkg2;
+      //float ratioBkg=Num_Bkg1/Num_Bkg2;
+      float ratioBkg=MyRatioValue;
       //------------------------------
       
-      RooRealVar N_bkg1("N_bkg1","N_bkg1", Num_Bkg2*ratioBkg);
-      RooRealVar N_bkg2("N_bkg2","N_bkg2", Num_Bkg2);
+      //       RooRealVar N_bkg1("N_bkg1","N_bkg1", Num_Bkg2*ratioBkg);
+      //       RooRealVar N_bkg2("N_bkg2","N_bkg2", Num_Bkg2);
+      RooRealVar N_bkg1("N_bkg1","N_bkg1", ratioBkg/(1+ratioBkg) );
+      RooRealVar N_bkg2("N_bkg2","N_bkg2", 1/(1+ratioBkg) );
       N_bkg1->setConstant(kTRUE);
       N_bkg2->setConstant(kTRUE);
 
       RooAddPdf *myAllBkg=new RooAddPdf("allBkg","allBkg",
 					RooArgList(Pdf_bkg1,Pdf_bkg2),
 					RooArgList(N_bkg1,N_bkg2));
-
 
       //signal + all bkg
       RooRealVar N_LQ("N_LQ","N_LQ", Num_LQ, 0., Num_All);
