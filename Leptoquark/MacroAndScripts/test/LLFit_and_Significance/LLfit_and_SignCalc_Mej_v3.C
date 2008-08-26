@@ -24,9 +24,10 @@
 
 
   //## "Data" 
-  TFile f_LQ("lq1stgen_M250_full167_100pb.root");
-  //TFile f_LQ("lq1stgen_M650_full167_100pb.root");
+  //TFile f_LQ("lq1stgen_M250_full167_100pb.root");
   //TFile f_LQ("lq1stgen_M400_full167_100pb.root");
+  TFile f_LQ("lq1stgen_M650_full167_100pb.root");
+  //TFile f_LQ("lq1stgen_M1000_full167_100pb.root");
   TFile f_ttbar("ttbar.root");
   TFile f_zjet("zjet.root");
   TFile f_wjet("wjet.root");
@@ -42,7 +43,7 @@
   //sprintf(histoname,"h_Mej_allComb_Meecut_Stcut");
 
   // rebin "data" histogram
-  int rebin=4;
+  int rebin=5;
 
   // number of combination N_comb per event 
   float N_comb=2; //for Mej best
@@ -52,13 +53,13 @@
 
   //## Fit model for signal
 
-  //TFile f_LQ_fit("lq1stgen_M650_full167_100pb.root");
-  TFile f_LQ_fit("lq1stgen_M250_full167_100pb.root");
+  //TFile f_LQ_fit("lq1stgen_M250_full167_100pb.root");
   //TFile f_LQ_fit("lq1stgen_M400_full167_100pb.root");
+  TFile f_LQ_fit("lq1stgen_M650_full167_100pb.root");
+  //TFile f_LQ_fit("lq1stgen_M1000_full167_100pb.root");
 
   // rebin signal histogram
   int rebin_signal=2;
-
 
 
   //## Fit model for background
@@ -81,37 +82,40 @@
   int rebin_ttbar_cs=2;
   int rebin_zjet_cs=2;
 
+  //for MLQ=1000 GeV
+  //int rebin_ttbar_cs=4;
+  //int rebin_zjet_cs=4;
+
 
 
   //## Output file
-  TFile outputfile("LLfit_and_SignCalc_M250.root","RECREATE");
-  //TFile outputfile("LLfit_and_SignCalc_M650.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M250.root","RECREATE");
   //TFile outputfile("LLfit_and_SignCalc_M400.root","RECREATE");
+  TFile outputfile("LLfit_and_SignCalc_M650.root","RECREATE");
+  //TFile outputfile("LLfit_and_SignCalc_M1000.root","RECREATE");
   outputfile.cd();
 
 
   //## Numbers of pesudo-experiments
-  int N_exp=100; 
+  int N_exp=500; 
 
 
   //## Points for the LL fit and significance calculation 
-  const int N_point = 1;
-  int Nev_LQ_expect[N_point] = {50};
-    
-  //   const int N_point = 3;
-  //   int Nev_LQ_expect[N_point] = {5,15,25};
 
-  //M(LQ) 650 GeV
-  //   const int N_point = 6;
-  //   int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
+  //   const int N_point = 1;
+  //   int Nev_LQ_expect[N_point] = {50};
+    
+  //M(LQ) 250 GeV
+  const int N_point = 6;
+  int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
 
   //M(LQ) 400 GeV
-  //   const int N_point = 6;
-  //   int Nev_LQ_expect[N_point] = {7,10,15,20,40,60};
+  //const int N_point = 6;
+  //int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
 
-  //M(LQ) 250 GeV
-  //   const int N_point = 6;
-  //   int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
+  //M(LQ) 650 GeV
+  //const int N_point = 6;
+  //int Nev_LQ_expect[N_point] = {5,10,15,20,30,50};
 
 
   //## Fit options
@@ -477,26 +481,38 @@
 	  //signal set to zero
 	  N_LQ.setVal(0.);
 	  N_LQ.setConstant(kTRUE);
-	  N_AllBkg.setVal(Num_AllBkg);
 
+	  //****************
+	  //N_AllBkg.setVal(Num_AllBkg);
+	  N_AllBkg.setVal(Num_All);
+	  //N_AllBkg.setConstant(kTRUE);
+	  //****************
 
 	  // retrieve generated data for this experiment
 	  RooAbsData *thisGenData = toyMC.genData(exp);
 
 
 	  //fit data with only bkg hyphothesis
+	  //****************
 	  RooFitResult *OnlyBkgFitResult = (RooFitResult*) modelFit->fitTo(*thisGenData,fitOption_mod.c_str()); 
+	  //****************
 	  //RooFitResult *OnlyBkgFitResult 
 	  //= (RooFitResult*) modelFit->fitTo(*thisGenData,Extended(),Minos(kFALSE),Save(kTRUE)); 
 
 
 	  //retrieve fit results
+	  //****************
 	  RooRealVar *N_bkgFinal_toy1 = (RooRealVar *)OnlyBkgFitResult->floatParsFinal().find("N_AllBkg");
+	  //****************
 
 
 	  //fit quality
+	  //****************
 	  covQual_b[exp]=OnlyBkgFitResult->covQual();
 	  minNll_b[exp] = OnlyBkgFitResult->minNll();
+	  //covQual_b[exp]= toyMC.fitResult(exp)->covQual();
+	  //minNll_b[exp] = toyMC.fitResult(exp)->minNll();
+	  //****************
 
 
 	  //fill histograms
@@ -505,7 +521,9 @@
 	  if(covQual_b[exp]==3)
 	    {
 	      h_NLQ_b->Fill(N_LQ.getVal() / N_comb);
+	      //****************
 	      h_Nbkg_b->Fill(N_bkgFinal_toy1->getVal() / N_comb);
+	      //****************
 	      h_minNll_b->Fill(minNll_b[exp]); 
 	    }
 
@@ -557,8 +575,9 @@
 		  sprintf(h_nameMej_genData_OneExp,"h_Mej_genData_OneExp_%d",point);
 
 		  TH1F *h_Mej_genData_OneExp 
-		    = (TH1F*) thisGenData->createHistogram("h_Mej_genData_OneExp", 
-							   Mej, Binning(Nbins) );
+		    = (TH1F*) thisGenData->createHistogram("h_Mej_genData_OneExp",
+							   Mej, Binning( int(float(Mej_max/50)) ) ); 
+		                                           //Mej, Binning(Nbins) );
 
 		  h_Mej_genData_OneExp->SetName(h_nameMej_genData_OneExp);
 		  h_Mej_genData_OneExp->Write();
@@ -585,7 +604,8 @@
 
 
 		  RooPlot* Mejframe1 = Mej.frame(Name("Mejframe1"),Title("sig + bkg")) ;
-		  thisGenData->plotOn(Mejframe1, Binning( int(float(Nbins)) ) ) ;
+		  //thisGenData->plotOn(Mejframe1, Binning( int(float(Nbins)) ) ) ;
+		  thisGenData->plotOn(Mejframe1, Binning( int(float(Mej_max/50)) ) ) ;
 		  modelFit->plotOn(Mejframe1) ;
 		  modelFit->plotOn(Mejframe1, Components(*myAllBkg), 
 				   FillColor(kBlack), FillStyle(3001), DrawOption("F")) ;
@@ -602,11 +622,12 @@
 		  //B
 		  TCanvas c2;
 
-		  N_LQ.setVal(0.);		  
+		  N_LQ.setVal(0.);		
 		  N_AllBkg.setVal(N_bkgFinal_toy1->getVal());		  
 
 		  RooPlot* Mejframe2 = Mej.frame(Name("Mejframe2"),Title("only bkg")) ;
-		  thisGenData->plotOn(Mejframe2, Binning( int(float(Nbins)) ) ) ;
+		  //thisGenData->plotOn(Mejframe2, Binning( int(float(Nbins)) ) ) ;
+		  thisGenData->plotOn(Mejframe2, Binning( int(float(Mej_max/50)) ) ) ;
 		  modelFit->plotOn(Mejframe2) ;
 		  modelFit->plotOn(Mejframe2, Components(*myAllBkg), 
 				   FillColor(kBlack), FillStyle(3001), DrawOption("F")) ;
@@ -622,7 +643,7 @@
 		  // 		  NextExp++;
 
 		  // 		  if(NextExp==2)
-		    OneGoodExpDone=true;
+		  OneGoodExpDone=true;
 		}
 	      
 	    }//end good fit
