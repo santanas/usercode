@@ -212,6 +212,10 @@ void Selection::Loop()
   TH1F *h_eleEcalIso_matchLQ = new TH1F ("h_eleEcalIso_matchLQ","",100,0.,1.);
   h_eleEcalIso_matchLQ->Sumw2();
 
+  //h_eleHcalIso_matchLQ
+  TH1F *h_eleHcalIso_matchLQ = new TH1F ("h_eleHcalIso_matchLQ","",100,0.,1.);
+  h_eleHcalIso_matchLQ->Sumw2();
+
   //h_eleTrkIsoAbs_matchLQ
   TH1F *h_eleTrkIsoAbs_matchLQ = new TH1F ("h_eleTrkIsoAbs_matchLQ","",100,0.,40.);
   h_eleTrkIsoAbs_matchLQ->Sumw2();
@@ -219,6 +223,10 @@ void Selection::Loop()
   //h_eleEcalIsoAbs_matchLQ
   TH1F *h_eleEcalIsoAbs_matchLQ = new TH1F ("h_eleEcalIsoAbs_matchLQ","",100,0.,40.);
   h_eleEcalIsoAbs_matchLQ->Sumw2();
+
+  //h_eleHcalIsoAbs_matchLQ
+  TH1F *h_eleHcalIsoAbs_matchLQ = new TH1F ("h_eleHcalIsoAbs_matchLQ","",100,0.,40.);
+  h_eleHcalIsoAbs_matchLQ->Sumw2();
 
 
   //** NOmatchLQ **
@@ -251,6 +259,10 @@ void Selection::Loop()
   TH1F *h_eleEcalIso_NOmatchLQ = new TH1F ("h_eleEcalIso_NOmatchLQ","",100,0.,1.);
   h_eleEcalIso_NOmatchLQ->Sumw2();
 
+  //h_eleHcalIso_NOmatchLQ
+  TH1F *h_eleHcalIso_NOmatchLQ = new TH1F ("h_eleHcalIso_NOmatchLQ","",100,0.,1.);
+  h_eleHcalIso_NOmatchLQ->Sumw2();
+
   //h_eleTrkIsoAbs_NOmatchLQ
   TH1F *h_eleTrkIsoAbs_NOmatchLQ = new TH1F ("h_eleTrkIsoAbs_NOmatchLQ","",100,0.,40.);
   h_eleTrkIsoAbs_NOmatchLQ->Sumw2();
@@ -258,6 +270,10 @@ void Selection::Loop()
   //h_eleEcalIsoAbs_NOmatchLQ
   TH1F *h_eleEcalIsoAbs_NOmatchLQ = new TH1F ("h_eleEcalIsoAbs_NOmatchLQ","",100,0.,40.);
   h_eleEcalIsoAbs_NOmatchLQ->Sumw2();
+
+  //h_eleHcalIsoAbs_NOmatchLQ
+  TH1F *h_eleHcalIsoAbs_NOmatchLQ = new TH1F ("h_eleHcalIsoAbs_NOmatchLQ","",100,0.,40.);
+  h_eleHcalIsoAbs_NOmatchLQ->Sumw2();
 
 
   //----------------------------------------------------------------------
@@ -352,6 +368,10 @@ void Selection::Loop()
       
     // -------------- Candidates -------------------
 
+
+    float eleTrkIsoAbs[eleCount];
+    float eleEcalIsoAbs[eleCount];
+    float eleHcalIsoAbs[eleCount];
     
     //### Loop over electrons
     for(int iele=0;iele<eleCount;iele++)
@@ -360,7 +380,6 @@ void Selection::Loop()
 	bool pass_ECAL_FR = false;
 	bool pass_elePt = false;
 	bool EleIsMatched = false;
-
 
 	TVector3 ele;
 	ele.SetPtEtaPhi(elePt[iele],
@@ -374,7 +393,7 @@ void Selection::Loop()
 	    && fabs(eleEta[iele]) < ECAL_FR_3_cut)
 	   )
 	  pass_ECAL_FR=true;
-
+	
 	//ele pT cut
 	if(elePt[iele]>elePt_cut)
 	  pass_elePt=true;
@@ -387,6 +406,11 @@ void Selection::Loop()
 	if(pass_elePt==false)
 	  continue;
 
+	//Isolation with absolute variables
+	float sinTheta=1/cosh(eleEta[iele]);
+	eleTrkIsoAbs[iele]=eleTrkIso[iele]*elePt[iele];
+	eleEcalIsoAbs[iele]=eleEcalIso[iele]*elePt[iele];
+	eleHcalIsoAbs[iele]=eleHoE[iele]*eleEnergy[iele]*sinTheta;
 
 	//MC Matching
 	float DeltaR_ele_elegen = 9999.;
@@ -424,8 +448,9 @@ void Selection::Loop()
 		    h_eleTrkIso_matchLQ->Fill(eleTrkIso[iele],weight);
 		    h_eleEcalIso_matchLQ->Fill(eleEcalIso[iele],weight);
 
-		    h_eleTrkIsoAbs_matchLQ->Fill(eleTrkIso[iele]*elePt[iele],weight);
-		    h_eleEcalIsoAbs_matchLQ->Fill(eleEcalIso[iele]*elePt[iele],weight);
+		    h_eleTrkIsoAbs_matchLQ->Fill(eleTrkIsoAbs[iele],weight);
+		    h_eleEcalIsoAbs_matchLQ->Fill(eleEcalIsoAbs[iele],weight);
+		    h_eleHcalIsoAbs_matchLQ->Fill(eleHcalIsoAbs[iele],weight);
 
 		  }// end electrons matched with genele from LQ decay
 
@@ -447,8 +472,9 @@ void Selection::Loop()
 	    h_eleTrkIso_NOmatchLQ->Fill(eleTrkIso[iele],weight);
 	    h_eleEcalIso_NOmatchLQ->Fill(eleEcalIso[iele],weight);
 
-	    h_eleTrkIsoAbs_NOmatchLQ->Fill(eleTrkIso[iele]*elePt[iele],weight);
-	    h_eleEcalIsoAbs_NOmatchLQ->Fill(eleEcalIso[iele]*elePt[iele],weight);
+	    h_eleTrkIsoAbs_NOmatchLQ->Fill(eleTrkIsoAbs[iele],weight);
+	    h_eleEcalIsoAbs_NOmatchLQ->Fill(eleEcalIsoAbs[iele],weight);
+	    h_eleHcalIsoAbs_NOmatchLQ->Fill(eleHcalIsoAbs[iele],weight);
 
 	  }
 	
@@ -475,7 +501,7 @@ void Selection::Loop()
 
   h_eleTrkIsoAbs_matchLQ->Write();
   h_eleEcalIsoAbs_matchLQ->Write();
-
+  h_eleHcalIsoAbs_matchLQ->Write();
   
   h_eleHoE_NOmatchLQ->Write();
   h_eleSigmaEE_NOmatchLQ->Write();
@@ -488,6 +514,6 @@ void Selection::Loop()
 
   h_eleTrkIsoAbs_NOmatchLQ->Write();
   h_eleEcalIsoAbs_NOmatchLQ->Write();
+  h_eleHcalIsoAbs_NOmatchLQ->Write();
 
-	      
 }

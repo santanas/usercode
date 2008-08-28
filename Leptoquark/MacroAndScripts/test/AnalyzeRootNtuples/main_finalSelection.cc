@@ -197,6 +197,10 @@ void Selection::Loop()
   TH1F *h_pThat_sel = new TH1F ("h_pThat_sel","",100,0,1000);
   h_pThat_sel->Sumw2();
 
+  TH1F *h_pThat_sel_MeecutInside = new TH1F ("h_pThat_sel_MeecutInside","",100,0,1000);
+  h_pThat_sel_MeecutInside->Sumw2();
+
+
   //----------------------------------------------------------------------
 
   //N electron
@@ -1169,6 +1173,8 @@ void Selection::Loop()
 	h_Mej_best_MeecutInside_Stcut->Fill(bestLQMass1,weight);
 	h_Mej_best_MeecutInside_Stcut->Fill(bestLQMass2,weight);
 
+	h_pThat_sel_MeecutInside->Fill(pthat,weight);
+
       }
 
 
@@ -1362,6 +1368,7 @@ void Selection::Loop()
 
   h_Mej_allComb_MeecutInside_Stcut->Write();
   h_Mej_best_MeecutInside_Stcut->Write();
+  h_pThat_sel_MeecutInside->Write();
 
   h_Memuj_allComb_Memucut_Stcut->Write();
   h_Memuj_best_Memucut_Stcut->Write();

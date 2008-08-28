@@ -33,6 +33,7 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
     c1.SetLogy();
 
   THStack h_BgkStack;
+  TH1F allBkg;
 
   //~~~~~~~~~~~~~~~~~~~~~~
   Z.cd();
@@ -54,7 +55,7 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   h1.SetFillColor(1);
   h1.SetFillStyle(3003);
   h1.Rebin(rebin);
-  h1.SetName("Z+jet");
+  h1.SetName("Z/\\gamma+jet");
   h1.DrawClone("HISTE");
 
 
@@ -78,10 +79,10 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   ttbar.cd();
   TH1F h3;
   ((TH1D*)gDirectory->Get(histoname))->Copy(h3); 
-  h3.SetLineColor(3);
+  h3.SetLineColor(kRed);
   h3.SetLineWidth(2);
-  h3.SetFillColor(3);
-  h3.SetFillStyle(3003);
+  h3.SetFillColor(kRed);
+  h3.SetFillStyle(3004);
   h3.SetName("ttbar");
   //h3.Scale(1.8);
   h3.Rebin(rebin);
@@ -156,17 +157,44 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   h1_3.DrawClone("HISTEsame");
 
 
+  //~~~~~~~~~~~~~~~~~~~~~~
+  // Others (sum of Wjet,WW,WZ,ZZ,QCD,gammaJet)
+  //~~~~~~~~~~~~~~~~~~~~~~
+
+  int NbinsX=h1.GetNbinsX();
+  double Xmin=h1.GetXaxis()->GetXmin();
+  double Xmax=h1.GetXaxis()->GetXmax();
+
+  TH1F *h_others = new TH1F("h_others","Others",NbinsX,Xmin,Xmax);
+  h_others->Add(&h2);
+  h_others->Add(&h4);
+  h_others->Add(&h5);
+  h_others->Add(&h1_1);
+  h_others->Add(&h1_2);
+  h_others->Add(&h1_3);
+
+  h_others->SetLineColor(1);
+  h_others->SetLineWidth(2);
+  h_others->SetFillColor(1);
+  h_others->SetFillStyle(3001);
+  //h_others->Rebin(rebin);
+  h_others->SetName("Others");
+  h_others->DrawClone("HISTEsame");
+
+
   // ~~~~~~~~~~~~~~~~~~~~~~
   //      Draw Stack
   // ~~~~~~~~~~~~~~~~~~~~~~
-  h_BgkStack.Add(&h2);
-  h_BgkStack.Add(&h4);
-  h_BgkStack.Add(&h5);
-  h_BgkStack.Add(&h1_1);
-  h_BgkStack.Add(&h1_2);
-  h_BgkStack.Add(&h1_3);
-  h_BgkStack.Add(&h3);
+  //  h_BgkStack.Add(&h4);
+  //  h_BgkStack.Add(&h5);
+  //   h_BgkStack.Add(&h1_1);
+  //   h_BgkStack.Add(&h1_2);
+  //   h_BgkStack.Add(&h1_3);
+  //  h_BgkStack.Add(&h2);
+  h_BgkStack.Add(h_others);
   h_BgkStack.Add(&h1);
+  h_BgkStack.Add(&h3);
+
 
   h_BgkStack.Draw("HISTE");
 
@@ -188,9 +216,12 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   ((TH1D*)gDirectory->Get(histoname))->Copy(h6); 
   h6.SetLineColor(4);
   h6.SetLineWidth(2);
+  h6.SetMarkerStyle(20);
+  h6.SetMarkerColor(4);
   h6.Rebin(rebin);
   h6.SetName("LQ (250 GeV)");
-  h6.DrawClone("HISTEsame");
+  //h6.DrawClone("HISTEsame");
+  h6.DrawClone("Epsame");
 
 
 
@@ -213,30 +244,34 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   TH1F h8;
   ((TH1D*)gDirectory->Get(histoname))->Copy(h8); 
   h8.SetLineColor(4);
-  h8.SetFillColor(4);
-  h8.SetFillStyle(3004);
-  h8.SetLineWidth(3);
+  //   h8.SetFillColor(4);
+  //   h8.SetFillStyle(3004);
+  h8.SetLineWidth(2);
+  h8.SetMarkerStyle(25);
+  h8.SetMarkerColor(4);
   h8.Rebin(rebin);
   h8.SetName("LQ (650 GeV)");
-  h8.DrawClone("HISTEsame");
-  
+  //h8.DrawClone("HISTEsame");
+  h8.DrawClone("Epsame");
 
-  legend->AddEntry(&h1,"Z+jet","f");
+  legend->AddEntry(&h6,"LQ (250 GeV)","p");
+  legend->AddEntry(&h8,"LQ (650 GeV)","p");
+  
   legend->AddEntry(&h3,"ttbar","f");
-  legend->AddEntry(&h2,"W+jet","f");
+  legend->AddEntry(&h1,"Z+jet","f");
+  legend->AddEntry(h_others,"Others","f");
 
-  legend->AddEntry(&h1_1,"WW","f");
-  legend->AddEntry(&h1_2,"WZ","f");
-  legend->AddEntry(&h1_3,"ZZ","f");
+//   legend->AddEntry(&h2,"W+jet","f");
 
-  legend->AddEntry(&h4,"QCDjets","f");
-  legend->AddEntry(&h5,"\\gamma+jet","f");
+//   legend->AddEntry(&h1_1,"WW","f");
+//   legend->AddEntry(&h1_2,"WZ","f");
+//   legend->AddEntry(&h1_3,"ZZ","f");
 
-  legend->AddEntry(&h6,"LQ (250 GeV)","f");
-  legend->AddEntry(&h8,"LQ (650 GeV)","f");
+//   legend->AddEntry(&h4,"QCDjets","f");
+//   legend->AddEntry(&h5,"\\gamma+jet","f");
 
   
-  legend->SetMargin(0.5);
+  //legend->SetMargin(0.5);
   legend->Draw();
 
   //~~~~~~~~~~~~~~~~~~~~~~

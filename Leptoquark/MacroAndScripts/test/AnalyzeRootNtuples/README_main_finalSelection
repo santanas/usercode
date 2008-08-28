@@ -61,7 +61,7 @@ It plots all signal and background in the same THStack adding legend and variuos
 
 > root -l 
 > .L PlotSigBkgVariables.C
-> PlotSigBkgVariable("h_Mej_best_Meecut_Stcut","Mej_best_Meecut_Stcut.gif","Mej (GeV)","Number of events / 100 pb-1",0.1,300,0,800,2,0)
+> PlotSigBkgVariable("h_Mej_best_Meecut_Stcut","Mej_best_Meecut_Stcut.gif","Mej (GeV)","Number of events / 100 pb-1",0.1,300,0,1000,2,1)
 > PlotSigBkgVariable("h_Mee","Mee.gif","Mee (GeV)","Number of events / 100 pb-1",0.1,300,0,1000,5,1)
 > PlotSigBkgVariable("h_St","St.gif","St (GeV)","Number of events / 100 pb-1",0.1,300,0,2000,4,1)
 (you can do it for the histogram that you want)
