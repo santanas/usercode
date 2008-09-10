@@ -207,6 +207,9 @@ void Selection::Loop()
   TH1F *h_nEleID = new TH1F ("h_nEleID","",11,-0.5,10.5);
   h_nEleID->Sumw2();
 
+  TH1F *h_nEleFinal_noIso = new TH1F ("h_nEleFinal_noIso","",11,-0.5,10.5);
+  h_nEleFinal_noIso->Sumw2();
+
   TH1F *h_nEleFinal = new TH1F ("h_nEleFinal","",11,-0.5,10.5);
   h_nEleFinal->Sumw2();
 
@@ -974,6 +977,7 @@ void Selection::Loop()
     h_pThat_weight->Fill(pthat,weight);
 
     h_nEleID->Fill(v_idx_ele_ID.size(),weight);
+    h_nEleFinal_noIso->Fill(v_idx_ele_final_noIso.size(),weight);
     h_nEleFinal->Fill(v_idx_ele_final.size(),weight);
 
     h_nJetFinal->Fill(v_idx_jet_final.size(),weight);
@@ -1336,6 +1340,7 @@ void Selection::Loop()
   h_pThat_sel->Write();
 
   h_nEleID->Write();
+  h_nEleFinal_noIso->Write();
   h_nEleFinal->Write();
 
   h_pT1stEle->Write();

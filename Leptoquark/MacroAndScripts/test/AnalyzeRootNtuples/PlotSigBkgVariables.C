@@ -195,8 +195,9 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   h_BgkStack.Add(&h1);
   h_BgkStack.Add(&h3);
 
-
+  //----------------
   h_BgkStack.Draw("HISTE");
+  //----------------
 
   h_BgkStack.GetXaxis()->SetTitle(xtitle_);
   h_BgkStack.GetXaxis()->SetRangeUser(Xmin_,Xmax_);
@@ -221,8 +222,9 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   h6.Rebin(rebin);
   h6.SetName("LQ (250 GeV)");
   //h6.DrawClone("HISTEsame");
+  //----------------
   h6.DrawClone("Epsame");
-
+  //----------------
 
 
   //~~~~~~~~~~~~~~~~~~~~~~
@@ -254,12 +256,14 @@ PlotSigBkgVariable(char *histoname_, char* outputfilename_, char* xtitle_, char*
   //h8.DrawClone("HISTEsame");
   h8.DrawClone("Epsame");
 
+  //----------------
   legend->AddEntry(&h6,"LQ (250 GeV)","p");
   legend->AddEntry(&h8,"LQ (650 GeV)","p");
   
   legend->AddEntry(&h3,"ttbar","f");
   legend->AddEntry(&h1,"Z+jet","f");
   legend->AddEntry(h_others,"Others","f");
+  //----------------
 
 //   legend->AddEntry(&h2,"W+jet","f");
 
