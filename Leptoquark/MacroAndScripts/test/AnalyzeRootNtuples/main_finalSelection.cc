@@ -25,7 +25,7 @@ using namespace std;
 //  ogni taglio. 
 
 //==================
-const int Nparam=4;   //--> NUMBER OF PARAMETERS 
+const int Nparam=6;   //--> NUMBER OF PARAMETERS 
 //==================
 
 float Lint=100;//Lint (pb-1)
@@ -95,8 +95,11 @@ int main(int argc, char* argv[])
       cout << "int main() >> ERROR : arcg = " << argc 
 	   << " different from "              << Nparam+1 << endl;
       
-      cout << "--- Correct Usage : exe eventProcess inputlist treename outputfilename" << endl;
-      cout << "--- Correct Usage : eventProcess can be: all, ttbarjet, wjet, zjet, qcdjet, gammajet, leptoquark" << endl;
+      cout << "--- Correct Usage : exe eventProcess inputlist treename outputfilename Kfactor NevNoCut" << endl;
+      cout << "--- Correct Usage : eventProcess can be: all, ttbarjet, wjet, zjet, qcdjet, gammajet, leptoquark" 
+	   << endl;
+      cout << "--- Correct Usage : Kfactor: if = 1 use the cross section in the rootples" << endl;
+      cout << "--- Correct Usage : NevNoCut: number of events generated (only used for LQ --> in the other cases you can use 0)" << endl;
     }
   
   else 
@@ -124,6 +127,11 @@ int main(int argc, char* argv[])
       // Output filename (.root)  
       TString *OutputFileName= new TString(argv[4]);
 
+      // External weight 
+      float Kfactor= atof(argv[5]);
+
+      //Number of events (used only for LQ)
+      int NevNoCut= atoi(argv[6]);
 
       //================ Creating chain 
 
@@ -153,9 +161,9 @@ int main(int argc, char* argv[])
 
 	  //================ Run analysis
  
-	  Selection analysis(chain,OutputFileName,eventProcess);
+	  Selection analysis(chain,OutputFileName,eventProcess,Kfactor,NevNoCut);
 
-	  //analysis.SetCuts(TrkIsoCut,HcalIsoCut,LoosePtCut,PT1Cut,PT2Cut,Eta1Cut,Eta2Cut,METCut,Ext_weight,Rescale_weight,isSoup);
+	  //analysis.SetCuts(TrkIsoCut,HcalIsoCut,LoosePtCut,PT1Cut,PT2Cut,Eta1Cut,Eta2Cut,METCut,Kfactor,Rescale_weight,isSoup);
 	  analysis.Loop();
 	 
 	} // end check file is good
@@ -429,6 +437,10 @@ void Selection::Loop()
     //**************************************
     //** Write here your code inside loop **
     //**************************************
+
+    //Include K factor
+    weight=weight*Kfactor_;
+    //cout << weight << endl;
         
     //Select event process
     bool passEventProcessSelected=false;
@@ -1006,7 +1018,7 @@ void Selection::Loop()
 
     //~~~
 
-    if(pass_twoEle_noIso==true)
+    if(pass_HLT==true && pass_twoEle_noIso==true)
       {
 	N_abs_2ele_noiso++;
 	N_Lint_2ele_noiso+=weight;
@@ -1015,7 +1027,7 @@ void Selection::Loop()
 
     //~~~
 
-    if(pass_twoEle==true)
+    if(pass_HLT==true && pass_twoEle==true)
       {
 	N_abs_2ele++;
 	N_Lint_2ele+=weight;
@@ -1024,7 +1036,7 @@ void Selection::Loop()
 
     //~~~
 
-    if(pass_twoEle==true && pass_twoJet==true)
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true)
       {
 	N_abs_2ele_2jets++;
 	N_Lint_2ele_2jets+=weight;
@@ -1034,7 +1046,7 @@ void Selection::Loop()
     //~~~
 
 
-    if(pass_twoEle==true && pass_twoJet==true && pass_Mee==true)
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true && pass_Mee==true)
       {
 	
 	h_pT1stEle->Fill(elePt[v_idx_ele_final[0]],weight);
@@ -1052,7 +1064,7 @@ void Selection::Loop()
       }
 
 
-    if(pass_twoEle==true && pass_twoJet==true 
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true 
        && pass_1stElePtCut==true) 
       { 
 
@@ -1082,7 +1094,7 @@ void Selection::Loop()
       }
 
 
-    if(pass_twoEle==true && pass_twoJet==true
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true
        && pass_1stElePtCut==true 
        && pass_Mee==true)
       { 
@@ -1116,7 +1128,7 @@ void Selection::Loop()
       }
 
 
-    if(pass_twoEle==true && pass_twoJet==true 
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true 
        && pass_1stElePtCut==true 
        && pass_St==true)
       { 
@@ -1126,7 +1138,7 @@ void Selection::Loop()
       }
 
 
-    if(pass_twoEle==true && pass_twoJet==true 
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true 
        && pass_1stElePtCut==true 
        && pass_Mee==true
        && pass_St==true)
@@ -1154,7 +1166,7 @@ void Selection::Loop()
 
 
 
-    if(pass_twoEle==true && pass_twoJet==true
+    if(pass_HLT==true && pass_twoEle==true && pass_twoJet==true
        && pass_1stElePtCut==true  
        && pass_Mee==false
        && pass_Mee_at_Z==true
@@ -1182,7 +1194,7 @@ void Selection::Loop()
       }
 
 
-    if(pass_1Ele1Muon==true && pass_twoJet==true 
+    if(pass_HLT==true && pass_1Ele1Muon==true && pass_twoJet==true 
        && pass_1stElePtCut==true && pass_1stMuonPtCut==true
        && pass_Memu==true
        && pass_St_mu==true)
@@ -1219,9 +1231,11 @@ void Selection::Loop()
   //    RootNtuple for that sample
   if( strcmp(eventProcess, "leptoquark")==0 && cross_section>-999.)
     { 
-      N_abs_nocut=(cross_section*Lint)/weight;
+      //N_abs_nocut=(cross_section*Lint)/weight;
+      N_abs_nocut=NevNoCut_;
       e_N_abs_nocut=sqrt(N_abs_nocut);       
-      N_Lint_nocut=cross_section*Lint;
+      //N_Lint_nocut=cross_section*Lint;
+      N_Lint_nocut=N_abs_nocut*weight;
       e_N_Lint_nocut+=(e_N_abs_nocut/N_abs_nocut)*N_Lint_nocut;
     }
 

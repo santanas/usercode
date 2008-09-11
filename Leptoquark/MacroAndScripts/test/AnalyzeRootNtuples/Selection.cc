@@ -9,7 +9,7 @@
 
 using namespace std;
 
-Selection::Selection(TChain *chain,TString *outputFileName,TString *eventProcess)
+Selection::Selection(TChain *chain,TString *outputFileName,TString *eventProcess, float Kfactor, int NevNoCut)
 {
   
   if (chain == 0) 
@@ -24,6 +24,8 @@ Selection::Selection(TChain *chain,TString *outputFileName,TString *eventProcess
   
   outputFileName_ = outputFileName;
   eventProcess_ = eventProcess;
+  Kfactor_ = Kfactor;
+  NevNoCut_ = NevNoCut;
    
   Init(chain);
 }

@@ -18,6 +18,8 @@ public :
    Int_t           fCurrent; //!current Tree number in a TChain
    TString        *outputFileName_; //output file name (.root)
    TString        *eventProcess_; //event process
+   float          Kfactor_;
+   int            NevNoCut_;
 
    //Selection cuts
    //   Float_t TrkIsoCut_;
@@ -28,7 +30,7 @@ public :
    //   Float_t Eta1Cut_;
    //   Float_t Eta2Cut_;
    //   Float_t METCut_; 
-   //   Float_t Ext_weight_; 
+   //   Float_t Kfactor_; 
    //   Float_t Rescale_weight_; 
    //   Float_t isSoup_; 
 
@@ -182,7 +184,7 @@ public :
    TBranch        *b_MET;   //!
 
 
-   Selection(TChain *chain=0,TString *outputFileName=0,TString *eventProcess=0);
+   Selection(TChain *chain=0,TString *outputFileName=0,TString *eventProcess=0,float Kfactor=1., int NevNoCut=0);
    ~Selection();
    Int_t    Cut(Long64_t entry);
    Int_t    GetEntry(Long64_t entry);
