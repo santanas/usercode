@@ -1,0 +1,183 @@
+%%
+%% This is file `cimsmple.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% cimento.dtx  (with options: `sample')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from cimsmple.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file cimento.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesFile{cimsmple.tex}
+      [1999/12/01 v1.4c Il Nuovo Cimento]
+\documentclass{cimento}
+
+%% \documentclass[rivista]{cimento} Use the option rivista for La Rivista del
+%Nuovo Cimento
+
+%%%%%%%%%%%%%
+             %
+               %    % If you are preparing Enrico Fermi School of
+%VERY IMPORTANT  %  % Physics report, please read the bundled file
+	       %    % README.varenna 
+             %
+%%%%%%%%%%%%
+
+
+%\usepackage{graphicx}  % got figures? uncomment this
+%\title{Prospects for exotica searches at ATLAS and CMS {\mdseries\ttfamily cimento} class}
+\title{Prospects for Exotica Searches at ATLAS and CMS}
+\author{F.~Santanastasio\from{ins:UMD}\ETC
+%R.~Drake\from{ins:x}\\
+%        \atque
+%Mr.~M\from{ins:evil}\thanks{The bad fellow.}
+}
+\instlist{\inst{ins:UMD} Department of Physics, University of Maryland \\
+College Park, MD, 20742, USA \\
+E-mail: francesco.santanastasio@cern.ch \\
+for the ATLAS and CMS collaborations}
+
+%\PACSes{\PACSit{00.00}{By the way, which PACS is it, the 00.00? GOK.}
+%\PACSit{---.---}{\ldots}}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper presents the prospects for the search of exotic physics 
+beyond the Standard Model at the Large Hadron Collider. 
+\end{abstract}
+
+\section{Description}
+This is a very short sample paper distributed with the class
+\texttt{cimento}.
+It is just a collection of examples about the syntax of commands
+which behave in a different way from the standard \LaTeX
+and/or new commands not defined in \LaTeX.
+
+
+%\begin{figure}
+%\includegraphics{foo}     % includes figure foo.eps
+%\caption{Foo onteracting with bar}
+%\end{figure}
+
+
+This sample is not meant to provide documentation for the class;
+to obtain the class `manual' typeset the main distribution file,
+\texttt{cimento.dtx}.
+
+You can also use this file as a template for your own paper:
+copy it to another filename and then modify as needed.
+
+\section{Examples}
+
+\subsection{Tables}
+Tables~\ref{tab:pricesI}, \ref{tab:pricesII} and~\ref{tab:pricesIII}
+inserted at this point.
+
+\begin{table}
+  \caption{Prices of important items.}
+  \label{tab:pricesI}
+  \begin{tabular}{rcl}
+    \hline
+      Ice-cream      & 1500  & lire    \\
+      More ice-cream & 15000 & lire    \\
+      Crocodile      & 1500  & dollars \\
+    \hline
+      Phone call     & .25   & dollars \\
+      X-Men          & 1.25  & dollars \\
+      Dollar         & 1     & dollars \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Same thing, but formatted using \texttt{!} and \texttt{?}.}
+  \label{tab:pricesII}
+  \begin{tabular}{rcl}
+    \hline
+      Ice-cream      & !1500   & lire    \\
+      More ice-cream & 15000   & lire    \\
+      Crocodile      & !1500   & dollars \\
+    \hline
+      Phone call     & !.25    & dollars \\
+      X-Men          & 1.25    & dollars \\
+      Dollar         & 1?{.}!! & dollars \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Again, this time with \texttt{narrowtabular}}
+  \label{tab:pricesIII}
+  \begin{narrowtabular}{2cm}{rcl}
+    \hline
+      Ice-cream      & !1500   & lire    \\
+      More ice-cream & 15000   & lire    \\
+      Crocodile      & !1500   & dollars \\
+    \hline
+      Phone call     & !.25    & dollars \\
+      X-Men          & 1.25    & dollars \\
+      Dollar         & 1?{.}!! & dollars \\
+    \hline
+  \end{narrowtabular}
+\end{table}
+
+
+\subsection{Mathematics}
+Here is a lettered array~(\ref{e.all}), with eqs.~(\ref{e.house})
+and~(\ref{e.phi}):
+\begin{eqnletter}
+ \label{e.all}
+ \drm x_\sy{F} & = & 1.2\cdot10^3\un{cm}, \qquad
+                     \tx{where\ } \sy{F} = \tx{Fermi}    \label{e.house}\\
+ \phi_i        & = & i\pi                                \label{e.phi}
+\end{eqnletter}
+
+\subsection{Citations}
+We're almost done, just some citations~\cite{ref:apo}
+and we will be over~\cite{ref:pul,ref:bra}.
+
+
+\appendix
+
+\section{}
+Let us go then, you and I\ldots
+
+\acknowledgments
+This work was produced, supported and perpetrated by S. Frabetti under
+the auspices of the Italian Physical Society.
+Grazie to M. Missiroli for the valuable collaboration.
+
+\begin{thebibliography}{0}
+\bibitem{ref:apo} \BY{Boccaccio~G. \atque de~Cam\~oes~L.}
+  \IN{Phys. Rev. A}{13}{1999}{12};
+  \SAME{69}{999}{1666}.
+\bibitem{ref:pul} \BY{Pulci~L.}
+  preprint INFN 8181.
+\bibitem{ref:bra} \BY{Bragg~B.}
+  \TITLE{Tender comrade},
+  in \TITLE{Workers Playtime},
+                  edited by \NAME{Tizio A. \atque Caio B.}
+                  (Unexeditor, Bologna) 1997, pp.~1-10.
+\end{thebibliography}
+
+\end{document}
+\endinput
+%%
+%% End of file `cimsmple.tex'.

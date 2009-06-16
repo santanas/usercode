@@ -1,0 +1,51 @@
+These are few instructions in order to cope with the Varenna School Proceedings. With the option varenna, you need to specify author and institute in
+a different way. For short, you have to use the \institute control sequence (instead of \instlist used in the bare cimento case), i.e. the header of your LaTeX file should look:
+
+\documentclass[varenna]{cimento}
+
+%your favourite packages here
+
+
+\title{New methods for investigating superconductivity\\
+at very high pressures}
+
+
+\author{V.~V. Struzhkin, E. Gregoryanz, H.~K. Mao \atque
+        R.~J. Hemley}
+
+\institute{Geophysical Laboratory and Center for High Pressure Research\\
+Carnegie Institution of Washington\\ 5251 Broad Branch Road, NW, Washington DC
+20015, USA}
+
+%
+%
+% this part is only needed if you have authors affering to different institutions
+%
+%
+
+\author{Y.~A. Timofeev}
+
+\institute{Institute for High Pressure Physics, Russian Academy
+of Sciences\\ Troitsk 142 092, Russia}
+
+%
+%
+%
+%
+
+
+\shortauthor{V.~V. Struzhkin, E. Gregoryanz, H.~K. Mao, R.~J. Hemley \atque Y.~A. Timofeev}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Your abstract
+\end{abstract}
+
+
+Your text ........
+
+
+
