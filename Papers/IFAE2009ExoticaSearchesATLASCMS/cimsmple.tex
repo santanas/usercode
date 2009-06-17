@@ -39,7 +39,7 @@
 %%%%%%%%%%%%
 
 
-%\usepackage{graphicx}  % got figures? uncomment this
+\usepackage{graphicx}  % got figures? uncomment this
 %\title{Prospects for exotica searches at ATLAS and CMS {\mdseries\ttfamily cimento} class}
 \title{Prospects for Exotica Searches at ATLAS and CMS}
 \author{F.~Santanastasio\from{ins:UMD}\ETC
@@ -63,7 +63,7 @@ This paper presents the prospects for the search of exotic physics
 beyond the Standard Model with the Large Hadron Collider at CERN. 
 The results presented here are based on Montecarlo simulations of the
 ATLAS and CMS detectors, assuming a scenario with 
-100 pb$^{-1}$ of collected integrated luminosity and proton-proton collisions 
+100~pb$^{-1}$ of collected integrated luminosity and proton-proton collisions 
 at $\sqrt{s} = 14$~TeV. A selection of benchmark analyses is discussed, 
 including searches of new physics in the di-lepton, di-jet, and lepton-jet channel, 
 and the description of techniques to identify the production of 
@@ -97,31 +97,29 @@ At the present time the LHC is still in commissioning phase
 and the first collisions are expected in the Fall of 2009.
 The results presented here are therefore based on detailed 
 Montecarlo simulations of the ATLAS and CMS detectors, 
-assuming a scenario with 100 pb$^{-1}$ of collected integrated luminosity 
+assuming a scenario with 100~pb$^{-1}$ of collected integrated luminosity 
 and proton-proton collisions with an energy in the center of mass $\sqrt{s} = 14$~TeV. 
 A selection of four ATLAS and CMS benchmark analyses with different 
 experimental issues is discussed, that includes 
 search of new physics in the di-lepton~(Section~\ref{dilepton}), 
 di-jet~(Section~\ref{dijet}), and lepton-jet~(Section~\ref{leptonjet}) channel, 
 and the description of experimental techniques to identify the production of 
-heavy stable charged particles using muon detectors~(Section~\ref{HSCP}).
+exotic heavy stable charged particles using muon detectors~(Section~\ref{HSCP}).
 The announced scenario is that the first LHC physics run 
 will be taken at a lower energy ($\sqrt{s} = 10$~TeV) 
-than the design of the machine, with approximately 
-100-300 pb$^{-1}$ of integrated luminosity collected. 
-The impact of the reduced accelerator energy on the ATLAS and CMS 
-discovery potential is discussed in Section~\ref{10TeVvs14TeV}. 
-Conclusions are given in Section~\ref{Conclusion}.
+than the machine design, and its impact on the ATLAS and CMS 
+discovery potential are discussed in Section~\ref{10TeVvs14TeV}. 
+%Conclusions are given in Section~\ref{Conclusion}.
 
-The online selection of events (trigger) is a 
-crucial aspect for all Exotica analyses at LHC, mainly to guarantee that 
-interesting signal events are not discarded during the data acquisition chain. 
-The trigger strategies for Exotica are not described in this paper, but 
-has been presented in another contribution during this 
-conference~\footnote{See contribution from Massimiliano Chiroboli 
-FIXME - ADD TITLE OF CONFERENCE REPORT ON EXOTICA TRIGGER STRATEGIES}. 
-In this paper the triggers used are almost 100\% efficient 
-to select signal events, unless otherwise noticed.
+%An efficient and robust online selection of events (trigger) is a 
+%crucial aspect for all Exotica analyses at LHC, mainly to guarantee that 
+%interesting signal events are not discarded during the data acquisition chain. 
+%The trigger strategies for Exotica are not described in this paper, but 
+%has been presented in another contribution during this 
+%conference~\footnote{See contribution from Massimiliano Chiroboli 
+%FIXME - ADD TITLE OF CONFERENCE REPORT ON EXOTICA TRIGGER STRATEGIES}. 
+%The analysis here presented use triggers that are almost 100\% efficient 
+%to select signal events, unless otherwise noticed.
 
 \section{Di-lepton channel} \label{dilepton}
 
@@ -134,28 +132,96 @@ including extra dimensions (FIXME - REFERENCE FROM ATLAS NOTE).
 The strictest direct limits on the existence of such 
 heavy neutral particles are from searches 
 at the Tevatron (FIXME - ADD 3 REFERENCES FROM ATLAS NOTE); 
-the highest excluded mass is currently almost 1~TeV.
+the highest excluded mass is currently almost 1~TeV/$c^2$.
 The di-lepton channels has been studied using similar 
 analysis strategies by both at ATLAS (FIXME REF) and CMS (FIXME REF)
 experiments, and consistent results have been found. 
 
-Figure~\ref{fig:Mee} shows the distribution of the invariant mass 
+Figure~\ref{fig:MeeAndZPrimeDisc} shows the distribution of the invariant mass 
 of the two leading electrons, $M_{ee}$, in presence of 
-a signal from $Z' \rightarrow ee$ with mass of 1 TeV from the CMS analysis. 
-The dominant SM background is represented by the Drell-Yan 
+a signal from $Z' \rightarrow ee$ with mass of 1~TeV/$c^2$ from the CMS analysis. 
+The dominant SM irreducible background is represented by the Drell-Yan 
 continuum and it's expected to be well described by the MC.
-Data driven techniques to estimate the $t\bar{t}$ and QCD multi-jet
-backgrounds are used. The signal extraction is based on a likelihood 
-fit to the $M_{ee}$ distribution, using a parametrization of the signal and 
-background shapes. Figure~\ref{fig:ZPrimeIntoEEdiscovery}
+Data driven techniques to estimate $t\bar{t}$ and QCD multi-jet
+reducible backgrounds are used. The signal extraction is based on a fit 
+to the $M_{ee}$ distribution, using a parametrization of signal and 
+background shapes. Figure~\ref{fig:MeeAndZPrimeDisc}
 shows the ATLAS discovery potential of $Z' \rightarrow ee$
 for variuos theory models, and suggests that resonance masses 
 above the current Tevatron limits could be discovered with 
 100~pb$^{-1}$ of data already. 
 
+The invariant mass resolution in the di-muon channel is expected to be up to an 
+order of magnitude worse then the di-electron channel, but reducible backgrounds
+are expected to be smaller. Thus the di-muon channel could be competitive, 
+especially with early data where the design background rejection may not be 
+achieved.
+
+\begin{figure}[htbp] 
+\centering
+\includegraphics[width=0.45\textwidth]{./st_mass_all_withZPrime_ALLTOPO.eps}\includegraphics[width=0.48\textwidth]{./fig9L.eps}
+\caption{Left: di-electron invariant mass spectrum for a 
+100~pb$^{-1}$ pseudo-experiment (from CMS) including a signal from 
+$Z' \rightarrow ee$ with mass of 1~TeV/$c^2$, 
+compared to SM background estimates. Right: integrated 
+luminosity needed for a $5\sigma$ discovery of $Z' \rightarrow ee$
+as a functionof the $Z'$ mass for various benchmark models. Only 
+statistical uncertainties are included. 
+Effect of systemtic uncertainties is less than 20\% in the $Z'$ mass
+range investigated.}
+\label{fig:MeeAndZPrimeDisc}
+\end{figure}
+
 \section{Di-jet channel} \label{dijet}
-Ciao
+The LHC is a parton-parton collider in a previously 
+unexplored energy region. If new parton-parton resonances 
+exist then the LHC will produce them copiously. 
+These resonances should also decay to partons giving two jets in the final state. 
+Therefore the experimental motivation to search for di-jet 
+resonances is intuitively obvious. In addition several theoretical 
+models supports the search of new physics in the di-jet channel
+(FIXME - ADD REFERENCE). Even if the LHC energy is not sufficient 
+to directly produce these particles, the new physics might appear as 
+a contact interaction (FIXME - ADD REFERENCE), 
+and we should still be able to identify its signals by looking 
+at di-jet events.
+
+Several experimental approaches have been considered by the 
+ATLAS~\footnote{Results from ATLAS analysis were not yet public at the time 
+of the conference, and therefore not included in this paper.} 
+and CMS analyses to identify new physics in the di-jet channel, 
+including the study of the jet $p_{T}$ spectrum, di-jet mass, and di-jet ratio.
+In this section, the use of di-jet ratio to identify the presence 
+of contact interactions is discussed. The most sensitive 
+search for quark contact interactions at the Tevatron obtained an exclusion on 
+the contact interaction scale of $\Lambda^{+} < 2.7$~TeV (FIXME - ADD REFERENCE - 
+CHECK LATEST NUMBERS).  
+
+The di-jet ratio $R$ is a jet angular variable used to 
+discriminate between new physics and QCD multi-jet events, 
+that constitute the dominant SM background in the di-jet channel:  
+$R=N\mbox{(}|\eta|<0.7\mbox{)}~/~N\mbox{(}0.7<|\eta|< 1.3 \mbox{)}$, 
+where $N$ is the number of di-jet events with both jets satisfying the 
+$|\eta|$ pseudorapidity requirements in parenthesis.
+Figure~\ref{fig:DiJetRatio} shows the sensitivity of this measurements to 
+contact interactions for different values of $\Lambda^{+}$; 
+with 100~pb$^{-1}$ of data contact interaction with
+$\Lambda^{+} < 6.8$~TeV can be discovered, 
+which is well above the current Tevatron limits.
  
+
+\begin{figure}[htbp] 
+\centering
+\includegraphics[width=0.45\textwidth]{./DiJetRatio100pbOptFix.eps} 
+\caption{Di-jet ratio as a function of di-jet mass for contact interactions at 
+different energy scales, and for QCD multi-jet background. 
+For QCD multi-jet events, the di-jet ratio is almost flat at 0.5. 
+In presence of contact interactions, 
+leading jets are expected to be more central than QCD multi-jet events, 
+thus producing a deviation in the di-jet ratio at high di-jet mass values.}
+\label{fig:DiJetRatio}
+\end{figure}
+
 \section{Lepton-jet channel} \label{leptonjet}
 
 \section{Heavy stable charged particles} \label{HSCP}
