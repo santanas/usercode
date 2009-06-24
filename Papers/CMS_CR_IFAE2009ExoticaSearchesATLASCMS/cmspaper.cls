@@ -35,7 +35,8 @@
 
 \setlength{\hoffset}{-1in}
 %Lucas-setlength{\voffset}{-0.5in}
-      \setlength{\voffset}{-1in}
+      %\setlength{\voffset}{-1in}
+\setlength{\voffset}{-0.5in}
 \setlength{\oddsidemargin}{25mm}
 \setlength{\evensidemargin}{25mm}
 \setlength{\marginparwidth}{25mm}
