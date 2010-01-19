@@ -13,7 +13,9 @@ cat > ${OUTFILE}.tex <<EOF
 \usepackage[dvips]{graphicx}
 \usepackage{bm}
 
-\def\etmiss{\big\slash\hspace{-1.6ex}{E_T}}
+\def\etmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm T}}}
+\def\exmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm x}}}
+\def\eymiss{\big\slash\hspace{-1.6ex}{E_{\mathrm y}}}
 
 \begin{document}
 \begin{linenumbers}
