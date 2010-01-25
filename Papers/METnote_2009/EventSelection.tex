@@ -133,7 +133,7 @@ energy signal for a single HF channel (the one associated to that PMT).
 
 The presence of such atypical signals was also confirmed in recent 
 2009 collision data, sometimes resulting in large unphysical $\etmiss$ in the event. 
-Observations indicate that large HCAL-related $\etmiss$ 
+Observations indicate that large unphysical HCAL-related $\etmiss$ 
 in Minimum Bias events is mostly due to energy reconstructed in HF, 
 while in only few cases the energy unbalance is due to HB/HE noise events. 
 This can be explained by considering that HF PMT window hits 
@@ -161,20 +161,27 @@ the energies reconstructed from long (L) and short (S) fibers with the same ($\e
 Infact, a particle hitting directly a PMT would produce a large apparent energy only in one channel 
 (i.e. either the one connected to long or short fiber) and none in the other.
 
-Given a pair of adjacent long and short 
-fibers, with energies $E^L$, $E^S$, respectively, the fiber channels are flagged as noisy if 
-(a) the maximum transverse energy $E_T^{max}$ reported by the two channels is at least 5~GeV, and (b) 
-if the energy ratio R, defined as:
+Given a pair of adjacent long and short fibers at the same ($\eta$,$\phi$) value 
+with energies $E^L$, $E^S$, respectively, the fiber channels are flagged as noisy if 
+(a) the transverse energy measured in the HF tower ($E_T=E_T^L+E_T^S$) is at least 5~GeV, 
+and (b) the energy ratio $R$, defined as:
 %
 \begin{equation}
 R = \frac{E^L - E^S}{E^L + E^S}
 \end{equation}
 %
-is, in module, greater than 0.995. In this study, if at least one HF fiber channel 
-is flagged by this algorithm, the event is rejected from the analysis. 
-Figure~\ref{fig:hf_noise_longshortFiber} shows the scatter distributions of $E_T^L$($E_T^S$) vs $R$, 
-for both data and MC, after applying the full event selection except the HF filter itself.
-The HF noise events can be identified by large $E_T^L$($E_T^S$) values and $R$ values close to 1 or -1.
+is greater than 0.99 (PMT hit associated to the long fiber) 
+or smaller than -0.8 (PMT hit associated to the short fiber). 
+Figure~\ref{fig:hf_noise_ET_vs_R} shows the scatter distribution of $E_T$ vs $R$, 
+for both data and MC, after applying all the event selection criteria except 
+the HF filter itself. The HF noise channels can be identified by 
+large $E_T$ values and $R$ values close to -1 or 1, 
+inconsistent with MinBias MC assumption.
+
+In this study, if at least one HF fiber channel is flagged by this algorithm, 
+the event is simply rejected from the analysis. No attempt to clean the event, 
+by correcting the high level objects (such as $\etmiss$ or SumET), 
+is performed at this stage of the analysis. 
 \\
 \\
 %
@@ -182,16 +189,13 @@ The HF noise events can be identified by large $E_T^L$($E_T^S$) values and $R$ v
 \begin{figure}[h!]
  \centering
  \begin{tabular}{ll}
-  \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_longfiberET_vs_ratio_DATA.eps} &
-  \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_longfiberET_vs_ratio_MC.eps} \\
-  \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_shortfiberET_vs_ratio_DATA.eps} &
-  \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_shortfiberET_vs_ratio_MC.eps} \\
+  \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_towerET_vs_ratio_DATA.eps} &
+  \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_towerET_vs_ratio_MC.eps} \\
  \end{tabular}
-\caption{\small (Top) Scatter distribution of transverse energy in the long fibers versus $R$ for both data (Left) and MC (Right), 
-and (Bottom) distribution of transverse energy in the short fibers versus $R$ for both data (Left) and MC (Right), 
-after applying the full event selection except the HF filter itself. 
-Plots are filled for each HF tower if either $E_L>1.2$~GeV or $E_S>1.8$~GeV. 
-The x axis range is chosen in order to highlight the region where noise events appear. \label{fig:hf_noise_longshortFiber}}
+\caption{\small (Top) Scatter distribution of transverse energy in HF tower versus energy ratio $R$ for both data 
+(Left) and MC (Right), after applying all the event selection criteria except the HF filter itself. 
+Plots are filled for each HF tower if either $E_L>1.2$~GeV or $E_S>1.8$~GeV (to cut the pedestal noise).
+\label{fig:hf_noise_ET_vs_R}}
 \end{figure}
 %
 %
