@@ -10,7 +10,7 @@ are normalized so that the total number of events in Monte Carlo sample
 mathces the number of events observed in data.
 
 
-\subsection{Basic $\etmiss$-related distributions.}
+\subsection{Basic $\etmiss$-related distributions}
 \begin{figure}[h!]
  \centering
  \begin{tabular}{ll}
@@ -76,7 +76,26 @@ mathces the number of events observed in data.
 
 \clearpage
 
-\subsection{$\etmiss$ resolution.}
+\subsection{$\etmiss$ resolution}
+
+For events with no $\etmiss$ from physics sources, the $\etmiss$ resolution can be most generally parameterized
+according to the following expression (CMS AN-2007/041):
+\begin{equation}
+  \sigma\left(\etmiss\right)=A \oplus B\sqrt{\sum E_\text{T}-D} \oplus C\left(\sum E_\text{T}-D\right),
+  \label{eq:MET_sigma}
+\end{equation}
+where $A$ is the noise term, $B$ is the stohastic term, $C$ is the constant term, and $D$ is the offset term. In such events
+$\exmiss$ and $\eymiss$ are expected to follow a Gaussian distribution with the mean of zero and the standard deviation
+of $\sigma$. It can also be shown that $\sigma\left(\etmiss\right)$ is proportional to this $\sigma$. Therefore,
+by looking at $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$ as a function of $\sum E_\text{T}$ it is possible to
+study the $\etmiss$ resolution and the relative contributions of different resolution terms at different values of $\sum E_\text{T}$.
+Figure~\ref{fig:MExySigma_vs_SumET_900} shows the $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$ 
+vs. $\sum E_\text{T}$ for 900 GeV data compared with Monte Carlo simulation. $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$
+were extracted from a Gaussian fit to $\exmiss$ and $\eymiss$ distributions, respectively, in a region of $\pm 1.5$ RMS around the mean.
+Figures~\ref{fig:MExSigma_vs_SumET_900_fit} and \ref{fig:MEySigma_vs_SumET_900_fit} show the fit of $\sigma\left(\exmiss\right)$
+ and $\sigma\left(\eymiss\right)$ vs. $\sum E_\text{T}$ to Eq.~\ref{eq:MET_sigma} for data and Monte Carlo at $900$ GeV.
+The offset term $D$, which from results presented in Section~\ref{sc:CaloNoise} is expected to be small, had to be fixed to zero in 
+order to get a stable fit.
 
 \begin{figure}[h!]
  \centering
@@ -84,8 +103,8 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/h_metxsigma_sumet_900.eps} &
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/h_metysigma_sumet_900.eps} \\
  \end{tabular}
- \caption{\small Comparison of the $\exmiss$ $\sigma$ vs. $\sum E_\text{T}$ and $\eymiss$ $\sigma$ vs. $\sum E_\text{T}$ between 
-          Monte Carlo and data at $900$ GeV.\label{fig:MExySigma_vs_SumET_900}}
+ \caption{\small $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$ vs. $\sum E_\text{T}$ for data at $900$ GeV
+          compared with Monte Carlo simulation.\label{fig:MExySigma_vs_SumET_900}}
 \end{figure}
 
 \begin{figure}[h!]
@@ -94,7 +113,7 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/final_metxsigma_sumet_MC_900.eps} &
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/final_metxsigma_sumet_DATA_900.eps} \\
  \end{tabular}
- \caption{\small Fit of the $\exmiss$ $\sigma$ vs. $\sum E_\text{T}$ for Monte Carlo and data at $900$ GeV. Parameter $D$ in the fit was fixed
+ \caption{\small Fit of the $\sigma\left(\exmiss\right)$ vs. $\sum E_\text{T}$ for data and Monte Carlo at $900$ GeV. Parameter $D$ in the fit was fixed
           to zero.\label{fig:MExSigma_vs_SumET_900_fit}}
 \end{figure}
 
@@ -104,8 +123,8 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/final_metysigma_sumet_MC_900.eps} &
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/final_metysigma_sumet_DATA_900.eps} \\
  \end{tabular}
- \caption{\small Fit of the $\eymiss$ $\sigma$ vs. $\sum E_\text{T}$ for Monte Carlo and data at $900$ GeV. Parameter $D$ in the fit was fixed
-          to zero.\label{fig:MExSigma_vs_SumET_900_fit}}
+ \caption{\small Fit of the $\sigma\left(\eymiss\right)$ vs. $\sum E_\text{T}$ for data and Monte Carlo at $900$ GeV. Parameter $D$ in the fit was fixed
+          to zero.\label{fig:MEySigma_vs_SumET_900_fit}}
 \end{figure}
 
 \clearpage
@@ -119,7 +138,7 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/g_caloSumetRMS_vs_ieta_900.eps} \\
  \end{tabular}
  \caption{\small Comparison of the SumET Mean vs. i$\eta$ of calotowers and SumET RMS vs. i$\eta$ of calotowers between 
-          Monte Carlo and data at $900$ GeV.\label{fig:SumET_MeanRMS_vs_ieta_900}}
+          data and Monte Carlo at $900$ GeV.\label{fig:SumET_MeanRMS_vs_ieta_900}}
 \end{figure}
 
 \begin{figure}[h!]
@@ -129,7 +148,7 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/g_calometPtRMS_vs_ieta_900.eps} \\
  \end{tabular}
  \caption{\small Comparison of the $\etmiss$ Mean vs. i$\eta$ of calotowers and $\etmiss$ RMS vs. i$\eta$ of calotowers between 
-          Monte Carlo and data at $900$ GeV.\label{fig:MET_MeanRMS_vs_ieta_900}}
+          data and Monte Carlo at $900$ GeV.\label{fig:MET_MeanRMS_vs_ieta_900}}
 \end{figure}
 
 \begin{figure}[h!]
@@ -139,7 +158,7 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/g_calometPxRMS_vs_ieta_900.eps} \\
  \end{tabular}
  \caption{\small Comparison of the $\exmiss$ Mean vs. i$\eta$ of calotowers and $\exmiss$ RMS vs. i$\eta$ of calotowers between 
-          Monte Carlo and data at $900$ GeV.\label{fig:METx_MeanRMS_vs_ieta_900}}
+          data and Monte Carlo at $900$ GeV.\label{fig:METx_MeanRMS_vs_ieta_900}}
 \end{figure}
 
 \begin{figure}[h!]
@@ -149,7 +168,7 @@ mathces the number of events observed in data.
   \includegraphics[width=0.5\textwidth]{plots_DataVsMC_MB_900GeV/g_calometPyRMS_vs_ieta_900.eps} \\
  \end{tabular}
  \caption{\small Comparison of the $\eymiss$ Mean vs. i$\eta$ of calotowers and $\eymiss$ RMS vs. i$\eta$ of calotowers between 
-          Monte Carlo and data at $900$ GeV.\label{fig:METy_MeanRMS_vs_ieta_900}}
+          data and Monte Carlo at $900$ GeV.\label{fig:METy_MeanRMS_vs_ieta_900}}
 \end{figure}
 
 \clearpage
