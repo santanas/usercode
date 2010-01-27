@@ -1,4 +1,5 @@
 \section{Trigger requirements}
+\label{sc:TriggerRequirements}
 
 Events analyzed in this note were collected by the CMS experiment during the LHC
 commissioning phase in December 2009. The majority of collisions
@@ -21,6 +22,7 @@ Counter (BSC) system:
 \end{itemize}
 
 \section{Data Samples}
+\label{sc:DataSamples}
 
 The events collected by the BSC MinBias TT bits 40 and 41 can be found
 in ``MinimumBias'' dataset. For the analysis presented in this note the
@@ -77,7 +79,8 @@ are applied to both data and simulation.
 In order to study the $\etmiss$ performance, an
 event selection that removes the instrumental or beam related noise
 sources is required. In this section we describe the selection criteria
-we use to remove these type of events.
+we use to remove these type of events, and summarize their effect on
+$\etmiss$ performance.
 
 % \subsection{Vertex selection}
 % In order to further constrain the event selection to identify the
@@ -255,6 +258,63 @@ ECAL crystal has $E_T>5$~GeV and $S4/S1<0.01$.
 to be added.
 
 \subsection{Effect of noise removal}
+
+Tables~\ref{tab:selectionefficiency_data}, \ref{tab:selectionefficiency_mc}
+summarize the number of events after each set of event selection
+criteria described above, as well as their efficiencies in data and
+simulation. It can be seen from 
+Tab.~\ref{tab:selectionefficiency_data} that the number of events
+rejected by the ECAL/HCAL noise identification algorithms described
+above is relatively small. However, since this
+events can create an apparent imbalance in transverse energy, which can
+also populate the tails of distributions, it is crucial to identify
+them. Fig.~\ref{fig:calometAfterCuts} shows how the
+$\etmiss$ distribution changes after removing the events with ECAL and HCAL
+noise. The algorithms described above can be seen to reject the majority of
+``large'' $\etmiss$ events, including the shoulder in $\etmiss$
+distribution around 16-20~GeV.
+ 
+\begin{table}[!ht]
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      Selection      & Number of Events  & Relative Efficiency   &
+      Absolute Efficiency\\
+      \hline\hline
+      Trigger                            & 303277 () & 1.000 ()  &  1.000 () \\ 
+      Technical Trigger Bit 0    & 264900 () & 0.873  () & 0.873  ()\\
+      Good Run List                 & 196792 () & 0.743 () & 0.649 () \\
+      Scraping Events Removal& 195919 () & 0.996 () & 0.646 () \\
+      ECAL spikes Removal     & 195767 () & 0.999 () & 0.645 () \\
+      HF PMT hits Removal      & 195404 () & 0.998 () & 0.644 ()\\  \hline
+  \end{tabular}
+    \caption{Number of events passing each selection criteria in the 900~GeV (2360~GeV) data and
+      the efficiencies of the various selections applied.}
+    \label{tab:selectionefficiency_data}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      Selection      & Number of Events  & Relative Efficiency   &
+      Absolute Efficiency\\
+      \hline\hline
+      Total events                    & 735275 () &  1.000 () & 1.000 ()         \\
+      Trigger                            & 500568 () & 0.681 ()& 0.681 () \\ 
+      Scraping Events Removal& 500568 () & 1.000 () & 0.681 () \\
+      ECAL spikes Removal     & 500568 () & 1.000 () & 0.681 () \\ 
+      HF PMT hits Removal      & 500566 () & 0.999 () & 0.681 ()\\ \hline
+ \end{tabular}
+    \caption{Number of events passing each selection criteria in the 900~GeV (2360~GeV) Monte Carlo samples and
+      the efficiencies of the various selections applied.}
+    \label{tab:selectionefficiency_mc}
+  \end{center}
+\end{table}
+
+
+
 \begin{figure}[h!]
  \centering
  \begin{tabular}{ll}

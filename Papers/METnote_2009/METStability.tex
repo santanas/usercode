@@ -1,50 +1,94 @@
 \section{$\etmiss$ stability over 2009 data-taking period}
 \label{sc:METStab}
 
-An important aspect of the MET commissioning is monitoring of the MET-related quantities and their stability over
-an extended period of time. Any instability in such quantities during stable beam conditions can be an indication of some sort of a problem.
-Figures~\ref{fig:SumET_vs_run}, \ref{fig:MET_vs_run}, \ref{fig:MEx_vs_run}, and \ref{fig:MEy_vs_run} show the stability of several MET-related
-quantities in 2009 collision data with the HLT\_PhysicsDeclared bit set.
+An important aspect of the MET commissioning is monitoring of the
+MET-related quantities and their stability over an extended period of
+time. Any instability in such quantities during stable beam conditions
+can be an indication of some sort of a problem.
+Figures~\ref{fig:SumET_vs_run}, \ref{fig:MET_vs_run},
+\ref{fig:MEx_vs_run}, and \ref{fig:MEy_vs_run} show the stability of
+several MET-related quantities in 2009 collision data with the
+HLT\_PhysicsDeclared bit set, including the ``bad'' runs listed in
+Sec.\ref{sc:DataSamples}. These type of plots can be used in online DQM
+for monitoring the detector performance, since it can help to identify
+hardware problems in calorimeter, as it is explained below.
+
+Fig.~\ref{fig:SumET_vs_run}-\ref{fig:MEy_vs_run} show distributions of
+various calorimetric variables versus run number for the 2009 data-taking
+period. This distribution clearly shows that in some of the runs there
+were calorimeter problems that affected measured distributions. It was
+confirmed by HCAL DQM that in runs 123970, 123976, 123977,
+123978, 123985, 123987 the high voltages for HCAL HB and HE were off. As
+a result, the total energy reconstructed in the event was lower than in
+an event with fully operational HCAL, which explains the drop in
+the mean of $\sum E_\text{T}$ and $\etmiss$ as shown on
+Fig.\ref{fig:SumET_vs_run}, \ref{fig:MET_vs_run}. Runs 124006, 124008, 124009, which
+also deviate from the trend, were identified by ECAL DQM as having a
+noise in ECAL EE detector. As can be seen from
+Fig.\ref{fig:SumET_vs_run}, \ref{fig:MET_vs_run}, the mean of $\sum E_\text{T}$
+distributions in these runs is higher than the average, since the noise
+in EE made the apparent energy reconstructed in the event to appear
+large. During the run 123985 HCAL HB and HE, and ECAL EB and EE
+detectors were off, which can be
+seen in these plots as the entry with the smallest mean transverse
+energy. 
 
 \begin{figure}[h!]
- \centering
- \begin{tabular}{ll}
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_caloSumetMean_vs_run.eps} &
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_caloSumetRMS_vs_run.eps} \\
- \end{tabular}
+  \centering
+  \begin{tabular}{ll}
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_caloSumetMean_vs_run.eps} &
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_caloSumetRMS_vs_run.eps} \\
+  \end{tabular}
  \caption{\small The mean and RMS of the $\sum E_\text{T}$ distribution vs. run number for the 2009 data-taking period.
           Entries shown in red correspond to runs with some known hardware problems. The last entry corresponds to a $2360$ GeV run.
           \label{fig:SumET_vs_run}}
+      \end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{ll}
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPtMean_vs_run.eps} &
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPtRMS_vs_run.eps} \\
+  \end{tabular}
+  \caption{\small The mean and RMS of the $\etmiss$ distribution vs. run
+    number for the 2009 data-taking period.  Entries shown in red
+    correspond to runs with some known hardware problems. The last entry
+    corresponds to a $2360$ GeV run.\label{fig:MET_vs_run}}
+\end{figure}
+
+Monitoring the $x$ and $y$ components of $\etmiss$ can be helpful in
+identifying any asymmetric behaviour in the
+calorimeters. In Fig.\ref{fig:MEx_vs_run} one can see a flat
+distribution in $\exmiss$ indicating an expected behaviour. The
+distribution of $\sigma$ of $\exmiss$ drops during the runs with parts of
+detector off, which is expected since the $\sigma_{\etmiss}$ is
+proportional to $\sum E_\text{T}$. However, the distribution on
+Fig.\ref{fig:MEy_vs_run} shows a drop during runs with HB and HE off,
+which may indicate that there is some asymmetry in the response of the
+ECAL calorimeter.
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{ll}
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPxMean_vs_run.eps} &
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPxSigma_vs_run.eps} \\
+  \end{tabular}
+  \caption{\small The mean and $\sigma$ of the $\exmiss$ distribution
+    vs. run number for the 2009 data-taking period.  Entries shown in
+    red correspond to runs with some known hardware problems. The last
+    entry corresponds to a $2360$ GeV run.\label{fig:MEx_vs_run}}
 \end{figure}
 
 \begin{figure}[h!]
- \centering
- \begin{tabular}{ll}
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPtMean_vs_run.eps} &
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPtRMS_vs_run.eps} \\
- \end{tabular}
- \caption{\small The mean and RMS of the $\etmiss$ distribution vs. run number for the 2009 data-taking period.
-          Entries shown in red correspond to runs with some known hardware problems. The last entry corresponds to a $2360$ GeV run.\label{fig:MET_vs_run}}
-\end{figure}
-
-\begin{figure}[h!]
- \centering
- \begin{tabular}{ll}
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPxMean_vs_run.eps} &
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPxSigma_vs_run.eps} \\
- \end{tabular}
- \caption{\small The mean and $\sigma$ of the $\exmiss$ distribution vs. run number for the 2009 data-taking period.
-          Entries shown in red correspond to runs with some known hardware problems. The last entry corresponds to a $2360$ GeV run.\label{fig:MEx_vs_run}}
-\end{figure}
-
-\begin{figure}[h!]
- \centering
- \begin{tabular}{ll}
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPyMean_vs_run.eps} &
-  \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPySigma_vs_run.eps} \\
- \end{tabular}
- \caption{\small The mean and $\sigma$ of the $\eymiss$ distribution vs. run number for the 2009 data-taking period.
-          Entries shown in red correspond to runs with some known hardware problems. The last entry corresponds to a $2360$ GeV run.\label{fig:MEy_vs_run}}
+  \centering
+  \begin{tabular}{ll}
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPyMean_vs_run.eps} &
+    \includegraphics[width=0.5\textwidth]{plots_METStability/h_calometPySigma_vs_run.eps} \\
+  \end{tabular}
+  \caption{\small The mean and $\sigma$ of the $\eymiss$ distribution
+    vs. run number for the 2009 data-taking period.  Entries shown in
+    red correspond to runs with some known hardware problems. The last
+    entry corresponds to a $2360$ GeV run.\label{fig:MEy_vs_run}}
 \end{figure}
 
 
