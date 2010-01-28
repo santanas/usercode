@@ -15,8 +15,8 @@ cat > ${OUTFILE}.tex <<EOF
 \usepackage{bm}
 
 \def\etmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm T}}}
-\def\exmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm x}}}
-\def\eymiss{\big\slash\hspace{-1.6ex}{E_{\mathrm y}}}
+\def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
+\def\eymiss{\big\slash\hspace{-1.6ex}{E_{y}}}
 
 \begin{document}
 \begin{linenumbers}
