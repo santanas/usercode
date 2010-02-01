@@ -29,12 +29,12 @@ Counter (BSC) system:
 
 The events collected by the BSC MinBias TT bits 40 and 41 can be found
 in ``MinimumBias'' dataset. For the analysis presented in this note the
-collision events were reconstructed using CMSSW\_3\_3\_5\_patch4
+collision events were reconstructed using CMSSW\_3\_3\_6\_patch3
 software release. We used the data sample in which trigger selections
 discussed in the previous section are already applied:
 \begin{itemize}
 \item
-  /MinimumBias/BeamCommissioning09-BSCNOBEAMHALO-Dec14thSkim\_v1/RAW-RECO
+  /MinimumBias/BeamCommissioning09-BSCNOBEAMHALO-Jan23Skim-v1/RAW-RECO
 \end{itemize}
 Additionally, we require that L1 TT bit 0 was fired, which
 indicates consistent timing with LHC bunch crossing. We also require
@@ -49,28 +49,51 @@ calorimeter problems (``bad'' runs): 123970, 123976, 123977, 123978, 123985, 123
 124006. Events collected during these runs are excluded
 from this analysis, unless it is stated otherwise.
 
-After excluding the bad runs listed above, the following set of runs is
-used for the analysis presented in this note:
-\begin{itemize}
-\item For the $\sqrt{s}=900$~GeV data-taking period:
-123815, 123818, 123906, 123908, 123909, 123970, 123976, 123977, 123978,
-123985, 123987, 124006, 124008, 124009, 124017, 124020, 124022, 124023,
-124024, 124025, 124027, 124030. 
+After excluding the bad runs listed above, the set of runs listed in
+Tab.\ref{tab:goodruns} is used for the analysis presented in this
+note. 
 
-\item For the $\sqrt{s}=2.36$~TeV data-taking period: 124120.
-
-\end{itemize}
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      Run Number      & Beginning LumiSection  & Ending LumiSection   \\\hline\hline
+      123596              & 2   & 9999\\ 
+      123615              & 70 & 9999\\
+      123732              & 62 & 109\\
+      123815              & 8   & 9999\\
+      123818              & 2   & 42\\
+      123908              & 2   & 12\\
+      124008              & 1   & 1\\
+      124009              & 1   & 68\\
+      124020              & 12 & 94\\
+      124022              & 66 & 179\\
+      124023              & 38 & 9999\\
+      124024              & 2   & 83\\
+      124025              & 5   & 13\\
+      124027              & 24 & 9999\\
+      124030              & 2   & 9999\\
+      124120              & 1   & 9999\\
+      \hline    
+    \end{tabular}
+    \caption{List of runs and corresponding lumisections that were analyzed in this note. For some of
+      the runs only a certain range of lumisections is considered to be
+      good for analysis. If the ending lumisection is labelled as 9999 it
+      means that the run was good until its end.}
+    \label{tab:goodruns}
+  \end{center}
+\end{table}
 
 \subsection{Monte Carlo simulation}
 
 The collision data events considered in this analysis are compared with
 {\sc pythia} simulations of Minimum Bias collisions which are processed
 with {\sc GEANT-4} simulation of the CMS detector. Simulated events are
-then reconstructed using CMSSW\_3\_3\_5\_patch2. The data samples used in
+then reconstructed using CMSSW\_3\_3\_6\_patch3. The data samples used in
 this analysis can be found at:
 \begin{itemize}
-\item Comparisons with 900~GeV data: /MinBias/Summer09-STARTUP3X\_V8I\_900GeV-v2/GEN-SIM-RECO
-\item Comparisons with 2.36~TeV data: /MinBias/Summer09-STARTUP3X\_V8D\_2360GeV-v2/GEN-SIM-RECO
+\item Comparisons with 900~GeV data: /MinBias/Summer09-STARTUP3X\_V8P\_900GeV-v1/GEN-SIM-RECO
+\item Comparisons with 2.36~TeV data: /MinBias/Summer09-STARTUP3X\_V8O\_2360GeV-v1/GEN-SIM-RECO
 \end{itemize}
 
 For the comparisons of data with Monte Carlo we require that simulated
@@ -85,27 +108,6 @@ sources is required. In this section we describe the selection criteria
 we use to remove these type of events, and summarize their effect on
 $\etmiss$ performance.
 
-% \subsection{Vertex selection}
-% In order to further constrain the event selection to identify the
-% collision events, several studies have considered a selection based on
-% the reconstructed primary vertex properties, such as $Z$ position or
-% number of tracks attached to the vertex. The comparison of the vertex
-% $Z$ distribution in data compared to simulation is shown on
-% Fig.\ref{fig:vertex_selection_1}. Events shown in
-% Fig.\ref{fig:vertex_selection_1}  are required to have at least 2 tracks
-% attached to the primary vertex. As can be seen from this comparison,
-% the simulation does not agree well with the observed distribution of
-% this variable. Therefore, we choose not to make any selection on this variable.
-
-% \begin{2figures}{hbtp}
-%   \resizebox{8cm}{!}{\includegraphics{plots_EventSelection/h_AllVertexZ_log.eps}} &
-%   \resizebox{8cm}{!}{\includegraphics{plots_EventSelection/h_AllVertexZ_linear.eps}} \\
-%  \label{fig:vertex_selection_1}
-% \caption{Comparison of the distribution of the event primary vertex $Z$
-%   position between data and Monte Carlo simulation. Distributions for
-%   events that have at least two tracks attached to the vertex are shown.}
-% \end{2figures}
-
 \subsection{Removal of scraping events}
 
 During the LHC commissioning phase, it was observed that
@@ -115,6 +117,52 @@ tracks. These events were identified as being the result of beam
 particles traversing the pixel detector longitudinally. We reject this
 type of events by requiring that the fraction of high-purity tracks in
 all events with more than 10 tracks is greater than 20\%.
+
+\subsection{Vertex selection}
+In order to further constrain the event selection to identify the
+collision events, a selection based on
+the reconstructed primary vertex properties is implemented. The
+selection is based on the following quantities: vertex $\chi^2$, NDF of
+vertex, number of tracks which contributed to the vertex reconstruction
+with a weight $>0.5$, and vertex $Z$.
+
+The comparison of the vertex
+$Z$ distribution in data compared to simulation is shown on
+Fig.\ref{fig:vertex_selection_1}. Events shown in
+Fig.\ref{fig:vertex_selection_1}  are required to pass all the
+selections described above and additionally to have at least 2 tracks
+with weight $>0.5$ attached to the primary vertex. We implement the
+official recommendation from the tracking group to identify collision
+events by requiring that 
+\begin{itemize}
+\item vertex $\chi^2!=0$, NDF$!=0$ and contains more than 0 tracks
+  attached to it, to reject fake vertices.
+\item number of tracks with weight$>0.5$ is greater than 3.
+\item vertex $Z\leq 15$~cm.
+\end{itemize}
+
+\begin{figure}[h]
+ \centering
+ \begin{tabular}{ll}
+\includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexZ_log.eps}&
+\includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexZ_linear.eps}\\
+ \end{tabular}
+\caption{Comparison of the distribution of the event primary vertex $Z$
+  position between data and Monte Carlo simulation, in log (left) and
+  linear (right) scales.}
+\label{fig:vertex_selection_1}
+\end{figure}
+
+\begin{figure}[h]
+ \centering
+ \begin{tabular}{ll}
+\includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexChi2.eps}&
+\includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexNtrk.eps}\\
+ \end{tabular}
+\caption{Comparison of the distribution of the event primary vertex
+  $\chi^2$ and number of tracks with $w>0.5$ between data and Monte Carlo simulation. }
+\label{fig:vertex_selection_1}
+\end{figure}
 
 \subsection{HCAL anomalous noise}
 Commissioning studies of the CMS hadronic calorimeter performed 
@@ -255,10 +303,7 @@ clusters. A distinct set of events in data can be observed with $S4/S1$
 values below 0.01 for events with $E_T>5$~GeV in the spike
 crystal. This feature is not observed in the Monte Carlo
 simulation. Therefore, we identify spike events by requiring that an
-ECAL crystal has $E_T>5$~GeV and $S4/S1<0.01$.
-
-\subsection{Removal of Cosmic and BeamHalo Events}
-to be added.
+ECAL crystal has $E_T>5$~GeV and $S4/S1<0.05$.
 
 \subsection{Effect of noise removal}
 
