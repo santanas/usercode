@@ -42,7 +42,7 @@ that the ``HLT\_PhysicsDeclared'' bit is set, which indicates that all
 CMS systems were up and running with stable beams in the
 accelerator. 
 
-Out of all runs present in this data set that fulfill all
+Out of all runs that are present in this data set and fulfill all
 of the requirements listed above, the following runs were identified by the
 JetMET DQM, ECAL/HCAL DPG groups to have
 calorimeter problems (``bad'' runs): 123970, 123976, 123977, 123978, 123985, 123987,
@@ -98,15 +98,15 @@ this analysis can be found at:
 
 For the comparisons of data with Monte Carlo we require that simulated
 events pass the BSC Minimum Bias trigger selections (TT bits 40 and
-41). Additionally, any further event selection criteria described in the next section
+41). Additionally, any further event selection criteria described in the Section~\ref{sec:event_selection}.
 are applied to both data and simulation.
 
 \section{Event Selection}
-In order to study the $\etmiss$ performance, an
-event selection that removes the instrumental or beam related noise
-sources is required. In this section we describe the selection criteria
-we use to remove these type of events, and summarize their effect on
-$\etmiss$ performance.
+\label{sec:event_selection}
+In order to study the $\etmiss$ performance, an event selection that
+removes the instrumental or beam related noise sources is required. In
+this section we describe the selection criteria we use to remove these
+type of events, and summarize their effect on $\etmiss$ performance.
 
 \subsection{Removal of scraping events}
 
@@ -124,21 +124,21 @@ collision events, a selection based on
 the reconstructed primary vertex properties is implemented. The
 selection is based on the following quantities: vertex $\chi^2$, NDF of
 vertex, number of tracks which contributed to the vertex reconstruction
-with a weight $>0.5$, and vertex $Z$.
+with a weight $>0.5$, and vertex $z$ coordinate.
 
-The comparison of the vertex
-$Z$ distribution in data compared to simulation is shown on
+The comparison of the distribution of vertex $z$ coordinate in data
+compared to simulation is shown in
 Fig.\ref{fig:vertex_selection_1}. Events shown in
-Fig.\ref{fig:vertex_selection_1}  are required to pass all the
-selections described above and additionally to have at least 2 tracks
-with weight $>0.5$ attached to the primary vertex. We implement the
-official recommendation from the tracking group to identify collision
-events by requiring that 
+Fig.\ref{fig:vertex_selection_1} are required to pass all the selections
+described above and additionally to have at least 2 tracks with a
+weight~$>0.5$. We implement the official
+recommendation from the tracking group to identify collision events by
+requiring:
 \begin{itemize}
 \item vertex $\chi^2!=0$, NDF$!=0$ and contains more than 0 tracks
   attached to it, to reject fake vertices.
 \item number of tracks with weight$>0.5$ is greater than 3.
-\item vertex $Z\leq 15$~cm.
+\item vertex $z\leq 15$~cm.
 \end{itemize}
 
 \begin{figure}[h]
@@ -147,7 +147,7 @@ events by requiring that
 \includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexZ_log.eps}&
 \includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexZ_linear.eps}\\
  \end{tabular}
-\caption{Comparison of the distribution of the event primary vertex $Z$
+\caption{Comparison of the distribution of the event primary vertex $z$
   position between data and Monte Carlo simulation, in log (left) and
   linear (right) scales.}
 \label{fig:vertex_selection_1}
@@ -161,7 +161,7 @@ events by requiring that
  \end{tabular}
 \caption{Comparison of the distribution of the event primary vertex
   $\chi^2$ and number of tracks with $w>0.5$ between data and Monte Carlo simulation. }
-\label{fig:vertex_selection_1}
+\label{fig:vertex_selection_2}
 \end{figure}
 
 \subsection{HCAL anomalous noise}
