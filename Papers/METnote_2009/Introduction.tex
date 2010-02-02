@@ -1,25 +1,54 @@
 \section{Introduction}
+Protons that collide at the LHC have equal and
+opposite momenta. Therefore, the total vector momentum sum before and
+after the collision in an event
+should be zero. The hard collision happens between the partons of the
+protons in the collision, and they can carry any fraction of the parent
+proton. However, since the partons usually have very
+little momentum in the plane transverse to the beam, the transverse
+momentum can be considered as a conserved quantity to a good
+approximation. 
 
-\cite{Acosta:1999ws}
+Any transverse momentum imbalance in the detector may indicate that a
+weakly interacting particle (\textit{e.g.} a neutrino) left the
+detector without interacting with its material. However, instrumental or
+beam related noises can cause an apparent energy imbalance in the
+transverse plane. A study of the collision data collected by the CMS
+experiment during the LHC commissioning phase in December 2009 has
+revealed several instrumental effects that can cause an apparent energy
+imbalance in the reconstruction. Since $\etmiss$ provides a powerful
+tool in distinguishing rare processes with neutrinos or non-Standard
+Model particles from the copious SM backgrounds, it is important to have an accurate and reliable method
+of measuring this quantity. 
 
-%    There are three kind of CMS papers: ``CMS Note'', 
-%    ``CMS Internal Note'' and ``CMS Conference Report''.
-%    They differ only in the header of the first page,
-%    which includes an eps figure different for each kind.
-%    One of the following commands must be selected,
-%    where \verb$yyyy$ is the current year
-%    and \verb$xxx$ is the document number allocated by the CMS secretariat:
-%{\small \begin{verbatim}
-%  \cmsnote{yyyy-xxx}
-%  \internalnote{yyyy-xxx}
-%  \conferencereport{yyyy-xxx}
-%\end{verbatim} }
-    
-%Apart from the title and authors some supplementary information can be given
-%on the first page:
-%{\small \begin{verbatim}
-%  \collaboration{Physics Analysis Group}
-%  \conference{Presented at {\em Hard Collisions}, Coconut Island, May 2005}
-%  \submitted{Submitted to {\em Physics Rumours}}
-%  \note{Preliminary version}
-%\end{verbatim} }
+The $x$ and $y$ components of the raw missing transverse energy of the
+event are obtained from:
+
+\begin{align}
+  \label{eq:32}
+  \exmiss&=-\sum\limits^{N_{towers}}_{i=1}E_T^icos\phi_i\\
+  \label{eq:33}
+  \eymiss&=-\sum\limits^{N_{towers}}_{i=1}E_T^isin\phi_i
+\end{align}
+where the sum is taken over all calorimetric towers that are above a threshold of
+$E_T^i>0.3$\,GeV, and the total electromagnetic and hadronic energy in $i^{th}$
+tower is $E_T^i$. The magnitude of the missing energy is then calculated
+by:
+\begin{equation}
+  \etmiss=\sqrt{\big\slash\hspace{-1.6ex}{E_x}^2+\big\slash\hspace{-1.6ex}{E_y}^2}
+\end{equation}
+
+The azimuthal direction of the $\etmiss$ is then given by:
+\begin{equation}
+  \phi_{\etmiss}=tan^{-1}\left(\frac{\big\slash\hspace{-1.6ex}{E_y}}{\big\slash\hspace{-1.6ex}{E_x}}\right)
+\end{equation}
+
+In the following we will first describe the event selection we used to
+identify collision events and the data samples we used. We then describe
+the features of the instrumental sources of fake $\etmiss$, and the
+algorithms we used to identify them. A summary of the current status of
+the beam halo identification algorithms is presented in
+Sec.\ref{sc:BeamHalo}. The performance of $\etmiss$ reconstruction is
+presented in the following sections, and comparisons to Monte Carlo
+simulation are shown. 
+
