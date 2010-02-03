@@ -26,6 +26,14 @@ clearly visible in the HF plots in Figure~\ref{fig:subdet_CaloSumET} as entries 
  hits are correlated with the beam activity, they can also be caused by a single beam passing through the CMS detector and therefore can end up
 in the selected ZeroBias events.
 
+In order to understand if discrepancies between data and Monte Carlo simulation are coming from a specific region of the detector, it is useful to
+look at the mean and RMS of the SumET distributions in different $\eta$ slices of the calorimeter system. The SumET distributions in different $\eta$ slices are obtained
+by summing the transverse energy of calotowers with the same $\eta$ index ($i\eta$) and different $\phi$ indices ($i\phi$).
+Figure~\ref{fig:SumET_MeanRMS_vs_ieta_ZB} shows the mean and RMS of such SumET distributions in different $i\eta$ rings. From the figure it is
+immediately noticeable that the calotower $E_{\rm T}$ cut of $0.3$~GeV completely suppresses any noise contribution in the very forward region.
+However, at the same it is also noticebale that the largest discrepancy exists in the most central region.
+
+
 \begin{figure}[h!]
  \centering
  \begin{tabular}{ll}
@@ -54,6 +62,16 @@ run 124022 for different calorimeter sub-detectors. The distributions shown are 
  \caption{\small CaloSumET distributions in noise-only (red-filled area) and selected ZeroBias data (black dots) from
 run 124022 in different calorimeter sub-detectors. In the HF plots, entries outside the first bin correspond to the PMT
 window hits.\label{fig:subdet_CaloSumET}}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \begin{tabular}{ll}
+  \includegraphics[width=0.33\textwidth]{plots_CaloNoise/g_caloSumetMean_vs_ieta_ZB.eps} &
+  \includegraphics[width=0.33\textwidth]{plots_CaloNoise/g_caloSumetRMS_vs_ieta_ZB.eps} \\
+ \end{tabular}
+ \caption{\small Comparison of the SumET Mean and RMS vs. calotower $i\eta$ index between noise-only
+          Monte Carlo and selected ZeroBias data.\label{fig:SumET_MeanRMS_vs_ieta_ZB}}
 \end{figure}
 
 \clearpage
