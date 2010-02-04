@@ -5,20 +5,20 @@
 \label{sc:TriggerRequirements}
 
 Events analyzed in this note were collected by the CMS experiment during the LHC
-commissioning phase in December 2009. The majority of collisions
+commissioning phase in December 2009. The majority of p-p collisions
 recorded in this period were at $\sqrt{s}=900$~GeV, and a
 smaller dataset was collected with $\sqrt{s}=2.36$~TeV. In order to
 identify the collision candidates, we use the following
 set of Level-1 ``technical'' triggers (TT), which are based on the Beam Scintillation
-Counter (BSC) system:
+Counter (BSC) system~\cite{BSCTwiki}:
 
 \begin{itemize}
-\item At least one of the BSC MinBias TT: require that at least one of
+\item{\bf At least one of the BSC MinBias TT:} require that at least one of
   the TT bits 40 or 41 fired. These triggers fire when there is a
   coincident activity in the forward and backward BSC detectors,
-  indicating a collision candidate. Events collected by this triggers are found in the Minimum Bias dataset.
+  indicating a collision candidate. Events collected by this triggers are found in the MinimumBias dataset.
 
-\item None of the BSC beam halo triggers fired: exclude events where any
+\item{\bf None of the BSC beam halo triggers fired:} exclude events where any
   of TT bits 36, 37, 38, 39 fired. These triggers fire when the hits in
   the forward and backward BSC detectors are inconsistent in timing with
   originating from the collision.
@@ -27,25 +27,26 @@ Counter (BSC) system:
 \section{Data Samples}
 \label{sc:DataSamples}
 
-The events collected by the BSC MinBias TT bits 40 and 41 can be found
-in ``MinimumBias'' dataset. For the analysis presented in this note the
-collision events were reconstructed using CMSSW\_3\_3\_6\_patch3
-software release. We used the data sample in which trigger selections
+For the analysis presented in this note the
+collision events were reconstructed using CMSSW\_3\_3\_6\_patch3 software release.
+The events collected by the BSC triggers can be found in the ``MinimumBias'' dataset. 
+We used the data sample in which the trigger selections
 discussed in the previous section are already applied:
 \begin{itemize}
 \item /MinimumBias/BeamCommissioning09-BSCNOBEAMHALO-Jan23Skim-v1/RAW-RECO
 \end{itemize}
-Additionally, we require that L1 TT bit 0 was fired, which
-indicates consistent timing with LHC bunch crossing. We also require
-that the ``HLT\_PhysicsDeclared'' bit is set, which indicates that all
-CMS systems were up and running with stable beams in the
-accelerator. 
+Additionally, we require that L1 BPTX trigger (TT bit 0) fired, which
+indicates timing consistent with crossing of two proton bunches in the center of CMS detector. 
+We also require that the ``HLT\_PhysicsDeclared'' bit is set, which (during December 2009 
+data-taking) indicated that Tracker and Pixel detectors were up and 
+running with stable beams in the accelerator. 
 
 Out of all runs that are present in this data set and fulfill all
-of the requirements listed above, the following runs were identified by the
-JetMET DQM, ECAL/HCAL DPG groups to have
-calorimeter problems (``bad'' runs): 123970, 123976, 123977, 123978, 123985, 123987,
-124006. Events collected during these runs are excluded
+of the requirements listed above, the following runs were identified 
+by the Physics Validation Team (PVT) group to have
+problems in one or more sub-detectors (``bad'' runs): 123970, 123976, 123977, 
+123978, 123985, 123987, 124006. 
+Events collected during these runs are excluded
 from this analysis, unless it is stated otherwise.
 
 After excluding the bad runs listed above, the set of runs listed in
@@ -88,26 +89,28 @@ note.
 The collision data events considered in this analysis are compared with
 {\sc pythia} simulations of Minimum Bias collisions which are processed
 with {\sc GEANT-4} simulation of the CMS detector. Simulated events are
-then reconstructed using CMSSW\_3\_3\_6\_patch3. The data samples used in
+then reconstructed using CMSSW\_3\_3\_6\_patch3. The Monte Carlo samples used in
 this analysis can be found at:
 \begin{itemize}
-\item Comparisons with 900~GeV data: /MinBias/Summer09-STARTUP3X\_V8P\_900GeV-v1/GEN-SIM-RECO
-\item Comparisons with 2.36~TeV data: /MinBias/Summer09-STARTUP3X\_V8O\_2360GeV-v1/GEN-SIM-RECO
+\item 900 GeV Mininum Bias: /MinBias/Summer09-STARTUP3X\_V8P\_900GeV-v1/GEN-SIM-RECO 
+\item 2360 GeV Mininum Bias: /MinBias/Summer09-STARTUP3X\_V8O\_2360GeV-v1/GEN-SIM-RECO
 \end{itemize}
 
 For the comparisons of data with Monte Carlo we require that simulated
 events pass the BSC Minimum Bias trigger selections (TT bits 40 and
-41). Additionally, any further event selection criteria described in the Section~\ref{sec:event_selection}.
+41). Additionally, any further event selection criteria described in Section~\ref{sec:event_selection}.
 are applied to both data and simulation.
 
-\section{Event Selection}
+\section{Event Selection and Cleaning of Anomalous Noise}
 \label{sec:event_selection}
-In order to study the $\etmiss$ performance, an event selection that
-removes the instrumental or beam related noise sources is required. In
-this section we describe the selection criteria we use to remove these
-type of events, and summarize their effect on $\etmiss$ performance.
+In this section we describe the event selection, based on reconstructed quantities, 
+which is used to both identify good collision candidate events and to remove instrumental 
+and beam related noise sources. We present the algoritms used to 
+identify channels affected by anomalous noise in the calorimeters and summarize 
+the effect of the noise cleaning on the $\etmiss$ distribution.
 
 \subsection{Removal of scraping events}
+\label{sc:scrapingFilter}
 
 During the LHC commissioning phase, it was observed that
 in some bunch crossings there was a anomalously large occupancy in the
@@ -115,29 +118,32 @@ pixel detector, which resulted in a large number of reconstructed fake
 tracks. These events were identified as being the result of beam
 particles traversing the pixel detector longitudinally. We reject this
 type of events by requiring that the fraction of high-purity tracks in
-all events with more than 10 tracks is greater than 20\%.
+all events with more than 10 tracks is greater than 25\%, following the 
+recommendation from PVT group.
 
 \subsection{Vertex selection}
 In order to further constrain the event selection to identify the
 collision events, a selection based on
-the reconstructed primary vertex properties is implemented. The
-selection is based on the following quantities: vertex $\chi^2$, NDF of
-vertex, number of tracks which contributed to the vertex reconstruction
-with a weight $>0.5$, and vertex $z$ coordinate.
+the reconstructed primary vertex properties is implemented. 
+The selection is based on the following quantities: vertex $\chi^2$, number of
+degrees of freedom (NDF) of the vertex, and vertex $z$ coordinate.
+%number of tracks which contributed to the vertex reconstruction
+%with a weight $>0.5$, 
+Figure~\ref{fig:vertex_selection_1} and~\ref{fig:vertex_selection_2} shows
+the distributions of vertex $z$ coordinate, vertex $\chi^2$ 
+and vertex NDF in data compared to simulation; distributions are shown for events 
+that pass all the selections described so far (trigger + good run list + filter for scraping events) 
+with the additional requirement to have at least 2 tracks which 
+contributed to the vertex reconstruction with a weight $>0.5$. 
 
-The comparison of the distribution of vertex $z$ coordinate in data
-compared to simulation is shown in
-Fig.\ref{fig:vertex_selection_1}. Events shown in
-Fig.\ref{fig:vertex_selection_1} are required to pass all the selections
-described above and additionally to have at least 2 tracks with a
-weight~$>0.5$. We implement the official
-recommendation from the tracking group to identify collision events by
-requiring:
+We implement the official recommendation from the tracking group 
+to identify collision events by requiring:
 \begin{itemize}
-\item vertex $\chi^2!=0$, NDF$!=0$ and contains more than 0 tracks
-  attached to it, to reject fake vertices.
-\item number of tracks with weight$>0.5$ is greater than 3.
-\item vertex $z\leq 15$~cm.
+\item vertex $\chi^2\ne0$, NDF$\ne0$ and contains more than 0 tracks
+  associated to it, to reject fake vertices (``isFake()'' bit set to false)
+\item NDF is greater than 4
+%\item number of tracks with weight$>0.5$ is greater than 3.
+\item vertex $|z|\leq 15$~cm
 \end{itemize}
 
 \begin{figure}[h]
@@ -165,9 +171,9 @@ requiring:
 
 \subsection{HCAL anomalous noise} \label{sec:HCALNoise}
 Commissioning studies of the CMS hadronic calorimeter performed 
-during past test beam, cosmic, and beam runs have 
+during past test beam, cosmic, and single beam runs have 
 identified anomalous noise (i.e. not due to regular 
-electronic/pedestal noise) that can grouped in two categories 
+electronic/pedestal noise) that can be grouped in two categories 
 (CMS PAPER CFT-09-019):
 \begin{itemize}
 \item{\bf HB/HE Anomalous Noise} The source of the anomalous noise in the HCAL 

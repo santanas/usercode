@@ -17,6 +17,7 @@ cat > ${OUTFILE}.tex <<EOF
 \def\etmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm T}}}
 \def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
 \def\eymiss{\big\slash\hspace{-1.6ex}{E_{y}}}
+\def\sumet{\sum{E_T}}
 
 \begin{document}
 \begin{linenumbers}

@@ -16,12 +16,12 @@ beam related noises can cause an apparent energy imbalance in the
 transverse plane. A study of the collision data collected by the CMS
 experiment during the LHC commissioning phase in December 2009 has
 revealed several instrumental effects that can cause an apparent energy
-imbalance in the reconstruction. Since $\etmiss$ provides a powerful
+imbalance in the $\etmiss$ reconstruction. Since $\etmiss$ provides a powerful
 tool in distinguishing rare processes with neutrinos or non-Standard
 Model particles from the copious SM backgrounds, it is important to have an accurate and reliable method
-of measuring this quantity. 
+of measuring this quantity~\cite{CMS:AN_2007_041},~\cite{CMS:AN_2008_089}. 
 
-The $x$ and $y$ components of the raw missing transverse energy of the
+The $x$ and $y$ components of the raw Missing Transverse Energy of the
 event are obtained from:
 
 \begin{align}
@@ -30,9 +30,9 @@ event are obtained from:
   \label{eq:33}
   \eymiss&=-\sum\limits^{N_{towers}}_{i=1}E_T^isin\phi_i
 \end{align}
-where the sum is taken over all calorimetric towers that are above a threshold of
-$E_T^i>0.3$\,GeV, and the total electromagnetic and hadronic energy in $i^{th}$
-tower is $E_T^i$. The magnitude of the missing energy is then calculated
+where the sum is taken over all calorimeter towers with $E_T^i>0.3$~GeV, 
+where $E_T^i$ is the total electromagnetic and hadronic transverse energy 
+in the $i^{th}$ tower. The magnitude of the missing energy is then calculated
 by:
 \begin{equation}
   \etmiss=\sqrt{\big\slash\hspace{-1.6ex}{E_x}^2+\big\slash\hspace{-1.6ex}{E_y}^2}
@@ -43,12 +43,37 @@ The azimuthal direction of the $\etmiss$ is then given by:
   \phi_{\etmiss}=tan^{-1}\left(\frac{\big\slash\hspace{-1.6ex}{E_y}}{\big\slash\hspace{-1.6ex}{E_x}}\right)
 \end{equation}
 
-In the following we will first describe the event selection we used to
-identify collision events and the data samples we used. We then describe
-the features of the instrumental sources of fake $\etmiss$, and the
-algorithms we used to identify them. A summary of the current status of
-the beam halo identification algorithms is presented in
-Sec.\ref{sc:BeamHalo}. The performance of $\etmiss$ reconstruction is
-presented in the following sections, and comparisons to Monte Carlo
-simulation are shown. 
+The Scalar Transverse Energy ($\sumet$), i.e. the total visible 
+$E_T$ of the event in the calorimeter system, 
+is defined as the scalar sum 
 
+\begin{align}
+  \label{eq:34}
+  \sumet = \sum\limits^{N_{towers}}_{i=1}E_T^i
+\end{align}
+
+where the sum is taken over all calorimeter towers with $E_T^i>0.3$~GeV.
+
+The goal of this note is to study the performance of uncorrected 
+calorimeter $\etmiss$ reconstruction with first collision data. 
+We describe the features of the instrumental 
+and beam related sources of fake $\etmiss$, and we present the algorithms we used to identify them.
+We also show a comparison of MinBias and ZeroBias data with Monte Carlo simulation, for several 
+$\etmiss$-related distributions.
+
+The note is organized as follows.
+The trigger selection and the definition of the data samples used are described,
+respectively, in Section~\ref{sc:TriggerRequirements} and \ref{sc:DataSamples}. 
+The event selection, based on reconstructed quantities, to identify collision candidate 
+events and the description of the cleaning of anomalous noise observed in calorimeters 
+is discussed in Section~\ref{sec:event_selection}.
+A summary of the current status of the beam halo identification algorithms 
+is presented in Section~\ref{sc:BeamHalo}.
+The stability of $\etmiss$-related reconstructed quantities over 2009 
+data-taking period is shown in Section~\ref{sc:METStab}.
+A study on the calorimeter noise simulation and the comparison 
+with ZeroBias data is presented in Section~\ref{sc:CaloNoise}.
+Finally a comparison of several $\etmiss$-related distributions
+between collision data and MinBias Monte Carlo simulation 
+is shown for $\sqrt{s}=900$~GeV and $2360$~GeV, respectively, in 
+Section~\ref{sc:DataVsMCMB900} and~\ref{sc:DataVsMCMB2360}.
