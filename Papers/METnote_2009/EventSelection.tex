@@ -173,8 +173,7 @@ to identify collision events by requiring:
 Commissioning studies of the CMS hadronic calorimeter performed 
 during past test beam, cosmic, and single beam runs have 
 identified anomalous noise (i.e. not due to regular 
-electronic/pedestal noise) that can be grouped in two categories 
-(CMS PAPER CFT-09-019):
+electronic/pedestal noise) that can be grouped in two categories~\cite{Chatrchyan:1225105}:
 \begin{itemize}
 \item{\bf HB/HE Anomalous Noise} The source of the anomalous noise in the HCAL 
 barrel (HB) and endcap (HE) subdetectors is due to characteristics 
@@ -187,6 +186,10 @@ in i) Ion Feedback Noise (typically affecting 1-2 channels in one HPD), ii) HPD 
 \item{\bf HF Photo-Multipliers (PMT) Window Hits} An energetic charged particle, directly 
 impinging upon the window of an HF PMT, can produce an abnormally large apparent 
 energy signal for a single HF channel (the one associated to that PMT). 
+%ADD COMMENT ON CHERENKOV LIGHT PRODUCTION 
+Such interactions can happen due to beam halo muons, punch-trhought particles generated 
+from the particle showers inside HF absorber or later showering pions.
+Studies to estimate which of these processes is dominating in this data are still ongoing.
 \end{itemize}
 
 The presence of such atypical signals was also confirmed in recent 
@@ -195,10 +198,10 @@ Observations indicate that large unphysical HCAL-related $\etmiss$
 in Minimum Bias events is mostly due to energy reconstructed in HF, 
 while in only few cases the energy unbalance is due to HB/HE noise events. 
 This can be explained by considering that HF PMT window hits 
-are related with the beam activity (i.e. beam halo particles hitting the PMT window), 
+are related with the beam activity (for example beam halo muons hitting the PMT window), 
 while HB/HE noise (HPD and RBX noise) occurs at random time and it is 
 uncorrelated with the beam activity. Therefore the probability of overlap 
-of an HB/HE noise event with a collision event is small.
+of an HB/HE noise event with a collision event is relatively small.
 
 The approach used in this note to identify anomalous noise events in HCAL is described below.
 
@@ -207,19 +210,22 @@ The approach used in this note to identify anomalous noise events in HCAL is des
 \item{\bf HBE/HE noise events} A set of algorithms have been developed by the HCAL group to 
 identify and address these types of problems in the data. The methods have been tested on cosmic muon data, 
 dedicated calorimeter noise data, and single beam data collected at CMS in 2008, 
-as described in CMS PAPER CFT-09-019, ADD (link to Twiki page ``HcalNoiseInfoLibrary''). 
-Anyway, some of the algorithms for HB/HE noise identification rely on the proper 
-timing alignment of the detector, which is not fully understood at the startup.
-Therefore, considering also that the probability of overlap between such noise and 
-collission events is observed to be very small, it has been decided to follow a conservative approach and 
-don't apply any cleaning for HB/HE noise at this stage.
+as described in~\cite{Chatrchyan:1225105},~\cite{HCALNoiseTwiki}.  
+
+The commissioning of the noise identification algorithms with collission data is still 
+ongoing and some of the variables, discriminating between signal and noise, rely on the proper 
+timing alignment of the HCAL detector, which is not fully understood at the startup.
+Therefore, taking also into consideration that also that the probability of overlap between such noise and 
+collission events is observed to be small (for example with respect to HF anomalous noise), 
+it has been decided to follow a conservative approach and don't apply any cleaning for HB/HE noise 
+at this early stage of the analysis.
 %
 \item{\bf HF PMT window hits} PMT windows hits within HF channels are tagged by comparing 
 the energies reconstructed from long (L) and short (S) fibers with the same ($\eta$,$\phi$) values. 
 Infact, a particle hitting directly a PMT would produce a large apparent energy only in one channel 
 (i.e. either the one connected to long or short fiber) and none in the other.
 
-Given a pair of adjacent long and short fibers at the same ($\eta$,$\phi$) value 
+Given a pair of adjacent long and short fiber channels at the same ($\eta$,$\phi$) value 
 with energies $E^L$, $E^S$, respectively, the fiber channels are flagged as noisy if 
 (a) the transverse energy measured in the HF tower ($E_T=E_T^L+E_T^S$) is at least 5~GeV, 
 and (b) the energy ratio $R$, defined as:
@@ -229,7 +235,12 @@ R = \frac{E^L - E^S}{E^L + E^S}
 \end{equation}
 %
 is greater than 0.99 (PMT hit associated to the long fiber) 
-or smaller than -0.8 (PMT hit associated to the short fiber). 
+or smaller than -0.8 (PMT hit associated to the short fiber).
+Some of the HF fiber channels (3 long fibers and 5 short fibers) 
+were masked in the calotower reconstruction since identified as hot channels.
+HF towers corresponding to those ($\eta$,$\phi$) regions are not considered for 
+the cleaning procedure.
+ 
 Figure~\ref{fig:hf_noise_ET_vs_R} shows the scatter distribution of $E_T$ vs $R$, 
 for both data and MC, after applying all the event selection criteria except 
 the HF filter itself. The HF noise channels can be identified by 
@@ -260,14 +271,17 @@ Plots are filled for each HF tower if either $E_L>1.2$~GeV or $E_S>1.8$~GeV (to 
 
 \subsection{ECAL anomalous noise} \label{sec:ECALNoise}
 
-A set of events with unphysical characteristics in the barrel ECAL
-calorimeter was observed during the initial analysis of the
-$\sqrt{s}=900$~GeV data collected at CMS. These events are characterized
-by energy deposits in a single, isolated ECAL crystal (``spike''
+A set of events with unphysical characteristics in the barrel of the ECAL
+calorimeter (EB) was observed during the initial analysis of the
+$\sqrt{s}=900$~GeV data collected at CMS. These events are typically 
+characterized by energy deposits in a single, isolated ECAL crystal (``spike''
 crystal), while the crystals in the immediate neighborhood of the spike
-crystal contain little or no energy. This kind of energy deposit is
-incompatible with energy deposits due to a real photon or electron,
-given the Moliere radius and crystal sizes in ECAL. Since the presence
+crystal contain little or no energy.  
+This kind of energy deposit is incompatible with energy deposits due to a real photon or electron,
+given the Moliere radius and crystal sizes in ECAL. 
+In addition, preliminary studies show that, usually, the ECAL 
+spikes are isolated from hadronic activity and there are 
+no tracks pointing to them. Since the presence
 of a spike crystal in an event with no $\etmiss$ may appear to have
 energy imbalance in the transverse plane, it is crucial to identify this
 type of noise and efficiently remove it.
@@ -296,18 +310,32 @@ The total energy deposited in the crystals in the immediate
 neighbourhood of the spike is expected to be small compared to the
 energy in the spike crystal itself. Therefore, the ratio of energy
 deposited in the neighbourhood of the spike crystal to the energy
-measured in the spike itself is expected to be very small, provided the
-occupancy in the ECAL is low. In this analysis we consider the quantity
-$S4/S1$, where $S4$ is defined as a sum of energies deposited in four
-crystals that share an edge with the spike, and $S1$ is the energy
-measured in the spike crystal. The distributions of $S4/S1$ in data and
-simulation for 900 GeV are shown in Fig.\ref{fig:ecal_noise_1}. The
-``hybridSuperClusters'' algorithm was used to reconstruct the ECAL
-clusters. A distinct set of events in data can be observed with $S4/S1$
-values below 0.01 for events with $E_T>5$~GeV in the spike
-crystal. This feature is not observed in the Monte Carlo
-simulation. Therefore, we identify spike events by requiring that an
-ECAL crystal has $E_T>5$~GeV and $S4/S1<0.05$.
+measured in the spike itself is expected to be very small, provided 
+that the occupancy in the ECAL is low.
+
+The algorithm for identification of spikes proceed as follows: 
+i) we use the ``hybridSuperClusters'' algorithm to reconstruct the ECAL
+clusters in EB, ii) we identify the possible spike candidates as the cluster seeds  
+(the seed is the crystal with maximum energy inside a given cluter),
+iii) we then calculate the quantity $S4/S1$, where $S4$ is defined as 
+a sum of energies deposited in four crystals that share an edge with the seed, 
+and $S1$ is the energy measured in the seed crystal, iv) we identify a spike
+if $E_T^{seed}>5$~GeV and $S4/S1<0.05$.
+The distributions of $S4/S1$ in data and
+simulation for $\sqrt{s}=900$~GeV are shown in Fig.\ref{fig:ecal_noise_1}. 
+
+%In this analysis we consider the quantity
+%$S4/S1$, where $S4$ is defined as a sum of energies deposited in four
+%crystals that share an edge with the spike, and $S1$ is the energy
+%measured in the spike crystal. 
+%The distributions of $S4/S1$ in data and
+%simulation for 900 GeV are shown in Fig.\ref{fig:ecal_noise_1}. The
+%``hybridSuperClusters'' algorithm was used to reconstruct the ECAL
+%clusters. A distinct set of events in data can be observed with $S4/S1$
+%values below 0.05 for events with $E_T>5$~GeV in the spike
+%crystal. This feature is not observed in the Monte Carlo
+%simulation. Therefore, we identify spike events by requiring that an
+%ECAL crystal has $E_T>5$~GeV and $S4/S1<0.05$.
 
 \subsection{Selection efficiencies and noise cleaning}
 
@@ -318,8 +346,8 @@ as well as their efficiencies in data and simulation, both at 900 GeV and 2360 G
 After the baseline selection, the events cointaining one or more channels 
 affected by anomalous noise are cleaned as described below.
  
-The channels with anomalous noise in EB and HF are identified by the algorithms 
-described in, respectively, Section~\ref{sec:ECALNoise} and \ref{sec:HCALNoise}.
+The channels with anomalous noise in HF and EB are identified by the algorithms 
+described, respectively, in Section and~\ref{sec:HCALNoise} and~\ref{sec:ECALNoise}.
 No cleaning for EE channels is applied, since no anomalous noise has been observed 
 so far in ECAL endcaps. No algorithm to clean HB/HE anomalous noise is applied 
 at this stage of the analysis, as described in Section~\ref{sec:HCALNoise}.
@@ -331,6 +359,15 @@ every $10^3$ events. The anomalous noise is not simulated in the Monte Carlo. In
 about 1 channel every $10^5$ events is incorrectly flagged as HF noise channel.
 With the current MC statistics available no EB channels are incorrectly flagged 
 as anomalous noise in the simulation.
+
+The event cleaning is performed by removing the energy of the 
+individual noisy channels (energy of crystals in HB, and either energy in 
+long or short fibers in HF) from the $\etmiss$ and SumET reconstruction.
+Figure~\ref{fig:calometAfterCuts} shows the effect of the EB and HF 
+noise cleaning on the $\etmiss$ distribution.
+The algorithms described above can be seen to reject the majority of
+large $\etmiss$ events in this dataset, 
+including the shoulder in $\etmiss$ distribution around 16-20~GeV.
 
 \begin{table}[!ht]
   \begin{center}
@@ -418,14 +455,6 @@ and fraction of flagged cells per event for data and Monte Carlo, both at 900 Ge
   \end{center}
 \end{table}
 
-The event cleaning is performed by removing the energy of the 
-individual noisy channels (energy of crystals in HB, and either energy in 
-long or short fibers in HF) from the $\etmiss$ and SumET reconstruction.
-Figure~\ref{fig:calometAfterCuts} shows the effect of the EB and HF 
-noise cleaning on the $\etmiss$ distribution.
-The algorithms described above can be seen to reject the majority of
-large $\etmiss$ events in this dataset, 
-including the shoulder in $\etmiss$ distribution around 16-20~GeV.
 
 
 %It can be seen from 

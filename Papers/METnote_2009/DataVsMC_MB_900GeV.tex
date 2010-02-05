@@ -82,7 +82,7 @@ ordered by decreasing values of reconstructed $\etmiss$:
   probably HPD noise. No energy deposit in ECAL.
 
 \item $\etmiss=21.6884$~GeV, $\exmiss=9.6$~GeV, $\eymiss=-19.4$~GeV: Run
-  124027, ls 35, event 12262783: an energetic tower in HCAL,
+  124027, ls 35, event 12262783: an energetic tower in HF,
   $E_{T}(L)=16.3871$~GeV,
   $E_{T}(S)=0.215171$~GeV. $(L-S)/(L+S)=0.97$. Could be a PMT hit.
 
@@ -162,7 +162,7 @@ ordered by decreasing values of reconstructed $\etmiss$:
 \subsection{$\etmiss$ resolution}
 
 For events with no $\etmiss$ from physics sources, the $\etmiss$ resolution can be most generally parameterized
-according to the following expression (CMS AN-2007/041):
+according to the following expression~\cite{CMS:AN_2007_041}:
 \begin{equation}
   \sigma\left(\etmiss\right)=A \oplus B\sqrt{\sum E_\text{T}-D} \oplus C\left(\sum E_\text{T}-D\right),
   \label{eq:MET_sigma}
@@ -172,11 +172,13 @@ $\exmiss$ and $\eymiss$ are expected to follow a Gaussian distribution with the 
 of $\sigma$. It can also be shown that $\sigma\left(\etmiss\right)$ is proportional to this $\sigma$. Therefore,
 by looking at $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$ as a function of $\sum E_\text{T}$ it is possible to
 study the $\etmiss$ resolution and the relative contributions of different resolution terms at different values of $\sum E_\text{T}$.
+
 Figure~\ref{fig:MExySigma_vs_SumET_900} shows the $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$ 
 vs. $\sum E_\text{T}$ for 900 GeV data compared with Monte Carlo simulation. $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$
 were extracted from a Gaussian fit to $\exmiss$ and $\eymiss$ distributions, respectively, in a region of $\pm 1.5$ RMS around the mean.
-Figures~\ref{fig:MExSigma_vs_SumET_900_fit} and \ref{fig:MEySigma_vs_SumET_900_fit} show the fit of $\sigma\left(\exmiss\right)$
- and $\sigma\left(\eymiss\right)$ vs. $\sum E_\text{T}$ to Eq.~\ref{eq:MET_sigma} for data and Monte Carlo at $900$ GeV.
+Figures~\ref{fig:MExSigma_vs_SumET_900_fit} and \ref{fig:MEySigma_vs_SumET_900_fit} show the fit results 
+of $\sigma\left(\exmiss\right)$ and $\sigma\left(\eymiss\right)$ vs. $\sum E_\text{T}$ to Eq.~\ref{eq:MET_sigma} 
+for data and Monte Carlo at $900$ GeV.
 
 \begin{figure}[h!]
  \centering
@@ -223,31 +225,41 @@ $\eta$ index value and different $\phi$ index values.
 Results presented here refers to the 900 GeV data, while results for 2360 GeV
 are presented in the Section~\ref{sec:MetVarVsIeta_2360}.
 
-For reference, values of $|i\eta|\le17$, $17<|i\eta|<29$, and $29\le|i\eta|\le41$ 
+For reference, values of $|i_{\eta}|\le17$, $17<|i_{\eta}|<29$, and $29\le|i_{\eta}|\le41$ 
 correspond, respectively, to barrel (EB and HB), endcaps (EE and HE), and forward 
 calorimeter (HF), with a few exceptions at the boundaries 
-(for example, tower with $i\eta=29$ is shared between both HE and HF).
+(for example, tower with $i_{\eta=29}$ is shared between both HE and HF).
 
 Figure~\ref{fig:SumET_MeanRMS_vs_ieta_900} shows the Mean and RMS value of 
 SumET distribution as a function of $\eta$ ring index for both data and MC at 900 GeV.
 \begin{itemize}
 \item The Mean and RMS of SumET distribution is in good agreement between 
-data and MC for $\eta$ rings in the forward region, with the exception 
-of the ring at $i\eta=41$ (i.e. $\eta=5$), where the average SumET expected from Monte Carlo 
+data and MC for $\eta$ rings in HF, with the exception 
+of the ring at $i_{\eta}=41$ (i.e. $\eta=5$), where the average SumET expected from Monte Carlo 
 in about twice of what is measured in the data.
-\item In the endcap the agreement is also reasonably good in the positive 
-side of the detector (even if worse than in HF), 
-but some larger discrepances are observed in the minus endcap side. 
-\item In the barrel there is a good agreement in the range $6<|i\eta|<17$, 
+A comparison with the noise only distribution 
+in Figure~\ref{fig:SumET_MeanRMS_vs_ieta_ZB} shows that, in MinBias events, 
+most the transverse energy reconstructed in HF is indeed coming from collisions, and the contribution
+from electronic noise is almost negligible.
+\item In the positive side of endcap the agreement is also reasonably good 
+(at least in the trend as a function of $i_{\eta}$), even if worse than in HF, 
+but some larger discrepances are observed in the minus endcap side.
+In addition an asymmetry between plus and minus side is observed both in data and simulation.
+A direct comparison with Figure~\ref{fig:SumET_MeanRMS_vs_ieta_ZB} shows that the asymmetry 
+is also present in noise only events. This seems to indicate that the transverse energy reconstructed in the 
+endcaps still receives a relevant contribution for fluctuations of electronic noise. 
+\item In the barrel we observe a good agreement in the approximate range $6<|i_{\eta}|<17$, 
 but discrepancies are seen in the very central region. 
-While most of the transverse energy measured in HF 
-is real energy from Mininum Bias collisions, for this data we don't expect 
-large energy deposits in the barrel region. 
-Therefore, the disageement between data and MC seen for $|i\eta|<6$
-could be an additional indication of discrepancies between data and MC in 
-the barrel noise simulation (as already noticed in Section~\ref{sc:CaloNoise} 
-for HB noise simulation), amplified in the central region by 
-the presence of an $E_{T}$ threshold when forming and summing calotower energy. 
+The comparison with Figure~\ref{fig:SumET_MeanRMS_vs_ieta_ZB}
+show that the amount of transverse energy reconstructed in the barrel for collision 
+events is very similar to the one reconstructed in noise only events. 
+Therefore, the disageement between data and MC seen for $|i_{\eta}|<6$
+is the additional indication of discrepancies between data and MC in 
+the barrel noise simulation (in particular this is visible in the $\sumet$ distribution 
+for the HB noise simulation, as already noticed in Section~\ref{sc:CaloNoise}).
+The fact that the discrepancy is larger in the central region should be due to 
+the presence of an $E_{T}$ threshold when forming and summing calotower energy, 
+which amplifies the disagreement at low $\eta$ values. 
 \end{itemize}
 
 Figure~\ref{fig:MET_MeanRMS_vs_ieta_900},~\ref{fig:METx_MeanRMS_vs_ieta_900}
