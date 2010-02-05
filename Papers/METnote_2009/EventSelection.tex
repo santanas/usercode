@@ -132,7 +132,7 @@ degrees of freedom (NDF) of the vertex, and vertex $z$ coordinate.
 Figure~\ref{fig:vertex_selection_1} and~\ref{fig:vertex_selection_2} shows
 the distributions of vertex $z$ coordinate, vertex $\chi^2$ 
 and vertex NDF in data compared to simulation; distributions are shown for events 
-that pass all the selections described so far (trigger + good run list + filter for scraping events) 
+that pass all the selections described so far (excluding filter for scraping events) 
 with the additional requirement to have at least 2 tracks which 
 contributed to the vertex reconstruction with a weight $>0.5$. 
 
@@ -154,7 +154,7 @@ to identify collision events by requiring:
  \end{tabular}
 \caption{Comparison of the distribution of the event primary vertex $z$
   position between data and Monte Carlo simulation, in log (left) and
-  linear (right) scales.}
+  linear (right) scales at 900 GeV.}
 \label{fig:vertex_selection_1}
 \end{figure}
 
@@ -162,10 +162,10 @@ to identify collision events by requiring:
  \centering
  \begin{tabular}{ll}
 \includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexChi2.eps}&
-\includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexNtrk.eps}\\
+\includegraphics[width=0.5\textwidth]{plots_EventSelection/h_AllVertexNDF.eps}\\
  \end{tabular}
 \caption{Comparison of the distribution of the event primary vertex
-  $\chi^2$ and number of tracks with $w>0.5$ between data and Monte Carlo simulation. }
+  $\chi^2$ and NDF between data and Monte Carlo simulation at 900 GeV. }
 \label{fig:vertex_selection_2}
 \end{figure}
 
