@@ -8,13 +8,14 @@ echo "Merging files: $TEXFILES"
 echo "               into the output file ${OUTFILE}.tex"
 
 cat > ${OUTFILE}.tex <<EOF
-\documentclass[colclass=cmspaper]{combine}
+\documentclass{cmspaper}
 \usepackage{lineno}
 \usepackage{amsfonts,amsmath,amssymb}
 \usepackage[dvips]{graphicx}
 \usepackage{bm}
 \usepackage{multirow}
 \usepackage{subfigure}  % use for side-by-side figures
+%\usepackage[a4paper]{hyperref}
 
 \def\etmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm T}}}
 \def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
@@ -23,7 +24,6 @@ cat > ${OUTFILE}.tex <<EOF
 
 \begin{document}
 \begin{linenumbers}
-\pagestyle{combine}
 EOF
 
 cat $TEXFILES >> ${OUTFILE}.tex
