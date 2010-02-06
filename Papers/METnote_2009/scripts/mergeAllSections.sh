@@ -17,10 +17,10 @@ cat > ${OUTFILE}.tex <<EOF
 \usepackage{subfigure}  % use for side-by-side figures
 %\usepackage[a4paper]{hyperref}
 
-\def\etmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm T}}}
+\def\etmiss{\big\slash\hspace{-1.6ex}{E_\text{T}}}
 \def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
 \def\eymiss{\big\slash\hspace{-1.6ex}{E_{y}}}
-\def\sumet{\sum{E_{\mathrm T}}}
+\def\sumet{\sum{E_\text{T}}}
 
 \begin{document}
 \begin{linenumbers}
