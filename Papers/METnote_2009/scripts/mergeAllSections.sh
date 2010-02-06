@@ -13,11 +13,13 @@ cat > ${OUTFILE}.tex <<EOF
 \usepackage{amsfonts,amsmath,amssymb}
 \usepackage[dvips]{graphicx}
 \usepackage{bm}
+\usepackage{multirow}
+\usepackage{subfigure}  % use for side-by-side figures
 
 \def\etmiss{\big\slash\hspace{-1.6ex}{E_{\mathrm T}}}
 \def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
 \def\eymiss{\big\slash\hspace{-1.6ex}{E_{y}}}
-\def\sumet{\sum{E_T}}
+\def\sumet{\sum{E_{\mathrm T}}}
 
 \begin{document}
 \begin{linenumbers}
