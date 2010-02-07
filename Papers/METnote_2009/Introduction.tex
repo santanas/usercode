@@ -26,33 +26,33 @@ event are obtained from:
 
 \begin{align}
   \label{eq:32}
-  \exmiss&=-\sum\limits^{N_{towers}}_{i=1}E_T^icos\phi_i\\
+  \exmiss&=-\sum^{N_\text{towers}}_{i=1}E_\text{T}^i\cos\phi_i\\
   \label{eq:33}
-  \eymiss&=-\sum\limits^{N_{towers}}_{i=1}E_T^isin\phi_i
+  \eymiss&=-\sum^{N_\text{towers}}_{i=1}E_\text{T}^i\sin\phi_i
 \end{align}
-where the sum is taken over all calorimeter towers with $E_T^i>0.3$~GeV, 
-where $E_T^i$ is the total electromagnetic and hadronic transverse energy 
+where the sum is taken over all calorimeter towers with $E_\text{T}^i>0.3$~GeV, 
+where $E_\text{T}^i$ is the total electromagnetic and hadronic transverse energy 
 in the $i^{th}$ tower. The magnitude of the missing energy is then calculated
 by:
 \begin{equation}
-  \etmiss=\sqrt{\big\slash\hspace{-1.6ex}{E_x}^2+\big\slash\hspace{-1.6ex}{E_y}^2}
+  \etmiss=\sqrt{\exmiss^2+\eymiss^2}
 \end{equation}
 
 The azimuthal direction of the $\etmiss$ is then given by:
 \begin{equation}
-  \phi_{\etmiss}=tan^{-1}\left(\frac{\big\slash\hspace{-1.6ex}{E_y}}{\big\slash\hspace{-1.6ex}{E_x}}\right)
+  \phi_{\etmiss}=\tan^{-1}\left(\frac{\eymiss}{\exmiss}\right)
 \end{equation}
 
 The Scalar Transverse Energy ($\sumet$), i.e. the total visible 
-$E_T$ of the event in the calorimeter system, 
+$E_\text{T}$ of the event in the calorimeter system, 
 is defined as the scalar sum 
 
 \begin{align}
   \label{eq:34}
-  \sumet = \sum\limits^{N_{towers}}_{i=1}E_T^i
+  \sumet = \sum^{N_\text{towers}}_{i=1}E_\text{T}^i
 \end{align}
 
-where the sum is taken over all calorimeter towers with $E_T^i>0.3$~GeV.
+where the sum is taken over all calorimeter towers with $E_\text{T}^i>0.3$~GeV.
 
 The goal of this note is to study the performance of uncorrected 
 calorimeter $\etmiss$ reconstruction with first collision data. 

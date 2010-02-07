@@ -228,12 +228,12 @@ Infact, a particle hitting directly a PMT would produce a large apparent energy 
 (i.e. either the one connected to long or short fiber) and none in the other.
 
 Given a pair of adjacent long and short fiber channels at the same ($\eta$,$\phi$) value 
-with energies $E^L$, $E^S$, respectively, the fiber channels are flagged as noisy if 
-(a) the transverse energy measured in the HF tower ($E_T=E_T^L+E_T^S$) is at least 5~GeV, 
+with energies $E^\text{L}$, $E^\text{S}$, respectively, the fiber channels are flagged as noisy if 
+(a) the transverse energy measured in the HF tower ($E_\text{T}=E_\text{T}^\text{L}+E_\text{T}^\text{S}$) is at least 5~GeV, 
 and (b) the energy ratio $R$, defined as:
 %
 \begin{equation}
-R = \frac{E^L - E^S}{E^L + E^S}
+R = \frac{E^\text{L} - E^\text{S}}{E^\text{L} + E^\text{S}}
 \end{equation}
 %
 is greater than 0.99 (PMT hit associated to the long fiber) 
@@ -243,15 +243,15 @@ were masked in the calotower reconstruction since identified as hot channels.
 HF towers corresponding to those ($\eta$,$\phi$) regions are not considered for 
 the cleaning procedure.
  
-Figure~\ref{fig:hf_noise_ET_vs_R} shows the scatter distribution of $E_T$ vs $R$, 
+Figure~\ref{fig:hf_noise_ET_vs_R} shows the scatter distribution of $E_\text{T}$ vs $R$, 
 for both data and MC, after applying all the event selection criteria except 
 the HF filter itself. The HF noise channels can be identified by 
-large $E_T$ values and $R$ values close to -1 or 1, 
+large $E_\text{T}$ values and $R$ values close to -1 or 1, 
 inconsistent with MinBias MC assumption.
 
 %In this study, if at least one HF fiber channel is flagged by this algorithm, 
 %the event is simply rejected from the analysis. No attempt to clean the event, 
-%by correcting the high level objects (such as $\etmiss$ or SumET), 
+%by correcting the high level objects (such as $\etmiss$ or $\sumet$), 
 %is performed at this stage of the analysis. 
 
 %
@@ -262,9 +262,9 @@ inconsistent with MinBias MC assumption.
   \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_towerET_vs_ratio_DATA.eps} &
   \includegraphics[width=0.5\textwidth]{plots_hcalnoise/hf_towerET_vs_ratio_MC.eps} \\
  \end{tabular}
-\caption{\small (Top) Scatter distribution of transverse energy in HF tower versus energy ratio $R$ for both data 
+\caption{\small Scatter distribution of transverse energy in HF tower versus energy ratio $R$ for both data 
 (Left) and MC (Right), after applying all the event selection criteria except the HF filter itself. 
-Plots are filled for each HF tower if either $E_L>1.2$~GeV or $E_S>1.8$~GeV (to cut the pedestal noise).
+Plots are filled for each HF tower if either $E^\text{L}>1.2$~GeV or $E^\text{S}>1.8$~GeV (to cut the pedestal noise).
 \label{fig:hf_noise_ET_vs_R}}
 \end{figure}
 %
@@ -322,7 +322,7 @@ clusters in EB, ii) we identify the possible spike candidates as the cluster see
 iii) we then calculate the quantity $S4/S1$, where $S4$ is defined as 
 a sum of energies deposited in four crystals that share an edge with the seed, 
 and $S1$ is the energy measured in the seed crystal, iv) we identify a spike
-if $E_T^{seed}>5$~GeV and $S4/S1<0.05$.
+if $E_\text{T}^\text{seed}>5$~GeV and $S4/S1<0.05$.
 The distributions of $S4/S1$ in data and
 simulation for $\sqrt{s}=900$~GeV are shown in Fig.\ref{fig:ecal_noise_1}. 
 
@@ -334,10 +334,10 @@ simulation for $\sqrt{s}=900$~GeV are shown in Fig.\ref{fig:ecal_noise_1}.
 %simulation for 900 GeV are shown in Fig.\ref{fig:ecal_noise_1}. The
 %``hybridSuperClusters'' algorithm was used to reconstruct the ECAL
 %clusters. A distinct set of events in data can be observed with $S4/S1$
-%values below 0.05 for events with $E_T>5$~GeV in the spike
+%values below 0.05 for events with $E_\text{T}>5$~GeV in the spike
 %crystal. This feature is not observed in the Monte Carlo
 %simulation. Therefore, we identify spike events by requiring that an
-%ECAL crystal has $E_T>5$~GeV and $S4/S1<0.05$.
+%ECAL crystal has $E_\text{T}>5$~GeV and $S4/S1<0.05$.
 
 \subsection{Selection efficiencies and noise cleaning}
 
@@ -364,7 +364,7 @@ as anomalous noise in the simulation.
 
 The event cleaning is performed by removing the energy of the 
 individual noisy channels (energy of crystals in HB, and either energy in 
-long or short fibers in HF) from the $\etmiss$ and SumET reconstruction.
+long or short fibers in HF) from the $\etmiss$ and $\sumet$ reconstruction.
 Figure~\ref{fig:calometAfterCuts} shows the effect of the EB and HF 
 noise cleaning on the $\etmiss$ distribution.
 The algorithms described above can be seen to reject the majority of
@@ -499,18 +499,18 @@ The effects of machine-induced backgrounds, often referred to as beam halo, can 
 
 The \verb BeamHaloId  package is primarily designed to identify beam halo candidates which have trajectories pointing towards the barrel or endcap calorimetry. These are the most dangerous if one considers how the calorimeter-based $\etmiss$ overvable is constructed, i.e., via a negative vector sum over the transverse energy components of the calotowers.  Because beam halo particles are expected to have mostly parallel-to-beam trajectories, any interactions with the CMS calorimeters are very likely to occur along a narrow window in $\phi$.  Energy deposits in this pattern will conspire to maximally contaminate the magnitude of the $\etmiss$ vector, in contrast to a scenario where they are randomly distributed in $\phi$ allowing for some cancellations to occur. Of course, other MET algorithms which rely on the calorimetry are susceptible to beam halo as well.  
 
-In order to best identify beam halo, information from three subdetectors is used in both a stand-alone and global way. In the Ecal and Hcal topological signatures, as well as time-of-flight information,  are used to identify halo at the rechit level.  The granularity of the Ecal also allows for observables based on showershapes to be employed in the identification of beam halo.  This information from the calorimeters is combined with information from the CSCs (Cathode Strip Chambers)  to identify halo in a global way, as the CSCs are extremely efficient at measuring muons, both collsion and beam-induced.  If the halo particles are charged, they will likely be measured by the CSCs in route to the calorimeters, as the CSCs provide nearly full geometrical coverage of barrel and endcap calorimetry in the transverse plane. There is even a dedicated Level-1 beam halo trigger implemented in the CSC Track Finder.  This trigger exploits the basic kinematic properties of beamhalo, imposing a tight $\delta$($\phi$) window and a minimum $\delta$($\eta$) requirement on two LCTs (local charged tracks) in CSC stations 1 and 2 or 1 and 3. The details of this trigger can be found in~\cite{ref:HaloTrig}. %CMS IN-2008/041, by D. Acosta, et al.
+In order to best identify beam halo, information from three subdetectors is used in both a stand-alone and global way. In the Ecal and Hcal topological signatures, as well as time-of-flight information,  are used to identify halo at the rechit level.  The granularity of the Ecal also allows for observables based on shower shapes to be employed in the identification of beam halo.  This information from the calorimeters is combined with information from the CSCs (Cathode Strip Chambers)  to identify halo in a global way, as the CSCs are extremely efficient at measuring muons, both collision and beam-induced.  If the halo particles are charged, they will likely be measured by the CSCs in route to the calorimeters, as the CSCs provide nearly full geometrical coverage of barrel and endcap calorimetry in the transverse plane. There is even a dedicated Level-1 beam halo trigger implemented in the CSC Track Finder.  This trigger exploits the basic kinematic properties of beamhalo, imposing a tight $\delta$($\phi$) window and a minimum $\delta$($\eta$) requirement on two LCTs (local charged tracks) in CSC stations 1 and 2 or 1 and 3. The details of this trigger can be found in~\cite{ref:HaloTrig}. %CMS IN-2008/041, by D. Acosta, et al.
 
 In order to commission the \verb BeamHaloId  tools in data, a pure sample with high statistics is needed. The CSC beam halo trigger is very useful for this purpose.  Unfortunately, mainy of the single-beam commissioning runs of 2009 did not feature CSC station ME1/1, which is the station closest to both the calorimeters and the beam line. This station is anticipated to get the most halo flux, but was often kept in standby mode in order to safeguard the hardware and electronics from beam splash events.  As a result, not many genuine beam halo events were triggered during these commissioning runs, and the BeamHaloId algorithms, especially those which serve to identify beam halo in the calorimeters, are not yet commissioned.
 
 Despite the limited success with the single-beam commissioning runs, a small number of events was gleaned from the good collision runs (which featured station ME1/1) via the CSC beam halo trigger.  Because the cosmic background contamination to the CSC beam halo trigger is about 0.6 Hz, a requirement on the BPTX technical trigger was also imposed.  Given that there are 3564 possible bunch crossings (or spacings) per orbit, the rate for a cosmic to fake a CSC beam halo trigger and coincide with BPTX trigger bit 0, can be estimated as:
 
 \begin{eqnarray}
-R_{fake} = \frac{(0.6Hz)\times N_{BX}}{3564}
+R_\text{fake} = \frac{(0.6\text{ Hz})\times N_\text{BX}}{3564}
 \end{eqnarray}
-where $N_{BX}$ represents the number of filled, colliding bunches per orbit. It is assumed the BPTX trigger bit 0 operates with 100\% efficiency.  This fake rate becomes $1.64 \times 10^{-4}$Hz , $3.28 \times 10^{-4}$ Hz, $4.93 \times 10^{-4}$ Hz for 1, 2, and 3 colliding bunches per orbit respectively. 
+where $N_\text{BX}$ represents the number of filled, colliding bunches per orbit. It is assumed the BPTX trigger bit 0 operates with 100\% efficiency.  This fake rate becomes $1.64 \times 10^{-4}$ Hz , $3.28 \times 10^{-4}$ Hz, $4.93 \times 10^{-4}$ Hz for 1, 2, and 3 colliding bunches per orbit respectively. 
   
-Table~\ref{tab:BHStats} gives the beam halo statistics for each good collision run taken from the \verb PhysicsMuonBkg  Primary Dataset.  Because only a filled bucket from one beam is necessary to produce beam halo, all BPTX technical triggers corresponding to single-beam filled buckets were considered.  The subset of events with BPTX technical trigger bit 0 are also given so that one can calculate the probability for beam halo overlap with a minbias event.  For most of the earlier runs, the rates calculated are consistent with the cosmic background.  For the later runs, the rates are higher by roughly an order of magnitude, which indicates the unmbiguous presence of machine-induced backgrounds.    \\
+Table~\ref{tab:BHStats} gives the beam halo statistics for each good collision run taken from the \verb PhysicsMuonBkg  Primary Dataset.  Because only a filled bucket from one beam is necessary to produce beam halo, all BPTX technical triggers corresponding to single-beam filled buckets were considered.  The subset of events with BPTX technical trigger bit 0 are also given so that one can calculate the probability for beam halo overlap with a minbias event.  For most of the earlier runs, the rates calculated are consistent with the cosmic background.  For the later runs, the rates are higher by roughly an order of magnitude, which indicates the unambiguous presence of machine-induced backgrounds.    \\
      
 \begin{table}[h]
 \begin{center}
@@ -553,11 +553,9 @@ Of these 281 events, 261 or 92.8\% had at least one~\footnote{In some cases the 
 One can easily convert these rates into probabilities for a halo event to occur for a given colliding bunch crossing. Taking the beam halo rate from Run 123908, which was the highest (per colliding bunch) for the 900 GeV runs, and assuming an orbit rate of 11245.78 Hz, one obtains the probability, $P$, for a beam halo event in a colliding bunch crossing:
 
 \begin{eqnarray}
-%P &=& \frac{3.8 \times 10^{-3}\frac{\mbox{Hz}}{\mbox{BX}} }{11245.78 \mbox{ Hz}} \\
-P &=& \frac{3.8 \times 10^{-3}\mbox{ Hz}/\mbox{BX} }{11245.78 \mbox{ Hz}} 
-\end{eqnarray}
-\begin{eqnarray}
-  &=& 3.28\times 10^{-7} /\mbox{BX}
+%P &=& \frac{3.8 \times 10^{-3}\text{ Hz}/\text{BX} }{11245.78 \text{ Hz}}  \\
+P &=& \frac{3.8 \times 10^{-3}\text{ Hz}/\text{BX} }{11245.78 \text{ Hz}} \\
+  &=& 3.28\times 10^{-7} /\text{BX}
 \end{eqnarray}
 
 This implies that roughly 1 in 2.96$\times$10$^{6}$ colliding bunch crossings or minimum bias events will overlap with a CSC-triggered beam halo event.  

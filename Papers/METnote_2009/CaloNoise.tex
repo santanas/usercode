@@ -21,10 +21,10 @@ Figure~\ref{fig:subdet_RecHitE} shows the comparison between RecHit energy distr
 calorimeter sub-detectors. From plots in Figure~\ref{fig:subdet_RecHitE} it follows, with the exception of HF, that
 the noise simulation reproduces reasonably well the bulk properties of the RecHit energy distributions. The reason for large discrepancy in HF lies 
 in the fact that the zero-suppression threshold in HF is higher than in the other HCAL subdetectors and therefore more sensistive to the noise tails
-which are not properly simulated. Figure~\ref{fig:subdet_CaloSumET} shows the comparison between SumET distributions in noise-only
+which are not properly simulated. Figure~\ref{fig:subdet_CaloSumET} shows the comparison between $\sumet$ distributions in noise-only
 and selected ZeroBias data in different calorimeter sub-detectors. Plots in Figure~\ref{fig:subdet_CaloSumET} reveal that the noise correlation
 effects among neighbouring channels might not be properly modeled considering the level of agreement at the RecHit level, in particular in the
-HCAL barrel (HB). The spikes in the SumET distributions in EB, EE, HB, and HE are due to the offline zero-suppression
+HCAL barrel (HB). The spikes in the $\sumet$ distributions in EB, EE, HB, and HE are due to the offline zero-suppression
 thresholds applied to the ECAL and HCAL RecHits in the process of calotower formation. A relatively large discrepancy between HF noise in data and
 Monte Carlo simulation in the end has a negligible effect on the MET-related quantities 
 because of the high $\eta$ location of the HF cells. Part that has a non-negligible effect on the MET-related quantities are the PMT window hits
@@ -33,10 +33,10 @@ hits are correlated with the beam activity, they can also be caused by a single 
 in the selected ZeroBias events.
 
 In order to understand if discrepancies between data and Monte Carlo simulation are coming from a specific region of the detector, it is useful to
-look at the mean and RMS of the SumET distributions in different $\eta$ slices of the calorimeter system. The SumET distributions in different
+look at the mean and RMS of the $\sumet$ distributions in different $\eta$ slices of the calorimeter system. The $\sumet$ distributions in different
 $\eta$ slices are obtained
 by summing the transverse energy of calotowers with the same $\eta$ index ($i\eta$) and different $\phi$ indices ($i\phi$).
-Figure~\ref{fig:SumET_MeanRMS_vs_ieta_ZB} shows the mean and RMS of such SumET distributions in different $i\eta$ rings. From the figure it is
+Figure~\ref{fig:SumET_MeanRMS_vs_ieta_ZB} shows the mean and RMS of such $\sumet$ distributions in different $i\eta$ rings. From the figure it is
 immediately noticeable that the calotower $E_{\rm T}$ cut of $0.3$~GeV completely suppresses any noise contribution in the very forward region.
 However, at the same it is also noticebale that the largest discrepancy exists in the most central region.
 
@@ -66,7 +66,7 @@ run 124022 for different calorimeter sub-detectors. The distributions shown are 
   \includegraphics[width=0.33\textwidth]{plots_CaloNoise/h_caloSumetEmHF.eps} &
   \includegraphics[width=0.33\textwidth]{plots_CaloNoise/h_caloSumetHadHF.eps} \\
  \end{tabular}
- \caption{\small SumET distributions in noise-only (red-filled area) and selected ZeroBias data (black dots) from
+ \caption{\small $\sumet$ distributions in noise-only (red-filled area) and selected ZeroBias data (black dots) from
 run 124022 in different calorimeter sub-detectors. In the HF plots, entries outside the first bin correspond to the PMT
 window hits.\label{fig:subdet_CaloSumET}}
 \end{figure}
@@ -77,7 +77,7 @@ window hits.\label{fig:subdet_CaloSumET}}
   \includegraphics[width=0.33\textwidth]{plots_CaloNoise/g_caloSumetMean_vs_ieta_ZB.eps} &
   \includegraphics[width=0.33\textwidth]{plots_CaloNoise/g_caloSumetRMS_vs_ieta_ZB.eps} \\
  \end{tabular}
- \caption{\small Comparison of the SumET Mean and RMS vs. calotower $i\eta$ index between noise-only
+ \caption{\small Comparison of the $\sumet$ Mean and RMS vs. calotower $i\eta$ index between noise-only
           Monte Carlo and selected ZeroBias data.\label{fig:SumET_MeanRMS_vs_ieta_ZB}}
 \end{figure}
 

@@ -18,9 +18,11 @@ cat > ${OUTFILE}.tex <<EOF
 %\usepackage[a4paper]{hyperref}
 
 \def\etmiss{\big\slash\hspace{-1.6ex}{E_\text{T}}}
+\def\etmissB{\big\slash\hspace{-1.6ex}{\boldsymbol{E}_\text{T}}}
 \def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
 \def\eymiss{\big\slash\hspace{-1.6ex}{E_{y}}}
 \def\sumet{\sum{E_\text{T}}}
+\def\sumetB{\sum{\boldsymbol{E}_\text{T}}}
 
 \begin{document}
 \begin{linenumbers}
