@@ -32,10 +32,10 @@ discussed in the previous section are already applied:
 \begin{itemize}
 \item /MinimumBias/BeamCommissioning09-BSCNOBEAMHALO-Jan23Skim-v1/RAW-RECO
 \end{itemize}
-Additionally, we require that L1 BPTX trigger (TT bit 0) fired, which
+Additionally, we require that the L1 BPTX trigger (TT bit 0) fired, which
 indicates timing consistent with crossing of two proton bunches in the center of CMS detector. 
 We also require that the ``HLT\_PhysicsDeclared'' bit is set, which (during December 2009 
-data-taking) indicated that Tracker and Pixel detectors were up and 
+data-taking) indicates that Tracker and Pixel detectors were up and 
 running with stable beams in the accelerator. 
 
 Out of all runs that are present in this data set and fulfill all
@@ -92,7 +92,7 @@ The collision data events considered in this analysis are compared with
 {\sc pythia} simulations of Minimum Bias collisions which are processed
 with {\sc GEANT-4} simulation of the CMS detector. Simulated events are
 then reconstructed using CMSSW\_3\_3\_6\_patch3. The Monte Carlo samples used in
-this analysis can be found at:
+this analysis are:
 \begin{itemize}
 \item 900 GeV Mininum Bias: /MinBias/Summer09-STARTUP3X\_V8P\_900GeV-v1/GEN-SIM-RECO 
 \item 2360 GeV Mininum Bias: /MinBias/Summer09-STARTUP3X\_V8O\_2360GeV-v1/GEN-SIM-RECO
@@ -119,7 +119,7 @@ in some bunch crossings there was a anomalously large occupancy in the
 pixel detector, which resulted in a large number of reconstructed fake
 tracks. These events were identified as being the result of beam
 particles traversing the pixel detector longitudinally. We reject this
-type of events by requiring that the fraction of high-purity tracks in
+type of events by requiring that the fraction of ``high-purity'' tracks in
 all events with more than 10 tracks is greater than 25\%, following the 
 recommendation from PVT group.
 
@@ -189,7 +189,7 @@ in i) Ion Feedback Noise (typically affecting 1-2 channels in one HPD), ii) HPD 
 impinging upon the window of an HF PMT, can produce an abnormally large apparent 
 energy signal for a single HF channel (the one associated to that PMT). 
 %ADD COMMENT ON CHERENKOV LIGHT PRODUCTION 
-Such interactions can happen due to beam halo muons, punch-trhought particles generated 
+Such interactions can happen due to beam halo muons, punch-through particles generated 
 from the particle showers inside HF absorber or later showering pions.
 Studies to estimate which of these processes is dominating in this data are still ongoing.
 \end{itemize}
@@ -217,8 +217,8 @@ as described in~\cite{Chatrchyan:1225105},~\cite{HCALNoiseTwiki}.
 The commissioning of the noise identification algorithms with collission data is still 
 ongoing and some of the variables, discriminating between signal and noise, rely on the proper 
 timing alignment of the HCAL detector, which is not fully understood at the startup.
-Therefore, taking also into consideration that also that the probability of overlap between such noise and 
-collission events is observed to be small (for example with respect to HF anomalous noise), 
+Therefore, taking also into consideration that the probability of overlap between such noise and 
+collision events is observed to be small (for example with respect to HF anomalous noise), 
 it has been decided to follow a conservative approach and don't apply any cleaning for HB/HE noise 
 at this early stage of the analysis.
 %
@@ -239,7 +239,7 @@ R = \frac{E^\text{L} - E^\text{S}}{E^\text{L} + E^\text{S}}
 is greater than 0.99 (PMT hit associated to the long fiber) 
 or smaller than -0.8 (PMT hit associated to the short fiber).
 Some of the HF fiber channels (3 long fibers and 5 short fibers) 
-were masked in the calotower reconstruction since identified as hot channels.
+were masked in the calotower reconstruction since identified as hot channels. 
 HF towers corresponding to those ($\eta$,$\phi$) regions are not considered for 
 the cleaning procedure.
  
@@ -303,19 +303,19 @@ spikes in this analysis is described below.
 \includegraphics[width=0.5\textwidth]{plots_ecalnoise/ECalSeedET_Vs_S4_MC900GeV.eps}\\
  \end{tabular}
 \caption{Distributions of the $S4/S1$ in 900 GeV data and Monte Carlo
-  for barrel ECAL. Distributions are shown for events that pass all
-  selections described in previous sections, except HF cleaning.}
+  for ECAL barrel. Distributions are shown for events that pass all
+  selections described in previous sections, except the EB cleaning itself.}
 \label{fig:ecal_noise_1}
 \end{figure}
 
 The total energy deposited in the crystals in the immediate
 neighbourhood of the spike is expected to be small compared to the
-energy in the spike crystal itself. Therefore, the ratio of energy
+energy of the spike crystal itself. Therefore, the ratio of energy
 deposited in the neighbourhood of the spike crystal to the energy
 measured in the spike itself is expected to be very small, provided 
 that the occupancy in the ECAL is low.
 
-The algorithm for identification of spikes proceed as follows: 
+The algorithm for identification of spikes proceedes as follows: 
 i) we use the ``hybridSuperClusters'' algorithm to reconstruct the ECAL
 clusters in EB, ii) we identify the possible spike candidates as the cluster seeds  
 (the seed is the crystal with maximum energy inside a given cluter),
@@ -323,7 +323,7 @@ iii) we then calculate the quantity $S4/S1$, where $S4$ is defined as
 a sum of energies deposited in four crystals that share an edge with the seed, 
 and $S1$ is the energy measured in the seed crystal, iv) we identify a spike
 if $E_\text{T}^\text{seed}>5$~GeV and $S4/S1<0.05$.
-The distributions of $S4/S1$ in data and
+The scatter distributions of $E_\text{T}^\text{seed}$ vs $S4/S1$ in data and
 simulation for $\sqrt{s}=900$~GeV are shown in Fig.\ref{fig:ecal_noise_1}. 
 
 %In this analysis we consider the quantity
@@ -351,7 +351,7 @@ affected by anomalous noise are cleaned as described below.
 The channels with anomalous noise in HF and EB are identified by the algorithms 
 described, respectively, in Section and~\ref{sec:HCALNoise} and~\ref{sec:ECALNoise}.
 No cleaning for EE channels is applied, since no anomalous noise has been observed 
-so far in ECAL endcaps. No algorithm to clean HB/HE anomalous noise is applied 
+so far in the ECAL endcaps. No algorithm to clean HB/HE anomalous noise is applied 
 at this stage of the analysis, as described in Section~\ref{sec:HCALNoise}.
 For events passing the baseline selection criteria, Table~\ref{tab:noiseCleaning} shows the number of
 channels identified by noise cleaning algorithms in EB and HF and the average number of flagged channels 
@@ -363,7 +363,7 @@ With the current MC statistics available no EB channels are incorrectly flagged
 as anomalous noise in the simulation.
 
 The event cleaning is performed by removing the energy of the 
-individual noisy channels (energy of crystals in HB, and either energy in 
+individual noisy channels (energy of crystals in EB, and either energy in 
 long or short fibers in HF) from the $\etmiss$ and $\sumet$ reconstruction.
 Figure~\ref{fig:calometAfterCuts} shows the effect of the EB and HF 
 noise cleaning on the $\etmiss$ distribution.
@@ -499,9 +499,9 @@ The effects of machine-induced backgrounds, often referred to as beam halo, can 
 
 The \verb BeamHaloId  package is primarily designed to identify beam halo candidates which have trajectories pointing towards the barrel or endcap calorimetry. These are the most dangerous if one considers how the calorimeter-based $\etmiss$ overvable is constructed, i.e., via a negative vector sum over the transverse energy components of the calotowers.  Because beam halo particles are expected to have mostly parallel-to-beam trajectories, any interactions with the CMS calorimeters are very likely to occur along a narrow window in $\phi$.  Energy deposits in this pattern will conspire to maximally contaminate the magnitude of the $\etmiss$ vector, in contrast to a scenario where they are randomly distributed in $\phi$ allowing for some cancellations to occur. Of course, other MET algorithms which rely on the calorimetry are susceptible to beam halo as well.  
 
-In order to best identify beam halo, information from three subdetectors is used in both a stand-alone and global way. In the Ecal and Hcal topological signatures, as well as time-of-flight information,  are used to identify halo at the rechit level.  The granularity of the Ecal also allows for observables based on shower shapes to be employed in the identification of beam halo.  This information from the calorimeters is combined with information from the CSCs (Cathode Strip Chambers)  to identify halo in a global way, as the CSCs are extremely efficient at measuring muons, both collision and beam-induced.  If the halo particles are charged, they will likely be measured by the CSCs in route to the calorimeters, as the CSCs provide nearly full geometrical coverage of barrel and endcap calorimetry in the transverse plane. There is even a dedicated Level-1 beam halo trigger implemented in the CSC Track Finder.  This trigger exploits the basic kinematic properties of beamhalo, imposing a tight $\delta$($\phi$) window and a minimum $\delta$($\eta$) requirement on two LCTs (local charged tracks) in CSC stations 1 and 2 or 1 and 3. The details of this trigger can be found in~\cite{ref:HaloTrig}. %CMS IN-2008/041, by D. Acosta, et al.
+In order to best identify beam halo, information from three subdetectors is used in both a stand-alone and global way. Ecal and Hcal topological signatures, as well as time-of-flight information,  are used to identify halo at the rechit level.  The granularity of the Ecal also allows for observables based on shower shapes to be employed in the identification of beam halo.  This information from the calorimeters is combined with information from the CSCs (Cathode Strip Chambers)  to identify halo in a global way, as the CSCs are extremely efficient at measuring muons, both collision and beam-induced.  If the halo particles are charged, they will likely be measured by the CSCs in route to the calorimeters, as the CSCs provide nearly full geometrical coverage of barrel and endcap calorimetry in the transverse plane. There is even a dedicated Level-1 beam halo trigger implemented in the CSC Track Finder.  This trigger exploits the basic kinematic properties of beamhalo, imposing a tight $\delta$($\phi$) window and a minimum $\delta$($\eta$) requirement on two LCTs (local charged tracks) in CSC stations 1 and 2 or 1 and 3. The details of this trigger can be found in~\cite{ref:HaloTrig}. %CMS IN-2008/041, by D. Acosta, et al.
 
-In order to commission the \verb BeamHaloId  tools in data, a pure sample with high statistics is needed. The CSC beam halo trigger is very useful for this purpose.  Unfortunately, mainy of the single-beam commissioning runs of 2009 did not feature CSC station ME1/1, which is the station closest to both the calorimeters and the beam line. This station is anticipated to get the most halo flux, but was often kept in standby mode in order to safeguard the hardware and electronics from beam splash events.  As a result, not many genuine beam halo events were triggered during these commissioning runs, and the BeamHaloId algorithms, especially those which serve to identify beam halo in the calorimeters, are not yet commissioned.
+In order to commission the \verb BeamHaloId  tools in data, a pure sample with high statistics is needed. The CSC beam halo trigger is very useful for this purpose.  Unfortunately, most of the single-beam commissioning runs of 2009 did not feature CSC station ME1/1, which is the station closest to both the calorimeters and the beam line. This station is anticipated to get the most halo flux, but was often kept in standby mode in order to safeguard the hardware and electronics from beam splash events.  As a result, not many genuine beam halo events were triggered during these commissioning runs, and the BeamHaloId algorithms, especially those which serve to identify beam halo in the calorimeters, are not yet commissioned.
 
 Despite the limited success with the single-beam commissioning runs, a small number of events was gleaned from the good collision runs (which featured station ME1/1) via the CSC beam halo trigger.  Because the cosmic background contamination to the CSC beam halo trigger is about 0.6 Hz, a requirement on the BPTX technical trigger was also imposed.  Given that there are 3564 possible bunch crossings (or spacings) per orbit, the rate for a cosmic to fake a CSC beam halo trigger and coincide with BPTX trigger bit 0, can be estimated as:
 
@@ -550,7 +550,7 @@ With these limited statistics some meaningful distributions can still be made. F
 
 Of these 281 events, 261 or 92.8\% had at least one~\footnote{In some cases the halo muon will leave enough hits in both plus and minus muon endcaps to allow for two separate tracks to be reconstructed.} CSC stand-alone cosmic track in them, while 18 or 6.4\% had segments.  One event had no track or segments, but had rechits in the CSCs, and one event had no reconstruction level activity at all in the CSCs, despite the existence of a L1 CSC beam halo trigger.  The events in the CaloMET tails in Fig~\ref{fig:BH_CaloMET} all had stand-alone cosmic tracks in them.  
 
-One can easily convert these rates into probabilities for a halo event to occur for a given colliding bunch crossing. Taking the beam halo rate from Run 123908, which was the highest (per colliding bunch) for the 900 GeV runs, and assuming an orbit rate of 11245.78 Hz, one obtains the probability, $P$, for a beam halo event in a colliding bunch crossing:
+One can easily convert these rates into probabilities for a halo event to occur for a given colliding bunch crossing. Taking the beam halo rate from Run 123909, which was the highest (per colliding bunch) for the 900 GeV runs, and assuming an orbit rate of 11245.78 Hz, one obtains the probability, $P$, for a beam halo event in a colliding bunch crossing:
 
 \begin{eqnarray}
 %P &=& \frac{3.8 \times 10^{-3}\text{ Hz}/\text{BX} }{11245.78 \text{ Hz}}  \\

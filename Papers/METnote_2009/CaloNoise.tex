@@ -21,14 +21,16 @@ Figure~\ref{fig:subdet_RecHitE} shows the comparison between RecHit energy distr
 calorimeter sub-detectors. From plots in Figure~\ref{fig:subdet_RecHitE} it follows, with the exception of HF, that
 the noise simulation reproduces reasonably well the bulk properties of the RecHit energy distributions. The reason for large discrepancy in HF lies 
 in the fact that the zero-suppression threshold in HF is higher than in the other HCAL subdetectors and therefore more sensistive to the noise tails
-which are not properly simulated. Figure~\ref{fig:subdet_CaloSumET} shows the comparison between $\sumet$ distributions in noise-only
+which are not properly simulated. 
+
+Figure~\ref{fig:subdet_CaloSumET} shows the comparison between $\sumet$ distributions in noise-only
 and selected ZeroBias data in different calorimeter sub-detectors. Plots in Figure~\ref{fig:subdet_CaloSumET} reveal that the noise correlation
 effects among neighbouring channels might not be properly modeled considering the level of agreement at the RecHit level, in particular in the
 HCAL barrel (HB). The spikes in the $\sumet$ distributions in EB, EE, HB, and HE are due to the offline zero-suppression
 thresholds applied to the ECAL and HCAL RecHits in the process of calotower formation. A relatively large discrepancy between HF noise in data and
 Monte Carlo simulation in the end has a negligible effect on the MET-related quantities 
 because of the high $\eta$ location of the HF cells. Part that has a non-negligible effect on the MET-related quantities are the PMT window hits
-clearly visible in the HF plots in Figure~\ref{fig:subdet_CaloSumET} as entries outside the first bin. Since these
+(not present in the simulation) clearly visible in the HF plots in Figure~\ref{fig:subdet_CaloSumET} as entries outside the first bin. Since these
 hits are correlated with the beam activity, they can also be caused by a single beam passing through the CMS detector and therefore can end up
 in the selected ZeroBias events.
 
