@@ -7,7 +7,7 @@ events from the following two samples were used:
 
 \begin{itemize}
   \item Noise-only sample: \newline
-This sample was produced in CMSSW\_3\_3\_6\_path3 by generating single electron neutrinos with the rest of the configuration identical to the one used to
+This sample was produced in CMSSW\_3\_3\_6\_patch3 by generating single electron neutrinos with the rest of the configuration identical to the one used to
 produce /MinBias/Summer09-STARTUP3X\_V8P\_900GeV-v1/GEN-SIM-RECO dataset. No special event selection was applied.
 
   \item /ZeroBias/BeamCommissioning09-Jan23ReReco-v1/RECO: \newline
@@ -24,9 +24,11 @@ in the fact that the zero-suppression threshold in HF is higher than in the othe
 which are not properly simulated. 
 
 Figure~\ref{fig:subdet_CaloSumET} shows the comparison between $\sumet$ distributions in noise-only
-and selected ZeroBias data in different calorimeter sub-detectors. Plots in Figure~\ref{fig:subdet_CaloSumET} reveal that the noise correlation
-effects among neighbouring channels might not be properly modeled considering the level of agreement at the RecHit level, in particular in the
-HCAL barrel (HB). The spikes in the $\sumet$ distributions in EB, EE, HB, and HE are due to the offline zero-suppression
+and selected ZeroBias data in different calorimeter sub-detectors. Plots in Figure~\ref{fig:subdet_CaloSumET} reveal that, 
+considering the level of agreement on the single channel at the RecHit level (i.e. Figure~\ref{fig:subdet_RecHitE}), 
+the noise correlation effects among neighbouring channels might 
+not be properly modeled, in particular in the HCAL barrel (HB). 
+The spikes in the $\sumet$ distributions in EB, EE, HB, and HE are due to the offline zero-suppression
 thresholds applied to the ECAL and HCAL RecHits in the process of calotower formation. A relatively large discrepancy between HF noise in data and
 Monte Carlo simulation in the end has a negligible effect on the MET-related quantities 
 because of the high $\eta$ location of the HF cells. Part that has a non-negligible effect on the MET-related quantities are the PMT window hits
