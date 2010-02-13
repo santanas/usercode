@@ -517,64 +517,59 @@ In order to best identify beam halo, information from three subdetectors is used
 
 In order to commission the \verb BeamHaloId  tools in data, a pure sample with high statistics is needed. The CSC beam halo trigger is very useful for this purpose.  Unfortunately, most of the single-beam commissioning runs of 2009 did not feature CSC station ME1/1, which is the station closest to both the calorimeters and the beam line. This station is anticipated to get the most halo flux, but was often kept in standby mode in order to safeguard the hardware and electronics from beam splash events.  As a result, not many genuine beam halo events were triggered during these commissioning runs, and the BeamHaloId algorithms, especially those which serve to identify beam halo in the calorimeters, are not yet commissioned.
 
-Despite the limited success with the single-beam commissioning runs, a small number of events was gleaned from the good collision runs (which featured station ME1/1) via the CSC beam halo trigger.  Because the cosmic background contamination to the CSC beam halo trigger is about 0.6 Hz, a requirement on the BPTX technical trigger was also imposed.  Given that there are 3564 possible bunch crossings (or spacings) per orbit, the rate for a cosmic to fake a CSC beam halo trigger and coincide with BPTX trigger bit 0, can be estimated as:
+Despite the limited success with the single-beam commissioning runs, a small number of events was gleaned from the good collision runs (which featured station ME1/1) via the CSC beam halo trigger.  Because the cosmic background contamination to the CSC beam halo trigger is about 0.6 Hz, a requirement on the BPTX technical trigger was also imposed.  An event containing these two triggers in coincident is defined as containing a beam halo particle.  Given that there are 3564 possible bunch crossings (or spacings) per orbit, the rate for a cosmic to fake a CSC beam halo trigger and coincide with BPTX trigger bit 0, can be estimated as:
 
 \begin{eqnarray}
 R_\text{fake} = \frac{(0.6\text{ Hz})\times N_\text{BX}}{3564}
 \end{eqnarray}
 where $N_\text{BX}$ represents the number of filled, colliding bunches per orbit. It is assumed the BPTX trigger bit 0 operates with 100\% efficiency.  This fake rate becomes $1.64 \times 10^{-4}$ Hz , $3.28 \times 10^{-4}$ Hz, $4.93 \times 10^{-4}$ Hz for 1, 2, and 3 colliding bunches per orbit respectively. 
   
-Table~\ref{tab:BHStats} gives the beam halo statistics for each good collision run taken from the \verb PhysicsMuonBkg  Primary Dataset.  Because only a filled bucket from one beam is necessary to produce beam halo, all BPTX technical triggers corresponding to single-beam filled buckets were considered.  The subset of events with BPTX technical trigger bit 0 are also given so that one can calculate the probability for beam halo overlap with a minbias event.  For most of the earlier runs, the rates calculated are consistent with the cosmic background.  For the later runs, the rates are higher by roughly an order of magnitude, which indicates the unambiguous presence of machine-induced backgrounds.    \\
+Table~\ref{tab:BHStats} gives the beam halo statistics for each good collision run taken from the \verb PhysicsMuonBkg  Primary Dataset.  There were a total of 246 beam halo events identified during the good collision runs. Of these, 8 events were observed to pass the BSC event selection, indicating that a minimum bias collision occurred in the event.  Upon evaluating these 8 events with the help of an event display, it is clear that the beam halo triggers were faked by real collision muons.  This is an expected effect as some soft muons with forward trajectories canmimic a halo and thus satisfy the conditions of the L1 CSC beam halo trigger.  The $\delta$($\eta$) requirement used by this trigger was also loosened prior to the collision runs to accumulate more halo statistics for alignment purposes, therefore slightly enhancing the probability for a collision muon to pass the beam halo trigger.   
      
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|} \hline
-        &       &       & \multicolumn{4}{|c|}{L1\_SingleMuBeamHalo} \\ \hline
-        &       &       & \multicolumn{2}{|c|}{ \&\& BPTX Bits 0-6 }  & \multicolumn{2}{|c|}{\&\& BPTX Bit 0}      \\ \hline
- Run    & Colliding BXs & Lumis &  Events & Rate [Hz] &  Events & Rate [Hz] \\ \hline 
-123596  &  2  & 144& 1   & 7.5e-05  & 1  & 7.5e-05 \\ \hline 
-123615  &  2  & 26 & 1   & 2.0e-04  & 1  & 2.0e-04 \\ \hline 
-123815  &  2  & 9  & 4   & 2.4e-03  & 4  & 2.4e-03 \\ \hline 
-123818  &  2  & 41 & 3   & 7.2e-04  & 2  & 4.8e-04 \\ \hline 
-123906  &  1  & 23 & 0   & --       & 0  & -- \\ \hline 
-123908  &  1  & 27 & 2   & 7.9e-04  & 2  & 7.9e-04 \\ \hline 
-123909  &  1  & 28 & 10  & 3.8e-03  & 10 & 3.8e-03 \\ \hline 
-124008  &  3  & 2  & 0   & --       & 0  & -- \\ \hline 
-124009  &  3  & 68 & 28  & 4.4e-03  & 23   & 4.4e-03 \\ \hline 
-124020  &  3  & 98 & 21  & 2.3e-03  & 18   & 2.0e-03 \\ \hline 
-124022  &  3  & 152& 54  & 3.8e-03  & 48   & 3.4e-03 \\ \hline 
-124023  &  3  & 89 & 38  & 4.6e-03  & 35   & 4.2e-03 \\ \hline 
-124024  &  3  & 81 & 30  & 4.0e-03  & 26   & 3.4e-03 \\ \hline 
-124025  &  3  & 13 & 2   & 1.7e-03  &  2   & 1.7e-03 \\ \hline 
-124027  &  3  & 35 & 24  & 7.4e-03  & 20   & 6.1e-03 \\ \hline 
-124030  &  3  & 31 & 12  & 4.2e-03  & 11   & 3.8e-03 \\ \hline 
-124120* &  1  & 57 & 51  & 9.6e-03  & 45   & 9.6e-03 \\ \hline 
-%Totals  &  1  & 73 & 12  & 1.8e-03  & 12   & 1.8e-03 \\ \hline 
-%        &  2  & 220& 9   & 4.4e-04  & 11   & 3.9e-04 \\ \hline
-%        &  3  & 567& 209 & 4.0e-03  & 183  & 3.5e-03 \\ \hline
-%\multicolumn{2}{|c|}{Total}  & 902 (57) & 231 (51) &  -- & 202 (45) & -- \\ \hline    
-%\multicolumn{2}{|c|}{Total}  & 902 (57) & 231 (51) & 2.7e-03 (9.6e-03) & 202 (45) & 2.4e-03  \\ \hline    
+\begin{tabular}{|c|c|c|c|c|} \hline
+\multicolumn{5}{|c|}{L1\_SingleMuBeamHalo \&\& BPTX Bit 0 }    \\ \hline
+ Run    & Colliding BXs & Lumis &  Events  & Rate [Hz]  \\ \hline 
+123596  &  2  & 144&  1  & 7.5e-05 \\ \hline 
+123732  &  2  & 99 &  9  & 9.9e-04 \\ \hline
+123815  &  2  & 9  &  4  & 2.4e-03 \\ \hline 
+123818  &  2  & 41 &  2  & 4.8e-04 \\ \hline 
+123908  &  1  & 27 &  2  & 7.9e-04 \\ \hline 
+124008  &  3  & 2  &  0  & -- \\ \hline 
+124009  &  3  & 68 &  23 & 4.4e-03 \\ \hline 
+124020  &  3  & 98 &  18(17)  & 2.0(1.9)e-03 \\ \hline 
+124022  &  3  & 152&  48   & 3.4e-03 \\ \hline 
+124023  &  3  & 89 &  35   & 4.2e-03 \\ \hline 
+124024  &  3  & 81 &  26(25)  & 3.4(3.3)e-03 \\ \hline 
+124025  &  3  & 13 &  2    & 1.7e-03 \\ \hline 
+124027  &  3  & 35 &  20(18)  & 6.1(5.5)e-03 \\ \hline 
+124030  &  3  & 31 &  11(9)  & 3.8(3.1)e-03 \\ \hline 
+124120* &  1  & 57 &  45(43)  & 9.6(9.2)e-03 \\ \hline 
+
 \end{tabular}
 \end{center}
-\caption{Summary of beam halo statistics for good collision runs at $\sqrt{s}=900$~GeV ($2.36$~TeV). *Run 124120 featured $\sqrt{s}=2.36$~TeV. A lumisection is included if it features BPTX bit 0 operating at nominal rates (indicating both beams crossing) and the L1\_SinglMuBeamHalo trigger operating at a minimum of the cosmic rate (indicating the CSCs and Track Finder are active)}
+\caption{Summary of beam halo statistics for good collision runs at $\sqrt{s}=900$~GeV ($2.36$~TeV). *Run 124120 featured $\sqrt{s}=2.36$~TeV. A lumisection is included if it features BPTX bit 0 operating at nominal rates (indicating both beams crossing) and the L1\_SinglMuBeamHalo trigger operating at a minimum of the cosmic rate (indicating the CSCs and Track Finder are active).  The numbers given in parenthesis denote the runs which had events passing the BSC requirements for a minimum bias collision.  These numbers represent the beam halo statistics after the minimum bias events which fake halos are removed.}
 \label{tab:BHStats}
 \end{table}
 
+For most of the earlier runs, the rates calculated in Table~\ref{tab:BHStats} are consistent with the cosmic background.  For the later runs, the rates are higher by roughly an order of magnitude, which indicates the unambiguous presence of machine-induced backgrounds.    \\
+
 With these limited statistics some meaningful distributions can still be made. Figure~\ref{fig:BH_CaloMET} shows the differential  CaloMET rate for these selected events.  A few events exist beyond $\etmiss \ge 10$ GeV, which implies that some halo muons are hitting the calorimeters. Figures~\ref{fig:BH_Radial} and~\ref{fig:BH_Phi} show the position of the halo muon in the CSCs at its point of closest approach with respect to the calorimeters.  This information is extracted from the innermost rechit from the  CSC stand-alone cosmic track (if there was one reconstructed in the event).  The cosmic track reconstruction algorithms are optimized to measure muons which do not come from the collision point.
 
-Of these 281 events, 261 or 92.8\% had at least one~\footnote{In some cases the halo muon will leave enough hits in both plus and minus muon endcaps to allow for two separate tracks to be reconstructed.} CSC stand-alone cosmic track in them, while 18 or 6.4\% had segments.  One event had no track or segments, but had rechits in the CSCs, and one event had no reconstruction level activity at all in the CSCs, despite the existence of a L1 CSC beam halo trigger.  The events in the CaloMET tails in Fig~\ref{fig:BH_CaloMET} all had stand-alone cosmic tracks in them.  
+Of these 238 pure beam halo events~\footnote{The events with collision muons faking beam halo are not considered in these calculations and figures } , 221 or 92.8\% had at least one~\footnote{In some cases the halo muon will leave enough hits in both plus and minus muon endcaps to allow for two separate tracks to be reconstructed.} CSC stand-alone cosmic track in them, while 15 or 6.3\% had segments.  One event had no track or segments, but had rechits in the CSCs, and one event had no reconstruction level activity at all in the CSCs, despite the existence of a L1 CSC beam halo trigger.  The events in the CaloMET tails in Fig~\ref{fig:BH_CaloMET} all had stand-alone cosmic tracks in them.  
 
-One can easily convert these rates into probabilities for a halo event to occur for a given colliding bunch crossing. Taking the beam halo rate from Run 123909, which was the highest (per colliding bunch) for the 900 GeV runs, and assuming an orbit rate of 11245.78 Hz, one obtains the probability, $P$, for a beam halo event in a colliding bunch crossing:
+One can easily convert these rates into probabilities for a halo event to occur for a given colliding bunch crossing. Taking the beam halo rate from Run 124027, which was the highest (per colliding bunch) for the 900 GeV runs, and assuming an orbit rate of 11245.78 Hz, one obtains the probability, $P$, for a beam halo event in a colliding bunch crossing:
 
 \begin{eqnarray}
 %P &=& \frac{3.8 \times 10^{-3}\text{ Hz}/\text{BX} }{11245.78 \text{ Hz}}  \\
-P &=& \frac{3.8 \times 10^{-3}\text{ Hz}/\text{BX} }{11245.78 \text{ Hz}} \\
-  &=& 3.38\times 10^{-7} /\text{BX}
+P &=& \frac{1.8 \times 10^{-3}\text{ Hz}/\text{BX} }{11245.78 \text{ Hz}} \\
+  &=& 1.6\times 10^{-7} /\text{BX}
 \end{eqnarray}
 
-This implies that roughly 1 in 2.96$\times$10$^{6}$ colliding bunch crossings or minimum bias events will overlap with a CSC-triggered beam halo event.  
+This implies that roughly 1 in 6.25$\times$10$^{6}$ colliding bunch crossings or minimum bias events will overlap with a CSC-triggered beam halo event.  A similar calculation can be done for the 2.36 TeV run to yield a ratio of 1 in 1.22$\times$10$^{6}$ colliding bunch crossings or minimum bias events.
  
-It will be important to measure and monitor these rates once the beam intensities increase along with the frequency of minbias events. The probability of contamination is negligible in the current set of collision runs.  None of these events with CSC beam halo triggers survive the standard event selection beyond the BSC requirements. This may not be the case, however, in the future.  \\
+It will be important to measure and monitor these rates once the beam intensities increase along with the frequency of minbias events. The probability of contamination is negligible in the current set of collision runs. This may not be the case, however, in the future.  \\
 
 
 \begin{figure}[htp]
