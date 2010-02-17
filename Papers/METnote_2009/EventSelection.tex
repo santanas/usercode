@@ -507,7 +507,7 @@ The effects of machine-induced backgrounds, often referred to as beam halo, can 
 \begin{center} 
 \includegraphics[scale=0.5]{plots_BeamHalo/Run123893_Lumi42_12070813_RZ.eps}
 \end{center}
-\caption{Event 12070813, Lumi Section 42 from collision Run 123893.  A halo muon track is shown in the CSCs and extrapolated into the hadron calorimeter.  In this event the halo muon traversed several scintillators in a small $\phi$ window in the HCAL, yielding $\etmiss$ = 59.4 GeV. The BeamHaloId tools aspire to identify these types of events by combining information from the calorimeters and the CSCs. }
+\caption{Event 12070813, Lumi Section 42 from collision Run 123893.  A halo muon track is shown in the CSCs (cyan) and extrapolated into the hadron calorimeter.  In this event the halo muon traversed several scintillators in a small $\phi$ window in the HCAL, yielding $\etmiss$ = 59.4 GeV which is illustrated by the red vector pointing opposite to the energy deposits (blue) in the Hadron Calorimeter. A calorimeter jet (yellow) is also reconstructed in this event.  The BeamHaloId tools aspire to identify these types of events by combining information from the calorimeters and the CSCs. }
 \label{fig:BH_EventDisplay}
 \end{figure}
 
@@ -524,7 +524,7 @@ R_\text{fake} = \frac{(0.6\text{ Hz})\times N_\text{BX}}{3564}
 \end{eqnarray}
 where $N_\text{BX}$ represents the number of filled, colliding bunches per orbit. It is assumed the BPTX trigger bit 0 operates with 100\% efficiency.  This fake rate becomes $1.64 \times 10^{-4}$ Hz , $3.28 \times 10^{-4}$ Hz, $4.93 \times 10^{-4}$ Hz for 1, 2, and 3 colliding bunches per orbit respectively. 
   
-Table~\ref{tab:BHStats} gives the beam halo statistics for each good collision run taken from the \verb PhysicsMuonBkg  Primary Dataset.  There were a total of 246 beam halo events identified during the good collision runs. Of these, 8 events were observed to pass the BSC event selection, indicating that a minimum bias collision occurred in the event.  Upon evaluating these 8 events with the help of an event display, it is clear that the beam halo triggers were faked by real collision muons.  This is an expected effect as some soft muons with forward trajectories can mimic a halo and thus satisfy the conditions of the L1 CSC beam halo trigger.  The $\delta$($\eta$) requirement used by this trigger was also loosened prior to the collision runs to accumulate more halo statistics for alignment purposes, therefore slightly enhancing the probability for a collision muon to pass the beam halo trigger.   
+Table~\ref{tab:BHStats} gives the beam halo statistics for each good collision run taken from the \verb PhysicsMuonBkg  Primary Dataset.  There were a total of 246 beam halo events identified during the good collision runs. Of these, 8 events were observed to pass the BSC event selection, indicating that a minimum bias collision occurred in the event.  Upon evaluating these 8 events with the help of an event display, it is clear that the beam halo triggers were faked by real collision muons.  This is an expected effect as some soft muons with forward trajectories can mimic a halo and thus satisfy the conditions of the L1 CSC beam halo trigger.  The $\delta$($\eta$) requirement used by this trigger was also loosened prior to the collision runs to accumulate more halo statistis for alignment purposes, therefore slightly enhancing the probability for a collision muon to pass the beam halo trigger.   
      
 \begin{table}[h]
 \begin{center}
