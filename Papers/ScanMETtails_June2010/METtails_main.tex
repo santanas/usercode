@@ -1,0 +1,80 @@
+\documentclass{cmspaper}
+\usepackage{lineno}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[dvips]{graphicx}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{subfigure}  % use for side-by-side figures
+%\usepackage[a4paper]{hyperref}
+
+\def\etmiss{\big\slash\hspace{-1.6ex}{E_\text{T}}}
+\def\etmissB{\big\slash\hspace{-1.6ex}{\boldsymbol{E}_\text{T}}}
+\def\exmiss{\big\slash\hspace{-1.6ex}{E_{x}}}
+\def\eymiss{\big\slash\hspace{-1.6ex}{E_{y}}}
+\def\sumet{\sum{E_\text{T}}}
+\def\sumetB{\sum{\boldsymbol{E}_\text{T}}}
+
+\begin{document}
+\begin{linenumbers}
+
+
+\begin{titlepage}
+
+  % select one of the following and type in the proper number:
+
+%  \cmsnote{2010/001}
+  \internalnote{2005/000}
+%  \conferencereport{2005/000}
+%  \cmsan{2010/029}
+%  \cmsdtnote{2005/000}
+%  \cmspas{2005/000}
+   \date{\today}
+
+  \title{Results of visual scan of high $\etmiss$ events in 7 TeV pp collision data}
+
+  \begin{Authlist}
+    A.~Apresyan
+    \Instfoot{caltech}{California Institute of Technology, Pasadena, CA, USA}
+    D.~Ferencek, F.~Santanastasio %\Aref{a}
+   \Instfoot{umd}{University of Maryland, College Park, MD, USA}   
+  \end{Authlist}
+
+% if needed, use the following:
+%\collaboration{CMS collaboration}
+
+%\Anotfoot{a}{Also at \textit{California Institute of Technology, Pasadena, CA, USA}}
+
+  \begin{abstract}    
+   We present the results of a visual scan of high $\etmiss$ events 
+   (Calo$\etmiss>45$~GeV OR tc$\etmiss>45$~GeV OR pf$\etmiss>45$~GeV)
+   in a sample of 12~nb$^{-1}$ of 7 TeV pp collision data, 
+   after applying the official noise clean-up. 
+   The CMS software {\it Fireworks} has been used to produce the event displays. 
+   The high $\etmiss$ events have been visually inspected and classified in different 
+   cathegories. The resuls of this scan can be used to further improve the noise 
+   cleaning algorithms and identify possible problems in the three algorithms employed 
+   in CMS for the $\etmiss$ reconstruction.
+  \end{abstract} 
+
+% if needed, use the following:
+%\conference{Presented at {\it Physics Rumours}, Coconut Island, April 1, 2005}
+%\submitted{Submitted to {\it Physics Rumours}}
+%\note{Preliminary version}
+  
+\end{titlepage}
+
+\setcounter{page}{2}%JPP
+
+\tableofcontents
+
+\clearpage
+
+\input{Intro}
+\input{Datasample}
+\input{Scan}
+%\input{Conclusion}
+
+
+\end{linenumbers}
+\end{document}
+

@@ -1,0 +1,26 @@
+\section{Datasample, Event Selection, and Noise Cleaning} \label{sec:EventSelection}
+
+Information on the dataset and CMSSW release used to reconstruct the data:
+\begin{itemize}
+\item dataset: /MinimumBias/Commissioning10-May6thReReco-v1/RECO
+\item CMSSW release: CMSSW\_358p3
+\end{itemize}
+
+Event selection:
+\begin{itemize}
+\item BPTX  
+\item GOOD VERTEX
+\item BEAM SCRAPING FILTER
+\item etc..
+\end{itemize}
+
+Noise cleaning (see details at https://twiki.cern.ch/twiki/bin/view/CMS/METNoiseCleanup):
+\begin{itemize}
+\item ECAL barrel spikes: topology (swiss cross variable) + timing (kOutOfTime flag) [XXX]
+\item HF PMT hits: topology (``v2'': PET+S9S1) + timing (rechit-time window cut) = ``v4'' cleaning [XXX]
+\item HPD/RBX noise in HBHE: topology (cut on hit multiplicity in an HPD) [XXX]
+\end{itemize}
+
+Figure shows the cleaned Calo$\etmiss$ and tc$\etmiss$ distributions for the 19.6 M 
+events passing the selection described above.
+
