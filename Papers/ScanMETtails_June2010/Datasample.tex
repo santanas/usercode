@@ -6,7 +6,7 @@ Information on the dataset and CMSSW release used to reconstruct the data:
 \item CMSSW release: CMSSW\_358p3
 \end{itemize}
 
-Event selection:
+Event selection (reject events):
 \begin{itemize}
 \item BPTX  
 \item GOOD VERTEX
@@ -14,13 +14,25 @@ Event selection:
 \item etc..
 \end{itemize}
 
-Noise cleaning (see details at https://twiki.cern.ch/twiki/bin/view/CMS/METNoiseCleanup):
+Noise cleaning (reject RecHits):
 \begin{itemize}
 \item ECAL barrel spikes: topology (swiss cross variable) + timing (kOutOfTime flag) [XXX]
 \item HF PMT hits: topology (``v2'': PET+S9S1) + timing (rechit-time window cut) = ``v4'' cleaning [XXX]
 \item HPD/RBX noise in HBHE: topology (cut on hit multiplicity in an HPD) [XXX]
 \end{itemize}
+See details at https://twiki.cern.ch/twiki/bin/view/CMS/METNoiseCleanup.
 
-Figure shows the cleaned Calo$\etmiss$ and tc$\etmiss$ distributions for the 19.6 M 
-events passing the selection described above.
+Figure~\ref{fig:calomet} shows the cleaned Calo$\etmiss$ distribution for $\approx 19.6$~M events 
+passing the event selection described above.
 
+\begin{figure}[h]
+ \centering
+ \begin{tabular}{ll}
+\includegraphics[width=0.7\textwidth]{fig/calomet.eps} 
+ \end{tabular}
+\caption{Calo$\etmiss$ distribution of 7 TeV collision data after applying the event selection described
+in this section. Red filled histogram is obtained using the $\etmiss$ value coming from default CMS reconstruction 
+in CMSSW\_358p3. The black dotted histogram is the $\etmiss$ after applying the full noise cleaning 
+procedure described in this section.}
+\label{fig:calomet}
+\end{figure}

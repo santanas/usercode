@@ -17,10 +17,120 @@ are subject to personal judgment. Nevertheless, they should provide
 with good approximation a realistic picture of which are the events that populates the tails
 of the $\etmiss$ after applying the current noise clean-up.
 
-The result of the scan are summarized in the following sub-sections.
+The result of the scan for Category 1, 2, and 3 are summarized 
+in the Tables~\ref{tab:Category1}, ~\ref{tab:Category2}, and ~\ref{tab:Category3}, respectively.
 
-\subsection{Category 1: Calo$\etmiss>45$~GeV AND tc$\etmiss>45$~GeV}
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{2}{|c|}{Category} & Number of events  & Comments   \\ 
+      \hline\hline
+      \multicolumn{2}{|c|}{\bf ECAL TOTAL} & \bf{3}      & - \\
+      \hline
+      EB & spike at EB-EE boundary & 3 & all removed by Particle-Flow cleaning \\     
+      \hline    
+      \multicolumn{2}{|c|}{\bf HCAL TOTAL} & \bf{43}      & - \\
+      \hline
+      HF & multi-PMT-hits or phi-strip events & 7 & 2 partially cleaned by Particle-Flow cleaning \\           
+      HF & double-PMT-hits & 22 & 11 cleaned by Particle-Flow cleaning \\           
+      HF & PMT hit embedded in a jet & 4 & - \\           
+      HF & single jet in HF & 4 & - \\           
+      HF & not isolated PMT hit & 1 & - \\           
+      HB & HPD/RBX noise & 3 & 2 removed by HPD/RBX event filter \\           
+      HE & HPD/RBX noise & 2 & 2 removed by HPD/RBX event filter \\           
+      \hline    
+      \multicolumn{2}{|c|}{\bf PHYSICS TOTAL} & \bf{43}      & - \\
+      \hline
+      Physics & 1 jet & 0 & - \\
+      Physics & 2 jets & 4 & - \\
+      Physics & 3 jets & 4 & - \\
+      Physics & 4 jets & 3 & - \\
+      Physics & 5 jets & 1 & - \\
+      Physics & 6 jets & 0 & - \\
+      \hline
+      \multicolumn{2}{|c|}{\bf OTHERS TOTAL} & \bf{43}      & - \\
+      \hline          
+      Others & cleaning issue & 1 & smaller Calo$\etmiss$/tc$\etmiss$ before cleaning, larger after cleaning. \\
+      \hline          
+      \multicolumn{2}{|c|}{\bf TOTAL} & \bf{59}      & - \\
+      \hline
+    \end{tabular}
+    \caption{Results of visual scan of high $\etmiss$ events in the skim ``Category 1''.}
+    \label{tab:Category1}
+  \end{center}
+\end{table}
 
-\subsection{Category 2: Calo$\etmiss>45$~GeV AND tc$\etmiss<45$~GeV}
 
-\subsection{Category 3: Calo$\etmiss<45$~GeV AND tc$\etmiss>45$~GeV}
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{2}{|c|}{Category} & Number of events  & Comments   \\ 
+      \hline\hline
+      \multicolumn{2}{|c|}{\bf ECAL TOTAL} & \bf{0}      & - \\
+      \hline    
+      \multicolumn{2}{|c|}{\bf HCAL TOTAL} & \bf{14}      & - \\
+      \hline
+      HF & multi-PMT-hits or phi-strip events & 2 & - \\           
+      HF & double-PMT-hits & 2 & - \\           
+      HF & PMT hit embedded in a jet & 5 & - \\           
+      HF & single jet in HF & 5 & - \\           
+      \hline    
+      \multicolumn{2}{|c|}{\bf PHYSICS TOTAL} & \bf{62}      & - \\
+      \hline
+      Physics & 1 jet & 3 & - \\
+      Physics & 2 jets & 31 & - \\
+      Physics & 3 jets & 13 & - \\
+      Physics & 4 jets & 9 & - \\
+      Physics & 5 jets & 5 & - \\
+      Physics & 6 jets & 1 & - \\
+      \hline
+      \multicolumn{2}{|c|}{\bf OTHERS TOTAL} & \bf{1}      & - \\
+      \hline          
+      Others & cleaning issue & 1 & smaller Calo$\etmiss$/tc$\etmiss$ before cleaning, larger after cleaning. \\
+      \hline          
+      \multicolumn{2}{|c|}{\bf TOTAL} & \bf{77}      & - \\
+      \hline
+    \end{tabular}
+    \caption{Results of visual scan of high $\etmiss$ events in the skim ``Category 2''.}
+    \label{tab:Category2}
+  \end{center}
+\end{table}
+
+
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{2}{|c|}{Category} & Number of events  & Comments   \\ 
+      \hline\hline
+      \multicolumn{2}{|c|}{\bf ECAL TOTAL} & \bf{0}      & - \\
+      \hline    
+      \multicolumn{2}{|c|}{\bf HCAL TOTAL} & \bf{4}      & - \\
+      \hline
+      HF & multi-PMT-hits or phi-strip events & 2 & - \\           
+      HF & single jet in HF & 1 & - \\           
+      HB & HPD/RBX noise & 1 & - \\           
+      \hline    
+      \multicolumn{2}{|c|}{\bf PHYSICS TOTAL} & \bf{16}      & - \\
+      \hline
+      Physics & 1 jet & 2 & - \\
+      Physics & 2 jets & 6 & - \\
+      Physics & 3 jets & 4 & - \\
+      Physics & 4 jets & 3 & - \\
+      Physics & 5 jets & 1 & - \\
+      Physics & 6 jets & 0 & - \\
+      \hline
+      \multicolumn{2}{|c|}{\bf OTHERS TOTAL} & \bf{12}      & - \\
+      \hline          
+      Others & possible issues with tc$\etmiss$ & 6 & small Calo$\etmiss$/pf$\etmiss$, large tc$\etmiss$ \\
+      Others & cleaning issue & 6 & smaller Calo$\etmiss$/tc$\etmiss$ before cleaning, larger after cleaning \\
+      \hline          
+      \multicolumn{2}{|c|}{\bf TOTAL} & \bf{32}      & - \\
+      \hline
+    \end{tabular}
+    \caption{Results of visual scan of high $\etmiss$ events in the skim ``Category 3''.}
+    \label{tab:Category3}
+  \end{center}
+\end{table}
