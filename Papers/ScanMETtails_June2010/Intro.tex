@@ -8,16 +8,17 @@ in the calorimeters of the CMS experiment:
 \begin{itemize}
 \item {\it ECAL barrel spikes} - Energy deposits in individual channels 
 affected by the noise are cleaned using both topological and 
-timing information of the reconstructed hits. Noise correlated with collisions. 
+timing information of the reconstructed hits. This type of noise is not correlated with collisions. 
 More details are available at XXX.
 \item {\it HF PMT hits} - Energy deposits in individual channels 
 affected by the noise are cleaned using both topological and 
-timing information of the reconstructed hits. Noise correlated with collisions. 
+timing information of the reconstructed hits. PMT hit noise is correlated with collisions. 
 More details are available at XXX.
-\item {\it HPB/RBX noise in HCAL barrel and endcaps} - Events with identified 
+\item {\it HPD/RBX noise in HCAL barrel and endcaps} - Events with identified 
 HPD/RBX noise are removed from the analysis using a filter based on both topological 
-and timing information of the reconstructed energy deposits. Noise not correlated 
-with collision. More details are available at XXX.
+and timing information of the reconstructed energy deposits. IonFeedback noise has also been observed 
+but typically affect a few channels and produces low energy signals. A cleaning for IonFeedback noise 
+is not yet available. HPD/RBX noise is not correlated with collisions. More details are available at XXX.
 \end{itemize}
 In addition, machine-induced background, in the form of 
 beam halo [XXX] and beam scraping events [XXX], have been observed. 
@@ -27,16 +28,16 @@ with a pp collision event produces an unbalance in
 the reconstructed missing transverse energy in the event, which can produce 
 large tails in the $\etmiss$ distribution. 
 
-In this note, we present the results of a visual scan of high $\etmiss$ events 
-($>45$~GeV) %(Calo$\etmiss>45$~GeV OR tc$\etmiss>45$~GeV OR pf$\etmiss>45$~GeV)
-in a sample %of 12~nb$^{-1}$ 
-of 7 TeV pp collision data, after applying the 
-%official 
-noise clean-up developed by joint effort of several groups in the CMS collaboration, 
-and described in Section~\ref{sec:EventSelection}. 
+We present the results of a visual scan of high $\etmiss$ events 
+(tc$\etmiss>60$~GeV OR pf$\etmiss>60$~GeV)
+in an inclusive sample of XX~nb$^{-1}$ of 7 TeV pp collision data, 
+after applying the official noise clean-up available in CMSSW\_3\_7\_0\_patch2.
+The full selection criteria are described in Section~\ref{sec:EventSelection}). 
+The scan is performed separately for events with tc$\etmiss>60$~GeV and pf$\etmiss>60$~GeV
+since the noise clean-up is implemented differently in the two $\etmiss$ algorithms.
 The CMS software {\it Fireworks} [XXX] has been used to produce the event displays. 
 The high $\etmiss$ events have been visually inspected and classified in different 
-cathegories. The resuls of this scan can be used as a starting point to further improve 
-the noise cleaning algorithms and to identify possible problems and inconsistencies 
-in the three algorithms employed in CMS for the $\etmiss$ reconstruction.
+cathegories. The results of this scan can provide hints to further improve the noise 
+cleaning and to identify possible problems and inconsistencies in the algorithms employed 
+in CMS for the $\etmiss$ reconstruction.
 
