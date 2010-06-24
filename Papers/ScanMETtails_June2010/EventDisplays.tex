@@ -4,7 +4,7 @@
 We see EB spikes occurring at the boundary between ECAL barrel and endcaps.
 
 The ECAL spikes topological cuts employed in the calotower cleaning for Calo$\etmiss$ and tc$\etmiss$ 
-are not currently applied to identify ``spikes'' candidates occuring at the boundary between ECAL barrel and endcaps. 
+are not currently applied to identify ``spikes'' candidates occurring at the boundary between ECAL barrel and endcaps. 
 Most of such events should be removed by the timing cuts. Nevertheless, some of them still survives 
 after the noise clean-up, as the event shown in Figure~\ref{fig:EBspikeAtBorder}.
 
@@ -22,7 +22,7 @@ The case of EB spike, far from the EB-EE boundary and not cleaned, should be inv
 Both events are cleaned by PF; note that PF cleaning for spikes is applied by default also in EE.
 
 \subsection{HF, multi-PMT-hits or phi-strip events}
-These events are characterized by several anomalous hits in adjecent cells; sometimes they show up as
+These events are characterized by several anomalous hits in adjacent cells; sometimes they show up as
 a strip of hits at the same $i\phi$ location, as the ones reported in Figure~\ref{fig:HFmultiHits}. 
 This type of noise cannot be cleaned by the existing topological algorithms but could 
 be cleaned by the timing or pulse shape based 
@@ -40,7 +40,7 @@ isolated tower, as shown in Figure~\ref{fig:HFdoublehits}. For high $\etmiss$ ev
 this noise often shows up in the towers located at the smallest $\eta$ 
 value in HF ($\eta$=3). This can be explained by the fact that, for a given energy, 
 a noise occurring at smaller $\eta$ produces a larger transverse energy, and therefore is more visible at high $\etmiss$.
-Anyway it's not excluded that double-hits occurrs also at larger $\eta$; but in this case such events might 
+Anyway it's not excluded that double-hits occurs also at larger $\eta$; but in this case such events might 
 fall in the bulk of $\etmiss$ distribution.
 
 This type of noise cannot be cleaned by current calotower-based topological algorithms (PET or S9/S1) but can
@@ -85,7 +85,7 @@ the Tables~\ref{tab:tcMETskim} and ~\ref{tab:pfMETskim}, and in the list of even
 We observed 5 events with large pf$\etmiss$ (sometimes a few hundreds GeV) 
 but very small Calo$\etmiss$ and tc$\etmiss$. In all the events, a muon with high $p_{T}$
 is reconstructed, but it seems that no correspondent inner track is found.
-The muon is reconstruced as ``global muon'' and ``standalone muon'', 
+The muon is reconstructed as ``global muon'' and ``standalone muon'', 
 but not as ``tracker muon''. An example is shown in Figure~\ref{fig:largeMuonInducedPfMET}.
 
 %
@@ -133,7 +133,7 @@ calotower-based cleaning; the event on the right is not cleaned by any of the tw
 NOTE: The event display for the left plot is mis-leading since the hit is not single, 
 as it seems, but double. In fact, in HF, blue=2*$E_{S}$=hadEnergy, while red=$E_{L}-E_{S}$=emEnergy. 
 In this event the emEnergy (``red'') is negative, but both energies in long and short fibers, $E_{L}$ and $E_{S}$, are large
-(several undreds of GeV). The event display only shows positive quantities 
+(several hundreds of GeV). The event display only shows positive quantities 
 (only the hadEnergy = ``blue''), so the ``negative'' red spike is not visible and it gives the illusion of a single hit. 
 It is observed that most of such events cleaned by PF have negative emEnergy, i.e. $E_S>E_L$.}
 \label{fig:HFdoublehits}
