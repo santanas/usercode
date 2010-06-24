@@ -1,4 +1,5 @@
 latex METtails_main.tex
+bibtex METtails_main.aux
 latex METtails_main.tex
 latex METtails_main.tex
 dvipdf METtails_main.dvi METtails_main.pdf

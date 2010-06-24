@@ -52,7 +52,7 @@ On the other hand, this type of cleaning is not expected to be fully safe for is
 in particular for physically bigger towers at lower $\eta$ values. 
 Preliminary studies on the use of S$8$/S$1$ isolation variable have been performed but not yet finalized. 
 
-PF cleaning can flag most of these noisy events. Studies are ongoing to understand the differences.
+PF cleaning flags most of these noisy events. Studies are ongoing to understand the differences.
 
 \subsection{HF, PMT hit embedded in a jet} ~\label{sec:HFHitEmbeddedInJet}
 These events are characterized by one or more anomalous hits embedded inside a jet, as shown in 
@@ -66,7 +66,7 @@ subtraction algorithm would have to be developed.
 Neither calotower-based cleaning nor PF cleaning are able to identify these noise events.
 
 \subsection{HBHE, IonFeedback/HPD/RBX noise}
-These events are characterized by low multiplicity noise and single noisy channels in HCAL barrel or endcap.
+These events are characterized by low multiplicity noise or single noisy channels in HCAL barrel or endcap.
 Two examples are shown in Figure~\ref{fig:HBHEnoise}.
 Improved timing cuts could be employed to identify these residual noise events.
 
@@ -135,7 +135,7 @@ as it seems, but double. In fact, in HF, blue=2*$E_{S}$=hadEnergy, while red=$E_
 In this event the emEnergy (``red'') is negative, but both energies in long and short fibers, $E_{L}$ and $E_{S}$, are large
 (several undreds of GeV). The event display only shows positive quantities 
 (only the hadEnergy = ``blue''), so the ``negative'' red spike is not visible and it gives the illusion of a single hit. 
-It is observed that most of events cleaned by PF have negative emEnergy.}
+It is observed that most of such events cleaned by PF have negative emEnergy, i.e. $E_S>E_L$.}
 \label{fig:HFdoublehits}
 \end{figure}
 
