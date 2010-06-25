@@ -12,7 +12,7 @@ Such EB spikes are instead all cleaned by PF cleaning, which applies relaxed top
 
 \subsection{EB, EE spikes}
 We see one event with an isolated spike in ECAL barrel (EB) far from the EB-EE boundaries 
-(Figure~\ref{fig:EBEEspike}, left plot) and one event with an isolated spike in ECAL 
+(Figure~\ref{fig:EBEEspike}, left plot) and two events with an isolated spike in ECAL 
 endcap (EE) (Figure~\ref{fig:EBEEspike}, right plot).
 
 Calotower-based cleaning for spikes is not applied in EE (it is understood that 
@@ -83,10 +83,21 @@ the Tables~\ref{tab:tcMETskim} and ~\ref{tab:pfMETskim}, and in the list of even
 
 \subsection{Others, large muon-induced pf$\etmiss$}
 We observed 5 events with large pf$\etmiss$ (sometimes a few hundreds GeV) 
-but very small Calo$\etmiss$ and tc$\etmiss$. In all the events, a muon with high $p_{T}$
-is reconstructed, but it seems that no correspondent inner track is found.
+but very small Calo$\etmiss$ and tc$\etmiss$. 
 The muon is reconstructed as ``global muon'' and ``standalone muon'', 
 but not as ``tracker muon''. An example is shown in Figure~\ref{fig:largeMuonInducedPfMET}.
+
+Info from PF group:
+
+- 4 events with pf$\etmiss>80$~GeV, with pf$\etmiss$ = 83, 242, 337
+and 528 GeV, respectively, and a muon with |$\eta$| > 2.2. 
+These muons have all a central tracker track associated to them. They are
+indeed not ``tracker muon'', meaning that they fail the tracker-muon
+criteria, but they are all global muons (with a track and a stand-alone
+muon part) for which the reco::muon pt is not correct. 
+What is interesting is that such poorly reconstructed muons are not seen
+in the simulation, which points to something odd in the muon and or
+tracker alignment or geometry in this large eta region -
 
 %
 \begin{figure}[h]
