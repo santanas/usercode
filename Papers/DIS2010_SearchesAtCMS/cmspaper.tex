@@ -1,39 +1,68 @@
-\documentclass{PoS}
-
-\title{Searches with early data at CMS}
-
-\ShortTitle{Searches with early data at CMS}
-
-\author{\speaker{Francesco Santanastasio}%
-        %\thanks{A footnote may follow.}\\
-       University of Maryland, MD, USA\\
-       E-mail: \email{francesco.santanastasio@cern.ch}}
-
-%\author{Another Author\\
-%        Affiliation\\
-%        E-mail: \email{...}}
-
-\abstract{This paper presents an overview of prospects for searches for new physics 
-beyond the Standard Model with early data of the CMS experiment, at the Large Hadron Collider of CERN. 
-The results presented here are based on Monte Carlo simulations of the 
-CMS detector, assuming 10-100~pb$^{-1}$ of collected integrated 
-luminosity and proton-proton collisions at $\sqrt{s} = 7$~TeV. 
-A selection of benchmark analyses feasible with early data is discussed,  
-including searches for new physics in the di-jet and lepton-jet channels, 
-the description of techniques to identify the production of heavy long-lived charged particles, 
-and the searches for Supersymmetry in the all-hadronic and like-sign dilepton channels.}
-
-\FullConference{XVIII International Workshop on Deep-Inelastic Scattering and Related Subjects\\
-   April 19 -23, 2010\\
-    Convitto della Calza, Firenze, Italy}
-
+\documentclass{cmspaper}
+\usepackage{graphicx}  % got figures? uncomment this
+%%
+%\usepackage{lineno}
+%\usepackage{amsfonts,amsmath,amssymb}
+%\usepackage{bm}
+%%
 \begin{document}
+
+%==============================================================================
+% title page for few authors
+
+\begin{titlepage}
+
+% select one of the following and type in the proper number:
+%  \cmsnote{2005/000}
+%  \internalnote{2005/000}
+   \conferencereport{2010/XXX}
+   \date{28 June 2010}
+
+  \title{Searches with early data at CMS}
+  \begin{Authlist}
+    F.~Santanastasio
+    \Instfoot{cern}{Department of Physics, University of Maryland \\
+      College Park, MD, 20742, USA \\
+      E-mail: francesco.santanastasio@cern.ch}
+  \end{Authlist}
+
+% if needed, use the following:
+%\collaboration{Flying Saucers Investigation Group}
+\collaboration{On behalf of CMS collaboration}
+
+%  \Anotfoot{a}{On leave from prison}
+%  \Anotfoot{b}{Now at the Moon}
+
+
+  \begin{abstract}
+    This paper presents an overview of prospects for searches for new physics 
+    beyond the Standard Model with early data of the CMS experiment, at the Large Hadron Collider of CERN. 
+    The results presented here are based on Monte Carlo simulations of the 
+    CMS detector, assuming 10-100~pb$^{-1}$ of collected integrated 
+    luminosity and proton-proton collisions at $\sqrt{s} = 7$~TeV. 
+    A selection of benchmark analyses feasible with early data is discussed,  
+    including searches for new physics in the di-jet and lepton-jet channels, 
+    the description of techniques to identify the production of heavy long-lived charged particles, 
+    and the searches for Supersymmetry in the all-hadronic and like-sign dilepton channels.
+  \end{abstract} 
+
+
+% if needed, use the following:
+%\conference{Presented at {\it Physics Rumours}, Coconut Island, April 1, 2005}
+%\submitted{Submitted to {\it Physics Rumours}}
+%\note{Preliminary version}
+  
+\end{titlepage}
+
+\setcounter{page}{1}%JPP
+
 
 \section{Introduction}
 This paper presents a brief overview of prospects for searches for new physics, 
 beyond the Standard Model (SM) of fundamental interactions, feasible with early data of the 
 CMS experiment~\cite{Bayatian:2006zz}, at the Large Hadron Collider (LHC) of CERN.
-The results presented at the conference, and here summarized, 
+The results presented at the conference~\footnote{XVIII International Workshop on Deep-Inelastic Scattering and Related Subjects, 
+April 19 -23, 2010, Convitto della Calza, Firenze, Italy}, and here summarized, 
 are based on a detailed Monte Carlo (MC) simulation of 
 the CMS detector, assuming order of 10-100~pb$^{-1}$ 
 of recorded integrated luminosity and proton-proton collisions 
@@ -265,6 +294,13 @@ This large $7$~TeV dataset will allow to set stringent limits
 on many exotic theoretical models, and, if Nature is kind to us, 
 to even observe the first evidence of new physics beyond the SM.
 
+%\section{Acknowledgments}
+%The author wishes to thank the conveners of the New Physics 
+%section of the conference for their kind invitation. 
+%He also wishes to thank Maurizio Biasini, Tulika Bose, Giacomo Bruno, Albert De Roeck, Sarah Eno, Nicholas Hadley, 
+%Robert Harris, Greg Landsberg, Ernesto Migliore, Shahram Rahatlou, Eduardo Ros, Pierre Savard and Claire 
+%Shepherd-Themistocleous  for the useful discussions and suggestions.
+
 \begin{thebibliography}{0}
 %%%%%%%%%%
 %%%%%%%%%%
@@ -368,4 +404,19 @@ to even observe the first evidence of new physics beyond the SM.
   CMS-PAS-EXO-09-010 (2009), and references on the theory therein.
 \end{thebibliography}
 
+
+%\bibliographystyle{cms-tdr}
+%\bibliography{references}
+
+%\begin{thebibliography}{0}
+%%%%%%%
+%%%%%%%
+%\bibitem{ref:apo} \BY{Boccaccio~G. \atque de~Cam\~oes~L.}
+%  \IN{Phys. Rev. A}{13}{1999}{12};
+%  \SAME{69}{999}{1666}.
+%\bibitem{ref:pul} \BY{Pulci~L.}
+%  preprint INFN 8181.
+%\end{thebibliography}
+
 \end{document}
+
