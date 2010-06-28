@@ -1,8 +1,16 @@
-latex skeleton_DIS2010.tex
+#LATEX
+#latex skeleton_DIS2010.tex
+##bibtex skeleton_DIS2010.aux
+#latex skeleton_DIS2010.tex
+#latex skeleton_DIS2010.tex
+#dvipdf skeleton_DIS2010.dvi skeleton_DIS2010.pdf
+#rm -f skeleton_DIS2010.aux skeleton_DIS2010.log skeleton_DIS2010.dvi 
+#rm -f skeleton_DIS2010.lof skeleton_DIS2010.lot skeleton_DIS2010.toc
+#PDFLATEX
+pdflatex skeleton_DIS2010.tex
 #bibtex skeleton_DIS2010.aux
-latex skeleton_DIS2010.tex
-latex skeleton_DIS2010.tex
-dvipdf skeleton_DIS2010.dvi skeleton_DIS2010.pdf
+pdflatex skeleton_DIS2010.tex
+pdflatex skeleton_DIS2010.tex
+#dvipdf skeleton_DIS2010.dvi skeleton_DIS2010.pdf
 rm -f skeleton_DIS2010.aux skeleton_DIS2010.log skeleton_DIS2010.dvi 
 rm -f skeleton_DIS2010.lof skeleton_DIS2010.lot skeleton_DIS2010.toc
-
