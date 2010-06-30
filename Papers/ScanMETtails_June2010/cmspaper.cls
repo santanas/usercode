@@ -34,8 +34,8 @@
 %%%%%%%% page size to be printable on both A4 and US Letter %%%%%%%
 
 \setlength{\hoffset}{-1in}
-\setlength{\voffset}{-0.5in}
-%      \setlength{\voffset}{-1in}
+%\setlength{\voffset}{-0.5in}
+\setlength{\voffset}{-1in}
 \setlength{\oddsidemargin}{25mm}
 \setlength{\evensidemargin}{25mm}
 \setlength{\marginparwidth}{25mm}
@@ -43,8 +43,8 @@
 \setlength{\topmargin}{20mm}
 \setlength{\headheight}{0mm}
 \setlength{\headsep}{0mm}
-%Lucas-setlength{\footskip}{6mm}
-      \setlength{\footskip}{9mm}
+\setlength{\footskip}{6mm}
+%      \setlength{\footskip}{9mm}
 \setlength{\textwidth}{16cm}
 \ifcase \@ptsize
 %JPP-\setlength{\textheight}{58\baselineskip}
@@ -197,7 +197,7 @@
 % CMS ANALYSIS NOTE header \cmsan
 \def\cmsan#1{{Available on CMS information server
 \hfill\Large\bf CMS AN-#1} 
-\begin{center}\includegraphics{cms_an.eps}\end{center}\vspace*{0mm}}
+\begin{center}\includegraphics{cms_an.pdf}\end{center}\vspace*{0mm}}
 
 % CMS DETECTOR NOTE header \cmsdtnote
 \def\cmsdtnote#1{{Available on CMS information server
