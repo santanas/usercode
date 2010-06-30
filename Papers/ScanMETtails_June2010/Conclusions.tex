@@ -1,17 +1,32 @@
 \section{Conclusions}
 We have performed a visual scan of high $\etmiss$ events 
 (tc$\etmiss>60$~GeV OR pf$\etmiss>60$~GeV)
-in an inclusive sample of 7 TeV pp collision data, 
+in a large inclusive sample of 7 TeV pp collision data (about 60M events), 
 after applying the official noise clean-up available in CMSSW\_3\_7\_0\_patch2.
+
+We observe that the main difference between calotower-based cleaning and PF cleaning, in 
+terms of removal of noise events in the $\etmiss$ tails, consists in the ability to identify:
+\begin{itemize}
+\item in-time EB spikes occurring at the border between EB and EE, and EE spikes; 
+\item in-time HF double-hits.
+\end{itemize}
+
+In particular, PF cleaning is able to reject all the ECAL spikes 
+(25 events with tc$\etmiss>60$~GeV), and the majority of the HF double-hits (17 out of 22 events with 
+tc$\etmiss>60$~GeV) identified by the visual scan of $\etmiss$ tails.
+Work is ongoing to include similar identification criteria also in the calotower-based cleaning.
+
+After the cleaning, some residual noise events are still present in the tails 
+of the $\etmiss$ distribution at an approximate rate of $10^{-6}$-$10^{-7}$
+(e.g., in the pf$\etmiss$ tails there are 19 HCAL noise events with pf$\etmiss>60$~GeV 
+out of approximately 60M of Minimum Bias events).
 
 It should be pointed out that the results of a visual scan 
 are always subject to a personal judgment and cannot guarantee 
 the consistency and reproducibility of a rigorous statistical analysis. 
 Nevertheless, they should provide with good approximation a realistic 
 picture of the events populating the $\etmiss$ tails after applying 
-the current noise clean-up. 
-
-continue ... 
+the current noise clean-up.
 
 \section{Acknowledgements}
 We thanks Warrren Andrews for providing information on ECAL spikes.

@@ -22,7 +22,7 @@ Calotower-based cleaning for spikes is not applied in EE (it is understood that
 spikes are due to particles hitting an APD, which are mounted only in the ECAL barrel). 
 The case of EB spike, far from the EB-EE boundary and not cleaned, should be investigated.
 
-Both events are cleaned by PF; note that PF cleaning for spikes is applied by default also in EE.
+All events are cleaned by PF; note that PF cleaning for spikes is applied by default also in EE.
 
 \subsection{HF, multi-PMT-hits or phi-strip events}
 These events are characterized by several anomalous hits in adjacent cells; sometimes they show up as
@@ -51,22 +51,24 @@ be cleaned by the timing or pulse shape based cleaning if hits are out-of-time o
 However, cases of in-time double-hits with good pulse shape have been observed. In such cases, a cleaning based on
 S$8$/S$1$ isolation variable could be effective, where S$8$/S$1$ is defined in a similar way to S$9$/S$1$
 with the companion RecHit energy from the same HF tower left out from the sum. 
-On the other hand, this type of cleaning is not expected to be fully safe for isolated particles, 
-in particular for physically bigger towers at lower $\eta$ values. 
-Preliminary studies on the use of S$8$/S$1$ isolation variable have been performed but not yet finalized. 
+%On the other hand, this type of cleaning is not expected to be fully safe for isolated particles, 
+%in particular for physically bigger towers at lower $\eta$ values. 
+%Preliminary studies on the use of S$8$/S$1$ isolation variable have been performed. 
 
-PF cleaning flags most of these noisy events. Studies are ongoing to understand the differences.
+PF cleaning flags most of these noise events. Studies are ongoing to understand the differences
+with calotower-based cleaning.
 
 \subsection{HF, PMT hit embedded in a jet} ~\label{sec:HFHitEmbeddedInJet}
-These events are characterized by one or more anomalous hits embedded inside a jet, as shown in 
-Figure~\ref{fig:HFhitEmbeddedInJet}. This type of noise could arise from muons coming from 
+These events are characterized by one or more anomalous hits embedded inside a jet (or simply not isolated), 
+as shown in Figure~\ref{fig:HFhitEmbeddedInJet}. This type of noise could arise from muons coming from 
 in-flight decays of hadronic particles or from a jet punch-through. In both cases
 such jets could be identified using the JetID variables since it is expected that a large fraction of the
 total jet energy would come from only one or two HF towers. Due to an overlap between real and anomalous signal there are
 two cleaning strategies possible: an entire event could be rejected or a more sophisticated anomalous energy
 subtraction algorithm would have to be developed.
 
-Neither calotower-based cleaning nor PF cleaning are able to identify these noise events.
+Neither calotower-based cleaning nor PF cleaning are able to identify these noise events 
+(with the exception of one event removed by PF cleaning and not by calotower-based cleaning).
 
 \subsection{HBHE, IonFeedback/HPD/RBX noise}
 These events are characterized by low multiplicity noise or single noisy channels in HCAL barrel or endcap.
@@ -76,14 +78,16 @@ Improved timing cuts could be employed to identify these residual noise events.
 Neither calotower-based cleaning nor PF cleaning are able to identify these residual HBHE noise events.
 
 \subsection{Physics}
-It is observed that approximately 30\% of the high $\etmiss$ events consists in physics events, 
-typically multi-jet events where the large fake $\etmiss$ is produced by jet energy mis-measurements.
-In Figure~\ref{fig:Physics}, you see some examples of physics events with large $\etmiss$. 
+It is observed that approximately 30\% of the high $\etmiss$ events don't contain an evident source of noise
+(and therefore are classified as ``Physics''). They are typically multi-jet events where 
+the large fake $\etmiss$ is produced by jet energy mis-measurements or jets at the boundaries between sub-detectors, 
+but can also be events with real $\etmiss$. In Figure~\ref{fig:Physics}, 
+you see some examples of physics events with large $\etmiss$. 
 
 In about 50\% of high tc$\etmiss$ events with multi-jet topology, pf$\etmiss$ values are 
 smaller than tc$\etmiss$ values. More details can be found in 
 the Tables~\ref{tab:tcMETskim} and ~\ref{tab:pfMETskim}, and in the list of events posted at the end of the note.
-The events are classified depending on the jet multiplicity using caloJets with uncorrected $p_T>10$~GeV.
+The events are classified based on the jet multiplicity using caloJets with uncorrected $p_T>10$~GeV.
 
 \subsection{Others, large muon-induced pf$\etmiss$}
 We observed 5 events with large pf$\etmiss$ (sometimes a few hundreds GeV) 
