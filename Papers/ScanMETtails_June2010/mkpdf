@@ -1,7 +1,7 @@
 pdflatex METtails_main.tex
 bibtex METtails_main.aux
 pdflatex METtails_main.tex
-pdflatex METtails_main.tex
+#pdflatex METtails_main.tex
 #dvipdf METtails_main.dvi METtails_main.pdf
 rm -f METtails_main.aux METtails_main.log METtails_main.dvi 
 rm -f METtails_main.lof METtails_main.lot METtails_main.toc
