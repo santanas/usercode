@@ -1,7 +1,7 @@
 {
 
   gROOT->Reset();
-  //gStyle->SetOptStat(111111);
+  gStyle->SetOptStat(111111);
 
   TFile f("results.root");
 
@@ -22,13 +22,13 @@
   cleanedtcMET_new->SetLineColor(kRed);
   cleanedtcMET_new->SetFillColor(kRed);
   
-  cleanedtcMET_new->SetStats(11111);
-  cleanedpfMET_new->SetStats(11111);
+  cleanedtcMET_new->SetStats(1111);
+  cleanedpfMET_new->SetStats(1111);
 
   cleanedtcMET_new->GetYaxis()->SetTitle("Number of events / 3 GeV");
 
-  cleanedtcMET_new->Draw("HIST");
-  cleanedpfMET_new->Draw("lsame");
+  cleanedtcMET_new->Draw("HISTs");
+  cleanedpfMET_new->Draw("lsames");
 
   TLegend *legend = new TLegend(.4,.91,.75,.99);
   legend->SetBorderSize(1);
@@ -38,6 +38,6 @@
   legend->AddEntry(cleanedpfMET_new,"pfMET","l");
   legend->Draw();
 
-
+  c.SaveAs("met.C");
 
 }
