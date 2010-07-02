@@ -3,7 +3,7 @@
 Commissioning studies performed with test beams, cosmic runs and 
 early 0.9~TeV, 2.36~TeV and 7~TeV pp 
 collision data have identified several sources of anomalous noise 
-(i.e. noise not produce solely from expected fluctuations in the electronics)
+(i.e. noise not produced solely from expected fluctuations in the electronics)
 in the calorimeters of the CMS experiment:
 \begin{itemize}
 \item {\it ECAL barrel spikes} - More details are available at~\cite{ECALAt7TeV}.
@@ -32,13 +32,14 @@ the reconstructed missing transverse energy in the event, which can produce
 large tails in the $\etmiss$ distribution. 
 
 We present the results of a visual scan of high $\etmiss$ events 
-(tc$\etmiss>60$~GeV OR pf$\etmiss>60$~GeV)
-in a large inclusive sample of 7 TeV pp collision data, 
+(tc$\etmiss>60$~GeV OR pf$\etmiss>60$~GeV) in a large inclusive sample of 7 TeV pp collision data, 
 after applying the official noise clean-up available in CMSSW\_3\_7\_0\_patch2.
-The full selection criteria are described in Section~\ref{sec:EventSelection}). 
 The scan is performed separately for events with tc$\etmiss>60$~GeV and pf$\etmiss>60$~GeV
-since the noise clean-up is implemented differently in the two $\etmiss$ algorithms.
-The CMS software {\it Fireworks}~\cite{FireworksLink} has been used to produce the event displays. 
+since two different noise cleaning algorithms are employed (see more details in Section~\ref{sec:EventSelection}).
+
+The CMS software {\it Fireworks}~\cite{FireworksLink} and {\it PFRootEvent}~\cite{PFRootEventLink} 
+have been used to produce the event displays and study the events (for illustration purpose, 
+only {\it Fireworks} event displays are shown in Section~\ref{EventDisplay}). 
 The high $\etmiss$ events have been visually inspected and classified in different 
 categories. The results of this scan can provide hints to further improve the noise 
 cleaning and to identify possible problems and inconsistencies in the algorithms employed 
