@@ -12,13 +12,13 @@ and therefore not removed.
 
 All the observed EB spikes at EB-EE boundaries are instead cleaned by PF cleaning. 
 The topological cuts applied at the EE/EB boundaries and in
-the vicinity of intermodule cracks are tighter than elsewhere, such that they are 
+the vicinity of inter-module cracks are tighter than elsewhere, such that they are 
 as selective as in the fiducial ECAL region. 
 
 \subsection{EB, EE spikes}
 We see one event with an isolated spike in ECAL barrel (EB) far from the EB-EE boundaries 
 (Figure~\ref{fig:EBEEspike}, left plot) and two events with an isolated spike in ECAL 
-endcap (EE) (Figure~\ref{fig:EBEEspike}, right plot).
+endcap (EE) (one of them in Figure~\ref{fig:EBEEspike}, right plot).
 
 Calotower-based cleaning for spikes is not applied in EE (it is understood that 
 spikes are due to particles hitting an APD, which are mounted only in the ECAL barrel). 
@@ -29,21 +29,21 @@ All events are cleaned by PF; note that a topological cleaning for spikes is app
 \subsection{HF, multi-PMT-hits or phi-strip events}
 These events are characterized by several anomalous hits in adjacent cells; sometimes they show up as
 a strip of hits at the same $i\phi$ location, as the ones reported in Figure~\ref{fig:HFmultiHits}. 
-This type of noise cannot be cleaned by the existing topological algorithms but could 
-be cleaned by the timing or pulse shape based 
+This type of noise cannot be cleaned by the existing topological algorithms in the calotower cleaning 
+but could be cleaned by the timing or pulse shape based 
 cleaning if hits are out-of-time or have a malformed pulse shape. 
 A topological cleaning based on the multiplicity of hits above certain energy threshold 
 at the same $i\phi$ location might be effective at identifying such noise.
 The source of such events is not yet fully understood.
 
-Some of these events are identified by PF cleaning but not by calotower cleaning.
-Such events are removed by PF cleaning mainly for two reasons:
+Some of these events are identified by PF cleaning, but not by calotower cleaning, mainly for two reasons:
 \begin{itemize}
-\item the use of the $E_S$/$E_L$-type variable also for long fibers (note: this cut, even being more aggressive on isolated photons 
-than the S$9$/S$1$-type variable, it's still safe for physics thanks to the presence of the {\it a posteriori} recovery algorithm
-implemented in PF cleaning);
-\item the timing cleaning is first applied, and the topological cleaning is applied once 
-the timing-cleaned hits are removed, making it efficient for multi hits as well.
+\item PF cleaning uses an $E_S$/$E_L$-type variable for long fibers (note: this cut, even being more aggressive on isolated photons 
+than the S$9$/S$1$-type variable, it is still safe for physics thanks to the presence of an {\it a posteriori} recovery algorithm
+implemented in the PF cleaning);
+\item in the PF cleaning, the timing is first applied, and the topological cleaning is applied once 
+the timing-cleaned hits are removed, making it effective on multi hits. 
+Work is ongoing to implement such cleaning procedure in CMSSW\_3\_8\_X for the calotower cleaning as well.
 \end{itemize}
 %Studies are ongoing to understand the differences.
 
@@ -56,8 +56,8 @@ a noise occurring at smaller $\eta$ produces a larger transverse energy, and the
 Anyway it's not excluded that double-hits occurs also at larger $\eta$; but in this case such events might 
 fall in the bulk of $\etmiss$ distribution.
 
-This type of noise cannot be cleaned by current calotower-based topological algorithms (PET or S9/S1) but can
-be cleaned by the timing or pulse shape based cleaning if hits are out-of-time or have a malformed pulse shape.
+This type of noise cannot be cleaned by the current topological algorithms (PET or S9/S1) used in calotower cleaning 
+but can be cleaned by the timing or pulse shape based cleaning if hits are out-of-time or have a malformed pulse shape.
 However, cases of in-time double-hits with good pulse shape have been observed. In such cases, a cleaning based on
 S$8$/S$1$ isolation variable could be effective, where S$8$/S$1$ is defined in a similar way to S$9$/S$1$
 with the companion RecHit energy from the same HF tower left out from the sum. 
@@ -71,7 +71,7 @@ energy in the short fiber larger than the energy in the long fiber.
 If, in addition to this condition, the HF tower is also isolated 
 (i.e. small energy in the adjacent towers), the double-hit is identified by the PF cleaning algorithm.
 No such algorithm is implemented for calotower cleaning in the release CMSSW\_3\_7\_0\_patch2; 
-work ongoing to include it in CMSSW\_3\_8\_X.
+work is ongoing to include it in CMSSW\_3\_8\_X.
 %Studies are ongoing to understand the differences
 %with calotower-based cleaning.
 
@@ -85,7 +85,7 @@ two cleaning strategies possible: an entire event could be rejected or a more so
 subtraction algorithm would have to be developed.
 
 Neither calotower-based cleaning nor PF cleaning are able to identify these noise events 
-(with the exception of one event removed by PF cleaning and not by calotower-based cleaning).
+(with the exception of one event removed by PF cleaning and not by calotower cleaning).
 
 \subsection{HBHE, IonFeedback/HPD/RBX noise}
 These events are characterized by low multiplicity noise or single noisy channels in HCAL barrel or endcap.
@@ -112,17 +112,20 @@ but very small tc$\etmiss$.
 The muon is reconstructed as ``global muon'' and ``standalone muon'', 
 but not as ``tracker muon''. An example is shown in Figure~\ref{fig:largeMuonInducedPfMET}.
 
-Info from PF group:
-
-4 events with pf$\etmiss>80$~GeV, with pf$\etmiss$ = 83, 242, 337
+Four of these events have pf$\etmiss>80$~GeV, with pf$\etmiss$ = 83, 242, 337
 and 528 GeV, respectively, and a muon with $|\eta| > 2.2$. 
-These muons have all a central tracker track associated to them. They are
-indeed not ``tracker muon'', meaning that they fail the tracker-muon
+These muons have all an inner tracker track associated to them. 
+They are indeed not ``tracker muon'', meaning that they fail the tracker-muon
 criteria, but they are all global muons (with a track and a stand-alone
-muon part) for which the reco::muon pt is not correct. 
-What is interesting is that such poorly reconstructed muons are not seen
-in the simulation, which points to something odd in the muon and or
-tracker alignment or geometry in this large eta region.
+muon part) for which the reco::muon pt is not correct. The track is found to be
+not well reconstructed (which points to tracker alignment problem or geometry in this large eta region).
+Using the global muon momentum instead of the track momentum in the pf$\etmiss$ reconstruction
+cleans these four events. This change will be implemented in PF for CMSSW\_3\_8\_X, 
+while waiting for an improvement of the tracking/alignment.
+
+%What is interesting is that such poorly reconstructed muons are not seen
+%in the simulation, which points to something odd in the muon and or
+%tracker alignment or geometry in this large eta region.
 
 %
 \begin{figure}[h]
