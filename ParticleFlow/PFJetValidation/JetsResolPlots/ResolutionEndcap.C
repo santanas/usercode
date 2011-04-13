@@ -5,7 +5,7 @@
 // 50 GeV taus desintegrating hadronically have been studied
 gROOT->Reset();
 
-TFile *f = new TFile("pfjet_WithTracking_MCGLO_all.root");
+TFile *f = new TFile("pfjetBenchmark_default_all.root");
 
 
 //ERPt20_40->Fit("gaus","L");
@@ -184,5 +184,5 @@ gr12->SetMarkerSize(0.5);
 gr12->SetLineColor(kViolet);
 gr12->Draw("CP");
 //c2->Print("mean.gif");
-c11->Print("resolution.gif");
+c11->Print("resolutionEndcap.gif");
 }

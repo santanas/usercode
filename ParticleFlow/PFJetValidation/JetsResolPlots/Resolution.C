@@ -5,7 +5,7 @@
 // 50 GeV taus desintegrating hadronically have been studied
 gROOT->Reset();
 //TFile *f = new TFile("pfjetBenchmark.root");
-TFile *f = new TFile("pfjet_WithTracking_MCGLO_all.root");
+TFile *f = new TFile("pfjetBenchmark_default_all.root");
 
 //BRPt20_40->Fit("gaus","L");
 //BRPt40_60->Fit("gaus","L");
