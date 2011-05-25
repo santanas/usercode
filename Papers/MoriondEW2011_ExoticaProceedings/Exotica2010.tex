@@ -60,6 +60,15 @@
 \def\Zprime{Z\`\xspace}
 \def\Wprime{W\`\xspace}
 \def\gravitonKK{$\rm{G}_{\rm{KK}}$\xspace}
+\def\eejj{$\rm{eejj}$\xspace}
+\def\mumujj{$\mu\mu \rm{jj}$\xspace}
+\def\enujj{$\rm{e}\nu \rm{jj}$\xspace}
+\def\munujj{$\mu\nu \rm{jj}$\xspace}
+\def\nunujj{$\nu\nu \rm{jj}$\xspace}
+\def\zjets{\ensuremath{\rm{Z}/\gamma}+jets\xspace}
+\def\wjets{\ensuremath{\rm{W}}+jets\xspace}
+\def\ttbar{\ensuremath{\rm{t} \bar{\rm{t}}}\xspace}
+\def\ST{\ensuremath{S_{\rm T}}\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                %
@@ -137,6 +146,9 @@ followed by a brief summary in Section~\ref{sec:summary}.
 
 
 \section{New Heavy Resonances}\label{sec:resonances}
+
+\subsection{Dilepton and Diphoton Resonances}
+
 Many models of new physics and extensions of the SM 
 predict the existence of narrow resonances, possibly at the TeV mass scale, 
 that decay to a pair of charged leptons (such as \Zprime bosons) 
@@ -149,10 +161,11 @@ invariant mass spectrum of dimuon/dielectron~\cite{Chatrchyan:2011wq}
 and diphoton~\cite{CMSPAS:EXO-10-019} final states, as well as in the 
 transverse mass spectrum of electron+neutrino~\cite{Khachatryan201121} 
 and muon+neutrino~\cite{Chatrchyan:2011dx} final states.
-The spectra are consistent with standard model expectations. 
+The spectra are consistent with standard model expectations
+in both the bulk and the tails of the aforementioned distributions.
 Figure~\ref{fig:resonances} shows the 95\% confidence level (CL) 
-upper limits on the signal cross section 
-for \Zprime (\Wprime) models, 
+upper limits on the cross section 
+of \Zprime/\gravitonKK (\Wprime) production, 
 obtained combining the dielectron (electron+neutrino) 
 and dimuon (muon+neutrino) channels.
 A \Zprime (\Wprime) with SM-like coupling can 
@@ -162,6 +175,56 @@ the \Zprime mass have also been reported
 in Ref.~\cite{Chatrchyan:2011wq} as a function of the couplings 
 of the \Zprime to fermions in the annihilation 
 of charge 2/3 and charge -1/3 quarks.
+In the diphoton channel, limits are derived on the 
+cross section for the production of RS gravitons, 
+and hence on the parameters of the warped extra dimension model. 
+For values of the coupling parameter ranging from 0.01 to 0.1, graviton masses 
+below 371 to 945~\GeVmass are excluded at the 95\% CL.
+
+\begin{figure}[htbp] 
+%\vskip 2.5cm
+  \begin{center}
+    \begin{tabular}{cc}
+      \psfig{figure=plots/zpr_ssm_ratio_mcmc_comb_40pb_c.ps,height=2in} &
+      \psfig{figure=plots/CombLimit_Vers1f.ps,height=2.2in} \\
+%      \resizebox{7.9cm}{!}{\includegraphics[angle=0]{beta_vs_m_excl_comb.pdf}} &
+%      \resizebox{7.9cm}{!}{\includegraphics[angle=0]{beta_vs_m_excl_comb.pdf}} \\
+    \end{tabular}
+    \caption{(Left) Upper limits as a function of resonance mass, on the \Zprime 
+cross section relative to standard model Z boson production, obtained combining dielectron and
+dimuon final states. (Right) Upper limits as a function of the resonance mass, on the 
+\Wprime cross section for the individual electron+neutrino and muon+neutrino channels, 
+and their combination.}
+    \label{fig:resonances}
+  \end{center}
+\end{figure}
+
+\subsection{Leptoquarks}
+
+The standard model has an intriguing but ad hoc symmetry between 
+quarks and leptons. In some theories beyond the SM, such 
+as SU(5) gran unification, Pati--Salam SU(4), and others, the existence of a new symmetry 
+relates the quarks and leptons in a fundamental way. These models 
+predict the existence of new bosons, called leptoquarks. 
+The leptoquark (LQ) is coloured, has fractional electric charge, and 
+decays to a charged lepton and a quark with unknown branching 
+fraction $\beta$, or a neutrino and a quark with branching fraction 
+$(1-\beta)$. Constraints from experiments sensitive to flavour-changing 
+neutral currents, lepton-family-number violation, and other rare processes 
+favour LQs that couple to quarks and leptons within the same SM generation, 
+for LQ masses accessible to current colliders. 
+Searches for pair-production of first and second 
+generation scalar LQs has been performed in the \eejj~\cite{PhysRevLett.106.201802}, 
+\enujj~\cite{PAPERenujj}, and \mumujj~\cite{PhysRevLett.106.201803} channels. 
+The dominant backgrounds for this searches arise from the SM production of 
+\zjets, \wjets and \ttbar events.
+The reconstructed variable \ST, defined 
+below~\footnote{In the \eejj and \mumujj channels, 
+\ST is defined as the scalar sum of the transverse momenta of the two 
+leading (in \pt) charged leptons and jets. In the \enujj channel, \ST is defined 
+as the scalar sum of the transverse momentum of the electron, 
+the missing transverse energy (\etmiss), and the two leading jets.} has a large 
+signal-to-background discrimination power, and it is used to select LQ candidate events.
 
 
 \section{Compositeness Models}\label{sec:compositeness}
@@ -185,23 +248,6 @@ of charge 2/3 and charge -1/3 quarks.
 \end{center}
 \end{table}
 
-\begin{figure}[htbp] 
-%\vskip 2.5cm
-  \begin{center}
-    \begin{tabular}{cc}
-      \psfig{figure=plots/zpr_ssm_ratio_mcmc_comb_40pb_c.ps,height=2in} &
-      \psfig{figure=plots/CombLimit_Vers1f.ps,height=2.2in} \\
-%      \resizebox{7.9cm}{!}{\includegraphics[angle=0]{beta_vs_m_excl_comb.pdf}} &
-%      \resizebox{7.9cm}{!}{\includegraphics[angle=0]{beta_vs_m_excl_comb.pdf}} \\
-    \end{tabular}
-    \caption{(Left) Upper limits as a function of resonance mass, on the \Zprime 
-cross section relative to standard model Z boson production, obtained combining dielectron and
-dimuon final states. (Right) Upper limits as a function of the resonance mass, on the 
-\Wprime cross section for the individual electron+neutrino and muon+neutrino channels, 
-and their combination.}
-    \label{fig:resonances}
-  \end{center}
-\end{figure}
 
 \section*{Acknowledgments}
 
@@ -213,6 +259,9 @@ and their combination.}
 \bibitem{CMSPAS:EXO-10-019}The CMS Collaboration, {\em CMS Physics Analysis Summary} {\bf EXO-10-019} (2011).
 \bibitem{Khachatryan201121}The CMS Collaboration, \Journal{\PLB}{698}{21}{2011}.
 \bibitem{Chatrchyan:2011dx}The CMS Collaboration, {\em arXiv:1103.0030} (2011). Accepted for publication in \PLB.
+\bibitem{PhysRevLett.106.201802}The CMS Collaboration, \Journal{\PRL}{106}{201802}{2011}.
+\bibitem{PhysRevLett.106.201803}The CMS Collaboration, \Journal{\PRL}{106}{201803}{2011}.
+\bibitem{PAPERenujj}The CMS Collaboration, {\em arXiv:XXXXXX} (2011). Submitted for publication in \PLB.
 
 %\bibitem{ja}C Jarlskog in {\em CP Violation}, ed. C Jarlskog
 %(World Scientific, Singapore, 1988).
