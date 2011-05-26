@@ -57,8 +57,9 @@
 \def\etmiss {\ensuremath{E_{\mathrm{T}}\hspace{-1.1em}/\kern0.5em}\xspace}
 \def\pt{\ensuremath{p_{\rm T}}\xspace}
 \def\pp{proton-proton\xspace}
-\def\Zprime{Z\`\xspace}
-\def\Wprime{W\`\xspace}
+\def\Zprime{Z$^\prime$\xspace}
+\def\Wprime{W$^\prime$\xspace}
+\def\bprime{b$^\prime$\xspace}
 \def\gravitonKK{$\rm{G}_{\rm{KK}}$\xspace}
 \def\eejj{$\rm{eejj}$\xspace}
 \def\mumujj{$\mu\mu \rm{jj}$\xspace}
@@ -69,6 +70,7 @@
 \def\wjets{\ensuremath{\rm{W}}+jets\xspace}
 \def\ttbar{\ensuremath{\rm{t} \bar{\rm{t}}}\xspace}
 \def\ST{\ensuremath{S_{\rm T}}\xspace}
+\def\pb{pb$^{-1}$\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                %
@@ -92,12 +94,15 @@ in many cases they set the most stringent limits on these
 new physics phenomena. These results demonstrate good understanding 
 of the detector and backgrounds in a variety of channels, 
 which is a fundamental component of successful searches in view 
-of the much larger data sample expected to be delivered by LHC in 2011 and beyond.
-%% This is where the abstract should be placed. It should consist of one paragraph
+of the much larger data sample expected to be delivered by LHC in 2011 
+and beyond.
+%% This is where the abstract should be placed. It should consist of 
+%% one paragraph
 %% and give a concise summary of the material in the article below.
 %% Replace the title, authors, and addresses within the curly brackets
 %% with your own title, authors, and addresses; please use
-%% capital letters for the title and the authors. You may have as many authors and
+%% capital letters for the title and the authors. You may have 
+%% as many authors and
 %% addresses as you wish. It's preferable not to use footnotes in the abstract
 %% or the title; the
 %% acknowledgments for funding bodies etc. are placed in a separate section at
@@ -113,14 +118,14 @@ which supersedes it at higher energy scales. Many theoretical
 extensions of the SM have been proposed in the past decades, 
 which usually predict the existence of new particles. Examples 
 of such conjectured particles are the \Zprime and \Wprime bosons, 
-fourth-generation fermions, supersymmetric particles, leptoquarks, 
+fourth generation fermions, supersymmetric particles, leptoquarks, 
 excited quarks, gravitons, and many others.
 Past experiments at the Fermilab Tevatron collider, 
 and previously at the CERN SPS, HERA, and LEP colliders, 
 have performed estensive searches for signs 
 of such new physics. In absence of a positive signal, lower 
 limits on the masses of such new particles have been set. 
-With its higher centre-of-mass energy of 7 TeV, the \pp Large Hadron 
+With its higher centre-of-mass (CM) energy of 7 TeV, the \pp Large Hadron 
 Collider (LHC) at CERN can produce particles with 
 masses larger than the current limits, thus extending 
 the search for new physics in an unexplored territory.
@@ -132,7 +137,7 @@ proceedings of this conference.} in \pp collisions
 at \sqrts delivered by the LHC and collected with the 
 Compact Muon Solenoid (CMS)~\cite{CMSJINST} detector in 2010. 
 For the majority of these searches the full dataset has been used, 
-corresponding to an integrated luminosity of almost 40 pb$^{-1}$. 
+corresponding to an integrated luminosity of almost 40~\pb. 
 The results are presented in different sections, 
 depending on the phenomenology of the new physics scenario:
 search for new heavy resonances are presented in 
@@ -187,14 +192,14 @@ below 371 to 945~\GeVmass are excluded at the 95\% CL.
     \begin{tabular}{cc}
       \psfig{figure=plots/zpr_ssm_ratio_mcmc_comb_40pb_c.ps,height=2in} &
       \psfig{figure=plots/CombLimit_Vers1f.ps,height=2.2in} \\
-%      \resizebox{7.9cm}{!}{\includegraphics[angle=0]{beta_vs_m_excl_comb.pdf}} &
-%      \resizebox{7.9cm}{!}{\includegraphics[angle=0]{beta_vs_m_excl_comb.pdf}} \\
     \end{tabular}
-    \caption{(Left) Upper limits as a function of resonance mass, on the \Zprime 
-cross section relative to standard model Z boson production, obtained combining dielectron and
-dimuon final states. (Right) Upper limits as a function of the resonance mass, on the 
-\Wprime cross section for the individual electron+neutrino and muon+neutrino channels, 
-and their combination.}
+    \caption{(Left) Upper limits as a function of resonance mass, on 
+      the \Zprime cross section relative to standard model Z boson 
+      production, obtained combining dielectron and
+      dimuon final states. (Right) Upper limits as a function of 
+      the resonance mass, on the \Wprime cross section for the 
+      individual electron+neutrino and muon+neutrino channels, 
+      and their combination.}
     \label{fig:resonances}
   \end{center}
 \end{figure}
@@ -214,20 +219,161 @@ neutral currents, lepton-family-number violation, and other rare processes
 favour LQs that couple to quarks and leptons within the same SM generation, 
 for LQ masses accessible to current colliders. 
 Searches for pair-production of first and second 
-generation scalar LQs has been performed in the \eejj~\cite{PhysRevLett.106.201802}, 
+generation scalar LQs have been performed in the \eejj~\cite{PhysRevLett.106.201802}, 
 \enujj~\cite{PAPERenujj}, and \mumujj~\cite{PhysRevLett.106.201803} channels. 
-The dominant backgrounds for this searches arise from the SM production of 
-\zjets, \wjets and \ttbar events.
-The reconstructed variable \ST, defined 
+The dominant backgrounds for these searches arise from the SM production of 
+\zjets, \wjets and \ttbar events. The reconstructed variable \ST, defined 
 below~\footnote{In the \eejj and \mumujj channels, 
 \ST is defined as the scalar sum of the transverse momenta of the two 
-leading (in \pt) charged leptons and jets. In the \enujj channel, \ST is defined 
-as the scalar sum of the transverse momentum of the electron, 
-the missing transverse energy (\etmiss), and the two leading jets.} has a large 
-signal-to-background discrimination power, and it is used to select LQ candidate events.
+leading (in \pt) charged leptons and jets. In the \enujj channel, 
+\ST is defined as the scalar sum of the transverse momentum of the electron, 
+the missing transverse energy (\etmiss), and the two leading jets.} 
+has a large signal-to-background discrimination power, 
+and it is used to select LQ candidate events.
+Figure~\ref{fig:leptoquarksAndDijets} (left) shows the exclusion limits at 95\% CL on 
+the first generation leptoquark hypothesis in the $\beta$ versus LQ mass 
+plane for the \eejj and \enujj channels, and their combination. 
+First generation scalar LQ masses below 384 GeV (340 GeV) are excluded 
+at 95\% CL for $\beta=1$ ($\beta=0.5$). In the \mumujj channel, a 95\% CL lower limit on 
+the second generation scalar LQ mass is set at 394 GeV assuming $\beta=1$.
 
+\begin{figure}[htbp] 
+%\vskip 2.5cm
+  \begin{center}
+    \begin{tabular}{cc}
+      \psfig{figure=plots/beta_vs_m_excl_comb.ps,height=2.5in} &
+      \psfig{figure=plots/DijetLimit.eps,height=2.7in} \\
+    \end{tabular}
+    \caption{(Left) Exclusion limits at 95\% CL on the first generation LQ hypothesis 
+    in the $\beta$ versus LQ mass plane. The shaded region is excluded by the 
+    current D0~limits, which combine results of \eejj, \enujj, and \nunujj decay modes.
+      (Right) 
+      }
+    \label{fig:leptoquarksAndDijets}
+  \end{center}
+\end{figure}
+
+\subsection{Dijet searches}
+In the standard model, point like parton-parton scatterings in high energy 
+\pp collisions can give rise to final states with energetic jets. 
+At large momentum transfers, events with at least two energetic jets (dijets) 
+may be used to confront the predictions of perturbative Quantum Chromodynamics 
+(QCD) and to search for signatures of new physics. The new physics could manifest itself 
+via the direct production of a new massive particle that then decays into a dijets final state
+(quark-quark, quark-gluon, or gluon-gluon resonances), 
+and/or the rate of dijet events could be enhanced through a new force that 
+only manifests itself at very large CM energies (contact interactions).
+Complementary search strategies have been pursued by the CMS experiment in the dijet channel: 
+search for narrow resonances in the dijet mass spectrum~\cite{PhysRevLett.105.211801}, 
+search for narrow resonances and contact interactions using the 
+dijet centrality ratio variable~\cite{PhysRevLett.105.262001}, and 
+search for contact interactions using dijet angular distributions~\cite{PhysRevLett.106.201804}. 
+The first two analyses were performed with the early 3~\pb of \pp collisions 
+at \sqrts, and they are now being updated with more data. Figure~\ref{fig:leptoquarksAndDijets}
+(right) shows the 95\% CL upper limits on signal cross section versus 
+dijet resonance mass, compared to theoretical predictions for various 
+new physics models. String resonances, with mass less than 2.50 TeV, excited quarks, with 
+mass less than 1.58 TeV, and axigluons, colorons, and $E_6$ diquarks, in specific mass 
+intervals, have been excluded at 95\% CL. Using measurements of dijet angular 
+distributions over a wide range of dijet invariant masses, a lower limit on the contact 
+interaction scale for left-handed quarks of $\Lambda^{+}=5.6$~TeV ($\Lambda^{-}=5.6$~TeV)
+for constructive (destructive) interference is obtained at the 95\% CL.
+
+\subsection{Fourth generation of fermions and \ttbar resonances}
+
+Recently, there has been renewed interest in extensions of the SM 
+predicting a fourth generation of massive fermions. 
+Theoretical works have also shown that indirect bounds on the Higgs boson mass 
+can be relaxed, and an additional generation of quarks may possess 
+enough intrinsic matter and anti-matter asymmetry to be relevant for 
+the baryon asymmetry of the Universe. Driven by this motivation, a search 
+for pair production of heavy bottom-like quarks (\bprime) in trileptons 
+and same-sign dileptons final states~\cite{Chatrchyan:2011em}, arising from the decay 
+chain $\mbox{\bprime}\bar{\mbox{\bprime}} \rightarrow \mbox{tW}^{-}\bar{\mbox{t}}\mbox{W}^{+} \rightarrow \mbox{bW}^{+}\mbox{W}^{-}\bar{\mbox{b}}\mbox{W}^{-}\mbox{W}^+$, has been performed at CMS.
+The total branching ratio for these channels is 7.3\% and the very small 
+expected SM background comes mainly from \ttbar events. No events are found in
+the signal region defined in the analysis, and the \bprime mass range from 
+255 to 361 \GeVmass has been excluded at the 95\% CL.
+
+The CMS experiment has also performed a model-independent search for 
+new massive neutral bosons (such as \Zprime) decaying via a top-antitop 
+quark pair~\cite{CMSPAS:TOP-10-007}. 
+%, motivated by the numerous extensions of the SM that predict gauge 
+%interaction couplings to third generation quarks to be enhanched. 
+The event reconstruction and selection is optimized for the 
+production of top quarks close to rest, with well separated decay products. 
+The analysis focuses on decay channels of the \ttbar system that include a 
+single isolated electron or muon. No significant deviation from SM expectations 
+is found in the \ttbar mass spectra obtained from eight independent data samples, 
+categorized by lepton type, multiplicity of jets and number of b-tagged jets. 
+Upper limits on the production cross section times branching fraction, 
+$\sigma_{\mbox{\Zprime}} \times \mbox{BR}(\mbox{\Zprime}\rightarrow\mbox{\ttbar})$, 
+of the order of 25, 7, and 4~\pb for invariant masses in the 
+region $m_{\mbox{\Zprime}}=0.5$, 1, and 1.5~TeV, respectively, are set. 
+These results are competitive with the current limits from the Tevatron, 
+particularly at high mass values.
 
 \section{Compositeness Models}\label{sec:compositeness}
+
+A fundamental question in the standard model (SM) of particle physics is the source of the 
+mass hierarchy of the quarks and leptons. A commonly proposed explanation for the three 
+generations is a compositeness model in which the known leptons and quarks are bound states 
+of either three fermions, or a fermion-boson pair. The underlying substructure of these new 
+bound states implies a large spectrum of excited states. Novel strong contact interactions (CI) 
+couple excited fermions ($f^\ast$) to ordinary quarks and leptons ($f$) and can be described 
+with the effective lagrangian $\mathcal{L}_{\rm{CI}} \propto (\jmath^\mu \jmath_\mu) / \Lambda^{2} $, 
+where $\Lambda$ is the compositeness scale, and $\jmath_\mu$ is the fermion current. 
+
+\subsection{Excited leptons}
+A search for the associated production of a lepton ($\ell$) and an oppositely 
+charged excited lepton ($\ell^{\ast}$) is performed~\cite{CMSPAPER:EXO-10-016}. 
+The final state contains two leptons and a photon, $\ell\ell\gamma$, arising 
+from the decay $\ell^{\ast} \rightarrow \ell \gamma$, where $\ell$ is either an electron or a muon.
+The SM backgrounds containing misidentified electrons or photons are estimated using 
+data-driven methods. The maximum reconstructed invariant mass among the 
+two possible lepton-photon combination, $\rm{M}^{max}_{\ell\gamma}$,
+is used to discriminate between signal and SM backgrounds.
+No excess of events is found in the $\rm{M}^{max}_{\ell\gamma}$ spectra 
+above the SM expectation in the electron or muon channel. Figure~\ref{fig:compositeness} (left) 
+shows the region excluded at 95\% CL in the $\Lambda - \rm{M}_{\ell^\ast}$ parameter space for 
+the $\mu\mu\gamma$ channel, where $\rm{M}_{\ell^\ast}$ is the excited lepton mass.
+A similar exclusion is obtained in the $\rm{ee}\gamma$ channel.
+
+\subsection{Excited quarks}
+The CMS experiment has performed a search for anomalous production of highly boosted Z 
+bosons in the dimuon decay channel arising from the decays of new heavy particles.
+The search is optimized for the detection of excited quark 
+production and decay via $\rm{q}\ast \rightarrow \rm{qZ} \rightarrow \rm{q}\mu\mu$, 
+with no explicit requirement on the jet recoiling against a high transverse momentum Z.
+Figure~\ref{fig:compositeness} shows the dimuon \pt spectrum from data 
+compared to the simulation of excited quark signals. 
+The results are consistent with background-only expectations.
+Limits are derived on excited quark production in the plane of compositeness 
+scale $\Lambda$ versus mass for two scenarios of production and decay: 
+one assuming excited quark transitions via SM gauge bosons only, 
+and one including also novel contact interaction transitions from new strong dynamics. 
+The $\rm{q}^\ast$ mass limits at 95\% CL with contact interactions are more sensitive 
+than previous searches in scenarios where the coupling to gluons is suppressed 
+relative to the electroweak gauge bosons, ruling out masses below 1.17 TeV in the 
+extreme case when this coupling is zero. 
+
+\begin{figure}[htbp] 
+%\vskip 2.5cm
+  \begin{center}
+    \begin{tabular}{cc}
+      \psfig{figure=plots/exclLim_mstar.ps,height=2.5in} &
+      \psfig{figure=plots/dataVsTheory_lumi36000InvNb.ps,height=2.7in} \\
+    \end{tabular}
+    \caption{(Left) Exclusion at 95\% CL in the $\Lambda - \rm{M}_{\ell^\ast}$ 
+      parameter space for the $\mu\mu\gamma$ channel. 
+      (Right) The dimuon \pt spectrum distribution from data with a background 
+      parametrization overlaid. Various excited quark signals are shown, corresponding 
+      to different production mechanisms (gauge interaction and contact 
+      interaction) and different $\rm{q}^\ast$ masses.}
+    \label{fig:compositeness}
+  \end{center}
+\end{figure}
+
 
 \section{Extra Dimensions}\label{sec:extradimensions}
 
@@ -262,6 +408,14 @@ signal-to-background discrimination power, and it is used to select LQ candidate
 \bibitem{PhysRevLett.106.201802}The CMS Collaboration, \Journal{\PRL}{106}{201802}{2011}.
 \bibitem{PhysRevLett.106.201803}The CMS Collaboration, \Journal{\PRL}{106}{201803}{2011}.
 \bibitem{PAPERenujj}The CMS Collaboration, {\em arXiv:XXXXXX} (2011). Submitted for publication in \PLB.
+\bibitem{PhysRevLett.105.211801}The CMS Collaboration, \Journal{\PRL}{105}{211801}{2010}.
+\bibitem{PhysRevLett.105.262001}The CMS Collaboration, \Journal{\PRL}{105}{262001}{2010}.
+\bibitem{PhysRevLett.106.201804}The CMS Collaboration, \Journal{\PRL}{106}{201804}{2011}.
+\bibitem{Chatrchyan:2011em}The CMS Collaboration, {\em arXiv:1102.4746} (2011). Submitted for publication in \PLB.
+\bibitem{CMSPAS:TOP-10-007}The CMS Collaboration, {\em CMS Physics Analysis Summary} {\bf TOP-10-007} (2011).
+\bibitem{CMSPAPER:EXO-10-016}The CMS Collaboration, {\em CERN-PH-EP-2011-081} (2011). To be submitted for publication in \PLB.
+
+
 
 %\bibitem{ja}C Jarlskog in {\em CP Violation}, ed. C Jarlskog
 %(World Scientific, Singapore, 1988).
