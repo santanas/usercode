@@ -71,6 +71,8 @@
 \def\ttbar{\ensuremath{\rm{t} \bar{\rm{t}}}\xspace}
 \def\ST{\ensuremath{S_{\rm T}}\xspace}
 \def\pb{pb$^{-1}$\xspace}
+\def\gluino{$\tilde{\rm{g}}$\xspace}
+\def\neutralino{$\tilde{\chi}^{0}_{1}$\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                %
@@ -197,7 +199,8 @@ below 371 to 945~\GeVmass are excluded at the 95\% CL.
       production, obtained combining dielectron and
       dimuon final states. (Right) Upper limits as a function of 
       the resonance mass, on the \Wprime cross section for the 
-      individual electron+neutrino and muon+neutrino channels, and their combination.}
+      individual electron+neutrino and muon+neutrino channels, and their combination. 
+      ADD COMMENT ON EXCESS AT 400 GeV.}
     \label{fig:resonances}    
   \end{center}
 \end{figure}
@@ -218,7 +221,7 @@ favour LQs that couple to quarks and leptons within the same SM generation,
 for LQ masses accessible to current colliders. 
 Searches for pair-production of first and second 
 generation scalar LQs have been performed in the \eejj~\cite{PhysRevLett.106.201802}, 
-\enujj~\cite{PAPERenujj}, and \mumujj~\cite{PhysRevLett.106.201803} channels. 
+\enujj~\cite{Collaboration:2011ar}, and \mumujj~\cite{PhysRevLett.106.201803} channels. 
 The dominant backgrounds for these searches arise from the SM production of 
 \zjets, \wjets and \ttbar events. The reconstructed variable \ST, defined 
 below~\footnote{In the \eejj and \mumujj channels, 
@@ -437,12 +440,13 @@ the model describing real-graviton emission.
 %but will be included in the final version of the paper.} 
 
 \subsection{Microscopic Black Holes}
-One of the exciting predictions of theoretical models with ED and low-scale quantum 
-gravity is the possibility of copious production of microscopic black 
+One of the exciting predictions of theoretical models with extra dimensions 
+and low-scale quantum gravity is the possibility of copious production of microscopic black 
 holes in particle collisions at the LHC.
 Events with large total transverse energy are analyzed for the presence
 of multiple high-energy jets, leptons, and photons, typical of a signal expected from a microscopic black 
-hole. Figure~\ref{fig:MonoJetAndBlackHole} (right) shows the distribution of the total transverse energy for data, 
+hole~\cite{Khachatryan2011434}. 
+Figure~\ref{fig:MonoJetAndBlackHole} (right) shows the distribution of the total transverse energy for data, 
 background prediciton and various signal samples. Good agreement with the standard model backgrounds, 
 dominated by QCD multijet production, is observed for various final-state multiplicities 
 and model-independent limits on new physics in these final states are set. 
@@ -454,7 +458,7 @@ mass are derived as well, in the range 3.5--4.5~TeV.
   \begin{center}
     \begin{tabular}{cc}
       \psfig{figure=plots/Jet1Pt_monojet.ps,height=2.5in} &
-      \psfig{figure=plots/Jet1Pt_monojet.ps,height=2.5in} \\
+      \psfig{figure=plots/Results_Inclusive_Mul5.eps,height=2.4in} \\
     \end{tabular}
     \caption{ (Left) \pt distribution of the leading jet after the full mono-jet+\etmiss selection.
       The distribution for an ADD signal (shown in red) is overlaid.
@@ -467,6 +471,41 @@ mass are derived as well, in the range 3.5--4.5~TeV.
 \end{figure}
 
 \section{Long-Lived Particles and Other Exotic Signatures}\label{sec:longlivedplusothers}
+
+\subsection{Massive Long-Lived Particles}
+
+Heavy stable (or quasi-stable) charged particles appear in various extensions of
+the SM. Heavy long-lived particles with hadronic nature, such as gluinos or stops, 
+hadronize in flight, forming meta-stable bound states with quarks and gluons (so called R-Hadrons).
+If the lifetime of R-Hadrons produced at LHC is longer than a few nanoseconds, the particle 
+will travel over distances that are comparable or larger than the size of a typical particle detector, 
+and hence might be detected. The CMS experiment uses two complementary strategies 
+to look for such long-lived particles. 
+
+A significant fraction of these massive particles 
+(assuming masses greater than 100 GeV) will have a velocity $\beta=v/c$, smaller than 0.9. 
+A Search has been performed to identify R-Hadrons through the distinctive signature of a 
+high momentum (p) track with an anomalously large rate of energy loss through ionization (dE/dx)
+in the silicon tracker~\cite{}. A lower limits at the 95\% CL on the mass of a stable gluino 
+is set at 398~GeV, using a conventional model of nuclear interactions that allows charged 
+hadrons containing this particle to reach the muon detectors. A lower limit is also set 
+at 311~GeV, in a conservative scenario where any hadron containing this particle becomes 
+neutral before reaching the muon detectors.
+
+Searches have been also performed for very slow ($\beta \le 0.4$) R-hadrons containing a gluino, 
+for which the electromagnetic and nuclear energy loss is sufficient to bring a significant fraction 
+of the produced particles to rest inside the CMS detector volume 
+(inparticular in the hadronic calorimeter HCAL)~\cite{}. These stopped R-hadrons will decay seconds, 
+day, or weeks later (accordingly to their unknown lifetime), and out-of-time with respect to the LHC collisions. 
+In a dataset with a peak instantaneous luminosity of $1\times 10^{32}\rm{cm}^{-2}\rm{s}^{-1}$, 
+an integrated luminosity of 10~\pb, and a search interval corresponding to 62 hours of LHC operation, 
+no significant excess above background (mainly instrumental noise) was observed.  
+Limits at the 95\% confidence level on gluino pair production over 13 orders of magnitude of gluino lifetime 
+are set. For a mass difference $\rm{m}_{\mbox{\gluino}} - \rm{m}_{\mbox{\neutralino}} > 100$~GeV, and assuming 
+$\rm{BR}( \mbox{\gluino} \rightarrow \rm{g} \mbox{\neutralino} ) = 100$\%, $\rm{m}_{\mbox{\gluino}}<370$~GeV 
+are excluded for lifetimes from 10 $\mu\rm{s}$ to 1000 s.
+
+\subsection{Lepton jets}
 
 \section{Summary}\label{sec:summary}
 
@@ -494,8 +533,8 @@ mass are derived as well, in the range 3.5--4.5~TeV.
 \bibitem{Khachatryan201121}The CMS Collaboration, \Journal{\PLB}{698}{21}{2011}.
 \bibitem{Chatrchyan:2011dx}The CMS Collaboration, {\em arXiv:1103.0030} (2011). Accepted for publication in \PLB.
 \bibitem{PhysRevLett.106.201802}The CMS Collaboration, \Journal{\PRL}{106}{201802}{2011}.
+\bibitem{Collaboration:2011ar}The CMS Collaboration, {\em arXiv:1105.5237} (2011). Submitted for publication in \PLB.
 \bibitem{PhysRevLett.106.201803}The CMS Collaboration, \Journal{\PRL}{106}{201803}{2011}.
-\bibitem{PAPERenujj}The CMS Collaboration, {\em arXiv:XXXXXX} (2011). Submitted for publication in \PLB.
 \bibitem{PhysRevLett.105.211801}The CMS Collaboration, \Journal{\PRL}{105}{211801}{2010}.
 \bibitem{PhysRevLett.105.262001}The CMS Collaboration, \Journal{\PRL}{105}{262001}{2010}.
 \bibitem{PhysRevLett.106.201804}The CMS Collaboration, \Journal{\PRL}{106}{201804}{2011}.
@@ -506,6 +545,7 @@ mass are derived as well, in the range 3.5--4.5~TeV.
 \bibitem{springerlink:10.1007/JHEP05(2011)085}The CMS Collaboration, \Journal{\JHEP}{05}{085}{2011}.
 \bibitem{CMSPAS:EXO-10-020}The CMS Collaboration, {\em CMS Physics Analysis Summary} {\bf EXO-10-020} (2011).
 \bibitem{CMSPAPER:EXO-11-003}The CMS Collaboration, {\em CERN-PH-EP-2011-070} (2011). To be submitted for publication in \PRL.
+\bibitem{Khachatryan2011434}The CMS Collaboration, \Journal{\PLB}{697}{434}{2011}.
 
 
 %\bibitem{ja}C Jarlskog in {\em CP Violation}, ed. C Jarlskog
