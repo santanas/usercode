@@ -1,0 +1,141 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------ 
+
+
+% ! TEX TS-program = XeLaTeX -xdv2pdf
+% ! TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec} 
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+% per le lettere accentate italiane sul Mac! :-)
+%\usepackage[applemac]{inputenc} %with VIM
+\usepackage[latin1]{inputenc} % with TeXShop
+
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ADDITIONAL SYMBOLS
+%\usesymbols[mvs]
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+%\setromanfont [Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin Italic}]{Fontin}
+\setromanfont [Ligatures={Common}, BoldFont={Linux Libertine Bold}, ItalicFont={Linux Libertine Italic}]{Linux Libertine}
+%\setsansfont [Ligatures={Common}, BoldFont={Fontin Sans Bold}, ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+\setmonofont[Scale=0.8]{Monaco} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Linux Libertine Bold}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+\newcommand{\years}[1]{\marginpar{\footnotesize #1}}
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\upshape\Large}
+\subsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\subsubsectionfont{\rmfamily\mdseries\upshape\normalsize} 
+%modifying section numbering
+\def\thesubsection{\arabic{subsection}.\ } 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Motivation for coming to CERN},pdfauthor={Francesco Santanastasio}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=cyan,citecolor=blue,filecolor=black,urlcolor=cyan} 
+
+% Title of Bibliography
+%\renewcommand\refname{References \\ \normalsize \begin{center} \quad \quad \textsc{Publications (relative to research activities)}\end{center} }
+
+% DOCUMENT
+\begin{document}
+\reversemarginpar
+{\LARGE Francesco Santanastasio}\\[1cm]
+%Institute address
+\begin{tabular}{ l c l }
+\emph{Institute Address}: & & \\
+University of Maryland & & \\
+Department of Physics - John S. Toll Physics Building & &\\
+College Park  & & \\
+MD  \texttt{20742-4111} & \makebox[1.2cm]{} & Tel: \texttt{+1 301 405 3401} \\
+United States of America & & Fax: \texttt{+1 301 314 9525} \\
+\end{tabular}\\[1em]
+% Work address
+\begin{tabular}{ l c l }
+\emph{Work Address}: & & \\
+CERN (Conseil Europeen pour la Recherche Nucleaire) & \makebox[1.cm]{} & \\
+\texttt{CH-1211} Geneve  \texttt{23} & & Tel.: \texttt{+41 22 76 75 765}\\
+Building \texttt{8}, Room R-\texttt{019} & & Cel: \texttt{+41 76 22 86 127}\\ 
+Switzerland &  & email: \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} 
+\end{tabular}\\[1em]
+%\vfill
+Born:  9 February 1980---Roma, Italy\\
+Nationality:  Italian
+%\textsc{url}: \href{http://www.ias.edu/spfeatures/einstein/}{http://www.ias.edu/spfeatures/einstein/}\\ 
+
+%%\hrule
+\section*{Current Position}
+\emph{Post-Doctoral Research Assistant (Post-Doc) in Particle Physics} \\
+Department of Physics, University of Maryland, College Park, US
+
+%%\hrule
+\section*{Motivation for coming to CERN}
+In December 2007, I started an appointment as post-doctoral 
+research assistant (post-doc) at the University of Maryland.
+Since then I have been based at CERN, working in the CMS experiment on 
+data analysis in the exotic physics group, commissioning of the hadronic calorimeter 
+and MET performance studies. Thanks to my research activities, 
+I had the opportunity of interacting with fellows and staff members 
+working in the CERN group of CMS.
+Based on this experience, I believe that a CERN fellowship can provide to 
+young post-docs an excellent opportunity to form their scientific maturity in high energy 
+physics in a challenging environment, which is essential to improve the personal skills
+and the knowledge in this field of the physics. 
+
+I am particularly interested to join the CMS CERN group, that I know already, for instance, 
+playing a primary role in searches for physics beyond the standard model, 
+implementation and commissioning of advanced event reconstruction 
+algorithms (particle-flow), and performance studies on jets and missing transverse 
+energy reconstruction. Those are in fact the research activities that I would like to 
+focus on in the next months. 
+
+In addition, I am enjoying during my post-doc the cross-disciplinary environment 
+at CERN, that promotes, for instance, active cooperation between 
+experimentalists and theorists, and regular seminaries on various research topics. 
+I believe in fact that expanding its own knowledge, also in directions different from 
+the primary research field, is important to build a solid physics background.
+
+I would like to continue to work in the friendly and stimulating atmosphere at CERN, 
+contributing, as CERN fellow, to the rich LHC physics program during the next years.
+
+%For these reasons, I look forward to continuing, as CERN fellow, my research activities 
+%in high energy physics during the next years that should 
+%be particularly exciting for the Particle Physics.
+ 
+%\section*{Areas of competence}
+%Software Development, IT, Particle detector physics
+ 
+%\vspace{1cm}
+\vfill{}
+\hrulefill
+
+% FILL IN THE FULL URL TO YOUR CV
+\begin{center}
+%{\footnotesize \href{http://www.ias.edu/spfeatures/einstein}{http://www.ias.edu/spfeatures/einstein} ‚Äî Last updated: \today}
+{\footnotesize Last updated: \today}
+\end{center}
+
+
+\end{document}

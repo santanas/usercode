@@ -1,0 +1,1012 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------ 
+
+
+% ! TEX TS-program = XeLaTeX -xdv2pdf
+% ! TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec} 
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+% per le lettere accentate italiane sul Mac! :-)
+%\usepackage[applemac]{inputenc} %with VIM
+\usepackage[latin1]{inputenc} % with TeXShop
+
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ADDITIONAL SYMBOLS
+%\usesymbols[mvs]
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+%\setromanfont [Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin Italic}]{Fontin}
+\setromanfont [Ligatures={Common}, BoldFont={Linux Libertine Bold}, ItalicFont={Linux Libertine Italic}]{Linux Libertine}
+%\setsansfont [Ligatures={Common}, BoldFont={Fontin Sans Bold}, ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+\setmonofont[Scale=0.8]{Monaco} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Linux Libertine Bold}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+\newcommand{\years}[1]{\marginpar{\footnotesize #1}}
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\upshape\Large}
+\subsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\subsubsectionfont{\rmfamily\mdseries\upshape\normalsize} 
+%modifying section numbering
+\def\thesubsection{\arabic{subsection}.\ } 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=cyan,citecolor=blue,filecolor=black,urlcolor=cyan} 
+
+% Title of Bibliography
+\renewcommand\refname{References \\ \normalsize \begin{center} \quad \quad \textsc{Publications (relative to research activities)}\end{center} }
+
+% DOCUMENT
+\begin{document}
+\reversemarginpar
+{\LARGE Francesco Santanastasio}\\[1cm]
+%Institute address
+\begin{tabular}{ l c l }
+\emph{Institute Address}: & & \\
+University of Maryland & & \\
+Department of Physics - John S. Toll Physics Building & &\\
+College Park  & & \\
+MD  \texttt{20742-4111} & \makebox[1.2cm]{} & Tel: \texttt{+1 301 405 3401} \\
+United States of America & & Fax: \texttt{+1 301 314 9525} \\
+\end{tabular}\\[1em]
+% Work address
+\begin{tabular}{ l c l }
+\emph{Work Address}: & & \\
+CERN (Conseil Europeen pour la Recherche Nucleaire) & \makebox[1.cm]{} & \\
+\texttt{CH-1211} Geneve  \texttt{23} & & Tel.: \texttt{+41 22 76 75 765}\\
+Building \texttt{8}, Room R-\texttt{019} & & Cel: \texttt{+41 76 22 86 127}\\ 
+Switzerland &  & email: \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} 
+\end{tabular}\\[1em]
+%\vfill
+Born:  9 February 1980---Roma, Italy\\
+Nationality:  Italian
+%\textsc{url}: \href{http://www.ias.edu/spfeatures/einstein/}{http://www.ias.edu/spfeatures/einstein/}\\ 
+
+%%\hrule
+\section*{Current Position}
+\emph{Post-Doctoral Research Assistant (Post-Doc) in Particle Physics} \\
+Department of Physics, University of Maryland, College Park, US
+
+%%\hrule
+\section*{Areas of specialization}
+Particle Physics, Data Analysis in High Energy Physics, Physics beyond the Standard Model of Fundamental Interactions, Electromagnetic and Hadronic Calorimetry 
+%\section*{Areas of competence}
+%Software Development, IT, Particle detector physics
+ 
+%\hrule
+\section*{Career}
+\noindent
+%Post-Doc
+\years{Dec 2007 - today}\textbf{Post-Doctoral Research Assistant  (Post-Doc) in Particle Physics} \\
+\textit{University of Maryland}, College Park, MD, US\\
+\textit{Based at CERN, Geneve}\\[1em]
+% PhD
+\years{Nov 2004 - Jan 2008}\textbf{PhD in Physics}\\ %{\small (highest honors)}\\
+\textit{``Search for Supersymmetry with Gauge-Mediated Breaking using high energy photons at CMS experiment''} \cite{Santanastasio:DOTTORATO}\\
+\textsc{Advisors:} Prof. Egidio Longo, Prof. Shahram Rahatlou, Dott. Daniele del Re (Sapienza) \\
+\textit{Sapienza Universit\`a di Roma}, Roma, Italy\\[1em]
+% Laurea
+\years{Sept 1998 - May 2004}\textbf{\textit{Laurea} in Physics} {\small (highest honors)}\\
+\textit{``Calibration of an electromagnetic calorimeter using the energy flow method''} \cite{Santanastasio:LAUREA}\\
+\textsc{Advisors:} Prof. Egidio Longo (Sapienza), Dott. Riccardo Paramatti (INFN) \\
+Mark: 110/110 \textit{``magna cum laude''}\\
+\textit{Sapienza Universit\`a di Roma}, Roma, Italy
+%EXAMPLE IN ENGLISH
+%\years{2003-2006}\textbf{MSc (\textit{Laurea Magistrale}) in Nuclear and Subnuclear Physics} {\small (highest honours)}\\
+%\textit{``Study of the ATLAS MDT Muon Chambers calibration constants with data from a testbeam''}\\
+%\textsc{Advisors:} Prof. Toni Baroncelli (INFN), Prof. Filippo Ceradini (Roma Tre)\\
+%Mark: 110/110 \textit{``magna cum laude''}\\
+%\textit{\small expected date: August 2010}\\[1em]
+
+\section*{Talks at Conferences}
+\noindent
+%MORIOND/EW
+\years{13-20.03.2011}\textbf{Moriond/EW 2011} - Rencontres de Moriond on 
+``EW Interactions and Unified Theories''\\
+La Thuile, Valle D'Aosta, Italy\\
+Selected for the talk \textit{``Exotica Searches at CMS''}\\ 
+Presentation in plenary session on behalf of the CMS Collaboration\\
+%Talk on behalf of the CMS Collaboration\\
+Conference proceedings will be published in date and journal still to be defined\\  [1em] 
+%DIS2010
+\years{19-23.04.2010}\textbf{DIS2010} - XVIII International Workshop on 
+Deep-Inelastic Scattering and Related Subjects\\
+Firenze, Italy\\
+\textit{``Searches With Early Data At CMS''}\\ 
+Presentation in parallel session on behalf of the CMS Collaboration\\
+Conference proceedings \cite{Santanastasio:2010zz} \\  [1em] 
+%IFAE2009
+\years{15-17.04.2009}\textbf{IFAE2009} - Incontri di Fisica delle Alte Energie, VIII Edizione\\
+Bari, Italy\\
+\textit{``Prospects for Exotica Searches at ATLAS and CMS Experiments''}\\ 
+Presentation in parallel session on behalf of the ATLAS and CMS Collaborations\\
+Conference proceedings \cite{Santanastasio:IFAE2009} 
+
+\section*{Talks in Plenary Meetings of the CMS Collaboration}
+\noindent
+%First 7TeV Collisions
+\years{Mar 2010}\textbf{CMS General Weekly Meeting GWM11} - Preliminary results, plots, lessons 
+from the first 7 TeV collisions - CERN, Geneve, Switzerland \\
+\textit{``Report from HCAL/JetMET''}\\ 
+Presentation in plenary session on behalf of the HCAL and Jet/MET groups of the CMS experiment\\ [1em] 
+%CMS Italia 2010
+\years{Jan 2010}\textbf{Riunione CMS Italia} - Pisa, Italy \\
+\textit{``Example of prompt analysis at CERN: Jet/MET commissioning with first collision data''}\\  [1em] 
+%CRAFT2009
+\years{Sept 2009}\textbf{CMS Commissioning and Run Coordination meeting} - CRAFT (Cosmic Run At Four Tesla) 
+2009 Data Analysis Jamboree - CERN, Geneve, Switzerland \\
+\textit{``HCAL (Hadronic Calorimeter of CMS experiment) performance during CRAFT09''}\\ 
+Presentation in plenary session on behalf of the HCAL group of the CMS experiment\\ [1em] 
+%CRAFT2008
+\years{Nov 2008}\textbf{CMS Commissioning and Run Coordination meeting} - CRAFT (Cosmic Run At Four Tesla) 
+2008 Data Analysis Jamboree - CERN, Geneve, Switzerland \\
+\textit{``HCAL (Hadronic Calorimeter of CMS experiment) achievements during CRAFT08''}\\ 
+Presentation in plenary session on behalf of the HCAL group of the CMS experiment
+
+\section*{Teaching}
+\noindent
+%Fisica Generale 1 2005-2006
+\years{Oct 2005 - Feb 2006}\textbf{Sapienza Universit\`a di Roma} - Roma, Italy \\
+\textit{Teaching assistant for the course of ``Fisica Generale I - meccanica classica''} \\ 
+Exercises of classic mechanics for mathematics majors
+
+\section*{Physics Schools}
+\noindent
+% FERMILAB 2008
+\years{12-22.08.2008}\textbf{2008 Joint CERN-Fermilab Hadron Collider Physics Summer School} \\ 
+Fermilab, Batavia, Illinois, US \\ [1em]
+% LECCE 2005
+\years{09-14.06.2005}\textbf{Italo-Hellenic School of Physics 2005}  \\ 
+Martignano, Lecce, Italy \\
+{\it ``The Physics of LHC: theoretical tools and experimental challenges''}
+
+\section*{Languages}
+\begin{tabular}{l c l}
+\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{English} (fluent)\\
+%\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{French} (fluent)\\
+%\textit{English} (fluent) & &\textit{German} (basic)\\
+\end{tabular}
+
+\section*{Highlights of Research Activities}
+\noindent
+% LEPTOQUARKS 
+\years{Dec 2007 - today}Search for pair production of first generation scalar 
+Leptoquarks ($LQ$) in the decay channels \\ $LQ \overline{LQ} \rightarrow ee qq$
+~\cite{Khachatryan:2010mp,EXO-10-005,EXO-08-010,AN-2010-230,AN-2008-070} and 
+$LQ\overline{LQ} \rightarrow e\nu qq$ \cite{AN-2010-361} with the CMS detector. 
+Involved in the research activities of the exotic physics group (Exotica) of the CMS experiment 
+[see ``Talks at Conferences'']. \\ [1em]
+% HCAL PFG 
+\years{Sept 2008 - Sept 2010}Coordination of the {\it``Prompt Feedback Group''} of the hadronic calorimeter 
+(HCAL) of the CMS experiment: monitoring and data analysis concerning problems
+in the HCAL detector during data-taking of cosmic rays [see ``Talks in Plenary Meetings of the CMS Collaboration'' 
+$\rightarrow$  presentations on behalf of the HCAL group]. \\ [1em]
+%Prompt analysis during the very first LHC collisions at $\sqrt{s}=$7~TeV 
+%[see ``Talks in Plenary Meetings of the CMS Collaboration`` 
+%$\rightarrow$  presentation on behalf of the HCAL and Jet/MET groups] \\ [1em]
+% MET
+\years{Nov 2009 - today}Commissioning of missing transverse energy (MET) 
+reconstructed with the first proton-proton ({\it pp}) collisions at $\sqrt{s}=$0.9, 2.36 and 7 TeV collected by the CMS experiment \cite{JME-10-004,JME-10-002,AN-2010-219,AN-2010-029}. \\ [1em]
+%HF PMT NOISE
+\years{Nov 2009 - May 2010}Development and implementation of algorithms for the identification 
+of anomalous, beam-induced signals (``noise'') in the Hadronic Forward Calorimeter (HF) of the CMS experiment, observed 
+in the first {\it pp} collisions at $\sqrt{s}=$0.9, 2.36 and 7 TeV \cite{DN-2010-008}. \\ [1em]
+% TEST BEAM HCAL 2009
+\years{Jun 2009 - Jul 2009}Contribution to the test beam of the hadronic calorimeter of the CMS experiment 
+(HCAL Test Beam 2009 \cite{Chatrchyan:2010zz}): commissioning and calibration 
+of the {\it ``delay wire chambers''} installed along the H2 beam line (CERN, Prevessin site) 
+for beam position measurements. \\ [1em]
+% HCAL COMMISSIONING
+\years{Jan 2008 - Jul 2008}Commissioning of the hadronic calorimeter (HCAL) of the CMS experiment: 
+``on-call`` support for data acquisition (DAQ) and trigger configurations of HCAL during early periods of 
+cosmic-ray data-taking.\\ [1em]
+%GMSB (TESI DOTTORATO)
+\years{Dec 2006 - Dec 2007}Feasibility study of the search for Gauge Mediated Supersymmetry Breaking (GMSB) models 
+in the prompt photon decay channel $pp \rightarrow \tilde{\chi}_1^0 \tilde{\chi}_1^0 + X \rightarrow \tilde{G} \tilde{G} \gamma \gamma + X$ 
+\cite{Santanastasio:DOTTORATO}, with full simulation of the CMS detector. \\ [1em]
+%TEST BEAM ECAL+HCAL 2006
+\years{Jul 2006 - Sept 2006}Monitoring of the high voltage system of the CMS electromagnetic calorimeter (ECAL)
+and data-taking shifts in the combined ECAL+HCAL test beam at CERN, Prevessin site
+(H2 Test Beam 2006 \cite{Abdullin:2009zz}).\\ [1em]
+%ECAL HV
+\years{Mar 2006 - Nov 2006}Analysis and test of stability of ECAL high voltage system including 
+development of software tools for data analysis \cite{Bartoloni:2007hx}. \\ [1em]
+%%
+\clearpage
+%%
+%pi0 CALIBRATION
+\years{Oct 2005 - Oct 2006}Study of the calibration of the CMS electromagnetic calorimeter
+using $\pi^0 \rightarrow \gamma\gamma$ decays with full detector simulation \cite{Adzic:2008zza,DN-2007-013,IN-2006-050}.  \\[1em]
+%LAUREA
+\years{Jan 2003 - May 2004}Study and implementation of the energy flow technique applied to the calibration 
+of the electromagnetic calorimeter of the L3 experiment at LEP (CERN) \cite{Santanastasio:LAUREA}. \\[1em]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Summary of research activities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Summary of Research Activities}
+
+In December 2007, I started an appointment as post-doctoral research 
+assistant ({\it post-doc}) in Particle Physics at the University of Maryland. 
+Since then I have been based at CERN, working in the CMS experiment on 
+i) data analysis within the exotic physics group (Exotica), 
+ii) commissioning, {\it ``prompt analysis''} and detector performance studies 
+of the hadronic calorimeter (HCAL), and 
+iii) commissioning of missing transverse energy (MET) with first collision data at LHC. \\
+
+At CMS, the hadronic calorimeter HCAL is mainly employed, together with electromagnetic calori- meter ECAL, for the reconstruction 
+of {\it ``jets''} (the experimental signature of the hadronization of partons) and the missing transverse energy
+in the event, hence playing an important role for many physics analyses 
+feasible at an hadron collider as LHC. The very forward part of the HCAL is also 
+used for luminosity measurement. \\
+
+For the first six months of my appointment with the University of Maryland, I was involved in the 
+HCAL commissioning, providing on-call support for data acquisition (DAQ) and trigger configurations 
+during the early period of cosmic-ray data-taking by the CMS detector. 
+%Thanks to this commissioning work, 
+%I could learn details of the HCAL detector that were useful for the activities of data analysis described 
+%in the following paragraph. 
+In Summer 2009, I contributed to test beam studies of the hadronic calorimeter
+(HCAL Test Beam 2009 \cite{Chatrchyan:2010zz}) by commissioning and calibrating the 
+{\it ``delay wire chambers''} installed along the H2 beam line (CERN, Prevessin site) 
+for beam position measurements. \\
+
+For two years, starting from September 2008, I coordinated the 
+HCAL {\it ``Prompt Feedback Group''} (PFG) of the CMS collaboration, 
+composed of about 5-10 people. The PFG worked 
+on data analysis related to anomalies found in the detector, including 
+problems in the firmware of electronics boards, data-format and trigger issues, 
+as well as the support to groups devoted to the online ({\it ``Data Quality Monitoring''}, DQM)
+and offline ({\it ``Run Certification''}) control of data quality.
+
+On various occasions, I presented to the CMS collaboration the status of the detector on behalf of the HCAL group, 
+including talks in plenary meetings that followed the two main cosmic-ray data-taking periods in 2008 and 2009
+[see ``Talks in Plenary Meetings of the CMS Collaboration'' $\rightarrow$ talks on behalf on the HCAL group].
+
+At the beginning of 2010, I coordinated the HCAL PFG in preparation to the first LHC {\it pp} collisions at $\sqrt{s}=7$~TeV, 
+which occurred on 30 March 2010. For this event we provided 
+results in real time giving evidence of the collisions. The following day, I presented to a CMS plenary meeting the results 
+of the very first detector performance analyses based on the {\it pp} collisions on behalf of the HCAL and Jet/MET groups
+[see ``Talks in Plenary Meetings of the CMS Collaboration'' $\rightarrow$ talks on behalf on the HCAL and Jet/MET group]. 
+
+In conclusion, the PFG provided a relevant contribution to both the HCAL commissioning in 2008-2009, 
+and to the regular operation of the detector during the physics data-taking in 2010. \\
+
+In addition to the research activities related to electromagnetic and hadronic calorimeters, I joined in November 2009 
+the Jet/MET group of CMS, that is employed in development and performance studies of jets and MET reconstruction. 
+In the first months of 2010, I played a relevant role in the MET commissioning, using the first {\it pp} collision data 
+at $\sqrt{s}=$0.9, 2.36 \cite{JME-10-002} and 7 TeV \cite{JME-10-004}. In particular, I am the main author of the following works:
+study of performance of the {\it ``uncorrected calorimeter''} MET \cite{AN-2010-029}, 
+classification of events in the non-gaussian tails of the MET distribution \cite{AN-2010-219}, 
+and development and implementation of algorithms for the identification of anomalous, beam-induced noise in the 
+Hadronic Forward Calorimeter (HF) \cite{DN-2010-008}. The anomalous signals
+observed in HF can produce large apparent MET in the event; therefore it's crucial to identify and reject them during the event reconstruction, 
+since such uncharacteristic signals can worsen the precision of some physics measurements, or even simulate a fake signature 
+of new physics beyond the Standard Model. The understanding of the performance of jets and MET reconstruction is 
+an important point for the physics analyses I'm currently working on. \\
+
+Since the beginning of my post-doctoral appointment, I have been involved in the research activities of the 
+CMS Exotica group, which is devoted to search for exotic physics beyond the Standard Model. I presented 
+the results of these analyses in international conferences on behalf of the CMS collaboration [see ``Talks at Conferences'']. \\
+
+I started my activities in the Exotica group in 2008 with the search for pair production of  first generation scalar {\it ``leptoquarks''} (LQ) 
+in the $LQ\overline{LQ} \rightarrow ee qq$ decay channel ({\it eejj}). Leptoquarks are conjectured particles
+foreseen by some well-motivated theories beyond of the Standard Model, in which transitions between 
+leptonic and baryonic sectors are allowed. The process under study has a very characteristic signature, 
+with two high transverse momentum ($p_T$) electrons and two high $p_T$ jets, and a peak in 
+the electron-jet invariant mass spectrum corresponding to the LQ mass.
+
+The feasibility study, done in 2009 with full simulation of the CMS detector \cite{EXO-08-010,AN-2008-070},
+aimed to the optimization of selection criteria to reject the Standard Model backgrounds, and study
+techniques to estimate them directly from data. This work showed that the existence of LQ with mass
+about twice higher than the current limit set by Tevatron experiments, could be excluded at CMS with about 
+100 pb$^{-1}$ of data in {\it pp} collisions at $\sqrt{s}=10$~TeV. 
+
+The analysis has been performed with 33 pb$^{-1}$ of {\it pp} collisions at $\sqrt{s}=7$~TeV collected by the CMS experiment in 2010 
+\cite{Khachatryan:2010mp,EXO-10-005,AN-2010-230}. The data is in good agreement with the Standard Model predictions. Therefore 
+a 95\% {\it ``confidence level''} lower limit is set on the mass of first generation scalar LQ at 384 GeV/$c^2$, assuming a 
+branching ratio of 100\% for the decay $LQ\rightarrow eq$. This result exceed the existing Tevatron limit on the LQ mass 
+of 300 GeV/$c^2$, obtained with 1 fb$^{-1}$ of proton-antiproton collisions at $\sqrt{s}=$1.96~TeV, hence extending the search for 
+leptoquarks in an unexplored mass region. The paper has been submitted to Phys. Rev. Lett. \\
+
+In addition to the {\it eejj} analysis, I am the contact person of the search for pair production of first generation scalar leptoquarks
+in the $LQ\overline{LQ} \rightarrow e\nu qq$ decay channel ({\it e$\nu$jj}) \cite{AN-2010-361}.
+The combination of the results from these two channels can be used to improve the sensitivity to the new physics in 
+the space of the unknown parameters of the theory model: $M_{LQ}$ vs $\beta$, where $M_{LQ}$ is the LQ mass, and 
+$\beta$ ($1-\beta$) is the branching ratio of the decay $LQ\rightarrow eq$ ($LQ\rightarrow \nu q$). 
+The {\it e$\nu$jj} analysis aims to publish the results with $\sqrt{s}=$7~TeV {\it pp} collision data in the first months of 2011.\\
+
+\begin{center} \textsc{Research activities during my undergraduate and graduate studies} \\ \end{center} 
+
+My interest in elementary particle physics drove me to choose this field when I was an undergraduate student in Rome 
+and, more recently, to do research as part of the Compact Muon Solenoid (CMS) collaboration at the Large Hadron Collider (LHC) 
+of CERN (Conseil Europeen pour la Recherche Nucleaire). \\
+
+In 2003, I started working on my undergraduate thesis at \textit{Sapienza}, Universit\`a di Roma. The work concerned the 
+study of the calibration of an electromagnetic calorimeter using the energy flow method \cite{Santanastasio:LAUREA}, which allows to inter-calibrate 
+calorimeter crystals by using the $\phi$ symmetry of energy deposits at a collider. \\
+
+In October 2004, I was admitted to the graduate school in physics to work with the CMS group. 
+The Rome group was heavily involved in the construction of the electromagnetic calorimeter (ECAL), 
+as well as in monitoring and calibration. In my three years as a graduate student I worked on the calibration of 
+the calorimeter, the stability of the ECAL high voltage (HV) system and feasibility studies for physics analysis on the search for Supersymmetry. \\
+
+%The first year of my PhD was mostly devoted to the courses of the graduate school 
+%and to learn the CMS software and analysis tools. \\
+
+In 2006, I worked on the feasibility study of using $\pi^0 \rightarrow \gamma\gamma$ decays for the calibration 
+of the ECAL crystals \cite{DN-2007-013,IN-2006-050}. This method has the advantage of high 
+statistics, since $\pi^0$ are produced in abundance at hadron colliders, and does not rely on information from 
+the detectors measuring tracks from charged particles, and hence could be performed {\it ``in situ''} in the early 
+periods of data-taking of LHC if the alignment and calibration of the high precision tracking system are not yet understood.
+The real challenge of this analysis is finding a satisfactory signal to noise ratio while maintaining high selection efficiency for such events 
+in order to achieve a calibration of the entire ECAL in a short period of data-taking.
+In 2010 the CMS experiment collected enough data to calibrate the central part (barrel) of ECAL using $\pi^0$'s.
+The plans for 2011 foresee the extension of the method to the forward region of the detector (endcaps), 
+as well as the combination of different calibration techniques that are available, in order to achieve the design precision 
+on the ECAL calibration. \\
+
+During summer of 2006, I participated in the combined test beam of the electromagnetic and 
+hadronic calorimeters of the CMS experiment at the H2 area of CERN, Prevessin site 
+(H2 Test Beam 2006 \cite{Abdullin:2009zz}), mainly performing data-taking shifts.
+An important feature of the H2 test facility was the possibility to produce a secondary beam
+of $\pi^0$'s by inserting a target along the primary charged pion beam line. 
+This data \cite{Adzic:2008zza} was used to verify and improve the $\pi^0 \rightarrow \gamma\gamma$ 
+reconstruction algorithm developed for the calibration studies with simulated events.
+During this period, I also worked on the monitoring of the ECAL high voltage system, which is 
+under the direct responsibility of the Rome group. \\
+%Thanks to this activity, I was able to learn directly 
+%some knowledge of the hardware part related with the operation of electromagnetic calorimeter. \\
+
+My other activities included both development and implementation of the analysis software for the 
+stability test of HV boards, and the relative analysis of data collected since 2003 \cite{Bartoloni:2007hx}. 
+The stability of the HV system is very important for the operation of ECAL because it affects directly 
+the energy resolution of the electromagnetic calorimeter. \\
+
+In 2007, I worked mainly on feasibility study of the search for Supersymmetry 
+with Gauge-Mediated Breaking (GMSB) in the prompt photon decay channel 
+$pp \rightarrow \tilde{\chi}_1^0 \tilde{\chi}_1^0 + X \rightarrow \tilde{G} \tilde{G} \gamma \gamma + X$ 
+(see PhD thesis \cite{Santanastasio:DOTTORATO}). 
+The presence of two high energy photons and large missing transverse energy
+in the final state due to gravitinos makes the experimental signature of such events very clear.
+This feasibility study, aimed at the optimization of selection criteria to reject Standard Model backgrounds, 
+showed that GMSB models, with parameters just above the limit fixed by Tevatron experiments, 
+could be an early discovery at the CMS experiment with a few tens pb$^{-1}$ of data and $\sqrt{s}=14$~TeV. 
+This result was significantly better than the one shown by previous studies reported in the CMS collaboration.
+At the current energy of LHC, $\sqrt{s}=7$~TeV, the search for new physics in GMSB models 
+could extend beyond the limit set by previous experiments with a few hundreds pb$^{-1}$ of data. 
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Service work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Service work in Experiments and Collaborations}
+%\subsection*{ATLAS Experiment}
+%\noindent
+%\textbf{Data Analysis: Supersymmetry Working Group} Working on data analysis, on exploring and implementing analysis strategies and on data files production\\
+%\textbf{Development \& Upgrade} Working in the DAQ group, on the upgrade of the configuration DB system\\
+%\textbf{Detector Operation} Shifter in the control room, at the Muon System, DAQ and Run Control desks\\
+%\textbf{Software Framework} Taking part in code testing, and shifter for the build test system (RTT)\\
+%\textbf{Documentation} Responsible person for a part of the documentation of the ATLAS data-format\\
+%\textbf{Public Relations} Official ATLAS Guide, escorting VIP visits to the ATLAS cavern\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Publications & Talks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{599}
+
+%\cite{Chatrchyan:2010zz}
+\bibitem{Chatrchyan:2010zz}
+{\bf ``Study of various photomultiplier tubes with muon beams and Cherenkov light produced in electron showers''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS HCAL Collaboration]
+  \\{}JINST {\bf 5}, P06002 (2010)
+  \\ The data were collected during the HCAL Test Beam 2009. I contributed to 
+  commissioning and calibration of the {\it ``delay wire chambers''} installed along the H2 
+  beam line (CERN, Prevessin site) for beam position measurements.
+%\\{}CMS-NOTE-2010-003
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2cp06002}{SPIRES entry}
+
+%\cite{Chatrchyan:2009hy}
+\bibitem{Chatrchyan:2009hy}
+{\bf ``Identification and Filtering of Uncharacteristic Noise in the CMS Hadron Calorimeter''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03014 (2010)
+  [arXiv:0911.4881 [physics.ins-det]]
+%\\{}CMS-CFT-09-019
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03014}{SPIRES entry}
+
+%\cite{Abdullin:2009zz}
+\bibitem{Abdullin:2009zz}
+{\bf ``The CMS Barrel Calorimeter Response To Particle Beams From 2-Gev/C To 350-Gev/C''}
+  \\{}S.~Abdullin {\it et al.}  [USCMS Collaboration and ECAL/HCAL
+                  Collaboration]
+  \\{}Eur.\ Phys.\ J.\  C {\bf 60}, 359 (2009)
+  [Erratum-ibid.\  C {\bf 61}, 353 (2009)]
+%\\{}FERMILAB-PUB-08-661-E-PPD
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=ephja\%2cc60\%2c359}{SPIRES entry}
+
+%\cite{Adzic:2008zza}
+\bibitem{Adzic:2008zza}
+{\bf ``Intercalibration of the barrel electromagnetic calorimeter of the CMS  experiment at start-up''}
+  \\{}P.~Adzic {\it et al.}  [CMS Electromagnetic Calorimeter Group]
+  \\{}JINST {\bf 3}, P10007 (2008)
+  \\  I performed a feasibility study of using $\pi^0 \rightarrow \gamma \gamma$ decays for the calibration of the ECAL crystals, with full detector simulation.
+%\\{}CERN-CMS-NOTE-2008-018
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c3\%2cp10007}{SPIRES entry}
+
+%\cite{Bartoloni:2007hx}
+\bibitem{Bartoloni:2007hx}
+{\bf ``High voltage system for the CMS electromagnetic calorimeter''}
+  \\{}A.~Bartoloni {\it et al.}
+  \\{}Nucl.\ Instrum.\ Meth.\  A {\bf 582}, 462 (2007)
+  \\ I performed part of the stability tests on the high voltage boards at CERN laboratory and most of the data analysis 
+%\\{}CERN-CMS-NOTE-2007-009
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=nuima\%2ca582\%2c462}{SPIRES entry}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Conference Proceedings} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\bibitem{Santanastasio:2010zz}
+{\bf ``Searches With Early Data At CMS''}
+  \\{}F.~Santanastasio
+  \\{}PoS {\bf DIS2010}, 206 (2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=posci\%2cdis2010\%2c206}{SPIRES entry}
+\\{}{\it Prepared for 18th International Workshop on Deep Inelastic Scattering and Related Subjects (DIS 2010), Florence, Italy, 19-23 Apr 2010}
+
+\bibitem{Santanastasio:IFAE2009}
+{\bf ``Prospects for Exotica Searches at ATLAS and CMS Experiments''}
+  \\{}F.~Santanastasio
+  \\{}Il Nuovo Cimento Vol.32 C, N.3-4 ncc9484 (2009)
+\\{}{\it Prepared for Incontri di Fisica delle Alte Energie (IFAE 2009), Bari, Italy, Apr 2009}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Preliminary results of the CMS Collaboration (relative to research activities)} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%\cite{Khachatryan:2010mp}
+\bibitem{Khachatryan:2010mp}
+{\bf ``Search for Pair Production of First-Generation Scalar Leptoquarks in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1012.4031 [hep-ex], Submitted to the journal {\it Phys. Rev. Lett.}
+  \\I am one of the four analysts (from University of Maryland group) of this public CMS pre-print based on collision data.
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?irn=8913501}{SPIRES entry}
+
+%\cite{EXO-10-005}
+\bibitem{EXO-10-005}
+{\bf ``Search for Pair Production of First Generation Leptoquarks Using Events Containing Two Electrons and Two Jets Produced in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-10-005 (2010), http://cdsweb.cern.ch/record/1289514/files/EXO-10-005-pas.pdf 
+  \\I am co-author and one of the four analysts (from University of Maryland group) of this public CMS Physics Analysis Summary based on collision data.
+
+%\cite{EXO-08-010}
+\bibitem{EXO-08-010}
+{\bf ``Search for Pair Production of First Generation Scalar Leptoquarks at the CMS Experiment''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-08-010 (2009), http://cdsweb.cern.ch/record/1196076/files/EXO-08-010-pas.pdf
+  \\I am co-author and one of the four analysts (from University of Maryland group) of this public CMS Physics Analysis Summary based on MC simulation.
+
+%\cite{JME-10-004}
+\bibitem{JME-10-004}
+{\bf ``Missing Transverse Energy Performance in Minimum-Bias and Jet Events from Proton-Proton Collisions at sqrt(s)=7 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS JME-10-004 (2010), http://cdsweb.cern.ch/record/1279142/files/JME-10-004-pas.pdf 
+
+%\cite{JME-10-002}
+\bibitem{JME-10-002}
+{\bf ``Performance of Missing Transverse Energy Reconstruction in sqrt(s)=900 and 2360 GeV pp Collision Data''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS JME-10-002 (2010), http://cdsweb.cern.ch/record/1247385/files/JME-10-002-pas.pdf 
+  \\ I worked mostly on the section related to calorimeter MET cleaning algorithms and performances.
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Internal notes of the CMS Collaboration (relative to research activities)} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%\cite{AN-2010-361}
+\bibitem{AN-2010-361}
+{\bf ``Search for Pair Production of First-Generation Scalar Leptoquarks Using Events Produced in pp Collisions at sqrt(s)=7 TeV Containing One Electron, Two Jets and Large Missing Transverse Energy''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/361 (2010)
+  \\I am the contact person and one of the two analysts (from University of Maryland group) of this CMS analysis based on collision data. This analysis is currently under approval process within the CMS Collaboration.
+
+%\cite{AN-2010-230}
+\bibitem{AN-2010-230}
+{\bf ``Search for Pair Production of First Generation Leptoquarks Using Events Containing Two Electrons and Two Jets Produced in pp Collisions at sqrt(s)=7 TeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/230 (2010)
+
+%\cite{AN-2008-070}
+\bibitem{AN-2008-070}
+{\bf ``Search for Pair Production of First Generation Scalar Leptoquarks at the CMS Experiment''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2008/070 (2009)
+
+%\cite{AN-2010-219}
+\bibitem{AN-2010-219}
+{\bf ``Results of a visual scan of high MET events in 7 TeV pp collision data''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/219 (2010)
+  
+%\cite{AN-2010-029}
+\bibitem{AN-2010-029}
+{\bf ``Commissioning of Uncorrected Missing Transverse Energy in Zero Bias and Minimum Bias Events at  sqrt(s)=900 GeV and  2360 GeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/029 (2010)
+
+%\cite{DN-2010-008}
+\bibitem{DN-2010-008}
+{\bf ``Optimization and Performance of HF PMT Hit Cleaning Algorithms Developed Using pp Collision Data at sqrt(s)=0.9, 2.36 and 7 TeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS DN-2010/008 (2010)
+
+%\cite{DN-2007-013}
+\bibitem{DN-2007-013}
+{\bf ``InterCalibration of the CMS Barrel Electromagnetic Calorimeter Using Neutral Pion Decays``}
+   \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS DN-2007/013 (2007)
+
+%\cite{IN-2006-050}
+\bibitem{IN-2006-050}
+{\bf ``Study of ECAL calibration with $\pi^0 \rightarrow \gamma \gamma$ decays''}
+  \\{}F. ~Santanastasio, D.~del~Re, S.~Rahatlou
+  \\{}CMS IN-2006/050 (2006)
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Theses ( \textit{Laurea} and PhD)} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\bibitem{Santanastasio:DOTTORATO}
+{\bf ``Search for Supersymmetry with Gauge-Mediated Breaking using high energy photons at CMS experiment''}
+  \\{}F.~Santanastasio
+  \\{}PhD thesis at \textit{Sapienza Universit\`a di Roma} (2007)
+\\{}{\it http://www.roma1.infn.it/cms/tesiPHD/santanastasio.pdf}
+
+\bibitem{Santanastasio:LAUREA}
+{\bf ``Calibrazione di un calorimetro elettromagnetico tramite il flusso totale di energia''}
+  \\{}F.~Santanastasio
+  \\{}\textit{Laurea} thesis at \textit{Sapienza Universit\`a di Roma} (2004)
+\\{}{\it http://www.roma1.infn.it/cms/tesi/santanastasio.pdf }
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Other Publications and Pre-Prints of the CMS Collaboration} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%\cite{Khachatryan:2011zj}
+\bibitem{Khachatryan:2011zj}
+{\bf ``Dijet Azimuthal Decorrelations in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1101.5029 [hep-ex]
+\\{}CMS-QCD-10-026(2011)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-qcd-10-026}{SPIRES entry}
+
+%\cite{Khachatryan:2011ts}
+\bibitem{Khachatryan:2011ts}
+{\bf ``Search for Heavy Stable Charged Particles in pp collisions at sqrt(s)=7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1101.1645 [hep-ex]
+\\{}CMS-EXO-10-011(2011)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-exo-10-011}{SPIRES entry}
+
+%\cite{Khachatryan:2011tk}
+\bibitem{Khachatryan:2011tk}
+{\bf ``Search for Supersymmetry in pp Collisions at 7 TeV in Events with Jets and Missing Transverse Energy''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1101.1628 [hep-ex]
+\\{}CMS-SUS-10-003(2011)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-sus-10-003}{SPIRES entry}
+
+%\cite{Khachatryan:2011mk}
+\bibitem{Khachatryan:2011mk}
+{\bf ``Measurement of the B+ Production Cross Section in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1101.0131 [hep-ex]
+\\{}CMS-BPH-10-004(2011)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-bph-10-004}{SPIRES entry}
+
+%\cite{Khachatryan:2010fa}
+\bibitem{Khachatryan:2010fa}
+{\bf ``Search for a heavy gauge boson W' in the final state with an electron and large missing transverse energy in pp collisions at sqrt(s) = 7
+TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1012.5945 [hep-ex]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?irn=8923450}{SPIRES entry}
+
+%\cite{Khachatryan:2010zg}
+\bibitem{Khachatryan:2010zg}
+{\bf ``Measurement of the Inclusive Upsilon production cross section in pp collisions at sqrt(s)=7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1012.5545 [hep-ex]
+\\{}CMS-BPH-10-003(2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-bph-10-003}{SPIRES entry}
+
+%\cite{Khachatryan:2010mq}
+\bibitem{Khachatryan:2010mq}
+{\bf ``Search for Pair Production of Second-Generation Scalar Leptoquarks in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1012.4033 [hep-ex]
+\\{}CMS-EXO-10-007(2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-exo-10-007}{SPIRES entry}
+
+%\cite{Khachatryan:2010wx}
+\bibitem{Khachatryan:2010wx}
+{\bf ``Search for Microscopic Black Hole Signatures at the Large Hadron Collider''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1012.3375 [hep-ex]
+\\{}CMS-EXO-10-017(2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-exo-10-017}{SPIRES entry}
+
+%\cite{Khachatryan:2010xn}
+\bibitem{Khachatryan:2010xn}
+{\bf ``Measurements of Inclusive W and Z Cross Sections in pp Collisions at sqrt(s)=7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}JHEP {\bf 1101}, 080 (2011)
+  [arXiv:1012.2466 [hep-ex]]
+%\\{}CMS-EWK-10-002
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jhepa\%2c1101\%2c080}{SPIRES entry}
+
+%\cite{Khachatryan:2010fm}
+\bibitem{Khachatryan:2010fm}
+{\bf ``Measurement of the Isolated Prompt Photon Production Cross Section in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1012.0799 [hep-ex]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?irn=8894760}{SPIRES entry}
+
+%\cite{Khachatryan:2010uf}
+\bibitem{Khachatryan:2010uf}
+{\bf ``Search for Stopped Gluinos in pp collisions at sqrt s = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Rev.\ Lett.\  {\bf 106}, 011801 (2011)
+  [arXiv:1011.5861 [hep-ex]]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=prlta\%2c106\%2c011801}{SPIRES entry}
+
+%\cite{Khachatryan:2010nk}
+\bibitem{Khachatryan:2010nk}
+{\bf ``Charged particle multiplicities in pp interactions at sqrt(s) = 0.9, 2.36, and 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}JHEP {\bf 1101}, 079 (2011)
+  [arXiv:1011.5531 [hep-ex]]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jhepa\%2c1101\%2c079}{SPIRES entry}
+
+%\cite{Khachatryan:2010yr}
+\bibitem{Khachatryan:2010yr}
+{\bf ``Prompt and non-prompt J/psi production in pp collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}arXiv:1011.4193 [hep-ex]
+\\{}CMS-BPH-10-002(2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?r=cms-bph-10-002}{SPIRES entry}
+
+%\cite{Khachatryan:2010ez}
+\bibitem{Khachatryan:2010ez}
+{\bf ``First Measurement of the Cross Section for Top-Quark Pair Production in Proton-Proton Collisions at sqrt(s)=7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Lett.\  B {\bf 695}, 424 (2011)
+  [arXiv:1010.5994 [hep-ex]]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=phlta\%2cb695\%2c424}{SPIRES entry}
+
+%\cite{Khachatryan:2010te}
+\bibitem{Khachatryan:2010te}
+{\bf ``Search for Quark Compositeness with the Dijet Centrality Ratio in pp Collisions at sqrt(s)=7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Rev.\ Lett.\  {\bf 105}, 262001 (2010)
+  [arXiv:1010.4439 [hep-ex]]
+%\\{}CMS-EXO-10-002
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=prlta\%2c105\%2c262001}{SPIRES entry}
+
+%\cite{Khachatryan:2010jd}
+\bibitem{Khachatryan:2010jd}
+{\bf ``Search for Dijet Resonances in 7 TeV pp Collisions at CMS''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Rev.\ Lett.\  {\bf 105}, 211801 (2010)
+  [arXiv:1010.0203 [hep-ex]]
+%\\{}CMS-EXO-10-010
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=prlta\%2c105\%2c211801}{SPIRES entry}
+
+%\cite{Khachatryan:2010gv}
+\bibitem{Khachatryan:2010gv}
+{\bf ``Observation of Long-Range Near-Side Angular Correlations in Proton-Proton Collisions at the LHC''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}JHEP {\bf 1009}, 091 (2010)
+  [arXiv:1009.4122 [hep-ex]]
+%\\{}CMS-QCD-10-002
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jhepa\%2c1009\%2c091}{SPIRES entry}
+
+%\cite{Khachatryan:2010pw}
+\bibitem{Khachatryan:2010pw}
+{\bf ``CMS Tracking Performance Results from early LHC Operation''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Eur.\ Phys.\ J.\  C {\bf 70}, 1165 (2010)
+  [arXiv:1007.1988 [physics.ins-det]]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=ephja\%2cc70\%2c1165}{SPIRES entry}
+
+%\cite{Khachatryan:2010pv}
+\bibitem{Khachatryan:2010pv}
+{\bf ``Measurement of the Underlying Event Activity in Proton-Proton Collisions at 0.9 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Eur.\ Phys.\ J.\  C {\bf 70}, 555 (2010)
+  [arXiv:1006.2083 [hep-ex]]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=ephja\%2cc70\%2c555}{SPIRES entry}
+
+%\cite{Khachatryan:2010mw}
+\bibitem{Khachatryan:2010mw}
+{\bf ``Measurement of the charge ratio of atmospheric muons with the CMS detector''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Lett.\  B {\bf 692}, 83 (2010)
+  [arXiv:1005.5332 [hep-ex]]
+%\\{}CERN-PH-EP-2010-011
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=phlta\%2cb692\%2c83}{SPIRES entry}
+
+%\cite{Khachatryan:2010us}
+\bibitem{Khachatryan:2010us}
+{\bf ``Transverse-momentum and pseudorapidity distributions of charged hadrons in pp collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Rev.\ Lett.\  {\bf 105}, 022002 (2010)
+  [arXiv:1005.3299 [hep-ex]]
+%\\{}CSM-QCD-10-006
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=prlta\%2c105\%2c022002}{SPIRES entry}
+
+%\cite{Khachatryan:2010un}
+\bibitem{Khachatryan:2010un}
+{\bf ``Measurement of Bose-Einstein correlations with first CMS data''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}Phys.\ Rev.\ Lett.\  {\bf 105}, 032001 (2010)
+  [arXiv:1005.3294 [hep-ex]]
+%\\{}CMS-QCD-10-003
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=prlta\%2c105\%2c032001}{SPIRES entry}
+
+%\cite{Khachatryan:2010xs}
+\bibitem{Khachatryan:2010xs}
+{\bf ``Transverse momentum and pseudorapidity distributions of charged hadrons in pp collisions at sqrt(s) = 0.9 and 2.36 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{}JHEP {\bf 1002}, 041 (2010)
+  [arXiv:1002.0621 [hep-ex]]
+%\\{}CMS-QCD-09-010
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jhepa\%2c1002\%2c041}{SPIRES entry}
+
+%\cite{:2009dv}
+\bibitem{:2009dv}
+{\bf ``Commissioning and Performance of the CMS Pixel Tracker with Cosmic Ray Muons''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03007 (2010)
+  [arXiv:0911.5434 [physics.ins-det]]
+%\\{}CMS-CFT-09-001
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03007}{SPIRES entry}
+
+%\cite{:2009dq}
+\bibitem{:2009dq}
+{\bf ``Performance of the CMS Level-1 Trigger during Commissioning with Cosmic Ray Muons''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03002 (2010)
+  [arXiv:0911.5422 [physics.ins-det]]
+%\\{}CMS-CFT-09-013
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03002}{SPIRES entry}
+
+%\cite{:2009dg}
+\bibitem{:2009dg}
+{\bf ``Measurement of the Muon Stopping Power in Lead Tungstate''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, P03007 (2010)
+  [arXiv:0911.5397 [physics.ins-det]]
+%\\{}CMS-CFT-09-005
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2cp03007}{SPIRES entry}
+
+%\cite{:2009vs}
+\bibitem{:2009vs}
+{\bf ``Commissioning and Performance of the CMS Silicon Strip Tracker with Cosmic Ray Muons''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03008 (2010)
+  [arXiv:0911.4996 [physics.ins-det]]
+%\\{}CMS-CFT-09-002
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03008}{SPIRES entry}
+
+%\cite{:2009vq}
+\bibitem{:2009vq}
+{\bf ``Performance of CMS Muon Reconstruction in Cosmic-Ray Events''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03022 (2010)
+  [arXiv:0911.4994 [physics.ins-det]]
+%\\{}CMS-CFT-09-014
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03022}{SPIRES entry}
+
+%\cite{:2009vp}
+\bibitem{:2009vp}
+{\bf ``Performance of the CMS Cathode Strip Chambers with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03018 (2010)
+  [arXiv:0911.4992 [physics.ins-det]]
+%\\{}CMS-CFT-09-011
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03018}{SPIRES entry}
+
+%\cite{:2009vn}
+\bibitem{:2009vn}
+{\bf ``Performance of the CMS Hadron Calorimeter with Cosmic Ray Muons and LHC Beam Data''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03012 (2010)
+  [arXiv:0911.4991 [physics.ins-det]]
+%\\{}CMS-CFT-09-009
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03012}{SPIRES entry}
+
+%\cite{Chatrchyan:2009im}
+\bibitem{Chatrchyan:2009im}
+{\bf ``Fine Synchronization of the CMS Muon Drift-Tube Local Trigger using Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03004 (2010)
+  [arXiv:0911.4904 [physics.ins-det]]
+%\\{}CMS-CFT-09-025
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03004}{SPIRES entry}
+
+%\cite{Chatrchyan:2009ih}
+\bibitem{Chatrchyan:2009ih}
+{\bf ``Calibration of the CMS Drift Tube Chambers and Measurement of the Drift Velocity with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03016 (2010)
+  [arXiv:0911.4895 [physics.ins-det]]
+%\\{}CMS-CFT-09-023
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03016}{SPIRES entry}
+
+%\cite{Chatrchyan:2009ig}
+\bibitem{Chatrchyan:2009ig}
+{\bf ``Performance of the CMS Drift-Tube Local Trigger with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03003 (2010)
+  [arXiv:0911.4893 [physics.ins-det]]
+%\\{}CMS-CFT-09-022
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03003}{SPIRES entry}
+
+%\cite{Chatrchyan:2009ic}
+\bibitem{Chatrchyan:2009ic}
+{\bf ``Commissioning of the CMS High-Level Trigger with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03005 (2010)
+  [arXiv:0911.4889 [physics.ins-det]]
+%\\{}CMS-CFT-09-020
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03005}{SPIRES entry}
+
+%\cite{Chatrchyan:2009hw}
+\bibitem{Chatrchyan:2009hw}
+{\bf ``Performance of CMS Hadron Calorimeter Timing and Synchronization using Test Beam, Cosmic Ray, and LHC Beam Data''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03013 (2010)
+  [arXiv:0911.4877 [physics.ins-det]]
+%\\{}CMS-CFT-09-018
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03013}{SPIRES entry}
+
+%\cite{Chatrchyan:2009hg}
+\bibitem{Chatrchyan:2009hg}
+{\bf ``Performance of the CMS Drift Tube Chambers with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03015 (2010)
+  [arXiv:0911.4855 [physics.ins-det]]
+%\\{}CMS-CFT-09-012
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03015}{SPIRES entry}
+
+%\cite{Chatrchyan:2009hb}
+\bibitem{Chatrchyan:2009hb}
+{\bf ``Commissioning of the CMS Experiment and the Cosmic Run at Four Tesla''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03001 (2010)
+  [arXiv:0911.4845 [physics.ins-det]]
+%\\{}CMS-CFT-09-008
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03001}{SPIRES entry}
+
+%\cite{:2009gz}
+\bibitem{:2009gz}
+{\bf ``CMS Data Processing Workflows during an Extended Cosmic Ray Run''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03006 (2010)
+  [arXiv:0911.4842 [physics.ins-det]]
+%\\{}FERMILAB-PUB-09-602-CD-CMS
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03006}{SPIRES entry}
+
+%\cite{:2009ft}
+\bibitem{:2009ft}
+{\bf ``Aligning the CMS Muon Chambers with the Muon Alignment System during an Extended Cosmic Ray Run''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03019 (2010)
+  [arXiv:0911.4770 [physics.ins-det]]
+%\\{}CMS-CFT-09-017
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03019}{SPIRES entry}
+
+%\cite{Chatrchyan:2009ks}
+\bibitem{Chatrchyan:2009ks}
+{\bf ``Performance Study of the CMS Barrel Resistive Plate Chambers with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03017 (2010)
+  [arXiv:0911.4045 [physics.ins-det]]
+%\\{}CMS-CFT-09-010
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03017}{SPIRES entry}
+
+%\cite{:2009kr}
+\bibitem{:2009kr}
+{\bf ``Time Reconstruction and Performance of the CMS Electromagnetic Calorimeter''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03011 (2010)
+  [arXiv:0911.4044 [physics.ins-det]]
+%\\{}CMS-CFT-09-006
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03011}{SPIRES entry}
+
+%\cite{Chatrchyan:2009km}
+\bibitem{Chatrchyan:2009km}
+{\bf ``Alignment of the CMS Muon System with Cosmic-Ray and Beam-Halo Muons''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03020 (2010)
+  [arXiv:0911.4022 [physics.ins-det]]
+%\\{}CMS-CFT-09-016
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03020}{SPIRES entry}
+
+%\cite{Chatrchyan:2009si}
+\bibitem{Chatrchyan:2009si}
+{\bf ``Precise Mapping of the Magnetic Field in the CMS Barrel Yoke using Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03021 (2010)
+  [arXiv:0910.5530 [physics.ins-det]]
+%\\{}CMS-CFT-09-015
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03021}{SPIRES entry}
+
+%\cite{Chatrchyan:2009qm}
+\bibitem{Chatrchyan:2009qm}
+{\bf ``Performance and Operation of the CMS Electromagnetic Calorimeter''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03010 (2010)
+  [arXiv:0910.3423 [physics.ins-det]]
+%\\{}CMS-CFT-09-004
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03010}{SPIRES entry}
+
+%\cite{Chatrchyan:2009sr}
+\bibitem{Chatrchyan:2009sr}
+{\bf ``Alignment of the CMS Silicon Tracker during Commissioning with Cosmic Rays''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03009 (2010)
+  [arXiv:0910.2505 [physics.ins-det]]
+%\\{}CMS-CFT-09-003
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03009}{SPIRES entry}
+
+%\cite{:2008zzk}
+\bibitem{:2008zzk}
+{\bf ``The CMS experiment at the CERN LHC''}
+  \\{}R.~Adolphi {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 3}, S08004 (2008)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c3\%2cs08004}{SPIRES entry}
+
+\end{thebibliography}
+
+%\vspace{1cm}
+\vfill{}
+\hrulefill
+
+% FILL IN THE FULL URL TO YOUR CV
+\begin{center}
+%{\footnotesize \href{http://www.ias.edu/spfeatures/einstein}{http://www.ias.edu/spfeatures/einstein} ‚Äî Last updated: \today}
+{\footnotesize Last updated: \today}
+\end{center}
+
+
+\end{document}

@@ -1,0 +1,469 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------ 
+
+
+% ! TEX TS-program = XeLaTeX -xdv2pdf
+% ! TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec} 
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+% per le lettere accentate italiane sul Mac! :-)
+%\usepackage[applemac]{inputenc} %with VIM
+\usepackage[latin1]{inputenc} % with TeXShop
+
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ADDITIONAL SYMBOLS
+%\usesymbols[mvs]
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+%\setromanfont [Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin Italic}]{Fontin}
+\setromanfont [Ligatures={Common}, BoldFont={Linux Libertine Bold}, ItalicFont={Linux Libertine Italic}]{Linux Libertine}
+%\setsansfont [Ligatures={Common}, BoldFont={Fontin Sans Bold}, ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+\setmonofont[Scale=0.8]{Monaco} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Linux Libertine Bold}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+\newcommand{\years}[1]{\marginpar{\footnotesize #1}}
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\upshape\Large}
+\subsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\subsubsectionfont{\rmfamily\mdseries\upshape\normalsize} 
+%modifying section numbering
+\def\thesubsection{\arabic{subsection}.\ } 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=cyan,citecolor=blue,filecolor=black,urlcolor=cyan} 
+
+% DOCUMENT
+\begin{document}
+\reversemarginpar
+{\LARGE Francesco Santanastasio}\\[1cm]
+%Institute address
+\begin{tabular}{ l c l }
+ Physikalisches Institutes & & \\
+ Albert Ludwig Universitaet & &\\
+Hermann-Herder-Str. 3 & \makebox[3cm]{}& Tel: \texttt{+49 761 203 5879}\\
+\texttt{79104} Freiburg & & Fax: \texttt{+49 761 203 5938}\\
+Germany & & email: \href{mailto:rbianchi@cern.ch}{rbianchi@cern.ch}\\
+\end{tabular}\\[1em]
+% Home address
+\begin{tabular}{ l c l }
+\emph{Home Address}: & & \\
+Seegasse 4a & \makebox[4.3cm]{} & Tel: \texttt{+49 7663 91 26 65}\\
+\texttt{79268} Boetzingen & & Cel: \texttt{+39 05 65 089}\\
+Germany & & Cel: \texttt{+41 76 70 16 266}\\ 
+\end{tabular}\\[1em]
+%\vfill
+ Born:  4 October 1976---Roma, Italy\\
+Nationality:  Italian
+%\textsc{url}: \href{http://www.ias.edu/spfeatures/einstein/}{http://www.ias.edu/spfeatures/einstein/}\\ 
+
+%%\hrule
+\section*{Current position}
+\emph{PhD Student}, Physics Institut, Prof. Gregor Herten Group, Freiburg University, Germany
+
+%%\hrule
+\section*{Areas of specialization}
+ Particle physics, Data Analysis, Analysis Software Development, Supersymmetry
+ 
+\section*{Areas of competence}
+ Software Development, IT, Particle detector physics
+ 
+
+%\hrule
+\section*{Education}
+\noindent
+\years{Oct 2006 - present}\textbf{PhD in Particle Physics} \\
+\textit{``Looking for signatures of Physics Beyond the Standard Model in ATLAS with an Automated Model-Independent General Search''}\\
+\textsc{Advisors:} Prof. Gregor Herten, Dr. Sascha Caron, Dr. Renaud Brunelière (Freiburg)\\
+\textit{Albert Ludwig Universitaet}, Freiburg, Germany\\
+\textit{\small expected date: August 2010}\\[1em]
+\years{2003-2006}\textbf{MSc (\textit{Laurea Magistrale}) in Nuclear and Subnuclear Physics} {\small (highest honours)}\\
+\textit{``Study of the ATLAS MDT Muon Chambers calibration constants with data from a testbeam''}\\
+\textsc{Advisors:} Prof. Toni Baroncelli (INFN), Prof. Filippo Ceradini (Roma Tre)\\
+Mark: 110/110 \textit{``magna cum laude''}\\
+\textit{Università Roma Tre}, Roma, Italy\\[1em]
+\years{2000-2003}\textbf{BSc (\textit{Laurea}) in Physics} {\small (highest honours)}\\
+\textit{`Multithreading for the ATLAS Data Acquisition System Data Flow`'}\\
+\textsc{Advisors:} Prof.sa Fernanda Pastore (RomaTre), Dr. David Francis (CERN), Dr. Luis Tremblet (CERN) \\
+Mark: 110/110 \textit{``magna cum laude''}\\
+\textit{Università Roma Tre}, Roma, Italy\\[1em]
+
+
+
+%%\hrule
+%\section*{Appointments held}
+\section*{Work Experience}
+\noindent
+\years{2010-now}\textbf{CERN, European Organization for Nuclear Research}, Geneva, Switzerland\\
+\textit{Fellow Researcher}\\
+Working on the upgrade and operation of the Data Aquisition system (DAQ) of the ATLAS experiment. And working on data analysis within the ATLAS Supersymmetry Working Group.\\[1em]
+\years{2009-2010} \textbf{``Albert Ludwig" Freiburg University}, Freiburg, Germany\\
+\textit{Software Developer}\\
+Working in the Grid group, developing a web dashboard to monitor Freiburg BFG (\textit{Black Forest Grid}) machines\\[1em]
+\years{2006-2008} \textbf{``Albert Ludwig" Freiburg University}, Freiburg, Germany\\
+\textit{Teaching Assistant in Particle Physics}\\
+Teaching at "Advanced Physics Lab Class" for students of Physics\\[1em]
+\years{Jun-Jul 2003}\textbf{CERN - ATLAS TDAQ}, Geneva, Switzerland\\
+\textit{Internship in Data Acquisition}\\
+Summer Internship, where I worked in the Trigger \& Data Acquisition (TDAQ) Group of the ATLAS Experiment, on a Multithreading project for the Data Flow software.\\[1em]
+\years{Jul-Aug 2002}\textbf{Fraunhofer-Institut für Photonische Mikrosysteme IPMS}, Dresden, Germany\\
+\textit{Internship in Optics}\\
+Summer Internship, where I conceived and realized a  microspectrometer for a fair, to show an innovative micro-electro-mechanical-optical device built at the Institute.\\[1em]
+\years{Jun-Jul 2001}\textbf{CNRS-LTHE} , Grenoble, France\\
+\textit{Internship in Geophysics}\\
+Summer Internship (as "Stage de Licence"), where I worked on the field with the equipe from the Institute and other students, making measures of erosion and water infiltration on the marnes of Digne, France.\\[1em]
+\years{1999-2000}\textbf{WWF  ``Macchiagrande" Protected Area}, Fregene, Italy\\
+\textit{Civil Service (at the place of the Army Service)}\\
+Working in the protected area taking care of the maintenance of the area, protecting the environment and the wild animals, and accompanying the visitors of the park.\\[1em]
+\years{1995-1999}Rome, Italy. Waiter in several restaurants in Rome.\\
+
+
+%%\hrule
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Grants, honors & awards
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Grants, honors \amper{} awards}
+\section*{Grants}
+\noindent
+\years{2003} \textsc{INFN} Grant for Thesis abroad.\\[1em]
+\years{2000-2001} \textsc{Erasmus} studies at \textit{``Université Joseph Fourier''}, Grenoble, France.
+%\years{1921}Nobel Prize in Physics, Nobel Foundation
+% ...se, magari!! ;-D
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Languages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  	 \section*{Languages}
+\begin{tabular}{l c l}
+\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{French} (fluent)\\
+\textit{English} (fluent) & &\textit{German} (basic)\\
+\end{tabular}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Skills
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%\section*{Programming \amper\ IT}
+\section*{Skills}
+
+\setcounter{subsection}{0}
+
+\subsection{Programming Languages}
+
+\textbf{Python}\\
+ Very good knowledge,\\
+      Used in the day-by-day work. Multiparadigm programming. Very good knowledge not only of the language itself, but also of the standard library and external libraries, and experience with many third-part extensions (like distutils, vpython, beautifulsoup, ... ). Integration of Python with C++ custom code. Started building web applications and web services with the CherryPy framework, also together with the Qooxdoo Javascript framework as front-end.\\
+
+\textbf{C++}\\ 
+Very good knowledge,\\
+      Used in the day-by-day work. Not only the language itself, but also the STD library and external libraries, like Boost.
+      Intergation of C++ code with Python.\\
+
+\textbf{Fortran}\\ 
+Good knowledge,\\
+      Used during the MSc Thesis work, to perform data analysis and toy-MonteCarlo programs.\\
+
+\textbf{JavaScript}\\
+ Basic knowledge,\\
+      started building web application with the Qooxdoo Javascript framework as front-end, together with CherryPy as server-side back-end.\\
+
+Markup languages: \textbf{XML}, \textbf{JSON}, \textbf{Wiki}, \textbf{HTML+CSS}. Good knowledge\\
+
+Typesetting languages: \textbf{LaTeX}, \textbf{XeTeX}. Very good knowledge\\
+
+\textbf{BASIC}. Good \textit{old} knowledge
+
+
+	
+\subsection{Physics Packages}
+
+\textbf{ROOT Analysis Framework}\\ 
+Very good Knowledge\\
+     good knowledge of ROOT Classes\\
+      day-by-day usage via CINT, PyROOT or compiled C++.\\
+
+\textbf{ATLAS Athena Framework}\\
+Very good knowledge, day-by-day use.\\
+
+\textbf{LabView}, \textbf{TestPoint}, \textbf{Origin}\\ Basic knowledge\\
+    
+	
+\subsection{Operating Systems}
+
+\textbf{Linux}\\ Very good knowledge, also as \textit{Administrator} (especially SLC, RedHat, Debian)\\
+
+\textbf{Windows}\\ Very good knowledge, also as \textit{Administrator}: Vista, XP, 9X, 3.X, MS-DOS\\
+
+\textbf{Apple Os X}\\ Good knowledge: Snow Leopard\\
+
+
+	
+\subsection{Other IT-related skills}	
+
+Good knwoledge of \textbf{GRID} usage, especially with DQ2, Ganga, Panda\\
+
+Good knowledge of build tools like \textbf{make}, \textbf{autoconf}, \textbf{distutils} and basic knowledge of the \textbf{CMT}\\
+
+Very good knowledge of \textbf{Subversion} version control system, also as \textit{Administrator} (in Freiburg I'm SVN Admin since 3 years)\\
+
+Very good knowledge of the \textbf{Eclipse IDE} as multi-language development framework, also of many of its extra packages\\
+
+Good Knowledge of \textbf{AFS file system} and basic knowledge of \textbf{Kerberos}\\
+
+\textbf{CMS -- Content Management Systems}: Good Knowledge of \textbf{Joomla 1.5} administration and customization. Basic knowledge of \textbf{Wordpress2}\\
+
+\textbf{OS and Computer Architecture}: Good Knowledge of computer architecture theory and Operating System architectures, and implications in software programming techniques (pipelines, buffers, caches, I/O, multithreading, ...)\\
+
+Good knowledge of the \textbf{Hardware} Market, and good skills in assembling machines\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Service work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Service work in Experiments and Collaborations}
+\subsection*{ATLAS Experiment}
+\noindent
+\textbf{Data Analysis: Supersymmetry Working Group} Working on data analysis, on exploring and implementing analysis strategies and on data files production\\
+\textbf{Development \& Upgrade} Working in the DAQ group, on the upgrade of the configuration DB system\\
+\textbf{Detector Operation} Shifter in the control room, at the Muon System, DAQ and Run Control desks\\
+\textbf{Software Framework} Taking part in code testing, and shifter for the build test system (RTT)\\
+\textbf{Documentation} Responsible person for a part of the documentation of the ATLAS data-format\\
+\textbf{Public Relations} Official ATLAS Guide, escorting VIP visits to the ATLAS cavern\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Publications & Talks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Publications \amper{} talks}
+\setcounter{subsection}{0}
+
+\subsection{Peer-reviewed Journal papers}
+\noindent
+
+\textit{``WatchMan Project - A Python CASE framework for High Energy Physics data analysis in the LHC era"}\\
+\textbf {R.M.Bianchi}, R.Brunelière\\
+\emph{\small submitted to ``Journal of Computational Science'', Elsevier}\\
+
+
+\textit{``WatchMan Project - Computer Aided Software Engineering applied to HEP Analysis Code Building for LHC"}\\
+\textbf {R.M.Bianchi}, R.Brunelière, S.Caron\\
+\emph{Proceedings Of Science}:   PoS(ACAT2010)061\\
+
+\textit{``Discovery potential of Supersymmetry and Universal Extra Dimensions in the ATLAS experiment at the Large Hadron Collider at CERN"}\\
+\textbf {R.M.Bianchi}\\
+\emph{Proceedings Of Science}:   PoS(HCP2009)066\\
+
+\textit{``Study of the ATLAS MDT Spectrometer using High Energy CERN combined Test beam Data"},\\
+C. Adorisio , \textit{et al.}\\
+\emph{Nuclear Instruments and Methods A}: A598:400-415,2009\\
+
+
+
+\subsection{Peer-reviewed CERN public notes}
+
+\textit{``Discovery Potential of SUSY and UED in ATLAS''}\\
+\textbf{ R.M.Bianchi},  on behalf of the ATLAS Collaboration\\
+Poster for Hadron Collider Physics Symposium (HCP) 2009 in Evian\\
+CERN ATLAS Public:    ATL-PHYS-SLIDE-2009-361\\
+
+\textit{``Prospects for SUSY and UED discovery based on inclusive searches at 10 TeV centre-of-mass energy with the ATLAS detector''}\\
+\textbf{R.M.Bianchi}, R.Brunelière, S.Caron, J.Dietrich, M.Rammensee, Z.Rurikova\\
+CERN ATLAS Internal Note:      ATL-PHYS-INT-2009-060, ATL-COM-PHYS-2009-302\\
+CERN, Geneva, June 2009\\
+This internal note became ATLAS PUBLIC:    ATL-PHYS-PUB-2009-084\\
+
+\textit{``Prospects for Supersimmetry Discovery Based on Inclusive Searches with the ATLAS detector at the LHC (Long Version)''}\\
+J.Abdallah, F.Ahles, S.Asai, J.Asal, A.J.Barr, \textbf{R.M.Bianchi},  \textit{et al.}\\
+CERN ATLAS Communication: ATL-COM-PHYS-2009-261\\
+CERN, Geneva, May 2009\\
+published within the CSC Book "Expected Performance of the ATLAS Experiment, Detector, Trigger and Physics", CERN-OPEN-2008-020, Geneva, 2008.\\
+
+\textit{``Study of MDT calibration constants using H8 testbeam data of year 2004''},\\
+Baroncelli, T, \textbf{R.M.Bianchi}, S.Di Luise, A.Passeri, F. Petrucci, L.Spogli\\
+CERN ATLAS Public Note: ATL-MUON-PUB-2007-004. Jul. 2006\\
+
+
+\subsection{ATLAS internal notes}
+
+\textit{``Usage of the Distributed Analysis Tools in The ATLAS Supersymmetry Working Group''},\\
+Barr, A; \textbf{R.M.Bianchi},  M.Biglietti, O.Brandt, S.Caron, G.Carlino, A.Christov, \textit{et al.}\\
+CERN ATLAS Internal Note:    ATL-COM-SOFT-2007-011\\
+CERN, Geneva, Aug. 2007\\
+
+
+%\subsection*{Books}
+%\noindent
+%\years{1954}Einstein, Albert (1954), \emph{Ideas and Opinions}, New York: Random House, ISBN 0-517-00393-7
+%...magari!! :-)  :->
+
+%\subsection*{Newspaper articles}
+%\noindent
+%\years{1940}Einstein, Albert, et al. (December 4, 1948), ‚ÄúTo the editors", \emph{New York Times}\\
+%\years{1949}Einstein, Albert (May 1949), ‚ÄúWhy Socialism?", \emph{Monthly Review}.
+
+
+
+
+\section*{Talks in international conferences}
+\noindent
+\years{8-11.07.2010} \textbf{EuroSciPy 2010} - 3rd International
+Conference on Python in Science\\
+\textit{``WatchMan Project - A Python CASE framework for High Energy
+Physics data analysis in the LHC era''}\\ 
+Talk about my own work\\ 
+Paris, France\\[1em]
+\years{22-27.02.2010} \textbf{ACAT 2010} - 13th International Workshop on Advanced Computing and Analysis Techniques for Physics,\\
+\textit{``WatchMan Project: Applying Computer Aided Software Engineering to HEP Analysis Code Building for LHC''}\\
+Talk about my own work\\
+Jaipur, India\\[1em]
+\years{16-20.11.2009} \textbf{Evian HCP 2009} - Hadron Collider Physics Symposium\\
+\textit{"Discovery Potential of SUSY and UED in ATLAS"}\\
+Poster on behalf of the ATLAS Collaboration\\
+Evian, France\\
+
+
+
+%\section*{Talks in national conferences}
+% BFG conferences: Freiburg and Munich
+
+
+
+
+
+\section*{Attended workshops \& conferences}
+\noindent
+\years{2-4.02.2010} \textit{Physics for Health in Europe Workshop},\\ CERN\\[1em]
+\years{24.04-01.05.2009}\textit{1st International Workshop On Hadron Beam Therapy of Cancer},\\
+ Erice, Sicily (Italy)
+ 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Teaching 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Teaching}
+\noindent
+\years{2009}Supervisor of a CERN Summer Student\\
+project: ATLAS data analysis\\
+CERN, Geneva, Switzerland\\[1em] 
+\years{2008}Assistant for the 4\textsuperscript{th} year Physics Laboratory
+class: \textit{Subnuclear Physics}\\
+\textit{Albert Ludwig Universitaet}, Freiburg, Germany\\[1em]
+\years{2007}Assistant for the 1\textsuperscript{st} year Physics Laboratory
+class: \textit{Mechanics and Electromagnetism}\\
+textit{Albert Ludwig Universitaet}, Freiburg, Germany\\[1em]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Activities for scientific dissemination
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Scientific dissemination activities}
+\noindent
+\years{2010-2011}Official guide for VIP visits at the ATLAS experiment cavern at CERN.\\[1em]
+\years{2007-2008}Guide at ``Physics Open Day'' for High School students at Freiburg University (Germany)\\[1em]
+\years{2004-2005}Assistant at CERN/INFN ``Masterclasses'' for High School students, Rome (Italy)\\[1em]
+ 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Training
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Training}
+\setcounter{subsection}{0}
+
+\subsection{Academic training}
+\noindent
+\years{20-22.01.2010} \textit{Physics and Analysis at a Hadron Collider}\\
+by Dr. Douglas Glenzinski (FNAL), CERN\\[1em]
+\years{11-15.05.2009} \textit{Lectures on Multivariate Analysis Techniques},\\
+by Helge Voss, \\
+Freiburg University (Germany)\\[1em]
+\years{9-10.02.2009 } \textit{Understanding Cross Sections at the LHC}\\
+by  Dr. Stephen Mrenna (Fermi National Accelerator Laboratory, USA),\\
+CERN\\[1em]
+\years{2-5.02.2009 } \textit{Statistical Techniques for Particle Physics}\\
+by  Dr. Kyle Cranmer (CERN-PH), \\
+CERN\\[1em]
+\years{ 21-23.01.2009} \textit{The Opposite Ends of Supersymmetry and their Implications for the LHC}\\
+by Dr. Wells, James (CERN-TH), \\
+CERN\\
+
+\subsection{Technical training}
+\noindent
+\years{7.12.2009}\textit{"Developing Secure Software"} , CERN\\[1em]
+\years{6-7.10.2009}CERN openlab / Intel Computer \textit{"Architecture and Performance Tuning Workshop"}\\
+
+
+\section*{Summer schools}
+\noindent
+\years{12-22.08.2008} \textit{Fermilab/CERN Hadron Collider Physics Summer School 2008}\\
+Fermilab, Chicago, USA\\[1em]
+\years{28.08-08.09.2006} \textit{ 2\textsuperscript{nd} CASPUR Summer School on Advanced Computing}\\
+Castel Gandolfo, Italy\\[1em]
+\years{12-20.06.2005} \textit{NUFACT 05 Summer Institute on Neutrino Factories and Superbeams}\\
+Capri, Italy\\[1em]
+\years{17-21.05.2004} \textit{LNF Spring School "Bruno Tuscheck" in Nuclear, Subnuclear and Astroparticle Physics}\\
+LNF, Frascati (Italy)\\
+
+
+
+
+
+%\hrule
+%\section*{Service to the profession}
+
+
+
+%\vspace{1cm}
+\vfill{}
+\hrulefill
+
+% FILL IN THE FULL URL TO YOUR CV
+\begin{center}
+%{\footnotesize \href{http://www.ias.edu/spfeatures/einstein}{http://www.ias.edu/spfeatures/einstein} ‚Äî Last updated: \today}
+{\footnotesize Last updated: \today}
+\end{center}
+
+
+\end{document}
