@@ -1,0 +1,2156 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------ 
+
+
+% ! TEX TS-program = XeLaTeX -xdv2pdf
+% ! TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec} 
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+% per le lettere accentate italiane sul Mac! :-)
+%\usepackage[applemac]{inputenc} %with VIM
+\usepackage[latin1]{inputenc} % with TeXShop
+
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ADDITIONAL SYMBOLS
+%\usesymbols[mvs]
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+%\setromanfont [Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin Italic}]{Fontin}
+\setromanfont [Ligatures={Common}, BoldFont={Linux Libertine Bold}, ItalicFont={Linux Libertine Italic}]{Linux Libertine}
+%\setsansfont [Ligatures={Common}, BoldFont={Fontin Sans Bold}, ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+\setmonofont[Scale=0.8]{Monaco} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Linux Libertine Bold}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+\newcommand{\years}[1]{\marginpar{\footnotesize #1}}
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\upshape\Large}
+\subsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\subsubsectionfont{\rmfamily\mdseries\upshape\normalsize} 
+%modifying section numbering
+\def\thesubsection{\arabic{subsection}.\ } 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=cyan,citecolor=blue,filecolor=black,urlcolor=cyan} 
+
+% Title of Bibliography
+\renewcommand\refname{References \\ \normalsize \begin{center} \quad \quad \textsc{Publications (relative to research activities)}\end{center} }
+
+% DOCUMENT
+\begin{document}
+\reversemarginpar
+{\LARGE Francesco Santanastasio}\\[1cm]
+%Institute address
+%begin{tabular}{ l c l }
+%\emph{Institute Address}: & & \\
+%University of Maryland & & \\
+%Department of Physics - John S. Toll Physics Building & &\\
+%College Park  & & \\
+%MD  \texttt{20742-4111} & \makebox[1.2cm]{} & Tel: \texttt{+1 301 405 3401} \\
+%United States of America & & Fax: \texttt{+1 301 314 9525} \\
+%\end{tabular}\\[1em]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Publications & Talks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{599}
+
+%\cite{Chatrchyan:2011ar}
+\bibitem{Chatrchyan:2011ar} 
+  {\bf ``Search for First Generation Scalar Leptoquarks in the evjj channel in pp collisions at sqrt(s) = 7 TeV''}
+  \\{} S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  \\{} Phys.\ Lett.\ B {\bf 703}, 246 (2011), [arXiv:1105.5237 [hep-ex]].
+  %%CITATION = ARXIV:1105.5237;%%
+
+%\cite{Khachatryan:2010mp}
+\bibitem{Khachatryan:2010mp}
+{\bf ``Search for Pair Production of First-Generation Scalar Leptoquarks in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+    \\{} Phys.\ Rev.\ Lett.\  {\bf 106}, 201802 (2011), [arXiv:1012.4031 [hep-ex]]
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?irn=8913501}{SPIRES entry}
+
+\bibitem{Chatrchyan:2012vza} 
+{\bf ``Search for pair production of first- and second-generation scalar leptoquarks in pp collisions at $\sqrt{s}= 7$ TeV''} 
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]  
+ \\{} Phys.\ Rev.\ D {\bf 86}, 052013 (2012) [arXiv:1207.5406 [hep-ex]]. 
+  %%CITATION = ARXIV:1207.5406;%%
+  %7 citations counted in INSPIRE as of 14 Feb 2013
+
+%\cite{CMS:2012yf}
+\bibitem{CMS:2012yf} 
+ {\bf ``Search for narrow resonances and quantum black holes in inclusive and b-tagged dijet mass spectra from pp collisions at $\sqrt{s}=7$ TeV''}
+ \\{} S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+ \\{} JHEP {\bf 1301}, 013 (2013) [arXiv:1210.2387 [hep-ex]].
+  %%CITATION = ARXIV:1210.2387;%%
+  %10 citations counted in INSPIRE as of 14 Feb 2013
+
+%\cite{Chatrchyan:2013qha}
+\bibitem{Chatrchyan:2013qha} 
+ {\bf ``Search for narrow resonances using the dijet mass spectrum in pp collisions at $\sqrt{s}=8$ TeV''}
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+ \\{} arXiv:1302.4794 [hep-ex] (2013) , Paper submitted to Phys. Rev. Lett.
+  %%CITATION = ARXIV:1302.4794;%%
+
+%\cite{Chatrchyan:2012yxa}
+\bibitem{Chatrchyan:2012yxa} 
+ {\bf ``Search for heavy resonances in the W/Z-tagged dijet mass spectrum in pp collisions at 7 TeV''}
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+ \\{}arXiv:1212.1910 [hep-ex] (2012) , Paper submitted to Phys. Lett. B
+  %%CITATION = ARXIV:1212.1910;%%
+
+%\cite{Chatrchyan:2012rva}
+\bibitem{Chatrchyan:2012rva} 
+ {\bf ``Search for exotic resonances decaying into WZ/ZZ in pp collisions at $\sqrt{s}=7$ TeV''}
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+ \\{}JHEP {\bf 1302}, 036 (2013)
+  [arXiv:1211.5779 [hep-ex]]
+
+%\cite{Chatrchyan:2010zz}
+\bibitem{Chatrchyan:2010zz}
+{\bf ``Study of various photomultiplier tubes with muon beams and Cherenkov light produced in electron showers''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS HCAL Collaboration]
+  \\{}JINST {\bf 5}, P06002 (2010)
+%\\{}CMS-NOTE-2010-003
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2cp06002}{SPIRES entry}
+
+%\cite{Chatrchyan:2009hy}
+\bibitem{Chatrchyan:2009hy}
+{\bf ``Identification and Filtering of Uncharacteristic Noise in the CMS Hadron Calorimeter''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03014 (2010)
+  [arXiv:0911.4881 [physics.ins-det]]
+%\\{}CMS-CFT-09-019
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03014}{SPIRES entry}
+
+%\cite{Abdullin:2009zz}
+\bibitem{Abdullin:2009zz}
+{\bf ``The CMS Barrel Calorimeter Response To Particle Beams From 2-Gev/C To 350-Gev/C''}
+  \\{}S.~Abdullin {\it et al.}  [USCMS Collaboration and ECAL/HCAL
+                  Collaboration]
+  \\{}Eur.\ Phys.\ J.\  C {\bf 60}, 359 (2009)
+  [Erratum-ibid.\  C {\bf 61}, 353 (2009)]
+%\\{}FERMILAB-PUB-08-661-E-PPD
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=ephja\%2cc60\%2c359}{SPIRES entry}
+
+%\cite{Adzic:2008zza}
+\bibitem{Adzic:2008zza}
+{\bf ``Intercalibration of the barrel electromagnetic calorimeter of the CMS  experiment at start-up''}
+  \\{}P.~Adzic {\it et al.}  [CMS Electromagnetic Calorimeter Group]
+  \\{}JINST {\bf 3}, P10007 (2008)
+%\\{}CERN-CMS-NOTE-2008-018
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c3\%2cp10007}{SPIRES entry}
+
+%\cite{Bartoloni:2007hx}
+\bibitem{Bartoloni:2007hx}
+{\bf ``High voltage system for the CMS electromagnetic calorimeter''}
+  \\{}A.~Bartoloni {\it et al.}
+  \\{}Nucl.\ Instrum.\ Meth.\  A {\bf 582}, 462 (2007)
+%\\{}CERN-CMS-NOTE-2007-009
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=nuima\%2ca582\%2c462}{SPIRES entry}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Conference Proceedings} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%Proceedings of the XLVIth Rencontres de Moriond
+%2011 Electroweak Interactions and Unified Theories
+%La Thuile, Aosta Valley, Italy – March 13-20, 2011
+%edited by Etienne Augé, Jacques Dumarchez, and Jean Trân Thanh Vân
+%© Thê Gioi Publishers, 2011
+
+%Exotica searches at the CMS experiment 
+%F. Santanastasio 
+%Pages 125-132
+
+%\cite{Santanastasio:2013iz}
+\bibitem{Santanastasio:2013iz} 
+  {\bf ``Exotic Phenomena Searches at Hadron Colliders''}
+  \\{}F.~Santanastasio
+  \\{}arXiv:1301.2521 [hep-ex] (2013)
+  \\{}{\it Prepared for the XXXII Physics in Collision 2012 conference (PIC2012), Strbske Pleso, Slovakia, 12-15 September 2012}
+  %%CITATION = ARXIV:1301.2521;%%
+
+\bibitem{MoriondEW2011}
+{\bf ``Exotica searches at the CMS experiment''}
+  \\{}F.~Santanastasio
+  \\{}Proceedings of the XLVIth Rencontres de Moriond 
+  2011 Electroweak Interactions and Unified Theories, 125-132 (2011), edited by Etienne Auge, Jacques Dumarchez, and Jean Tran Thanh Van $\textcopyright$ The Gioi Publishers
+\\{}{\it Prepared for XLVIth Rencontres de Moriond 2011 Electroweak Interactions and Unified Theories, La Thuile, Aosta Valley, Italy, 13-20 March 2011}
+
+\bibitem{Santanastasio:2010zz}
+{\bf ``Searches With Early Data At CMS''}
+  \\{}F.~Santanastasio
+  \\{}PoS {\bf DIS2010}, 206 (2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=posci\%2cdis2010\%2c206}{SPIRES entry}
+\\{}{\it Prepared for 18th International Workshop on Deep Inelastic Scattering and Related Subjects (DIS 2010), Florence, Italy, 19-23 Apr 2010}
+
+\bibitem{Santanastasio:IFAE2009}
+{\bf ``Prospects for Exotica Searches at ATLAS and CMS Experiments''}
+  \\{}F.~Santanastasio
+  \\{}Il Nuovo Cimento Vol.32 C, N.3-4 ncc9484 (2009)
+\\{}{\it Prepared for Incontri di Fisica delle Alte Energie (IFAE 2009), Bari, Italy, Apr 2009}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Other Publications and Pre-Prints of the CMS Collaboration} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% March 2012 %%%
+
+
+%\cite{Chatrchyan:2013cld}
+\bibitem{Chatrchyan:2013cld} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the X(3872) production cross section via decays to J/psi pi pi in pp collisions at sqrt(s) = 7 TeV,''
+  arXiv:1302.3968 [hep-ex].
+  %%CITATION = ARXIV:1302.3968;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013qga}
+\bibitem{Chatrchyan:2013qga} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a Higgs boson decaying into a b-quark pair and produced in association with b quarks in proton-proton collisions at 7 TeV,''
+  arXiv:1302.2892 [hep-ex].
+  %%CITATION = ARXIV:1302.2892;%%
+%\cite{Chatrchyan:2013lga}
+\bibitem{Chatrchyan:2013lga} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics in final states with a lepton and missing transverse energy in pp collisions at the LHC,''
+  arXiv:1302.2812 [hep-ex].
+  %%CITATION = ARXIV:1302.2812;%%
+%\cite{Chatrchyan:2013gfi}
+\bibitem{Chatrchyan:2013gfi} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Study of the underlying event at forward rapidity in pp collisions at sqrt(s) = 0.9, 2.76, and 7 TeV,''
+  arXiv:1302.2394 [hep-ex].
+  %%CITATION = ARXIV:1302.2394;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013sfs}
+\bibitem{Chatrchyan:2013sfs} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Searches for Higgs bosons in pp collisions at sqrt(s) = 7 and 8 TeV in the context of four-generation and fermiophobic models,''
+  arXiv:1302.1764 [hep-ex].
+  %%CITATION = ARXIV:1302.1764;%%
+%\cite{Chatrchyan:2013izb}
+\bibitem{Chatrchyan:2013izb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for pair-produced dijet resonances in four-jet final states in pp collisions at sqrt(s) = 7 TeV,''
+  arXiv:1302.0531 [hep-ex].
+  %%CITATION = ARXIV:1302.0531;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013ual}
+\bibitem{Chatrchyan:2013ual} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the ttbar production cross section in the all-jet final state in pp collisions at sqrt(s) = 7 TeV,''
+  arXiv:1302.0508 [hep-ex].
+  %%CITATION = ARXIV:1302.0508;%%
+%\cite{Chatrchyan:2013kff}
+\bibitem{Chatrchyan:2013kff} 
+  S.~Chatrchyan {\it et al.}  [ CMS Collaboration],
+  %``Measurement of the top-antitop production cross section in the tau+jets channel in pp collisions at sqrt(s) = 7 TeV,''
+  arXiv:1301.5755 [hep-ex].
+  %%CITATION = ARXIV:1301.5755;%%
+%\cite{Chatrchyan:2013muj}
+\bibitem{Chatrchyan:2013muj} 
+  S.~Chatrchyan {\it et al.}  [ CMS Collaboration],
+  %``Search for contact interactions using the inclusive jet pT spectrum in pp collisions at sqrt(s)=7 TeV,''
+  arXiv:1301.5023 [hep-ex].
+  %%CITATION = ARXIV:1301.5023;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013oev}
+\bibitem{Chatrchyan:2013oev} 
+  S.~Chatrchyan {\it et al.}  [ CMS Collaboration],
+  %``Measurement of W+W- and ZZ production cross sections in pp collisions at sqrt(s)=8 TeV,''
+  arXiv:1301.4698 [hep-ex].
+  %%CITATION = ARXIV:1301.4698;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013dsa}
+\bibitem{Chatrchyan:2013dsa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for physics beyond the standard model in events with tau leptons, jets, and large transverse momentum imbalance in pp collisions at sqrt(s) = 7 TeV,''
+  arXiv:1301.3792 [hep-ex].
+  %%CITATION = ARXIV:1301.3792;%%
+%\cite{Chatrchyan:2013sza}
+\bibitem{Chatrchyan:2013sza} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Interpretation of searches for supersymmetry with simplified models,''
+  arXiv:1301.2175 [hep-ex].
+  %%CITATION = ARXIV:1301.2175;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013tna}
+\bibitem{Chatrchyan:2013tna} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Event shapes and azimuthal correlations in $Z$ + jets events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1301.1646 [hep-ex].
+  %%CITATION = ARXIV:1301.1646;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2013kha}
+\bibitem{Chatrchyan:2013kha} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in events with opposite-sign dileptons and missing transverse energy using an artificial neural network,''
+  arXiv:1301.0916 [hep-ex].
+  %%CITATION = ARXIV:1301.0916;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ola}
+\bibitem{Chatrchyan:2012ola} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in $pp$ collisions at $\sqrt{s}=7$ TeV in events with a single lepton, jets, and missing transverse momentum,''
+  arXiv:1212.6428 [hep-ex].
+  %%CITATION = ARXIV:1212.6428;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012jja}
+\bibitem{Chatrchyan:2012jja} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``On the mass and spin-parity of the Higgs boson candidate via its decays to Z boson pairs,''
+  arXiv:1212.6639 [hep-ex].
+  %%CITATION = ARXIV:1212.6639;%%
+  %8 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012bja}
+\bibitem{Chatrchyan:2012bja} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurements of differential jet cross sections in proton-proton collisions at $\sqrt{s}=7$ TeV with the CMS detector,''
+  arXiv:1212.6660 [hep-ex].
+  %%CITATION = ARXIV:1212.6660;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ria}
+\bibitem{Chatrchyan:2012ria} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $t\bar{t}$ production cross section in $pp$ collisions at $\sqrt{s}=7$ TeV with lepton + jets final states,''
+  arXiv:1212.6682 [hep-ex].
+  %%CITATION = ARXIV:1212.6682;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012uea}
+\bibitem{Chatrchyan:2012uea} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Inclusive search for supersymmetry using the razor variables in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1212.6961 [hep-ex].
+  %%CITATION = ARXIV:1212.6961;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012paa}
+\bibitem{Chatrchyan:2012paa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics in events with same-sign dileptons and $b$ jets in $pp$ collisions at $\sqrt{s}=8$ TeV,''
+  arXiv:1212.6194 [hep-ex].
+  %%CITATION = ARXIV:1212.6194;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012oaa}
+\bibitem{Chatrchyan:2012oaa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy narrow dilepton resonances in $pp$ collisions at $\sqrt{s}=7$ TeV and $\sqrt{s}=8$ TeV,''
+  Phys.\  Lett.\  B {\bf 2}, 3 (2013)
+  [arXiv:1212.6175 [hep-ex]].
+  %%CITATION = ARXIV:1212.6175;%%
+%\cite{Chatrchyan:2012hda}
+\bibitem{Chatrchyan:2012hda} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for contact interactions in opposite-sign dimuon events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1212.4563 [hep-ex].
+  %%CITATION = ARXIV:1212.4563;%%
+%\cite{Chatrchyan:2012vxa}
+\bibitem{Chatrchyan:2012vxa} 
+  S.~Chatrchyan {\it et al.}  [ CMS Collaboration],
+  %``Search for long-lived particles decaying to photons and missing energy in proton-proton collisions at sqrt(s) = 7 TeV,''
+  arXiv:1212.1838 [hep-ex].
+  %%CITATION = ARXIV:1212.1838;%%
+%\cite{Chatrchyan:2012sga}
+\bibitem{Chatrchyan:2012sga} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $ZZ$ production cross section and search for anomalous couplings in 2 l2l ' final states in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1301}, 063 (2013)
+  [arXiv:1211.4890 [hep-ex]].
+  %%CITATION = ARXIV:1211.4890;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012bba}
+\bibitem{Chatrchyan:2012bba} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics in events with photons, jets, and missing transverse energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1211.4784 [hep-ex].
+  %%CITATION = ARXIV:1211.4784;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012jua}
+\bibitem{Chatrchyan:2012jua} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Identification of b-quark jets with the CMS experiment,''
+  arXiv:1211.4462 [hep-ex].
+  %%CITATION = ARXIV:1211.4462;%%
+  %12 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012yca}
+\bibitem{Chatrchyan:2012yca} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for $Z$ ' resonances decaying to $t\bar{t}$ in dilepton+jets final states in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1211.3338 [hep-ex].
+  %%CITATION = ARXIV:1211.3338;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012sca}
+\bibitem{Chatrchyan:2012sca} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in final states with a single lepton, $b$-quark jets, and missing transverse energy in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1211.3143 [hep-ex].
+  %%CITATION = ARXIV:1211.3143;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012jna}
+\bibitem{Chatrchyan:2012jna} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search in leptonic channels for heavy resonances decaying to long-lived neutral particles,''
+  JHEP {\bf 1302}, 085 (2013)
+  [arXiv:1211.2472 [hep-ex]].
+  %%CITATION = ARXIV:1211.2472;%%
+%\cite{Chatrchyan:2012saa}
+\bibitem{Chatrchyan:2012saa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of differential top-quark pair production cross sections in $pp$ colisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1211.2220 [hep-ex].
+  %%CITATION = ARXIV:1211.2220;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012wa}
+\bibitem{Chatrchyan:2012wa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in final states with missing transverse energy and 0, 1, 2, or at least 3 b-quark jets in 7 TeV pp collisions using the variable alphaT,''
+  JHEP {\bf 1301}, 077 (2013)
+  [arXiv:1210.8115 [hep-ex]].
+  %%CITATION = ARXIV:1210.8115;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012cg}
+\bibitem{Chatrchyan:2012cg} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a non-standard-model Higgs boson decaying to a pair of new light bosons in four-muon final states,''
+  arXiv:1210.7619 [hep-ex].
+  %%CITATION = ARXIV:1210.7619;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012bd}
+\bibitem{Chatrchyan:2012bd} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the sum of $W W$ and $WZ$ production with $W+$dijet events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1210.7544 [hep-ex].
+  %%CITATION = ARXIV:1210.7544;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012af}
+\bibitem{Chatrchyan:2012af} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy quarks decaying into a top quark and a $W$ or $Z$ boson using lepton + jets events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1210.7471 [hep-ex].
+  %%CITATION = ARXIV:1210.7471;%%
+  %6 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012nj}
+\bibitem{Chatrchyan:2012nj} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the inelastic proton-proton cross section at $\sqrt{s}=7$ TeV,''
+  arXiv:1210.6718 [hep-ex].
+  %%CITATION = ARXIV:1210.6718;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012sv}
+\bibitem{Chatrchyan:2012sv} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for pair production of third-generation leptoquarks and top squarks in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1210.5629 [hep-ex].
+  %%CITATION = ARXIV:1210.5629;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012st}
+\bibitem{Chatrchyan:2012st} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for third-generation leptoquarks and scalar bottom quarks in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1212}, 055 (2012)
+  [arXiv:1210.5627 [hep-ex]].
+  %%CITATION = ARXIV:1210.5627;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012qk}
+\bibitem{CMS:2012qk} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation of long-range near-side angular correlations in proton-lead collisions at the LHC,''
+  Phys.\ Lett.\ B {\bf 718}, 795 (2013)
+  [arXiv:1210.5482 [nucl-ex]].
+  %%CITATION = ARXIV:1210.5482;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012bw}
+\bibitem{CMS:2012bw} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation of Z decays to four leptons with the CMS detector at the LHC,''
+  JHEP {\bf 1212}, 034 (2012)
+  [arXiv:1210.3844 [hep-ex]].
+  %%CITATION = ARXIV:1210.3844;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012ad}
+\bibitem{CMS:2012ad} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for excited leptons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  arXiv:1210.2422 [hep-ex].
+  %%CITATION = ARXIV:1210.2422;%%
+%\cite{CMS:2012zv}
+\bibitem{CMS:2012zv} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy neutrinos and W[R] bosons with right-handed couplings in a left-right symmetric model in pp collisions at sqrt(s) = 7 TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 261802 (2012)
+  [arXiv:1210.2402 [hep-ex]].
+  %%CITATION = ARXIV:1210.2402;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012xi}
+\bibitem{CMS:2012xi} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for fractionally charged particles in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  %Submitted to: Phys. Rev. Lett.
+  [arXiv:1210.2311 [hep-ex]].
+  %%CITATION = ARXIV:1210.2311;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012un}
+\bibitem{CMS:2012un} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in events with photons and low missing transverse energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  %Submitted to: Phys. Lett. B.
+  [arXiv:1210.2052 [hep-ex]].
+  %%CITATION = ARXIV:1210.2052;%%
+  %6 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012ra}
+\bibitem{CMS:2012ra} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy lepton partners of neutrinos in proton-proton collisions in the context of the type III seesaw mechanism,''
+  Phys.\ Lett.\ B {\bf 718}, 348 (2012)
+  [arXiv:1210.1797 [hep-ex]].
+  %%CITATION = ARXIV:1210.1797;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ub}
+\bibitem{Chatrchyan:2012ub} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the relative prompt production rate of chi(c2) and chi(c1) in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ Jour.\ 
+  [Eur.\ Phys.\ J.\ C {\bf 72}, 2251 (2012)]
+  [arXiv:1210.0875 [hep-ex]].
+  %%CITATION = ARXIV:1210.0875;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012tw}
+\bibitem{Chatrchyan:2012tw} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for anomalous production of highly boosted $Z$ bosons decaying to dimuons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  %Submitted to: Phys.Lett.B.
+  [arXiv:1210.0867 [hep-ex]].
+  %%CITATION = ARXIV:1210.0867;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012pka}
+\bibitem{Chatrchyan:2012pka} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for electroweak production of charginos and neutralinos using leptonic final states in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1211}, 147 (2012)
+  [arXiv:1209.6620 [hep-ex]].
+  %%CITATION = ARXIV:1209.6620;%%
+  %16 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ep}
+\bibitem{Chatrchyan:2012ep} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the single-top-quark $t$-channel cross section in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1212}, 035 (2012)
+  [arXiv:1209.4533 [hep-ex]].
+  %%CITATION = ARXIV:1209.4533;%%
+  %14 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012cx}
+\bibitem{Chatrchyan:2012cx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for resonant $t\bar{t}$ production in lepton+jets events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1212}, 015 (2012)
+  [arXiv:1209.4397 [hep-ex]].
+  %%CITATION = ARXIV:1209.4397;%%
+  %6 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012qr}
+\bibitem{Chatrchyan:2012qr} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson produced in association with $W$ and $Z$ bosons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1211}, 088 (2012)
+  [arXiv:1209.3937 [hep-ex]].
+  %%CITATION = ARXIV:1209.3937;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012baa}
+\bibitem{Chatrchyan:2012baa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a narrow spin-2 resonance decaying to a pair of Z vector bosons in the semileptonic final state,''
+  Phys.\ Lett.\ B {\bf 718}, 1208 (2013)
+  [arXiv:1209.3807 [hep-ex]].
+  %%CITATION = ARXIV:1209.3807;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012zca}
+\bibitem{Chatrchyan:2012zca} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Evidence for associated production of a single top quark and W boson in pp collisions at 7 TeV,''
+  %Submitted to: Phys.Rev.Lett.
+  [arXiv:1209.3489 [hep-ex]].
+  %%CITATION = ARXIV:1209.3489;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012woa}
+\bibitem{Chatrchyan:2012woa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Y1S, Y2S and Y3S polarizations in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  %Submitted to: Phys.Rev.Lett.
+  [arXiv:1209.2922 [hep-ex]].
+  %%CITATION = ARXIV:1209.2922;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ea}
+\bibitem{Chatrchyan:2012ea} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the top-quark mass in $t\bar{t}$ events with dilepton final states in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2202 (2012)
+  [arXiv:1209.2393 [hep-ex]].
+  %%CITATION = ARXIV:1209.2393;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012cz}
+\bibitem{Chatrchyan:2012cz} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the top-quark mass in $t\bar{t}$ events with lepton+jets final states in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1212}, 105 (2012)
+  [arXiv:1209.2319 [hep-ex]].
+  %%CITATION = ARXIV:1209.2319;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vc}
+\bibitem{Chatrchyan:2012vc} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation of a diffractive contribution to dijet production in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ D {\bf 87}, 012006 (2013)
+  [arXiv:1209.1805 [hep-ex]].
+  %%CITATION = ARXIV:1209.1805;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012tv}
+\bibitem{Chatrchyan:2012tv} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for exclusive or semi-exclusive photon pair production and observation of exclusive and semi-exclusive electron pair production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1211}, 080 (2012)
+  [arXiv:1209.1666 [hep-ex]].
+  %%CITATION = ARXIV:1209.1666;%%
+%\cite{Chatrchyan:2012fp}
+\bibitem{Chatrchyan:2012fp} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Combined search for the quarks of a sequential fourth generation,''
+  Phys.\ Rev.\ D {\bf 86}, 112003 (2012)
+  [arXiv:1209.1062 [hep-ex]].
+  %%CITATION = ARXIV:1209.1062;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vu}
+\bibitem{Chatrchyan:2012vu} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for pair produced fourth-generation up-type quarks in $pp$ collisions at $\sqrt{s}=7$ TeV with a lepton in the final state,''
+  Phys.\ Lett.\ B {\bf 718}, 307 (2012)
+  [arXiv:1209.0471 [hep-ex]].
+  %%CITATION = ARXIV:1209.0471;%%
+  %7 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012rg}
+\bibitem{Chatrchyan:2012rg} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in events with b-quark jets and missing transverse energy in pp collisions at 7 TeV,''
+  Phys.\ Rev.\ D {\bf 86}, 072010 (2012)
+  [arXiv:1208.4859 [hep-ex]].
+  %%CITATION = ARXIV:1208.4859;%%
+  %15 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012jra}
+\bibitem{Chatrchyan:2012jra} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Study of the dijet mass spectrum in $pp \to W +$ jets events at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 251801 (2012)
+  [arXiv:1208.3477 [hep-ex]].
+  %%CITATION = ARXIV:1208.3477;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012uxa}
+\bibitem{Chatrchyan:2012uxa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for three-jet resonances in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 329 (2012)
+  [arXiv:1208.2931 [hep-ex]].
+  %%CITATION = ARXIV:1208.2931;%%
+  %13 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012lxa}
+\bibitem{Chatrchyan:2012lxa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation of sequential Upsilon suppression in PbPb collisions,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 222301 (2012)
+  [arXiv:1208.2826 [nucl-ex]].
+  %%CITATION = ARXIV:1208.2826;%%
+  %16 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012bra}
+\bibitem{Chatrchyan:2012bra} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $t\bar{t}$ production cross section in the dilepton channel in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1211}, 067 (2012)
+  [arXiv:1208.2671 [hep-ex]].
+  %%CITATION = ARXIV:1208.2671;%%
+  %20 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vqa}
+\bibitem{Chatrchyan:2012vqa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the azimuthal anisotropy of neutral pions in PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  %Submitted to: Phys.Rev.Lett.
+  [arXiv:1208.2470 [nucl-ex]].
+  %%CITATION = ARXIV:1208.2470;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012hqa}
+\bibitem{Chatrchyan:2012hqa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for flavor changing neutral currents in top quark decays in pp collisions at 7 TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 1252 (2013)
+  [arXiv:1208.0957 [hep-ex]].
+  %%CITATION = ARXIV:1208.0957;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012gqa}
+\bibitem{Chatrchyan:2012gqa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a $W$ ' boson decaying to a bottom quark and a top quark in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 1229 (2013)
+  [arXiv:1208.0956 [hep-ex]].
+  %%CITATION = ARXIV:1208.0956;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ufa}
+\bibitem{Chatrchyan:2012ufa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation of a new boson at a mass of 125 GeV with the CMS experiment at the LHC,''
+  Phys.\ Lett.\ B {\bf 716}, 30 (2012)
+  [arXiv:1207.7235 [hep-ex]].
+  %%CITATION = ARXIV:1207.7235;%%
+  %716 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012fla}
+\bibitem{Chatrchyan:2012fla} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy Majorana neutrinos in $\mu^+\mu^+[\mu^-\mu^-]$ and $e^+e^+[e^-e^-]$ events in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 717}, 109 (2012)
+  [arXiv:1207.6079 [hep-ex]].
+  %%CITATION = ARXIV:1207.6079;%%
+  %6 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012qb}
+\bibitem{Chatrchyan:2012qb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Study of the inclusive production of charged pions, kaons, and protons in $pp$ collisions at $\sqrt{s}=0.9$, 2.76, and 7 TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2164 (2012)
+  [arXiv:1207.4724 [hep-ex]].
+  %%CITATION = ARXIV:1207.4724;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012dc}
+\bibitem{Chatrchyan:2012dc} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Forward-backward asymmetry of Drell-Yan lepton pairs in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 752 (2013)
+  [arXiv:1207.3973 [hep-ex]].
+  %%CITATION = ARXIV:1207.3973;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ya}
+\bibitem{Chatrchyan:2012ya} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``A search for a doubly-charged Higgs boson in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2189 (2012)
+  [arXiv:1207.2666 [hep-ex]].
+  %%CITATION = ARXIV:1207.2666;%%
+  %20 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012tt}
+\bibitem{Chatrchyan:2012tt} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the underlying event activity in $pp$ collisions at $\sqrt{s} = 0.9$ and 7 TeV with the novel jet-area/median approach,''
+  JHEP {\bf 1208}, 130 (2012)
+  [arXiv:1207.2392 [hep-ex]].
+  %%CITATION = ARXIV:1207.2392;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012lia}
+\bibitem{Chatrchyan:2012lia} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics in the multijet and missing transverse momentum final state in proton-proton collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 171803 (2012)
+  [arXiv:1207.1898 [hep-ex]].
+  %%CITATION = ARXIV:1207.1898;%%
+  %56 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012jx}
+\bibitem{Chatrchyan:2012jx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in hadronic final states using MT2 in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  JHEP {\bf 1210}, 018 (2012)
+  [arXiv:1207.1798 [hep-ex]].
+  %%CITATION = ARXIV:1207.1798;%%
+  %41 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vva}
+\bibitem{Chatrchyan:2012vva} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a fermiophobic Higgs boson in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1209}, 111 (2012)
+  [arXiv:1207.1130 [hep-ex]].
+  %%CITATION = ARXIV:1207.1130;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ir}
+\bibitem{Chatrchyan:2012ir} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics with long-lived particles decaying to photons and missing energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1211}, 172 (2012)
+  [arXiv:1207.0627 [hep-ex]].
+  %%CITATION = ARXIV:1207.0627;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012dxa}
+\bibitem{Chatrchyan:2012dxa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for stopped long-lived particles produced in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1208}, 026 (2012)
+  [arXiv:1207.0106 [hep-ex]].
+  %%CITATION = ARXIV:1207.0106;%%
+  %8 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012cxa}
+\bibitem{Chatrchyan:2012cxa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Inclusive and differential measurements of the $t \bar{t}$ charge asymmetry in proton-proton collisions at 7 TeV,''
+  Phys.\ Lett.\ B {\bf 717}, 129 (2012)
+  [arXiv:1207.0065 [hep-ex]].
+  %%CITATION = ARXIV:1207.0065;%%
+  %17 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012am}
+\bibitem{Chatrchyan:2012am} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a light pseudoscalar Higgs boson in the dimuon decay channel in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 121801 (2012)
+  [arXiv:1206.6326 [hep-ex]].
+  %%CITATION = ARXIV:1206.6326;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012me}
+\bibitem{Chatrchyan:2012me} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for dark matter and large extra dimensions in monojet events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1209}, 094 (2012)
+  [arXiv:1206.5663 [hep-ex]].
+  %%CITATION = ARXIV:1206.5663;%%
+  %43 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012xi}
+\bibitem{Chatrchyan:2012xi} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of CMS muon reconstruction in $pp$ collision events at $\sqrt{s}=7$ TeV,''
+  JINST {\bf 7}, P10002 (2012)
+  [arXiv:1206.4071 [physics.ins-det]].
+  %%CITATION = ARXIV:1206.4071;%%
+  %30 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012te}
+\bibitem{Chatrchyan:2012te} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics in events with opposite-sign leptons, jets, and missing transverse energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 815 (2013)
+  [arXiv:1206.3949 [hep-ex]].
+  %%CITATION = ARXIV:1206.3949;%%
+  %19 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012su}
+\bibitem{Chatrchyan:2012su} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for charge-asymmetric production of $W$ ' bosons in top pair + jet events from $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 717}, 351 (2012)
+  [arXiv:1206.3921 [hep-ex]].
+  %%CITATION = ARXIV:1206.3921;%%
+  %16 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012xt}
+\bibitem{Chatrchyan:2012xt} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the electron charge asymmetry in inclusive $W$ production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 111806 (2012)
+  [arXiv:1206.2598 [hep-ex]].
+  %%CITATION = ARXIV:1206.2598;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012it}
+\bibitem{Chatrchyan:2012it} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for narrow resonances in dilepton mass spectra in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 714}, 158 (2012)
+  [arXiv:1206.1849 [hep-ex]].
+  %%CITATION = ARXIV:1206.1849;%%
+  %45 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012hd}
+\bibitem{Chatrchyan:2012hd} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for high mass resonances decaying into $\tau^-$ lepton pairs in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 716}, 82 (2012)
+  [arXiv:1206.1725 [hep-ex]].
+  %%CITATION = ARXIV:1206.1725;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012kk}
+\bibitem{Chatrchyan:2012kk} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a $W^\prime$ or Techni-$\rho$ Decaying into $WZ$ in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 141801 (2012)
+  [arXiv:1206.0433 [hep-ex]].
+  %%CITATION = ARXIV:1206.0433;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ira}
+\bibitem{Chatrchyan:2012ira} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics with same-sign isolated dilepton events with jets and missing transverse energy,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 071803 (2012)
+  [arXiv:1205.6615 [hep-ex]].
+  %%CITATION = ARXIV:1205.6615;%%
+  %29 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012nt}
+\bibitem{Chatrchyan:2012nt} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Study of $W$ boson production in PbPb and $pp$ collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Phys.\ Lett.\ B {\bf 715}, 66 (2012)
+  [arXiv:1205.6334 [nucl-ex]].
+  %%CITATION = ARXIV:1205.6334;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012gw}
+\bibitem{Chatrchyan:2012gw} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of jet fragmentation into charged particles in $pp$ and PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  JHEP {\bf 1210}, 087 (2012)
+  [arXiv:1205.5872 [nucl-ex]].
+  %%CITATION = ARXIV:1205.5872;%%
+  %20 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vca}
+\bibitem{Chatrchyan:2012vca} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a light charged Higgs boson in top quark decays in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1207}, 143 (2012)
+  [arXiv:1205.5736 [hep-ex]].
+  %%CITATION = ARXIV:1205.5736;%%
+  %36 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012sa}
+\bibitem{Chatrchyan:2012sa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics in events with same-sign dileptons and $b$-tagged jets in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1208}, 110 (2012)
+  [arXiv:1205.3933 [hep-ex]].
+  %%CITATION = ARXIV:1205.3933;%%
+  %43 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012mb}
+\bibitem{Chatrchyan:2012mb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the pseudorapidity and centrality dependence of the transverse energy density in PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 152303 (2012)
+  [arXiv:1205.2488 [nucl-ex]].
+  %%CITATION = ARXIV:1205.2488;%%
+  %8 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012xg}
+\bibitem{Chatrchyan:2012xg} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $Lambda_b$ cross section and the $\bar{\Lambda}$( $b^{)}$ to $Lambda_b$ ratio with $Lambda_b$ to J/Psi $\Lambda$ decays in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 714}, 136 (2012)
+  [arXiv:1205.0594 [hep-ex]].
+  %%CITATION = ARXIV:1205.0594;%%
+  %7 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012sp}
+\bibitem{Chatrchyan:2012sp} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy long-lived charged particles in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 713}, 408 (2012)
+  [arXiv:1205.0272 [hep-ex]].
+  %%CITATION = ARXIV:1205.0272;%%
+  %42 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012gt}
+\bibitem{Chatrchyan:2012gt} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Studies of jet quenching using isolated-photon+jet correlations in PbPb and $pp$ collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 773 (2013)
+  [arXiv:1205.0206 [nucl-ex]].
+  %%CITATION = ARXIV:1205.0206;%%
+  %30 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ni}
+\bibitem{Chatrchyan:2012ni} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation of a new Xi(b) baryon,''
+  Phys.\ Rev.\ Lett.\  {\bf 108}, 252002 (2012)
+  [arXiv:1204.5955 [hep-ex]].
+  %%CITATION = ARXIV:1204.5955;%%
+  %13 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012mea}
+\bibitem{Chatrchyan:2012mea} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for anomalous production of multilepton events in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1206}, 169 (2012)
+  [arXiv:1204.5341 [hep-ex]].
+  %%CITATION = ARXIV:1204.5341;%%
+  %44 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012meb}
+\bibitem{Chatrchyan:2012meb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for leptonic decays of $W$ ' bosons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1208}, 023 (2012)
+  [arXiv:1204.4764 [hep-ex]].
+  %%CITATION = ARXIV:1204.4764;%%
+  %30 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012qka}
+\bibitem{Chatrchyan:2012qka} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for physics beyond the standard model in events with a $Z$ boson, jets, and missing transverse energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 716}, 260 (2012)
+  [arXiv:1204.3774 [hep-ex]].
+  %%CITATION = ARXIV:1204.3774;%%
+  %18 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012mec}
+\bibitem{Chatrchyan:2012mec} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Shape, transverse size, and charged hadron multiplicity of jets in pp collisions at 7 TeV,''
+  JHEP {\bf 1206}, 160 (2012)
+  [arXiv:1204.3170 [hep-ex]].
+  %%CITATION = ARXIV:1204.3170;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012uba}
+\bibitem{Chatrchyan:2012uba} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the mass difference between top and antitop quarks,''
+  JHEP {\bf 1206}, 109 (2012)
+  [arXiv:1204.2807 [hep-ex]].
+  %%CITATION = ARXIV:1204.2807;%%
+  %11 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ku}
+\bibitem{Chatrchyan:2012ku} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for anomalous t t-bar production in the highly-boosted all-hadronic final state,''
+  JHEP {\bf 1209}, 029 (2012)
+  [arXiv:1204.2488 [hep-ex]].
+  %%CITATION = ARXIV:1204.2488;%%
+  %23 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012xq}
+\bibitem{Chatrchyan:2012xq} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Azimuthal anisotropy of charged particles at high transverse momenta in PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 022301 (2012)
+  [arXiv:1204.1850 [nucl-ex]].
+  %%CITATION = ARXIV:1204.1850;%%
+  %22 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vr}
+\bibitem{Chatrchyan:2012vr} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Z/gamma*+b-jet cross section in pp collisions at 7 TeV,''
+  JHEP {\bf 1206}, 126 (2012)
+  [arXiv:1204.1643 [hep-ex]].
+  %%CITATION = ARXIV:1204.1643;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ta}
+\bibitem{Chatrchyan:2012ta} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the elliptic anisotropy of charged particles produced in PbPb collisions at nucleon-nucleon center-of-mass energy = 2.76 TeV,''
+  Phys.\ Rev.\ C {\bf 87}, 014902 (2013)
+  [arXiv:1204.1409 [nucl-ex]].
+  %%CITATION = ARXIV:1204.1409;%%
+  %22 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012tb}
+\bibitem{Chatrchyan:2012tb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the underlying event in the Drell-Yan process in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2080 (2012)
+  [arXiv:1204.1411 [hep-ex]].
+  %%CITATION = ARXIV:1204.1411;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012yea}
+\bibitem{Chatrchyan:2012yea} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy bottom-like quarks in 4.9 inverse femtobarns of $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1205}, 123 (2012)
+  [arXiv:1204.1088 [hep-ex]].
+  %%CITATION = ARXIV:1204.1088;%%
+  %47 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012tea}
+\bibitem{Chatrchyan:2012tea} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Dark Matter and Large Extra Dimensions in pp Collisions Yielding a Photon and Missing Transverse Energy,''
+  Phys.\ Rev.\ Lett.\  {\bf 108}, 261803 (2012)
+  [arXiv:1204.0821 [hep-ex]].
+  %%CITATION = ARXIV:1204.0821;%%
+  %39 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012pb}
+\bibitem{Chatrchyan:2012pb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Ratios of dijet production cross sections as a function of the absolute difference in rapidity between jets in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2216 (2012)
+  [arXiv:1204.0696 [hep-ex]].
+  %%CITATION = ARXIV:1204.0696;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vs}
+\bibitem{Chatrchyan:2012vs} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the top quark pair production cross section in $pp$ collisions at $\sqrt{s} = 7$ TeV in dilepton final states containing a $\tau$,''
+  Phys.\ Rev.\ D {\bf 85}, 112007 (2012)
+  [arXiv:1203.6810 [hep-ex]].
+  %%CITATION = ARXIV:1203.6810;%%
+  %17 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012ab}
+\bibitem{CMS:2012ab} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for heavy, top-like quark pair production in the dilepton final state in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 716}, 103 (2012)
+  [arXiv:1203.5410 [hep-ex]].
+  %%CITATION = ARXIV:1203.5410;%%
+  %39 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012rga}
+\bibitem{Chatrchyan:2012rga} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for $B^0_s to \mu^+ \mu^-$ and $B^0 to \mu^+ \mu^-$ decays,''
+  JHEP {\bf 1204}, 033 (2012)
+  [arXiv:1203.3976 [hep-ex]].
+  %%CITATION = ARXIV:1203.3976;%%
+  %58 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012hw}
+\bibitem{Chatrchyan:2012hw} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the cross section for production of $b b^-$ bar $X$, decaying to muons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1206}, 110 (2012)
+  [arXiv:1203.3458 [hep-ex]].
+  %%CITATION = ARXIV:1203.3458;%%
+  %8 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012taa}
+\bibitem{Chatrchyan:2012taa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for microscopic black holes in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1204}, 061 (2012)
+  [arXiv:1202.6396 [hep-ex]].
+  %%CITATION = ARXIV:1202.6396;%%
+  %19 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012bf}
+\bibitem{Chatrchyan:2012bf} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for quark compositeness in dijet angular distributions from $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1205}, 055 (2012)
+  [arXiv:1202.5535 [hep-ex]].
+  %%CITATION = ARXIV:1202.5535;%%
+  %17 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012nia}
+\bibitem{Chatrchyan:2012nia} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Jet momentum dependence of jet quenching in PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Phys.\ Lett.\ B {\bf 712}, 176 (2012)
+  [arXiv:1202.5022 [nucl-ex]].
+  %%CITATION = ARXIV:1202.5022;%%
+  %34 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012dk}
+\bibitem{Chatrchyan:2012dk} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Inclusive $b$-jet production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1204}, 084 (2012)
+  [arXiv:1202.4617 [hep-ex]].
+  %%CITATION = ARXIV:1202.4617;%%
+  %15 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ww}
+\bibitem{Chatrchyan:2012ww} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson decaying to bottom quarks in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 710}, 284 (2012)
+  [arXiv:1202.4195 [hep-ex]].
+  %%CITATION = ARXIV:1202.4195;%%
+  %49 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vp}
+\bibitem{Chatrchyan:2012vp} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for neutral Higgs bosons decaying to $\tau$ pairs in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 713}, 68 (2012)
+  [arXiv:1202.4083 [hep-ex]].
+  %%CITATION = ARXIV:1202.4083;%%
+  %95 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012kc}
+\bibitem{Chatrchyan:2012kc} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for large extra dimensions in dimuon and dielectron events in pp collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 711}, 15 (2012)
+  [arXiv:1202.3827 [hep-ex]].
+  %%CITATION = ARXIV:1202.3827;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ft}
+\bibitem{Chatrchyan:2012ft} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson in the $H$ to $Z Z$ to 2 $\ell 2 \nu$ channel in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1203}, 040 (2012)
+  [arXiv:1202.3478 [hep-ex]].
+  %%CITATION = ARXIV:1202.3478;%%
+  %31 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012hr}
+\bibitem{Chatrchyan:2012hr} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson in the $H$ to $Z Z$ to $\ell \ell \tau \tau$ decay channel in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1203}, 081 (2012)
+  [arXiv:1202.3617 [hep-ex]].
+  %%CITATION = ARXIV:1202.3617;%%
+  %20 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2012aa}
+\bibitem{CMS:2012aa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Study of high-pT charged particle suppression in PbPb compared to $pp$ collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 1945 (2012)
+  [arXiv:1202.2554 [nucl-ex]].
+  %%CITATION = ARXIV:1202.2554;%%
+  %65 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012dg}
+\bibitem{Chatrchyan:2012dg} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson in the decay channel $H$ to $Z Z$ to 4 leptons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 108}, 111804 (2012)
+  [arXiv:1202.1997 [hep-ex]].
+  %%CITATION = ARXIV:1202.1997;%%
+  %84 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012ty}
+\bibitem{Chatrchyan:2012ty} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson decaying to a $W$ pair in the fully leptonic final state in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 710}, 91 (2012)
+  [arXiv:1202.1489 [hep-ex]].
+  %%CITATION = ARXIV:1202.1489;%%
+  %93 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012tx}
+\bibitem{Chatrchyan:2012tx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Combined results of searches for the standard model Higgs boson in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 710}, 26 (2012)
+  [arXiv:1202.1488 [hep-ex]].
+  %%CITATION = ARXIV:1202.1488;%%
+  %449 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012twa}
+\bibitem{Chatrchyan:2012twa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for the standard model Higgs boson decaying into two photons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 710}, 403 (2012)
+  [arXiv:1202.1487 [hep-ex]].
+  %%CITATION = ARXIV:1202.1487;%%
+  %141 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012sn}
+\bibitem{Chatrchyan:2012sn} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a Higgs boson in the decay channel $H$ to ZZ(*) to $q$ qbar $\ell^-$ l+ in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1204}, 036 (2012)
+  [arXiv:1202.1416 [hep-ex]].
+  %%CITATION = ARXIV:1202.1416;%%
+  %41 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012gwa}
+\bibitem{Chatrchyan:2012gwa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the inclusive production cross sections for forward jets and for dijet events with one forward and one central jet in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1206}, 036 (2012)
+  [arXiv:1202.0704 [hep-ex]].
+  %%CITATION = ARXIV:1202.0704;%%
+  %13 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012np}
+\bibitem{Chatrchyan:2012np} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Suppression of non-prompt $J/\psi$, prompt $J/\psi$, and Y(1S) in PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  JHEP {\bf 1205}, 063 (2012)
+  [arXiv:1201.5069 [nucl-ex]].
+  %%CITATION = ARXIV:1201.5069;%%
+  %63 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012wg}
+\bibitem{Chatrchyan:2012wg} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Centrality dependence of dihadron correlations and azimuthal anisotropy harmonics in PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2012 (2012)
+  [arXiv:1201.3158 [nucl-ex]].
+  %%CITATION = ARXIV:1201.3158;%%
+  %35 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012vq}
+\bibitem{Chatrchyan:2012vq} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of isolated photon production in $pp$ and PbPb collisions at $\sqrt{s_{NN}}=2.76$ TeV,''
+  Phys.\ Lett.\ B {\bf 710}, 256 (2012)
+  [arXiv:1201.3093 [nucl-ex]].
+  %%CITATION = ARXIV:1201.3093;%%
+  %24 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011hk}
+\bibitem{Chatrchyan:2011hk} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the charge asymmetry in top-quark pair production in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 709}, 28 (2012)
+  [arXiv:1112.5100 [hep-ex]].
+  %%CITATION = ARXIV:1112.5100;%%
+  %42 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011fq}
+\bibitem{Chatrchyan:2011fq} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for signatures of extra dimensions in the diphoton mass spectrum at the Large Hadron Collider,''
+  Phys.\ Rev.\ Lett.\  {\bf 108}, 111801 (2012)
+  [arXiv:1112.0688 [hep-ex]].
+  %%CITATION = ARXIV:1112.0688;%%
+  %42 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ci}
+\bibitem{Chatrchyan:2011ci} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Exclusive photon-photon production of muon pairs in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1201}, 052 (2012)
+  [arXiv:1111.5536 [hep-ex]].
+  %%CITATION = ARXIV:1111.5536;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011kc}
+\bibitem{Chatrchyan:2011kc} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``$J/\psi$ and $\psi_{2S}$ production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1202}, 011 (2012)
+  [arXiv:1111.1557 [hep-ex]].
+  %%CITATION = ARXIV:1111.1557;%%
+  %28 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011qt}
+\bibitem{Chatrchyan:2011qt} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Production Cross Section for Pairs of Isolated Photons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1201}, 133 (2012)
+  [arXiv:1110.6461 [hep-ex]].
+  %%CITATION = ARXIV:1110.6461;%%
+  %16 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wt}
+\bibitem{Chatrchyan:2011wt} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Rapidity and Transverse Momentum Distributions of $Z$ Bosons in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ D {\bf 85}, 032002 (2012)
+  [arXiv:1110.4973 [hep-ex]].
+  %%CITATION = ARXIV:1110.4973;%%
+  %35 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ne}
+\bibitem{Chatrchyan:2011ne} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Jet Production Rates in Association with $W$ and $Z$ Bosons in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1201}, 010 (2012)
+  [arXiv:1110.3226 [hep-ex]].
+  %%CITATION = ARXIV:1110.3226;%%
+  %24 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ya}
+\bibitem{Chatrchyan:2011ya} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the weak mixing angle with the Drell-Yan process in proton-proton collisions at the LHC,''
+  Phys.\ Rev.\ D {\bf 84}, 112002 (2011)
+  [arXiv:1110.2682 [hep-ex]].
+  %%CITATION = ARXIV:1110.2682;%%
+  %7 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wm}
+\bibitem{Chatrchyan:2011wm} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of energy flow at large pseudorapidities in $pp$ collisions at $\sqrt{s} = 0.9$ and 7 TeV,''
+  JHEP {\bf 1111}, 148 (2011)
+  [Erratum-ibid.\  {\bf 1202}, 055 (2012)]
+  [arXiv:1110.0211 [hep-ex]].
+  %%CITATION = ARXIV:1110.0211;%%
+  %11 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wb}
+\bibitem{Chatrchyan:2011wb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Forward Energy Flow, Central Charged-Particle Multiplicities, and Pseudorapidity Gaps in W and Z Boson Events from pp Collisions at 7 TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 1839 (2012)
+  [arXiv:1110.0181 [hep-ex]].
+  %%CITATION = ARXIV:1110.0181;%%
+  %7 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2012zz}
+\bibitem{Chatrchyan:2012zz} 
+  C.~Collaboration {\it et al.}  [CMS Collaboration],
+  %``Performance of tau-lepton reconstruction and identification in CMS,''
+  JINST {\bf 7}, P01001 (2012)
+  [arXiv:1109.6034 [physics.ins-det]].
+  %%CITATION = ARXIV:1109.6034;%%
+  %32 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ay}
+\bibitem{Chatrchyan:2011ay} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a Vector-like Quark with Charge 2/3 in $t$ + $Z$ Events from $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 271802 (2011)
+  [arXiv:1109.4985 [hep-ex]].
+  %%CITATION = ARXIV:1109.4985;%%
+  %38 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011zy}
+\bibitem{Chatrchyan:2011zy} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Supersymmetry at the LHC in Events with Jets and Missing Transverse Energy,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 221804 (2011)
+  [arXiv:1109.2352 [hep-ex]].
+  %%CITATION = ARXIV:1109.2352;%%
+  %216 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011yy}
+\bibitem{Chatrchyan:2011yy} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the t $\bar{t} Production Cross Section in pp Collisions at 7 TeV in Lepton + Jets Events Using b-quark Jet Identification,''
+  Phys.\ Rev.\ D {\bf 84}, 092004 (2011)
+  [arXiv:1108.3773 [hep-ex]].
+  %%CITATION = ARXIV:1108.3773;%%
+  %73 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ue}
+\bibitem{Chatrchyan:2011ue} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Differential Cross Section for Isolated Prompt Photon Production in pp Collisions at 7 TeV,''
+  Phys.\ Rev.\ D {\bf 84}, 052011 (2011)
+  [arXiv:1108.2044 [hep-ex]].
+  %%CITATION = ARXIV:1108.2044;%%
+  %17 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011cm}
+\bibitem{Chatrchyan:2011cm} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Drell-Yan Cross Section in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1110}, 007 (2011)
+  [arXiv:1108.0566 [hep-ex]].
+  %%CITATION = ARXIV:1108.0566;%%
+  %17 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011kr}
+\bibitem{Chatrchyan:2011kr} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for B(s) and B to dimuon decays in pp collisions at 7 TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 191802 (2011)
+  [arXiv:1107.5834 [hep-ex]].
+  %%CITATION = ARXIV:1107.5834;%%
+  %56 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ns}
+\bibitem{Chatrchyan:2011ns} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Resonances in the Dijet Mass Spectrum from 7 TeV pp Collisions at CMS,''
+  Phys.\ Lett.\ B {\bf 704}, 123 (2011)
+  [arXiv:1107.4771 [hep-ex]].
+  %%CITATION = ARXIV:1107.4771;%%
+  %99 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2011aa}
+\bibitem{CMS:2011aa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Inclusive $W$ and $Z$ Production Cross Sections in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1110}, 132 (2011)
+  [arXiv:1107.4789 [hep-ex]].
+  %%CITATION = ARXIV:1107.4789;%%
+  %71 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011pb}
+\bibitem{Chatrchyan:2011pb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Dependence on pseudorapidity and centrality of charged hadron production in PbPb collisions at a nucleon-nucleon centre-of-mass energy of 2.76 TeV,''
+  JHEP {\bf 1108}, 141 (2011)
+  [arXiv:1107.4800 [nucl-ex]].
+  %%CITATION = ARXIV:1107.4800;%%
+  %43 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ds}
+\bibitem{Chatrchyan:2011ds} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Determination of Jet Energy Calibration and Transverse Momentum Resolution in CMS,''
+  JINST {\bf 6}, P11002 (2011)
+  [arXiv:1107.4277 [physics.ins-det]].
+  %%CITATION = ARXIV:1107.4277;%%
+  %142 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011cj}
+\bibitem{Chatrchyan:2011cj} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Three-Jet Resonances in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 101801 (2011)
+  [arXiv:1107.3084 [hep-ex]].
+  %%CITATION = ARXIV:1107.3084;%%
+  %21 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011qs}
+\bibitem{Chatrchyan:2011qs} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in $pp$ collisions at $\sqrt{s}=7$ TeV in events with a single lepton, jets, and missing transverse momentum,''
+  JHEP {\bf 1108}, 156 (2011)
+  [arXiv:1107.1870 [hep-ex]].
+  %%CITATION = ARXIV:1107.1870;%%
+  %41 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011pg}
+\bibitem{Chatrchyan:2011pg} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``A search for excited leptons in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 704}, 143 (2011)
+  [arXiv:1107.1773 [hep-ex]].
+  %%CITATION = ARXIV:1107.1773;%%
+  %7 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ek}
+\bibitem{Chatrchyan:2011ek} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Inclusive search for squarks and gluinos in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ D {\bf 85}, 012004 (2012)
+  [arXiv:1107.1279 [hep-ex]].
+  %%CITATION = ARXIV:1107.1279;%%
+  %71 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011id}
+\bibitem{Chatrchyan:2011id} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Underlying Event Activity at the LHC with $\sqrt{s}= 7$ TeV and Comparison with $\sqrt{s} = 0.9$ TeV,''
+  JHEP {\bf 1109}, 109 (2011)
+  [arXiv:1107.0330 [hep-ex]].
+  %%CITATION = ARXIV:1107.0330;%%
+  %56 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011tn}
+\bibitem{Chatrchyan:2011tn} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Missing transverse energy performance of the CMS detector,''
+  JINST {\bf 6}, P09001 (2011)
+  [arXiv:1106.5048 [physics.ins-det]].
+  %%CITATION = ARXIV:1106.5048;%%
+  %49 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011nd}
+\bibitem{Chatrchyan:2011nd} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for New Physics with a Mono-Jet and Missing Transverse Energy in $pp$ Collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 201804 (2011)
+  [arXiv:1106.4775 [hep-ex]].
+  %%CITATION = ARXIV:1106.4775;%%
+  %39 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Collaboration:2011ida}
+\bibitem{Collaboration:2011ida} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for New Physics with Jets and Missing Transverse Momentum in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1108}, 155 (2011)
+  [arXiv:1106.4503 [hep-ex]].
+  %%CITATION = ARXIV:1106.4503;%%
+  %56 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011vh}
+\bibitem{Chatrchyan:2011vh} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Strange $B$ Meson Production Cross Section with J/Psi $\phi$ Decays in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ D {\bf 84}, 052008 (2011)
+  [arXiv:1106.4048 [hep-ex]].
+  %%CITATION = ARXIV:1106.4048;%%
+  %28 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011bj}
+\bibitem{Chatrchyan:2011bj} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Supersymmetry in Events with b Jets and Missing Transverse Momentum at the LHC,''
+  JHEP {\bf 1107}, 113 (2011)
+  [arXiv:1106.3272 [hep-ex]].
+  %%CITATION = ARXIV:1106.3272;%%
+  %45 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011vp}
+\bibitem{Chatrchyan:2011vp} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $t$-channel single top quark production cross section in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 091802 (2011)
+  [arXiv:1106.3052 [hep-ex]].
+  %%CITATION = ARXIV:1106.3052;%%
+  %64 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011hr}
+\bibitem{Chatrchyan:2011hr} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Light Resonances Decaying into Pairs of Muons as a Signal of New Physics,''
+  JHEP {\bf 1107}, 098 (2011)
+  [arXiv:1106.2375 [hep-ex]].
+  %%CITATION = ARXIV:1106.2375;%%
+  %8 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011dk}
+\bibitem{Chatrchyan:2011dk} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Same-Sign Top-Quark Pair Production at $\sqrt{s}=7$ TeV and Limits on Flavour Changing Neutral Currents in the Top Sector,''
+  JHEP {\bf 1108}, 005 (2011)
+  [arXiv:1106.2142 [hep-ex]].
+  %%CITATION = ARXIV:1106.2142;%%
+  %54 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ew}
+\bibitem{Chatrchyan:2011ew} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Top-antitop Production Cross Section in $pp$ Collisions at $\sqrt{s}=7$ TeV using the Kinematic Properties of Events with Leptons and Jets,''
+  Eur.\ Phys.\ J.\ C {\bf 71}, 1721 (2011)
+  [arXiv:1106.0902 [hep-ex]].
+  %%CITATION = ARXIV:1106.0902;%%
+  %48 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ff}
+\bibitem{Chatrchyan:2011ff} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Physics Beyond the Standard Model Using Multilepton Signatures in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 704}, 411 (2011)
+  [arXiv:1106.0933 [hep-ex]].
+  %%CITATION = ARXIV:1106.0933;%%
+  %41 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wn}
+\bibitem{Chatrchyan:2011wn} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Ratio of the 3-jet to 2-jet Cross Sections in $pp$ Collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 702}, 336 (2011)
+  [arXiv:1106.0647 [hep-ex]].
+  %%CITATION = ARXIV:1106.0647;%%
+  %19 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{CMS:2011ab}
+\bibitem{CMS:2011ab} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Inclusive Jet Cross Section in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 132001 (2011)
+  [arXiv:1106.0208 [hep-ex]].
+  %%CITATION = ARXIV:1106.0208;%%
+  %57 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011nb}
+\bibitem{Chatrchyan:2011nb} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $t\bar{t}$ production cross section and the top quark mass in the dilepton channel in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1107}, 049 (2011)
+  [arXiv:1105.5661 [hep-ex]].
+  %%CITATION = ARXIV:1105.5661;%%
+  %88 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011pe}
+\bibitem{Chatrchyan:2011pe} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Indications of suppression of excited $\Upsilon$ states in PbPb collisions at $\sqrt{S_{NN}}$ = 2.76 TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 052302 (2011)
+  [arXiv:1105.4894 [nucl-ex]].
+  %%CITATION = ARXIV:1105.4894;%%
+  %72 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ah}
+\bibitem{Chatrchyan:2011ah} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for supersymmetry in events with a lepton, a photon, and large missing transverse energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1106}, 093 (2011)
+  [arXiv:1105.3152 [hep-ex]].
+  %%CITATION = ARXIV:1105.3152;%%
+  %30 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011rr}
+\bibitem{Chatrchyan:2011rr} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of $W\gamma$ and $Z\gamma$ production in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 701}, 535 (2011)
+  [arXiv:1105.2758 [hep-ex]].
+  %%CITATION = ARXIV:1105.2758;%%
+  %36 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011eka}
+\bibitem{Chatrchyan:2011eka} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Long-range and short-range dihadron angular correlations in central PbPb collisions at a nucleon-nucleon center of mass energy of 2.76 TeV,''
+  JHEP {\bf 1107}, 076 (2011)
+  [arXiv:1105.2438 [nucl-ex]].
+  %%CITATION = ARXIV:1105.2438;%%
+  %34 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011av}
+\bibitem{Chatrchyan:2011av} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Charged particle transverse momentum spectra in $pp$ collisions at $\sqrt{s} = 0.9$ and 7 TeV,''
+  JHEP {\bf 1108}, 086 (2011)
+  [arXiv:1104.3547 [hep-ex]].
+  %%CITATION = ARXIV:1104.3547;%%
+  %30 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ig}
+\bibitem{Chatrchyan:2011ig} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Polarization of W Bosons with Large Transverse Momenta in W+Jets Events at the LHC,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 021802 (2011)
+  [arXiv:1104.3829 [hep-ex]].
+  %%CITATION = ARXIV:1104.3829;%%
+  %28 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wba}
+\bibitem{Chatrchyan:2011wba} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for new physics with same-sign isolated dilepton events with jets and missing transverse energy at the LHC,''
+  JHEP {\bf 1106}, 077 (2011)
+  [arXiv:1104.3168 [hep-ex]].
+  %%CITATION = ARXIV:1104.3168;%%
+  %62 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011qta}
+\bibitem{Chatrchyan:2011qta} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the differential dijet production cross section in proton-proton collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 700}, 187 (2011)
+  [arXiv:1104.1693 [hep-ex]].
+  %%CITATION = ARXIV:1104.1693;%%
+  %40 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011nv}
+\bibitem{Chatrchyan:2011nv} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Inclusive Z Cross Section via Decays to Tau Pairs in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1108}, 117 (2011)
+  [arXiv:1104.1617 [hep-ex]].
+  %%CITATION = ARXIV:1104.1617;%%
+  %27 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011nx}
+\bibitem{Chatrchyan:2011nx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Neutral MSSM Higgs Bosons Decaying to Tau Pairs in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 231801 (2011)
+  [arXiv:1104.1619 [hep-ex]].
+  %%CITATION = ARXIV:1104.1619;%%
+  %67 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011jx}
+\bibitem{Chatrchyan:2011jx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Large Extra Dimensions in the Diphoton Final State at the Large Hadron Collider,''
+  JHEP {\bf 1105}, 085 (2011)
+  [arXiv:1103.4279 [hep-ex]].
+  %%CITATION = ARXIV:1103.4279;%%
+  %34 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011jz}
+\bibitem{Chatrchyan:2011jz} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the lepton charge asymmetry in inclusive $W$ production in pp collisions at $\sqrt{s} = 7$ TeV,''
+  JHEP {\bf 1104}, 050 (2011)
+  [arXiv:1103.3470 [hep-ex]].
+  %%CITATION = ARXIV:1103.3470;%%
+  %44 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011bz}
+\bibitem{Chatrchyan:2011bz} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Physics Beyond the Standard Model in Opposite-Sign Dilepton Events at $\sqrt{s} = 7$ TeV,''
+  JHEP {\bf 1106}, 026 (2011)
+  [arXiv:1103.1348 [hep-ex]].
+  %%CITATION = ARXIV:1103.1348;%%
+  %51 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wc}
+\bibitem{Chatrchyan:2011wc} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Supersymmetry in $pp$ Collisions at $\sqrt{s} = 7$ TeV in Events with Two Photons and Missing Transverse Energy,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 211802 (2011)
+  [arXiv:1103.0953 [hep-ex]].
+  %%CITATION = ARXIV:1103.0953;%%
+  %64 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011wq}
+\bibitem{Chatrchyan:2011wq} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for Resonances in the Dilepton Mass Distribution in $pp$ Collisions at $\sqrt(s) = 7$ TeV,''
+  JHEP {\bf 1105}, 093 (2011)
+  [arXiv:1103.0981 [hep-ex]].
+  %%CITATION = ARXIV:1103.0981;%%
+  %64 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011dx}
+\bibitem{Chatrchyan:2011dx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a $W^\prime$ boson decaying to a muon and a neutrino in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 701}, 160 (2011)
+  [arXiv:1103.0030 [hep-ex]].
+  %%CITATION = ARXIV:1103.0030;%%
+  %34 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011tz}
+\bibitem{Chatrchyan:2011tz} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of $W^+\W^-$ Production and Search for the Higgs Boson in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 699}, 25 (2011)
+  [arXiv:1102.5429 [hep-ex]].
+  %%CITATION = ARXIV:1102.5429;%%
+  %96 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011ua}
+\bibitem{Chatrchyan:2011ua} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Study of Z boson production in PbPb collisions at nucleon-nucleon centre of mass energy = 2.76 TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 212301 (2011)
+  [arXiv:1102.5435 [nucl-ex]].
+  %%CITATION = ARXIV:1102.5435;%%
+  %36 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011em}
+\bibitem{Chatrchyan:2011em} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Search for a Heavy Bottom-like Quark in $pp$ Collisions at $\sqrt{s} = 7$ TeV,''
+  Phys.\ Lett.\ B {\bf 701}, 204 (2011)
+  [arXiv:1102.4746 [hep-ex]].
+  %%CITATION = ARXIV:1102.4746;%%
+  %45 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011tm}
+\bibitem{Khachatryan:2011tm} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Strange Particle Production in $pp$ Collisions at $\sqrt{s}=0.9$ and 7 TeV,''
+  JHEP {\bf 1105}, 064 (2011)
+  [arXiv:1102.4282 [hep-ex]].
+  %%CITATION = ARXIV:1102.4282;%%
+  %48 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011wq}
+\bibitem{Khachatryan:2011wq} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of $B\bar{B}$ Angular Correlations based on Secondary Vertex Reconstruction at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1103}, 136 (2011)
+  [arXiv:1102.3194 [hep-ex]].
+  %%CITATION = ARXIV:1102.3194;%%
+  %33 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011as}
+\bibitem{Khachatryan:2011as} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of Dijet Angular Distributions and Search for Quark Compositeness in pp Collisions at $sqrt{s} = 7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 201804 (2011)
+  [arXiv:1102.2020 [hep-ex]].
+  %%CITATION = ARXIV:1102.2020;%%
+  %55 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2011sx}
+\bibitem{Chatrchyan:2011sx} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``Observation and studies of jet quenching in PbPb collisions at nucleon-nucleon center-of-mass energy = 2.76 TeV,''
+  Phys.\ Rev.\ C {\bf 84}, 024906 (2011)
+  [arXiv:1102.1957 [nucl-ex]].
+  %%CITATION = ARXIV:1102.1957;%%
+  %194 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011dx}
+\bibitem{Khachatryan:2011dx} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``First Measurement of Hadronic Event Shapes in $pp$ Collisions at $\sqrt(s)=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 699}, 48 (2011)
+  [arXiv:1102.0068 [hep-ex]].
+  %%CITATION = ARXIV:1102.0068;%%
+  %26 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011zj}
+\bibitem{Khachatryan:2011zj} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Dijet Azimuthal Decorrelations in $pp$ Collisions at $\sqrt{s} = 7$~TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 122003 (2011)
+  [arXiv:1101.5029 [hep-ex]].
+  %%CITATION = ARXIV:1101.5029;%%
+  %22 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011hf}
+\bibitem{Khachatryan:2011hf} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Inclusive b-hadron production cross section with muons in $pp$ collisions at $\sqrt{s} = 7$ TeV,''
+  JHEP {\bf 1103}, 090 (2011)
+  [arXiv:1101.3512 [hep-ex]].
+  %%CITATION = ARXIV:1101.3512;%%
+  %41 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011hi}
+\bibitem{Khachatryan:2011hi} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of Bose-Einstein Correlations in $pp$ Collisions at $\sqrt{s}=0.9$ and 7 TeV,''
+  JHEP {\bf 1105}, 029 (2011)
+  [arXiv:1101.3518 [hep-ex]].
+  %%CITATION = ARXIV:1101.3518;%%
+  %20 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011tk}
+\bibitem{Khachatryan:2011tk} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Supersymmetry in pp Collisions at 7 TeV in Events with Jets and Missing Transverse Energy,''
+  Phys.\ Lett.\ B {\bf 698}, 196 (2011)
+  [arXiv:1101.1628 [hep-ex]].
+  %%CITATION = ARXIV:1101.1628;%%
+  %203 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011ts}
+\bibitem{Khachatryan:2011ts} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Heavy Stable Charged Particles in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1103}, 024 (2011)
+  [arXiv:1101.1645 [hep-ex]].
+  %%CITATION = ARXIV:1101.1645;%%
+  %44 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2011mk}
+\bibitem{Khachatryan:2011mk} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the $B^+$ Production Cross Section in pp Collisions at $\sqrt{s} = 7$~TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 112001 (2011)
+  [arXiv:1101.0131 [hep-ex]].
+  %%CITATION = ARXIV:1101.0131;%%
+  %44 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010fa}
+\bibitem{Khachatryan:2010fa} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for a heavy gauge boson $W$ ' in the final state with an electron and large missing transverse energy in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 698}, 21 (2011)
+  [arXiv:1012.5945 [hep-ex]].
+  %%CITATION = ARXIV:1012.5945;%%
+  %30 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010zg}
+\bibitem{Khachatryan:2010zg} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Inclusive $\upsilon$ production cross section in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ D {\bf 83}, 112004 (2011)
+  [arXiv:1012.5545 [hep-ex]].
+  %%CITATION = ARXIV:1012.5545;%%
+  %51 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010mq}
+\bibitem{Khachatryan:2010mq} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Pair Production of Second-Generation Scalar Leptoquarks in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 201803 (2011)
+  [arXiv:1012.4033 [hep-ex]].
+  %%CITATION = ARXIV:1012.4033;%%
+  %13 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010wx}
+\bibitem{Khachatryan:2010wx} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Microscopic Black Hole Signatures at the Large Hadron Collider,''
+  Phys.\ Lett.\ B {\bf 697}, 434 (2011)
+  [arXiv:1012.3375 [hep-ex]].
+  %%CITATION = ARXIV:1012.3375;%%
+  %51 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010xn}
+\bibitem{Khachatryan:2010xn} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurements of Inclusive $W$ and $Z$ Cross Sections in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1101}, 080 (2011)
+  [arXiv:1012.2466 [hep-ex]].
+  %%CITATION = ARXIV:1012.2466;%%
+  %132 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010fm}
+\bibitem{Khachatryan:2010fm} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Isolated Prompt Photon Production Cross Section in $pp$ Collisions at $\sqrt{s} = 7$~TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 082001 (2011)
+  [arXiv:1012.0799 [hep-ex]].
+  %%CITATION = ARXIV:1012.0799;%%
+  %38 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010nk}
+\bibitem{Khachatryan:2010nk} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Charged particle multiplicities in $pp$ interactions at $\sqrt{s}=0.9$, 2.36, and 7 TeV,''
+  JHEP {\bf 1101}, 079 (2011)
+  [arXiv:1011.5531 [hep-ex]].
+  %%CITATION = ARXIV:1011.5531;%%
+  %58 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010uf}
+\bibitem{Khachatryan:2010uf} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Stopped Gluinos in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 011801 (2011)
+  [arXiv:1011.5861 [hep-ex]].
+  %%CITATION = ARXIV:1011.5861;%%
+  %43 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010yr}
+\bibitem{Khachatryan:2010yr} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Prompt and non-prompt $J/\psi$ production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 71}, 1575 (2011)
+  [arXiv:1011.4193 [hep-ex]].
+  %%CITATION = ARXIV:1011.4193;%%
+  %106 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010ez}
+\bibitem{Khachatryan:2010ez} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``First Measurement of the Cross Section for Top-Quark Pair Production in Proton-Proton Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 695}, 424 (2011)
+  [arXiv:1010.5994 [hep-ex]].
+  %%CITATION = ARXIV:1010.5994;%%
+  %108 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010te}
+\bibitem{Khachatryan:2010te} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Quark Compositeness with the Dijet Centrality Ratio in $pp$ Collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 105}, 262001 (2010)
+  [arXiv:1010.4439 [hep-ex]].
+  %%CITATION = ARXIV:1010.4439;%%
+  %34 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010jd}
+\bibitem{Khachatryan:2010jd} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Search for Dijet Resonances in 7 TeV pp Collisions at CMS,''
+  Phys.\ Rev.\ Lett.\  {\bf 105}, 211801 (2010)
+  [arXiv:1010.0203 [hep-ex]].
+  %%CITATION = ARXIV:1010.0203;%%
+  %98 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010gv}
+\bibitem{Khachatryan:2010gv} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Observation of Long-Range Near-Side Angular Correlations in Proton-Proton Collisions at the LHC,''
+  JHEP {\bf 1009}, 091 (2010)
+  [arXiv:1009.4122 [hep-ex]].
+  %%CITATION = ARXIV:1009.4122;%%
+  %160 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010pw}
+\bibitem{Khachatryan:2010pw} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``CMS Tracking Performance Results from early LHC Operation,''
+  Eur.\ Phys.\ J.\ C {\bf 70}, 1165 (2010)
+  [arXiv:1007.1988 [physics.ins-det]].
+  %%CITATION = ARXIV:1007.1988;%%
+  %100 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010pv}
+\bibitem{Khachatryan:2010pv} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``First Measurement of the Underlying Event Activity at the LHC with $\sqrt{s} = 0.9$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 70}, 555 (2010)
+  [arXiv:1006.2083 [hep-ex]].
+  %%CITATION = ARXIV:1006.2083;%%
+  %36 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010mw}
+\bibitem{Khachatryan:2010mw} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the charge ratio of atmospheric muons with the CMS detector,''
+  Phys.\ Lett.\ B {\bf 692}, 83 (2010)
+  [arXiv:1005.5332 [hep-ex]].
+  %%CITATION = ARXIV:1005.5332;%%
+  %22 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010un}
+\bibitem{Khachatryan:2010un} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Measurement of Bose-Einstein correlations with first CMS data,''
+  Phys.\ Rev.\ Lett.\  {\bf 105}, 032001 (2010)
+  [arXiv:1005.3294 [hep-ex]].
+  %%CITATION = ARXIV:1005.3294;%%
+  %32 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010us}
+\bibitem{Khachatryan:2010us} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Transverse-momentum and pseudorapidity distributions of charged hadrons in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 105}, 022002 (2010)
+  [arXiv:1005.3299 [hep-ex]].
+  %%CITATION = ARXIV:1005.3299;%%
+  %179 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Khachatryan:2010xs}
+\bibitem{Khachatryan:2010xs} 
+  V.~Khachatryan {\it et al.}  [CMS Collaboration],
+  %``Transverse momentum and pseudorapidity distributions of charged hadrons in pp collisions at $\sqrt(s)$ = 0.9 and 2.36 TeV,''
+  JHEP {\bf 1002}, 041 (2010)
+  [arXiv:1002.0621 [hep-ex]].
+  %%CITATION = ARXIV:1002.0621;%%
+  %199 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009aa}
+\bibitem{Chatrchyan:2009aa} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Commissioning and Performance of the CMS Pixel Tracker with Cosmic Ray Muons,''
+  JINST {\bf 5}, T03007 (2010)
+  [arXiv:0911.5434 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.5434;%%
+  %23 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ab}
+\bibitem{Chatrchyan:2009ab} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of the CMS Level-1 Trigger during Commissioning with Cosmic Ray Muons,''
+  JINST {\bf 5}, T03002 (2010)
+  [arXiv:0911.5422 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.5422;%%
+  %10 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ac}
+\bibitem{Chatrchyan:2009ac} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Measurement of the Muon Stopping Power in Lead Tungstate,''
+  JINST {\bf 5}, P03007 (2010)
+  [arXiv:0911.5397 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.5397;%%
+  %3 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ad}
+\bibitem{Chatrchyan:2009ad} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Commissioning and Performance of the CMS Silicon Strip Tracker with Cosmic Ray Muons,''
+  JINST {\bf 5}, T03008 (2010)
+  [arXiv:0911.4996 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4996;%%
+  %17 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ae}
+\bibitem{Chatrchyan:2009ae} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of CMS Muon Reconstruction in Cosmic-Ray Events,''
+  JINST {\bf 5}, T03022 (2010)
+  [arXiv:0911.4994 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4994;%%
+  %32 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009af}
+\bibitem{Chatrchyan:2009af} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of the CMS Cathode Strip Chambers with Cosmic Rays,''
+  JINST {\bf 5}, T03018 (2010)
+  [arXiv:0911.4992 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4992;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ag}
+\bibitem{Chatrchyan:2009ag} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of the CMS Hadron Calorimeter with Cosmic Ray Muons and LHC Beam Data,''
+  JINST {\bf 5}, T03012 (2010)
+  [arXiv:0911.4991 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4991;%%
+  %14 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009im}
+\bibitem{Chatrchyan:2009im} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Fine Synchronization of the CMS Muon Drift-Tube Local Trigger using Cosmic Rays,''
+  JINST {\bf 5}, T03004 (2010)
+  [arXiv:0911.4904 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4904;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ih}
+\bibitem{Chatrchyan:2009ih} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Calibration of the CMS Drift Tube Chambers and Measurement of the Drift Velocity with Cosmic Rays,''
+  JINST {\bf 5}, T03016 (2010)
+  [arXiv:0911.4895 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4895;%%
+  %1 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ig}
+\bibitem{Chatrchyan:2009ig} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of the CMS Drift-Tube Local Trigger with Cosmic Rays,''
+  JINST {\bf 5}, T03003 (2010)
+  [arXiv:0911.4893 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4893;%%
+  %2 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ic}
+\bibitem{Chatrchyan:2009ic} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Commissioning of the CMS High-Level Trigger with Cosmic Rays,''
+  JINST {\bf 5}, T03005 (2010)
+  [arXiv:0911.4889 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4889;%%
+  %8 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009hw}
+\bibitem{Chatrchyan:2009hw} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of CMS Hadron Calorimeter Timing and Synchronization using Test Beam, Cosmic Ray, and LHC Beam Data,''
+  JINST {\bf 5}, T03013 (2010)
+  [arXiv:0911.4877 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4877;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009hg}
+\bibitem{Chatrchyan:2009hg} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance of the CMS Drift Tube Chambers with Cosmic Rays,''
+  JINST {\bf 5}, T03015 (2010)
+  [arXiv:0911.4855 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4855;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009hb}
+\bibitem{Chatrchyan:2009hb} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Commissioning of the CMS Experiment and the Cosmic Run at Four Tesla,''
+  JINST {\bf 5}, T03001 (2010)
+  [arXiv:0911.4845 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4845;%%
+  %25 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ah}
+\bibitem{Chatrchyan:2009ah} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``CMS Data Processing Workflows during an Extended Cosmic Ray Run,''
+  JINST {\bf 5}, T03006 (2010)
+  [arXiv:0911.4842 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4842;%%
+  %6 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ai}
+\bibitem{Chatrchyan:2009ai} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Aligning the CMS Muon Chambers with the Muon Alignment System during an Extended Cosmic Ray Run,''
+  JINST {\bf 5}, T03019 (2010)
+  [arXiv:0911.4770 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4770;%%
+  %4 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009ks}
+\bibitem{Chatrchyan:2009ks} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance Study of the CMS Barrel Resistive Plate Chambers with Cosmic Rays,''
+  JINST {\bf 5}, T03017 (2010)
+  [arXiv:0911.4045 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4045;%%
+  %7 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009aj}
+\bibitem{Chatrchyan:2009aj} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Time Reconstruction and Performance of the CMS Electromagnetic Calorimeter,''
+  JINST {\bf 5}, T03011 (2010)
+  [arXiv:0911.4044 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4044;%%
+  %12 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009km}
+\bibitem{Chatrchyan:2009km} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Alignment of the CMS Muon System with Cosmic-Ray and Beam-Halo Muons,''
+  JINST {\bf 5}, T03020 (2010)
+  [arXiv:0911.4022 [physics.ins-det]].
+  %%CITATION = ARXIV:0911.4022;%%
+  %5 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009si}
+\bibitem{Chatrchyan:2009si} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Precise Mapping of the Magnetic Field in the CMS Barrel Yoke using Cosmic Rays,''
+  JINST {\bf 5}, T03021 (2010)
+  [arXiv:0910.5530 [physics.ins-det]].
+  %%CITATION = ARXIV:0910.5530;%%
+  %18 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009qm}
+\bibitem{Chatrchyan:2009qm} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Performance and Operation of the CMS Electromagnetic Calorimeter,''
+  JINST {\bf 5}, T03010 (2010)
+  [arXiv:0910.3423 [physics.ins-det]].
+  %%CITATION = ARXIV:0910.3423;%%
+  %9 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2009sr}
+\bibitem{Chatrchyan:2009sr} 
+  SChatrchyan {\it et al.}  [CMS Collaboration],
+  %``Alignment of the CMS Silicon Tracker during Commissioning with Cosmic Rays,''
+  JINST {\bf 5}, T03009 (2010)
+  [arXiv:0910.2505 [physics.ins-det]].
+  %%CITATION = ARXIV:0910.2505;%%
+  %55 citations counted in INSPIRE as of 28 Feb 2013
+%\cite{Chatrchyan:2008aa}
+\bibitem{Chatrchyan:2008aa} 
+  S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+  %``The CMS experiment at the CERN LHC,''
+  JINST {\bf 3}, S08004 (2008).
+  %%CITATION = JINST,3,S08004;%%
+  %1057 citations counted in INSPIRE as of 28 Feb 2013
+
+
+\end{thebibliography}
+
+%\vspace{1cm}
+\vfill{}
+\hrulefill
+
+% FILL IN THE FULL URL TO YOUR CV
+\begin{center}
+%{\footnotesize \href{http://www.ias.edu/spfeatures/einstein}{http://www.ias.edu/spfeatures/einstein} ‚Äö√Ñ√Æ Last updated: \today}
+{\footnotesize Last updated: \today}
+\end{center}
+
+
+\end{document}

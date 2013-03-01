@@ -1,0 +1,124 @@
+Francesco Santanastasio was born in Rome on 09/02/1980. 
+
+He graduated in May 2004 with full marks (110/110 "magna cum laude") with a thesis entitled 
+"Calibration of an electromagnetic calorimeter using the energy flow method", advisors Prof. Egidio 
+Longo and Dott. Riccardo Paramatti. In November of 2004 he began the PhD in Physics at the 
+University of Rome "La Sapienza", passing the final examination in January 2008 with a thesis entitled 
+"Search for Supersymmetry with Gauge-Mediated Breaking using high energy photons at CMS 
+experiment", advisors Prof. Egidio Longo, Prof. Shahram Rahatlou, and Dott. Daniele del Re. 
+
+Academic positions: 
+From 09/2011: Research fellow at the Conseil Europeen pour la Recherche Nucleaire (CERN) 
+01/2008 - 08/2011: Post-Doctoral Research Assistant (Post-Doc) at University of Maryland 
+
+During his scientific career he published over 200 papers, about 15 internal notes of the experiments in 
+which he participated, and he was invited to give reports in various international conferences and 
+workshops. 
+
+He has a very good knowledge of spoken and written English. 
+
+In his scientific career, Francesco Santanastasio was interested in electromagnetic and hadronic 
+calorimetry, reconstruction of missing transverse energy, and searches for new physics beyond the 
+Standard Model in proton-proton (pp) collisions at the LHC. 
+
+Between 2004 and 2007, he was involved in studies of the performance of the electromagnetic 
+calorimeter (ECAL) of the CMS experiment. He has participated to the development of calibration 
+techniques, and to the analysis and test of stability of ECAL high voltage system. 
+Between 2008 and 2010, he was involved in studies of the performance of the hadronic calorimeter 
+(HCAL) of the CMS experiment. He has participated to the HCAL commissioning during the early 
+period of cosmic-ray data taking, and to the development and implementation of algorithms for the 
+identification of anomalous, beam-induced signals in the photomultiplier tubes of the hadronic forward 
+calorimeter (HF) observed in the first collisions at LHC. He has also studied the performance of the 
+missing transverse energy reconstructed in the event with early pp collisions. 
+
+Since the beginning of his post-doctoral studies, Francesco Santanastasio was actively involved in 
+various searches for new physics beyond the Standard Model in the CMS experiment at LHC. In 2010, 
+he took a leading role in two different searches for pair production of leptoquarks in the final states with 
+two electrons and two jets, or one electron, one neutrino, and two jets, which were both published in 
+high impact scientific journals. These analyses were among the first ones at LHC to extend the search 
+for new physics in an unexplored energy region compared to previous experiments at colliders. He has 
+been supervising a PhD student from Princeton University to update this search with the 2011 and 2012 data. 
+Since September 2011 he has taken a leading role in searches for new resonances that decay to a pair of 
+jets (dijets) using the dijet mass spectrum. In particular, he has been the main developer of a novel 
+trigger and data acquisition strategy that allowed to recover sensitivity to new physics at dijet masses 
+below 1 TeV. His current physics program is focused on searches for new heavy resonances decaying to pairs
+of vector bosons (WW/ZZ/WZ) in the semi-leptonic and fully hadronic final states. He's the contact person
+for the semi-leptonic analysis in the final state with one lepton, one neutrino, and either one or two jets.
+These analyses exploit the novel jet sub-structure techniques to identify the hadronic decays of 
+vector bosons with high transverse momentum, when the quarks from W/Z decays merge into a single jet.
+
+During his research activities, Francesco Santanastasio got the opportunity 
+to supervise various graduate and undergraduate students from different institutions, 
+guiding their work and covering both teaching and leadership roles within the research groups.
+
+He held the following coordination roles within the CMS collaboration: 
+Since 01/2013 : Coordinator of the group "CMS Exotica Lepton+Jets" 
+Since 03/2012 : Coordinator of the group "CMS Dataset Definition Team" 
+09/2008 - 09/2010 : Coordinator of the group "CMS HCAL Prompt Feedback Group" 
+He was also member of the "Analysis Review Committee" for the scrutiny of two public CMS results 
+within the collaboration: top cross section measurements in all hadronic decay channel and search for 
+Randall-Sundrum gravitons decaying into a jet plus missing transverse energy final state.
+
+In various occasions, he presented the analysis results of the CMS and ATLAS experiments at international and national conferences:
+- In April 2010, he presented the prospects for searches of new physics with early data at CMS 
+at the international conference "Deep-Inelastic Scattering and Related Subjects". 
+- In March 2011, he presented the first results of searches for new physics beyond the 
+Standard Model using the full data sample collected by the CMS experiment in 2010 at the international 
+conference "Rencontres de Moriond on EW Interactions and Unified Theories".
+- In September 2012, he presented a review of searches for new physics beyond the Standard Model using 
+the full data sample collected by the CMS and ATLAS experiments in 2011 at the international 
+conference "Physics in Collision".
+- In May 2013, he was invited to present a summary of the current searches for hadronic resonances from 
+CMS and ATLAS experiments at the national conference "VI Workshop Italiano sulla Fisica p-p ad LHC".
+
+-------------------------------------------------------------------------------------------------------
+
+
+One century of experimental measurements and progress in theoretical physics led to an extremely compact and elegant theory of fundamental interactions between elementary particles, the Standard Model (SM). Its success in reproducing measurements from different experiments in energy regimes spanning over several orders of magnitude is astonishing. Strong, weak and electromagnetic interactions are all described within the same mathematical framework of gauge theories. Although the electromagnetic and weak interactions are related to the same SU(2) x U(1) invariance, only the electromagnetic symmetry is manifest in the mass spectrum. The rest of the electroweak symmetry is hidden, that is, it is spontaneously broken. 
+
+The detailed mechanism through which the breaking happens is not clear, though. The simplest way this could be explained theoretically is through the so-called Higgs mechanism of the SM. This mechanism explain, for instance, why elementary particles have mass. The Higgs mechanism postulates the existence of a new scalar particle, the Higgs boson, whose mass is not theoretically predicted by the SM, but that should be experimentally observable at particle colliders. 
+
+The Large Hadron Collider (LHC) is the largest proton-proton (pp) collider ever built. It is located at CERN, Geneva, and its main objective is to finally unravel the origin of the electroweak symmetry breaking (EWSB). Using the pp collision data at the center-of-mass energy of 7 and 8 TeV collected in 2011 and 2012, ATLAS and CMS, the largest experiments at the LHC, have finally observed in July 2012 the clear signs of the existence of a new boson with a mass of about 125-126 GeV. If this is the Higgs boson, then its mass is just below the minimum value that ensures absolute vacuum stability within the theoretical framework of the SM which, in turn, implies a vanishing Higgs quartic coupling around the Planck scale. This "unnatural" scenario, combined with the absence of other new physics, would make difficult for theorists to unveil the underlying principles of the EWSB. A consistent (and more natural) explanation could emerge from experimental data if the LHC finds Higgs couplings deviating from the SM prediction and eventually new particles at the TeV scale.
+
+The results released so far by the experiments, indicate that the properties of this new particle (couplings, spin, parity) are compatible with those expected from the Higgs boson of the SM. The final results of the analysis of 2011 and 2012 data will be presented in the next months. The discovery of a particle consistent with the Higgs boson opens the way to more detailed studies, requiring larger statistics, which could be performed in the second phase of the LHC. The LHC is infact entering into a long technical stop to prepare for running at its full design center-of-mass energy of around 14 TeV in early 2015.
+
+A complementary approach to unveil the EWSB is the study of the WW system. The W boson acquires mass and the longitudinal polarization degree of freedom through the symmetry breaking. The scattering of two longitudinally polarized W bosons (WW scattering) carries a direct information about the EWSB mechanism, no matter whether a physical elementary Higgs particle exists or some kind of strongly interacting physics is responsible for this breaking. In absence of the Higgs boson contribution, this SM process would violate the unitarity of the scattering amplitude at a center-of-mass energy of around 1 TeV: in this scenario, interesting physics must emerge at that energy scale to restore unitarity. Given that a new Higgs-like particle has been observed, the energy dependence of the longitudinal WW scattering above the Higgs mass scale will tell us if the SM Higgs boson regularizes the WW scattering fully or only partially, as predicted in some theoretical models with composite Higgs. Therefore, the study of the WW scattering at high center-of-mass-energy is a fundamental milestone in the physics program of the LHC experiments. 
+
+The interest of the WW final state is not limited to the WW scattering: new resonances decaying to a pair of vector bosons are also foreseen by many models of physics beyond the SM such as technicolor, Sequential SM, and others. The WW final state is also one of the possible decays of the Randall-Sundrum (RS) graviton. The RS model of the Extra Dimensions is one of the most appealing and popular models that predict new physics beyond the SM. This model solves the hierarchy problem, i.e. the big gap between the electroweak energy scale and the Planck scale at which quantum effects of gravity become strong, using a theoretical framework that includes a warped extra spatial dimension in which gravity can propagate. The most distinctive feature of this scenario is the existence of spin-2 gravitons whose masses and couplings to the SM are set by the TeV scale. The gravitons would appear in experiments as widely separated resonances. Decays of the graviton to pairs of electrons, muons, or photons are the golden channels for searches of extra dimensions. However well-motivated extensions of the original RS model address the flavor structure of the SM through localization of fermions in the warped extra dimension. In this scenario, graviton production and decay with light fermion channels are highly suppressed and the decays into photons are negligible; while the production of gravitons from gluon fusion and their decay into a pair of massive gauge bosons (W and/or Z) is sizeable. 
+
+No signs of physics beyond the SM have been observed so far by the LHC experiments. However many of the 8 TeV analyses have not been completed yet, including those searches for new resonances with mass above 1 TeV decaying to pairs of vector bosons.
+
+The research program presented in this document is centered on the study of the WW final state at LHC and is motivated by the arguments discussed above that briefly summarize the current knowledge in the experimental and theoretical fields. This proposal fits well with the physics program of the CMS experiment at LHC, in which I have been working since the beginning of my graduate studies in 2004. The project is structured in various phases, accordingly with the LHC schedule for the next few years.
+
+1) Search for New Resonances Decaying to Pairs of Vector Bosons
+
+In the first period of the contract, I will search for new physics beyond the Standard Model by studying the decay of heavy resonances (X) in pairs of vector bosons (VV = WW, ZZ, or WZ). The analysis will focus on the semi-leptonic (lvjj and lljj) and fully hadronic (jjjj) final states using the data collected by CMS in 2012 at a center-of-mass energy of 8 TeV, and will be repeated at 14 TeV. These decay channels have the largest branching fraction, thus allowing to extend the sensitivity to new physics to higher values of resonance mass (i.e. lower cross section) compared to the fully leptonic channels. In addition, I already developed a solid expertise in the study of these final states during the past years in CMS, both in terms of analysis methods and reconstruction of physics objects [2,3]. Ultimately, all channels could be combined to increase the sensitivity to the new physics in the entire mass range and to test the consistency between the data and different descriptions of the RS construction. 
+
+For X-->VV resonances with mass above 1 TeV, the momentum of vector bosons (V) greatly exceeds their rest mass, and the W/Z decay products are emitted with a small angular separation in the laboratory reference frame. The identification of an energetic vector boson decaying into a pair of very collimated quarks, and thus resulting in a single massive jet, is an experimental challenge for both the semi-leptonic (lvjj and lljj) and fully hadronic (jjjj) channels. Achieving this goal is important to reduce the SM backgrounds arising from production of W/Z bosons in association with jets, QCD multijet events, and pairs of top-antitop quarks. In the past few years, several algorithms to resolve the substructure of a massive jet have been proposed. A recent comprehensive summary, result of the fruitful dialogue between theorists and experimentalists since 2009, can be found in [4]. I will focus on the study of the performance of the existing jet substructure algorithms, in order to identify the most promising ones in the contest of the proposed searches. 
+Although powerful tools for physics analyses, the jet substructure observables are particularly sensitive to the specific Monte Carlo (MC) description in the simulation. Variations in the parton shower model, the underlying event activity, and the detector model can have a non-negligible impact in quantities such as the jet mass or the number of substructures in the jet. It will be important to compare the distributions of such observables between different generators and collision data in order to verify the agreement, and eventually tune the MC parameters to improve the description of the simulation for this kind of analyses. 
+
+2) Study of WW scattering in pp collisions at center-of-mass energy of 14 TeV
+
+The second period of the contract will be devoted to the study of the scattering of longitudinally polarized vector bosons which is a crucial measurement to understand the origin of the electroweak symmetry breaking mechanism. The WW scattering is a rare process in the SM and a large amount of data will be needed to perform this analysis. The work performed at point 1) will be preparatory to study the WW scattering in the aforementioned semi-leptonic and fully hadronic final states. The plan includes an accurate optimization study with simulated events to be performed during the long shutdown of the accelerator, in preparation for the 14 TeV, high luminosity phase of the LHC in 2015. Although previous studies of the WW scattering have been performed in the past within the CMS collaboration, up-to-date studies with realistic detector and LHC conditions are still missing. In particular, it is important to study new strategies for extracting the signal from the scattering of longitudinally polarized vector bosons from the irreducible background arising from the transverse polarizations. A possible strategy in this sense is the study of angular distributions of fermions from W decays, as recently suggested in [5]. 
+The WW scattering process occurs via the Vector Boson Fusion (VBF) process with the associated production of two energetic forward jets. Forward jets coming from multiple interactions occurring at each crossing of protons bunches (pileup interactions) might overlap with events from inclusive (not VBF-specific) WW production, thus faking the WW scattering signature. With the increase of the LHC luminosity, it will be important to study the negative impact on the analysis of pileup interactions, as well as the techniques to mitigate such effect. 
+
+3) Calibration, Commissioning, and Monitoring of the Electromagnetic Calorimeter of CMS
+
+At high center-of-mass energy, the study of VV decays in semi-leptonic final states involving electrons is particularly important due to the better resolution at high energy of electrons compared to muons or taus. The CMS electromagnetic calorimeter (ECAL) is a homogeneous crystal calorimeter, made up of lead tungstate crystals, aiming to reach an excellent energy resolution for the reconstruction of electrons and photons. For electrons of very high energy, such as those coming from the decays of energetic W/Z bosons discussed in points 1) and 2), the energy resolution is ultimately dominated by the detector calibration precision. Maintaining ECAL performance is a prerequisite for the success of this physics program. 
+During my graduate studies in Rome, I studied the stability of the ECAL high voltage (HV) system [6] and I worked at the original feasibility study in CMS of using the decays of neutral pions in two photons for the calibration of the ECAL crystals [7]. This technique has been used extensively in 2010-11 to calibrate at regular intervals of few months the entire ECAL. In the first part of the contract, I will contribute to the ECAL calibration with neutral pions using the data collected in 2012, in particular improving the calibration of the forward part of the detector (endcaps). Towards the end of the long LHC shutdown (2013-14), I will also contribute to the restart of the commissioning and monitoring activities of the ECAL detector by spending periods of time at the CERN laboratory and performing data taking shifts. 
+
+--- 
+
+My first choice for the institution where I intend to conduct this research project is the Physics Department of the Universitˆ degli Studi di Roma "La Sapienza", with a particular interest in joining the group involved in the CMS experiment. The CMS Rome group is actively involved in searches for Higgs boson and searches for new physics beyond the SM. Some of the experimental physicists at Rome currently cover responsibility roles within physics groups of the CMS collaboration whose research topics are closely connected with the subjects of this project. The CMS Rome group had also a leading role in all phases of the electromagnetic calorimeter project, from its design, building, operation and performance optimization. Performing this research project in Rome will also benefit from the interplay with a part of the theoretical group of the Physics Department at "La Sapienza", which has been recently focusing on understanding the mechanism responsible for the breaking of the electroweak symmetry, and more in general on theories beyond the SM. 
+In conclusion, my research plan will integrates very well with the current interests and expertise of the CMS Rome group, giving me the opportunity to continue providing significant contributions to the CMS experiment. 
+
+References
+
+1. G. Degrassi et. al., JHEP 1208 (2012) 098, arXiv:1205.6497
+2. CMS Collaboration, Phys. Rev. D 86, 052013 (2012) arXiv:1207.5406
+3. CMS Collaboration, arXiv:1212.1910 (2012), Paper submitted to PLB 
+4. A. Abdesselam et al., Eur. Phys. J. C71:1661(2011), arXiv:1012.5412
+5. T. Han, D. Krohn, L-T. Wang and W. Zhu, JHEP 1003 (2010) 082, arXiv:0911.3656 
+6. A. Bartoloni et al., Nucl. Instrum. Meth. A 582, 462 (2007), http://cdsweb.cern.ch/record/1027033
+7. F. Santanastasio et al., CMS IN-2006/050 (2006), (internal document)
+
