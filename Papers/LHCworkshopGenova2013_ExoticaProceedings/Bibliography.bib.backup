@@ -1,0 +1,88 @@
+@article{1748-0221-6-11-P11002,
+  author={The CMS collaboration},
+  title={Determination of jet energy calibration and transverse momentum resolution in CMS},
+  journal={Journal of Instrumentation},
+  volume={6},
+  number={11},
+  pages={P11002},
+  url={http://stacks.iop.org/1748-0221/6/i=11/a=P11002},
+  year={2011},
+  abstract={Measurements of the jet energy calibration and transverse momentum resolution in CMS are presented, performed with a data sample collected in proton-proton collisions at a centre-of-mass energy of 7TeV, corresponding to an integrated luminosity of 36pb −1 . The transverse momentum balance in dijet and γ/Z+jets events is used to measure the jet energy response in the CMS detector, as well as the transverse momentum resolution. The results are presented for three different methods to reconstruct jets: a calorimeter-based approach, the ``Jet-Plus-Track'' approach, which improves the measurement of calorimeter jets by exploiting the associated tracks, and the ``Particle Flow'' approach, which attempts to reconstruct individually each particle in the event, prior to the jet clustering, based on information from all relevant subdetectors.}
+}
+
+@techreport{ATLAS-CONF-2013-004,
+      title        = "Jet energy scale and its systematic uncertainty in
+                      proton-proton collisions at sqrt(s)=7 TeV with ATLAS 2011
+                      data",
+      institution  = "CERN",
+      address      = "Geneva",
+      number       = "ATLAS-CONF-2013-004",
+      month        = "Jan",
+      year         = "2013",
+}
+
+@article{Aad:2011he,
+      author         = "Aad, Georges and others",
+      title          = "{Jet energy measurement with the ATLAS detector in
+                        proton-proton collisions at $\sqrt{s}=7$ TeV}",
+      collaboration  = "ATLAS Collaboration",
+      journal        = "Eur.Phys.J.",
+      volume         = "C73",
+      pages          = "2304",
+      doi            = "10.1140/epjc/s10052-013-2304-2",
+      year           = "2013",
+      eprint         = "1112.6426",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2011-191",
+      SLACcitation   = "%%CITATION = ARXIV:1112.6426;%%",
+}	
+
+@techreport{CMS-PAS-EXO-12-059,
+      title        = "Search for Narrow Resonances using the Dijet Mass Spectrum
+                      with 19.6fb-1 of pp Collisions at sqrts=8 TeV",
+      institution  = "CERN",
+      address      = "Geneva",
+      number       = "CMS-PAS-EXO-12-059",
+      year         = "2013",
+}
+
+@techreport{ATLAS-CONF-2012-148,
+      title        = "Search for New Phenomena in the Dijet Mass Distribution
+                      updated using 13.0 fb^{-1} of $pp$ Collisions at $sqrt{s}=8$
+                      TeV collected by the ATLAS Detector",
+      institution  = "CERN",
+      address      = "Geneva",
+      number       = "ATLAS-CONF-2012-148",
+      month        = "Nov",
+      year         = "2012",
+}
+
+@techreport{CMS-PAS-EXO-12-023,
+      title        = "Search for Heavy Resonances Decaying into bb and bg Final
+                      States in pp Collisions at sqrt(s) =  8 TeV",
+      institution  = "CERN",
+      address      = "Geneva",
+      number       = "CMS-PAS-EXO-12-023",
+      year         = "2013",
+}
+
+@article{Chatrchyan2012329,
+title = "Search for three-jet resonances in pp collisions at ",
+journal = "Physics Letters B ",
+volume = "718",
+number = "2",
+pages = "329 - 347",
+year = "2012",
+note = "",
+issn = "0370-2693",
+doi = "10.1016/j.physletb.2012.10.048",
+url = "http://www.sciencedirect.com/science/article/pii/S0370269312011021",
+author = "The CMS Collaboration",
+keywords = "\{CMS\}",
+keywords = "Physics",
+keywords = "Three-jet resonances",
+keywords = "R-parity-violation "
+}
+
+

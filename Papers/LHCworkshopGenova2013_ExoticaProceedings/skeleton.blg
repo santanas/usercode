@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: skeleton.aux
+The style file: JHEP.bst
+Database file #1: skeleton.bib
+Warning--empty author in ATLAS-CONF-2013-004
+Warning--empty author in 1748-0221-6-11-P11002
+Warning--empty author in Aad:2011he
+Warning--empty author in CMS-PAS-EXO-12-059
+Warning--empty author in ATLAS-CONF-2012-148
+Warning--empty author in CMS-PAS-EXO-12-023
+Warning--empty author in Chatrchyan2012329
+Warning--empty author in SUSYRPVATLAS
+Warning--empty author in ATLAS-CONF-2012-065
+Warning--empty author in TtbarResCMS
+Warning--empty author in TtbarResATLAS
+Warning--empty author in CMS-PAS-B2G-12-005
+Warning--empty author in ATLAS-CONF-2013-052
+Warning--empty author in Chatrchyan:2012ypy
+Warning--empty author in CMS-PAS-JME-10-008
+Warning--empty author in Aad:2012vm
+Warning--empty author in Chatrchyan:2013rla
+Warning--empty author in ATLAS:2012am
+You've used 23 entries,
+            2195 wiz_defined-function locations,
+            636 strings with 7015 characters,
+and the built_in function-call counts, 5208 in all, are:
+= -- 544
+> -- 88
+< -- 8
++ -- 43
+- -- 20
+* -- 497
+:= -- 657
+add.period$ -- 23
+call.type$ -- 23
+change.case$ -- 23
+chr.to.int$ -- 0
+cite$ -- 41
+duplicate$ -- 315
+empty$ -- 522
+format.name$ -- 20
+if$ -- 1336
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 58
+newline$ -- 72
+num.names$ -- 5
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 173
+stack$ -- 0
+substring$ -- 207
+swap$ -- 119
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 18
+while$ -- 22
+width$ -- 25
+write$ -- 231
+(There were 18 warnings)

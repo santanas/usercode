@@ -1,0 +1,126 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
+
+\bibitem{Cacciari:2008gp}
+M.~Cacciari, G.~P. Salam, and G.~Soyez, {\it The anti-k$_t$ jet clustering
+  algorithm},  {\em JHEP} {\bf 04} (2008) 063,
+  [\href{http://xxx.lanl.gov/abs/0802.1189}{{\tt arXiv:0802.1189}}].
+
+\bibitem{ATLAS-CONF-2013-004}
+{ATLAS} Collaboration, {\it Jet energy scale and its systematic uncertainty in
+  proton-proton collisions at sqrt(s)=7 {TeV} with atlas 2011 data},
+  ATLAS-CONF-2013-004, CERN, Jan, 2013.
+
+\bibitem{1748-0221-6-11-P11002}
+{{CMS}} Collaboration, {\it Determination of jet energy calibration and
+  transverse momentum resolution in {CMS}},  {\em Journal of Instrumentation}
+  {\bf 6} (2011), no.~11 P11002.
+
+\bibitem{Aad:2011he}
+{{ATLAS}} Collaboration, {\it {Jet energy measurement with the {ATLAS} detector
+  in proton-proton collisions at $\sqrt{s}=7$ {TeV}}},  {\em Eur.Phys.J.} {\bf
+  C73} (2013) 2304, [\href{http://xxx.lanl.gov/abs/1112.6426}{{\tt
+  arXiv:1112.6426}}].
+
+\bibitem{CMS-PAS-EXO-12-059}
+{{CMS}} Collaboration, {\it Search for narrow resonances using the dijet mass
+  spectrum with 19.6fb-1 of pp collisions at sqrts=8 {TeV}},
+  CMS-PAS-EXO-12-059, CERN, 2013.
+
+\bibitem{ATLAS-CONF-2012-148}
+{{ATLAS}} Collaboration, {\it Search for new phenomena in the dijet mass
+  distribution updated using 13.0 fb$^{-1}$ of $pp$ collisions at $sqrt{s}=8$
+  {TeV} collected by the {ATLAS} detector},   ATLAS-CONF-2012-148, CERN, Nov,
+  2012.
+
+\bibitem{CMS-PAS-EXO-12-023}
+{{CMS}} Collaboration, {\it Search for heavy resonances decaying into bb and bg
+  final states in pp collisions at sqrt(s) = 8 {TeV}},   CMS-PAS-EXO-12-023,
+  CERN, 2013.
+
+\bibitem{Chatrchyan2012329}
+{{CMS}} Collaboration, {\it Search for three-jet resonances in pp collisions
+  at},  {\em Physics Letters B} {\bf 718} (2012), no.~2 329 -- 347.
+
+\bibitem{SUSYRPVATLAS}
+{{ATLAS}} Collaboration, {\it Search for pair production of massive particles
+  decaying into three quarks with the {ATLAS} detector in
+  $\sqrt{s}=7\;\mathrm{{TeV}}$ pp collisions at the lhc},  {\em Journal of High
+  Energy Physics} {\bf 2012} (2012), no.~12 1--42.
+
+\bibitem{Kaplan:2008ie}
+D.~E. Kaplan, K.~Rehermann, M.~D. Schwartz, and B.~Tweedie, {\it {Top Tagging:
+  A Method for Identifying Boosted Hadronically Decaying Top Quarks}},  {\em
+  Phys.Rev.Lett.} {\bf 101} (2008) 142001,
+  [\href{http://xxx.lanl.gov/abs/0806.0848}{{\tt arXiv:0806.0848}}].
+
+\bibitem{Plehn:2010st}
+T.~Plehn, M.~Spannowsky, M.~Takeuchi, and D.~Zerwas, {\it {Stop Reconstruction
+  with Tagged Tops}},  {\em JHEP} {\bf 1010} (2010) 078,
+  [\href{http://xxx.lanl.gov/abs/1006.2833}{{\tt arXiv:1006.2833}}].
+
+\bibitem{ATLAS-CONF-2012-065}
+{ATLAS} Collaboration, {\it Performance of large-r jets and jet substructure
+  reconstruction with the atlas detector},   ATLAS-CONF-2012-065, CERN, Jul,
+  2012.
+
+\bibitem{Almeida:2010pa}
+L.~G. Almeida, S.~J. Lee, G.~Perez, G.~Sterman, and I.~Sung, {\it {Template
+  Overlap Method for Massive Jets}},  {\em Phys.Rev.} {\bf D82} (2010) 054034,
+  [\href{http://xxx.lanl.gov/abs/1006.2035}{{\tt arXiv:1006.2035}}].
+
+\bibitem{TtbarResCMS}
+{{CMS}} Collaboration, {\it Search for anomalous $t\overline t$ production in
+  the highly-boosted all-hadronic final state},  {\em Journal of High Energy
+  Physics} {\bf 2012} (2012), no.~9 1--41.
+
+\bibitem{TtbarResATLAS}
+{{ATLAS}} Collaboration, {\it Search for resonances decaying into top-quark
+  pairs using fully hadronic decays in pp collisions with {ATLAS} at
+  $\sqrt{s}$=7 {TeV}},  {\em Journal of High Energy Physics} {\bf 2013} (2013),
+  no.~1 1--50.
+
+\bibitem{CMS-PAS-B2G-12-005}
+{{CMS}} Collaboration, {\it Search for anomalous top quark pair production in
+  the boosted all-hadronic final state using pp collisions at sqrt(s) = 8
+  {TeV}},   CMS-PAS-B2G-12-005, CERN, 2013.
+
+\bibitem{ATLAS-CONF-2013-052}
+{\it A search for $t\bar{t}$ resonances in the lepton plus jets final state
+  with atlas using 14 fb$^{−1}$ of pp collisions at $\sqrt{s}=8$ tev},
+  ATLAS-CONF-2013-052, CERN, Geneva, May, 2013.
+
+\bibitem{CMS-PAS-B2G-12-006}
+{{CMS}} Collaboration, {\it Search for ttbar resonances in semileptonic final state},   CMS-PAS-B2G-12-006, CERN, 2013.
+
+\bibitem{Chatrchyan:2012ypy}
+{{CMS}} Collaboration, {\it {Search for heavy resonances in the W/Z-tagged
+  dijet mass spectrum in pp collisions at 7 {TeV}}},
+  \href{http://xxx.lanl.gov/abs/1212.1910}{{\tt arXiv:1212.1910}}.
+
+\bibitem{CMS-PAS-JME-10-008}
+{{CMS}} Collaboration, {\it Single-particle response in the {CMS}
+  calorimeters},   CMS-PAS-JME-10-008, CERN, 2010.
+
+\bibitem{Aad:2012vm}
+{ATLAS} Collaboration, {\it {Single hadron response measurement and calorimeter
+  jet energy scale uncertainty with the ATLAS detector at the LHC}},  {\em
+  Eur.Phys.J.} {\bf C73} (2013) 2305,
+  [\href{http://xxx.lanl.gov/abs/1203.1302}{{\tt arXiv:1203.1302}}].
+
+\bibitem{Cacciari:2008gd}
+M.~Cacciari, J.~Rojo, G.~P. Salam, and G.~Soyez, {\it {Quantifying the
+  performance of jet definitions for kinematic reconstruction at the LHC}},
+  {\em JHEP} {\bf 0812} (2008) 032,
+  [\href{http://xxx.lanl.gov/abs/0810.1304}{{\tt arXiv:0810.1304}}].
+
+\bibitem{Chatrchyan:2013rla}
+{{CMS}} Collaboration, {\it {Studies of jet mass in dijet and W/Z+jet events}},
+   \href{http://xxx.lanl.gov/abs/1303.4811}{{\tt arXiv:1303.4811}}.
+
+\bibitem{ATLAS:2012am}
+{ATLAS} Collaboration, {\it {Jet mass and substructure of inclusive jets in
+  $\sqrt{s}=7$ {TeV} $pp$ collisions with the ATLAS experiment}},  {\em JHEP}
+  {\bf 1205} (2012) 128, [\href{http://xxx.lanl.gov/abs/1203.4606}{{\tt
+  arXiv:1203.4606}}].
+
+\end{thebibliography}\endgroup
