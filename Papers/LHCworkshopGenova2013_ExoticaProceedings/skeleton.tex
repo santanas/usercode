@@ -75,7 +75,7 @@ are deemed important for current and future searches are also discussed.
 The searches for hadronic resonances can be divided into two main categories:
 \begin{itemize}
  \item {\bf Resolved topology} - Searches where the quarks and gluons produced in the final state are each reconstructed at detector level into single,  \textit{resolved} hadronic jets. Examples are the single production of a resonance X decaying to a pair of gluons, or the pair production of two resonances X at rest each decaying to a quark-antiquark pair;
- \item {\bf Boosted topology} - Searches where the quarks and gluons produced in the final state are merged into a single reconstructed jet.  A typical example is the decay of a resonance X into a pair of massive particles Y, with $\mbox{M}_{\mbox{X}} >>\mbox{M}_{\mbox{Y}} $, and Y decays to a pair of light quarks. In this case the resonance Y will be \textit{boosted} 
+ \item {\bf Boosted topology} - Searches where the quarks and gluons produced in the final state are merged into a single reconstructed jet.  A typical example is the decay of a resonance X into a pair of massive particles Y, with $\mbox{M}_{X} >>\mbox{M}_{Y} $, and Y decays to a pair of light quarks. In this case the resonance Y will be \textit{boosted} 
 (the resonance has a large momentum compared to its mass) so that a single hadronic jet with a large distance 
 parameter (\textit{wide jet}) encompasses all its decay products. Techniques that exploit the presence of substructure within the \textit{wide jet} are employed to reject background from standard QCD jets and multiple interactions within the same bunch crossing (pile-up). 
 \end{itemize}
@@ -177,7 +177,7 @@ Even though there are no important differences between the mass limits obtained 
 it would be desirable to unify the definitions of one of the benchmark searches for New Phenomena at the LHC
 for future iterations and possible combinations. 
 
-\subsection{Data for low-mass resonances}
+\subsection{Trigger strategy for low-mass resonances}
 In absence of evidence for new physics at the TeV scale, 
 searching for new resonances in hadronic final states with masses 
 between the electroweak ($\approx$ 100 GeV) and the TeV scale, 
@@ -191,7 +191,7 @@ started at $\approx$ 1 TeV.
 
 In addition to the regular developments for the "core" physics triggers, the ATLAS and CMS experiments have implemented two complementary trigger and data acquisition strategies to mitigate the problem of increased hadronic trigger rate in high luminosity scenarios.
 \begin{itemize}
-\item {\bf CMS Data Parking}~\cite{CMS-DP-2012-022} {\bf and ATLAS Delayed Streams} - The "core" physics program of ATLAS and CMS  at 8 TeV is realized using data collected at average event rate of few hundred Hz (for an average instantaneous luminosity of  $\approx 4 \cdot 10^{33} \mbox{cm}^{-2}\mbox{s}^{-1}$). This "core" data is promptly reconstructed (few days) and available during data taking.  Extra data (about a factor of 2) has been collected by both experiments to extend physics program (both SM measurements and BSM searches). 
+\item {\bf ATLAS Delayed Streams and} {\bf CMS Data Parking}~\cite{CMS-DP-2012-022} - The "core" physics program of ATLAS and CMS  at 8 TeV is realized using data collected at average event rate of few hundred Hz (for an average instantaneous luminosity of  $\approx 4 \cdot 10^{33} \mbox{cm}^{-2}\mbox{s}^{-1}$). This "core" data is promptly reconstructed (few days) and available during data taking.  Extra data (about a factor of 2) has been collected by both experiments to extend physics program (both SM measurements and BSM searches). 
 These new triggers are either a looser version of the core triggers or brand new triggers with small overlap with the rest. This extra data started to be reconstructed after the end of 8 TeV data taking (i.e. delayed reconstruction) when the computing resources became available.
 \item {\bf CMS Data Scouting}~\cite{CMS-DP-2012-022} - The idea beyond this novel approach is to collect pp collision events with very low trigger thresholds (such as pT sum of jets in the event above 250 GeV) at high rate (order of kHz) to extend the sensitivity to low-mass resonances decaying to final states with jets. This is possible only because a reduced event content is stored (for instance calorimeter jets reconstructed during the High Level Trigger processing). No raw data from the detector channels is stored, and therefore the offline reconstruction is not possible in this special stream. Thanks to the reduced size per event, the data acquisition bandwidth (rate $\times$ event size) can be taken
 under control. This approach was successfully tested by CMS at the end of 2011, improving the limits on low-mass dijet resonances~\cite{CMS-PAS-EXO-11-094}. These triggers were also active during 2012 and the analyses of these data are currently ongoing. The continuos monitoring of this special data stream during the data taking would provide the possibility of extending the standard trigger setup for core physics or data parking / delayed streams in case something interesting shows up in the data scouting analyses. 
@@ -203,8 +203,16 @@ under control. This approach was successfully tested by CMS at the end of 2011, 
 %\end{itemize}
 
 \subsection{New directions in searches with jet substructure}
+We discuss the searches for heavy resonances X that decay to massive SM particles Y (such as top quark, W, Z, or even H) 
+when hadronic decays of Y are considered. The lorentz factor $\gamma$ of the resonance 
+Y is approximately $\mbox{M}_{X} / 2 \mbox{M}_{Y}$~\cite{Gouzevitch:2013qca}. By kinematics, a large boost factor implies 
+that the decay products will be predominantly merged into a single reconstructed jet (the $\Delta R$ between the decay 
+products is of the order of $2 \mbox{M}_{Y} / \mbox{p}_{T}^{Y}$~\cite{ATLAS-CONF-2012-065}). If we search for X resonances above $\approx 1.5$~TeV the use of jet substructure techniques becomes mandatory to identify the hadronic boosted decays of Y, since the boosted topology will be by far the dominant one for any SM massive particle Y. The transition region between resolved and boosted topology depends on the mass of the Y particle as well as the jet cone radius. 
+
+The jet-substructure represents therefore a field where the ATLAS and CMS experiments should invest a lot in view of the startup in 2015 at 14 TeV center-of-mass energy (for searches of new resonances, as well as for the measurement of 
+WW scattering at high $\sqrt{s}$).
+
 \begin{itemize}
-\item Justification on why substructure necessary at 14 TeV (and not for 8 TeV Higgs yet)
 \item Need for MC generator support and benchmarks among experiments
 \cite{Chatrchyan:2013rla}%jet mass cms
 \cite{ATLAS:2012am}%jet mass atlas
