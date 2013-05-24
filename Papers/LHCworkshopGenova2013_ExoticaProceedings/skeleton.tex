@@ -77,7 +77,7 @@ The searches for hadronic resonances can be divided into two main categories:
  \item {\bf Resolved topology} - Searches where the quarks and gluons produced in the final state are each reconstructed at detector level into single,  \textit{resolved} hadronic jets. Examples are the single production of a resonance X decaying to a pair of gluons, or the pair production of two resonances X at rest each decaying to a quark-antiquark pair;
  \item {\bf Boosted topology} - Searches where the quarks and gluons produced in the final state are merged into a single reconstructed jet.  A typical example is the decay of a resonance X into a pair of massive particles Y, with $\mbox{M}_{\mbox{X}} >>\mbox{M}_{\mbox{Y}} $, and Y decays to a pair of light quarks. In this case the resonance Y will be \textit{boosted} 
 (the resonance has a large momentum compared to its mass) so that a single hadronic jet with a large distance 
-parameter (\textit{fat jet}) encompasses all its decay products. Techniques that exploit the presence of substructure within the \textit{fat jet} are employed to reject background from standard QCD jets and multiple interactions within the same bunch crossing (pile-up). 
+parameter (\textit{wide jet}) encompasses all its decay products. Techniques that exploit the presence of substructure within the \textit{wide jet} are employed to reject background from standard QCD jets and multiple interactions within the same bunch crossing (pile-up). 
 \end{itemize}
 
 The quintessential example of hadronic search with resolved jets is the 
@@ -138,27 +138,69 @@ Given no excesses above background, limits are set on a number benchmark models.
 \section{Discussion points}
 
 \subsection{Jet energy scale in ATLAS and CMS}
-\begin{itemize}
-\item Some details on high-pT JES
-\cite{CMS-PAS-JME-10-008}%singleparticle
-\cite{Aad:2012vm}%singleparticle
-\item 2 plots side by side: background rejection after boson tagging and one of the limit plots
-\item Encourage more work on both sides to make consistent assumptions
-\end{itemize}
+
+Resolved searches in ATLAS and CMS employ the \antikt{} jet finding algorithm~\cite{Cacciari:2008gp}.
+% The inputs for jet finding are different: ATLAS uses energy deposits from the calorimeters,
+% while CMS complements the calorimeter information with measurements of particle momenta
+% from the inner detector. 
+The hadronic energy scale is calibrated using a series of corrections 
+derived both from Monte-Carlo simulation and from 
+data~\cite{ATLAS-CONF-2013-004, 1748-0221-6-11-P11002, Aad:2011he}. 
+The jet energy scale uncertainty, which dominates among the sources of systematic 
+uncertainty for most of the searches described in this review, is derived using data-driven 
+techniques and has a similar magnitude across
+jet transverse momenta $p_\mathrm{T}$ and pseudorapidities $\eta$ for the two experiments. 
+However, 
+%as it can be noted in Figure~\ref{Fig:JESUnc}, 
+the estimate of the uncertainty for jets above 2~TeV differs between ATLAS and CMS. 
+This is mostly due to different assumptions the two experiments make beyond the
+$p_\mathrm{T}$ reach of the $in-situ$ calibration techniques. ATLAS employs conservative
+uncertainties of particles beyond the range of test beam data ($p>$350 GeV)~
+\cite{Aad:2012vm} that leads to an uncertainty of high-momentum particles within jets that is as high as 10\%, 
+while CMS uses a flat 3\% uncertainty for all particle types and momenta~\cite{CMS-PAS-JME-10-008}. 
+Further discussion on this point would allow to adopt a homogeneous treatment for 
+the most relevant uncertainty for hadronic searches between the two experiments. 
 
 \subsection{Setting limits on hadronic resonances}
+
+The search for hadronic resonances in the dijet mass spectrum present 
+the following differences in the jet reconstruction and the limit-setting procedure between the two experiments:
 \begin{itemize}
-\item Refer to earlier plots
-\item Differences: full template/narrow width, inclusive vs dijet-only search
-\item Recommend to unify definition for 14 TeV (combination)?
-\cite{Cacciari:2008gd}%jetography
+\item ATLAS uses \antikt{} jets with distance parameter equal to 0.6 (AK6), while 
+CMS starts from  \antikt{} jets with distance parameter 0.5
+(AK5) and then clusters AK5 jets within $\Delta\mbox{R}=\sqrt{\Delta\phi^2+\Delta\eta^2}=1.1$ around the two leading jets, to form two wide jets. This is done to recover energy from final 
+state radiation (FSR).
+ \item CMS uses the Narrow Width Approximation, while ATLAS employs the full template without any truncation;
+ \item the CMS limit is restricted to dijet final states (setting limits on cross-section times acceptance times branching ratio), while the ATLAS search is inclusive and would include in its acceptance e.g. photons from excited quarks as they are reconstructed as jets. 
 \end{itemize}
+Even though there are no important differences between the mass limits obtained by the two searches, 
+it would be desirable to unify the definitions of one of the benchmark searches for New Phenomena at the LHC
+for future iterations and possible combinations. 
 
 \subsection{Data for low-mass resonances}
+In absence of evidence for new physics at the TeV scale, 
+searching for new resonances in hadronic final states with masses 
+between the electroweak ($\approx$ 100 GeV) and the TeV scale, 
+is becoming more and more important for the experimental and the theory community.
+Due to the steady increase of instantaneous luminosity of the LHC, 
+the trigger thresholds for hadronic triggers are now significantly 
+tighter compared to the LHC startup in 2010. For instance, the 2010 
+dijet search with the first  3 pb$^{-1}$ of data could start at a dijet mass 
+of $\approx$ 200 GeV, while the same analysis performed in 2012 
+started at $\approx$ 1 TeV.
+
+In addition to the regular developments for the "core" physics triggers, the ATLAS and CMS experiments have implemented two complementary trigger and data acquisition strategies to mitigate the problem of increased hadronic trigger rate in high luminosity scenarios.
 \begin{itemize}
-\item One/two-sentence description of need to look lower in mjj, hadronic rate problems, delayed triggers and parked data
-\item one plot only: CMS 2011 low-mass extension
+\item {\bf CMS Data Parking}~\cite{CMS-DP-2012-022} {\bf and ATLAS Delayed Streams} - The "core" physics program of ATLAS and CMS  at 8 TeV is realized using data collected at average event rate of few hundred Hz (for an average instantaneous luminosity of  $\approx 4 \cdot 10^{33} \mbox{cm}^{-2}\mbox{s}^{-1}$). This "core" data is promptly reconstructed (few days) and available during data taking.  Extra data (about a factor of 2) has been collected by both experiments to extend physics program (both SM measurements and BSM searches). 
+These new triggers are either a looser version of the core triggers or brand new triggers with small overlap with the rest. This extra data started to be reconstructed after the end of 8 TeV data taking (i.e. delayed reconstruction) when the computing resources became available.
+\item {\bf CMS Data Scouting}~\cite{CMS-DP-2012-022} - The idea beyond this novel approach is to collect pp collision events with very low trigger thresholds (such as pT sum of jets in the event above 250 GeV) at high rate (order of kHz) to extend the sensitivity to low-mass resonances decaying to final states with jets. This is possible only because a reduced event content is stored (for instance calorimeter jets reconstructed during the High Level Trigger processing). No raw data from the detector channels is stored, and therefore the offline reconstruction is not possible in this special stream. Thanks to the reduced size per event, the data acquisition bandwidth (rate $\times$ event size) can be taken
+under control. This approach was successfully tested by CMS at the end of 2011, improving the limits on low-mass dijet resonances~\cite{CMS-PAS-EXO-11-094}. These triggers were also active during 2012 and the analyses of these data are currently ongoing. The continuos monitoring of this special data stream during the data taking would provide the possibility of extending the standard trigger setup for core physics or data parking / delayed streams in case something interesting shows up in the data scouting analyses. 
 \end{itemize}
+
+%\begin{itemize}
+%\item One/two-sentence description of need to look lower in mjj, hadronic rate problems, delayed triggers and parked data
+%\item one plot only: CMS 2011 low-mass extension
+%\end{itemize}
 
 \subsection{New directions in searches with jet substructure}
 \begin{itemize}

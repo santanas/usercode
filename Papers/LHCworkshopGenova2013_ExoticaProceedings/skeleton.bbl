@@ -86,7 +86,7 @@ L.~G. Almeida, S.~J. Lee, G.~Perez, G.~Sterman, and I.~Sung, {\it {Template
 
 \bibitem{ATLAS-CONF-2013-052}
 {\it A search for $t\bar{t}$ resonances in the lepton plus jets final state
-  with atlas using 14 fb$^{−1}$ of pp collisions at $\sqrt{s}=8$ tev},
+  with atlas using 14 fb$^{−1}$ of pp collisions at $\sqrt{s}=8$ TeV},
   ATLAS-CONF-2013-052, CERN, Geneva, May, 2013.
 
 \bibitem{CMS-PAS-B2G-12-006}
@@ -106,6 +106,13 @@ L.~G. Almeida, S.~J. Lee, G.~Perez, G.~Sterman, and I.~Sung, {\it {Template
   jet energy scale uncertainty with the ATLAS detector at the LHC}},  {\em
   Eur.Phys.J.} {\bf C73} (2013) 2305,
   [\href{http://xxx.lanl.gov/abs/1203.1302}{{\tt arXiv:1203.1302}}].
+
+\bibitem{CMS-DP-2012-022}
+{{CMS}} Collaboration, {\it Data Parking and Data Scouting at the {CMS} Experiment},  CMS-DP-2012-022, CERN, 2012.
+
+\bibitem{CMS-PAS-EXO-11-094}
+{{CMS}} Collaboration, {\it Search for Narrow Resonances using the Dijet Mass 
+Spectrum in pp Collisions at $\sqrt{s}=7$ TeV}, CMS-PAS-EXO-11-094, CERN, 2012.
 
 \bibitem{Cacciari:2008gd}
 M.~Cacciari, J.~Rojo, G.~P. Salam, and G.~Soyez, {\it {Quantifying the
