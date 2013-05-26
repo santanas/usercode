@@ -127,12 +127,32 @@ M.~Cacciari, J.~Rojo, G.~P. Salam, and G.~Soyez, {\it {Quantifying the
 
 \bibitem{Chatrchyan:2013rla}
 {{CMS}} Collaboration, {\it {Studies of jet mass in dijet and W/Z+jet events}},
-   \href{http://xxx.lanl.gov/abs/1303.4811}{{\tt arXiv:1303.4811}}.
+   [\href{http://xxx.lanl.gov/abs/1303.4811}{{\tt arXiv:1303.4811}}].
 
 \bibitem{ATLAS:2012am}
 {ATLAS} Collaboration, {\it {Jet mass and substructure of inclusive jets in
   $\sqrt{s}=7$ {TeV} $pp$ collisions with the ATLAS experiment}},  {\em JHEP}
   {\bf 1205} (2012) 128, [\href{http://xxx.lanl.gov/abs/1203.4606}{{\tt
   arXiv:1203.4606}}].
+
+\bibitem{Stewart:2010tn}
+Stewart, Iain W. and Tackmann, Frank J. and Waalewijn, Wouter J., {\it N-Jettiness: An Inclusive Event Shape to Veto Jets},  
+{\em Phys.Rev.Lett.} {\bf 105} (2010), 092002.
+
+\bibitem{Thaler:2010tr}
+Thaler, Jesse and Van Tilburg, Ken, {\it Identifying Boosted Objects with N-subjettiness},  
+{\em Journal of High Energy Physics} {\bf 1103} (2011), 015.
+
+\bibitem{Thaler:2011gf}
+Thaler, Jesse and Van Tilburg, Ken, {\it Maximizing Boosted Top Identification by Minimizing N-subjettiness},  
+{\em Journal of High Energy Physics} {\bf 1202} (2012), 093.
+
+\bibitem{Krohn:2012fg}
+D.~Krohn, M.~D.~Schwartz, T.~Lin and W.~J.~Waalewijn, {\it {Jet Charge at the LHC}},
+   [\href{http://xxx.lanl.gov/abs/1209.2421}{{\tt arXiv:1209.2421}}].
+
+\bibitem{Han:2009em}
+T.~Han, D.~Krohn, L.~-T.~Wang and W.~Zhu, {\it {New Physics Signals in Longitudinal Gauge Boson Scattering at the LHC}},
+   [\href{http://xxx.lanl.gov/abs/0911.3656}{{\tt arXiv:0911.3656}}].
 
 \end{thebibliography}\endgroup
