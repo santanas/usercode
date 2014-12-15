@@ -1,0 +1,810 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------ 
+
+
+% ! TEX TS-program = XeLaTeX -xdv2pdf
+% ! TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec} 
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+% per le lettere accentate italiane sul Mac! :-)
+%\usepackage[applemac]{inputenc} %with VIM
+%FIXME%\usepackage[latin1]{inputenc} % with TeXShop
+\usepackage[utf8]{inputenc} % with TeXShop
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ADDITIONAL SYMBOLS
+%\usesymbols[mvs]
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+%\setromanfont [Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin Italic}]{Fontin}
+%\setromanfont [Ligatures={Common}, BoldFont={Linux Libertine Bold}, ItalicFont={Linux Libertine Italic}]{Linux Libertine}
+%\setsansfont [Ligatures={Common}, BoldFont={Fontin Sans Bold}, ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+\setmonofont[Scale=0.8]{Monaco} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Linux Libertine Bold}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+%GOOD ONE%%\newcommand{\years}[1]{\marginpar{\footnotesize #1}}
+%FIXME%\newcommand{\years}[1]{\makebox[0pt][l]{\hskip-1in{\footnotesize #1}}}
+%\newcommand{\years}[1]{\makebox[0pt][l]{\hskip-1in{\footnotesize #1}}}
+%\newcommand{\years}[1]{\makebox[0pt][l]{\hskip-1.2in{\footnotesize #1}}}
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+\newcommand{\years}[1]{\marginnote{\hskip-0.2in{\scriptsize #1}}}
+\renewcommand*{\raggedrightmarginnote}{}
+\setlength{\marginparsep}{7pt}
+%\reversemarginpar
+
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\upshape\Large}
+\subsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\subsubsectionfont{\rmfamily\mdseries\upshape\normalsize} 
+%modifying section numbering
+\def\thesubsection{\arabic{subsection}.\ } 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+%\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+\usepackage[bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=cyan,citecolor=blue,filecolor=black,urlcolor=cyan} 
+
+% Title of Bibliography
+\renewcommand\refname{References \\ \normalsize \begin{center} \quad \quad \textsc{Publications (relative to research activities)}\end{center} }
+
+% DOCUMENT
+\begin{document}
+\reversemarginpar
+{\LARGE Francesco Santanastasio}\\[1cm]
+%Institute address
+%begin{tabular}{ l c l }
+%\emph{Institute Address}: & & \\
+%University of Maryland & & \\
+%Department of Physics - John S. Toll Physics Building & &\\
+%College Park  & & \\
+%MD  \texttt{20742-4111} & \makebox[1.2cm]{} & Tel: \texttt{+1 301 405 3401} \\
+%United States of America & & Fax: \texttt{+1 301 314 9525} \\
+%\end{tabular}\\[1em]
+
+% Work address
+\begin{tabular}{ l c l }
+\emph{Work Address}: & \makebox[1.cm]{}  & \\
+Department of Physics, Sapienza Universit\`a di Roma & & Office Phone: \texttt{+39 06 4991 42 70} \\
+Edificio Marconi, floor 1, room 145 & & e-mail: \\
+Piazzale Aldo Moro, \texttt{2} 00185 Rome & & \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} \\
+Italy &  &  \href{mailto:francesco.santanastasio@roma1.infn.it}{francesco.santanastasio@roma1.infn.it}  \\
+\end{tabular}\\[1em]
+%% Work address
+%\begin{tabular}{ l c l }
+%\emph{Work Address}: & & \\
+%CERN (Conseil Europeen pour la Recherche Nucleaire) & \makebox[1.cm]{} & \\
+%\texttt{CH-1211} Geneve  \texttt{23} & & Office Phone.: \texttt{+41 22 76 71 689}\\
+%Building \texttt{40}, Room 1-\texttt{B01} & & Mobile Phone: \texttt{+41 76 22 86 127}\\ 
+%Switzerland &  & email: \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} 
+%\end{tabular}\\[1em]
+%\vfill
+Born:  9 February 1980 --- Rome, Italy\\
+Nationality:  Italian
+%\textsc{url}: \href{http://www.ias.edu/spfeatures/einstein/}{http://www.ias.edu/spfeatures/einstein/}\\ 
+
+%%\hrule
+\section*{Current Position}
+\emph{Assistant Professor} \\
+Department of Physics, Sapienza Universit\`a di Roma, Rome, Italy
+%\emph{CERN Research Fellow in Experimental Particle Physics} \\
+%PH Department, CERN, Geneve, Switzerland
+%\emph{Post-Doctoral Research Assistant (Post-Doc) in Particle Physics} \\
+%Department of Physics, University of Maryland, College Park, US
+
+%%\hrule
+\section*{Areas of Specialization}
+Particle Physics, Data Analysis in High Energy Physics, Physics beyond the Standard Model of Fundamental Interactions, Electromagnetic and Hadronic Calorimetry 
+%\section*{Areas of competence}
+%Software Development, IT, Particle detector physics
+ 
+%\hrule
+\section*{Employment History}
+\noindent
+%Assistant Professor Sapienza
+\years{Mar 2014 - today}\textbf{Assistant Professor in Physics} \\
+\textit{Sapienza Universit\`a di Roma}, Rome, Italy\\[1em]
+%CERN Fellow
+\years{Sep 2011 - Dec 2013}\textbf{CERN Research Fellow in Experimental Particle Physics} \\
+\textsc{Supervisor:} Dott. Maurizio Pierini (CERN) \\
+\textit{CERN}, Geneve, Switzerland\\[1em]
+%Post-Doc
+\years{Dec 2007 - Aug 2011}\textbf{Post-Doctoral Research Assistant  (Post-Doc) in Particle Physics} \\
+\textsc{Supervisor:} Prof. Sarah Eno (UMD) \\
+\textit{University of Maryland}, College Park, MD, US\\
+Based at \textit{CERN}, Geneve, Switzerland\\[1em]
+% PhD
+\years{Nov 2004 - Jan 2008}\textbf{PhD in Physics}\\ %{\small (highest honors)}\\
+\textit{``Search for Supersymmetry with Gauge-Mediated Breaking using high energy photons at CMS experiment''} \cite{Santanastasio:DOTTORATO}\\
+\textsc{Advisors:} Prof. Egidio Longo, Prof. Shahram Rahatlou, Dott. Daniele del Re (Sapienza) \\
+\textit{Sapienza Universit\`a di Roma}, Rome, Italy\\[1em]
+% Laurea
+\years{Sep 1998 - May 2004}\textbf{\textit{Laurea} in Physics} {\small (highest honors)}\\
+\textit{``Calibration of an electromagnetic calorimeter using the energy flow method''} \cite{Santanastasio:LAUREA}\\
+\textsc{Advisors:} Prof. Egidio Longo (Sapienza), Dott. Riccardo Paramatti (INFN) \\
+Mark: 110/110 \textit{``magna cum laude''}\\
+\textit{Sapienza Universit\`a di Roma}, Rome, Italy
+%EXAMPLE IN ENGLISH
+%\years{2003-2006}\textbf{MSc (\textit{Laurea Magistrale}) in Nuclear and Subnuclear Physics} {\small (highest honours)}\\
+%\textit{``Study of the ATLAS MDT Muon Chambers calibration constants with data from a testbeam''}\\
+%\textsc{Advisors:} Prof. Toni Baroncelli (INFN), Prof. Filippo Ceradini (Roma Tre)\\
+%Mark: 110/110 \textit{``magna cum laude''}\\
+%\textit{\small expected date: August 2010}\\[1em]
+
+\clearpage
+
+\section*{Highlights of Research Activities}
+% WHEN YOU ADD A NEW BULLET REMEMBER TO MOVE THE CLEARPAGE 
+% AT THE END OF THE PAGE 
+\noindent
+% EXOTICA
+% EXO DIJET COORDINATION
+\years{Sep 2014 - today}Coordination of the {\it``Dijet Resonance Team"} of the CMS experiment: analysis group working on searches for massive resonances decaying into a pair of jets using the dijet mass spectrum. 
+The group is constituted by more than 20 physicists from about 10 institutions from all the world.  
+The target is to coordinate the activity of students and postdocs to prepare the analysis and publish the results in Summer 2015 with 
+the first LHC proton-proton collisions at $\sqrt{s}=13$~TeV. Thanks to the increase in the collider energy, the sensitivity to new physics above the TeV scale will be extended after few weeks of data taking compared to the LHC run at $\sqrt{s}=8$~TeV. 
+\\ [1em] 
+% EXO L+J COORDINATION
+\years{Jan 2013 - Jan 2015}Coordination of the {\it``Exotica Lepton+Jets Working Group"} of the CMS experiment: analysis group working on searches for new physics beyond the Standard Model in final states containing leptons and jets. The group, constituted by almost 50 physicists working in universities and research institutions from all the world, performs about 15 physics analyses in this final state. Since the beginning of my mandate, 3 publications and 3 preliminary analysis results
+have been delivered. The remaining analyses are currently in the final steps of the review within the CMS collaboration. In the first months of 2015, other $\sim$10 publications in high impact scientific journals are expected.\\  [1em] 
+%\years{Dec 2007 - today}Actively involved in the research activities of the exotic physics group (Exotica) of the CMS experiment, looking for evidence of new physics beyond the Standard Model of fundamental interactions [see ``Talks at Conferences'']. \\ [1em]
+% WW/WZ/ZZ RESONANCES
+\years{Dec 2011 - Sep 2014}Primary author of searches for heavy WW / ZZ / WZ / qW / qZ resonances in semi-leptonic $\ell\nu q\bar{q}'$ / $\ell\ell q\bar{q}$ \cite{Khachatryan:2014gha,CMS-PAS-EXO-12-021,AN-13-045,CMS-PAS-EXO-12-022,AN-13-040} and fully hadronic~\cite{Khachatryan:2014hpa,AN-12-393,Chatrchyan:2012yxa,AN-11-524} final states at CMS using jet substructure techniques to identify the hadronic decays of boosted vector bosons. The investigation of the di-boson 
+production at high center-of-mass energy is a necessary ingredient for the understanding of the origin of the electroweak symmetry breaking and to disentangle the nature of the Higgs boson. \\ [1em] 
+%The study of the diboson production at high center-of-mass energy is important to understand the mechanism of the electroweak symmetry breaking, being complementary to the direct Higgs boson searches. \\ [1em] 
+%Supervising a PhD student from Peking University working on the $\ell\nu q\bar{q}'$  channel. 
+%\years{Dec 2011 - today} Search for heavy qW/qZ/WW/WZ/ZZ resonances in the 
+%W/Z-tagged dijet mass spectrum at CMS using jet substructure techniques 
+%to identify the hadronic decays of boosted vector bosons~\cite{AN-11-524}.  \\ [1em] 
+% DIJET SEARCHES
+\years{Sep 2011 - today}Leading author of searches for resonances 
+decaying into a pair of jets using the dijet mass spectrum 
+%with 4.7 fb$^{-1}$ of data collected in 2011 
+at $\sqrt{s}=$7 TeV~\cite{CMS:2012yf,AN-12-012} and 8 TeV~\cite{Chatrchyan:2013qha,AN-12-229,CMS-PAS-EXO-12-059,AN-12-455} with the CMS detector. 
+Leading author of a novel trigger, data acquisition, and analysis strategy to recover sensitivity to new dijet resonances at dijet masses below 1 TeV~\cite{CMS-PAS-EXO-11-094} ({\it data scouting}). \\ [1em] 
+%Update of the dijet analysis with the first 4 fb$^{-1}$ of data collected in 2012 at $\sqrt{s}=$8 TeV~\cite{Chatrchyan:2013qha,AN-12-229}, as well as with the full 2012 data sample of 19.6 fb$^{-1}$~\cite{CMS-PAS-EXO-12-059,AN-12-455}.
+%\years{Sep 2011 - Jul 2012}Leading author of a novel trigger, data acquisition, and analysis strategy to recover sensitivity to new resonances decaying into a pair of dijets at dijet masses below 1 TeV~\cite{CMS-PAS-EXO-11-094} ({\it data scouting}). \\ [1em] 
+%%
+%\years{Mar 2012 - today}Supervising a PhD student from FNAL / Cukurova University (Turkey) for the update of the dijet analysis with the first 4 fb$^{-1}$ of data collected in 2012 at $\sqrt{s}=$8 TeV~\cite{Chatrchyan:2013qha,AN-12-229}, as well as with the full 2012 data sample of 19.6 fb$^{-1}$~\cite{CMS-PAS-EXO-12-059,AN-12-455}. \\ [1em] 
+%The analysis contains improvements compared to 
+%a previous published CMS dijet search~\cite{Chatrchyan:2011ns} and uses the entire 4.7 fb$^{-1}$  data sample collected in 2011, extending the exclusion on the resonance mass by 10\% to 30\% 
+%depending on the resonance type.
+%%
+%\years{Sep 2011 - today}Primary author of the $LQ$ analyses updates
+%with 4.7 fb$^{-1}$ of data collected in 2011 
+%at $\sqrt{s}=$7 TeV~\cite{Chatrchyan:2012vza,AN-11-492} and 8 TeV [analysis in progress]. \\ [1em] 
+%as well as with the 19.6 fb$^{-1}$ of data collected in 2012 at $\sqrt{s}=$8 TeV [analysis in progress].\\ [1em] 
+% LEPTOQUARKS 
+\years{Dec 2007 - today}Leading author of searches for pair production of first generation scalar Leptoquarks ($LQ$) in the decay channels $LQ \overline{LQ} \rightarrow ee qq$~\cite{Khachatryan:2010mp,EXO-10-005,EXO-08-010,AN-2010-230,AN-2008-070} and $LQ\overline{LQ} \rightarrow e\nu qq$ \cite{Chatrchyan:2011ar,AN-2010-361} with the CMS detector using the first 36 pb$^{-1}$ of LHC collisions at $\sqrt{s}=$7 TeV. Primary author of the $LQ$ analysis updates with full dataset at $\sqrt{s}=$7 TeV~\cite{Chatrchyan:2012vza,AN-11-492} and author of the 8 TeV analysis~\cite{CMS-PAS-EXO-12-041,AN-2013-109}. These searches are sensitive to signals from Supersymmetry models with R-Parity violation that foresee stop$\rightarrow eq$ decays. \\ [1em] 
+% DDT COORDINATION
+\years{Mar 2012 - Mar 2013}Coordination of the {\it``Dataset Definition Team"} of the CMS experiment: definition of the trigger requirements forming the data streams used for physics analysis and detector calibration. This responsibility consists in the design and implementation of a novel strategy for {\it data parking} and {\it data scouting}~\cite{CMS-DP-2012-022}. \\ [1em]
+%ARC
+\years{Jun 2011 - Jun 2012}Member of the internal {\it``Analysis Review Committee''} for the scrutiny of public CMS results: top cross section measurements in all hadronic decay channel~\cite{CMS-PAS-TOP-11-007} and search for Randall-Sundrum gravitons decaying into a jet plus missing transverse energy final state~\cite{Chatrchyan:2012rva,CMS-PAS-EXO-11-061} at $\sqrt{s}=$7 TeV. \\ [1em] 
+%TOP publication: Chatrchyan:2013ual
+% HCAL PFG 
+\years{Sep 2008 - Sep 2010}Coordination of the {\it``Prompt Feedback Group''} of the hadronic calorimeter of the CMS experiment: monitoring and data analysis concerning problems
+in the detector during cosmic-ray data-taking. \\ [1em]
+%Prompt analysis during the very first LHC collisions at $\sqrt{s}=$7~TeV 
+%[see ``Talks in Plenary Meetings of the CMS Collaboration`` 
+%$\rightarrow$  presentation on behalf of the HCAL and Jet/MET groups] \\ [1em]
+% MET
+\years{Nov 2009 - Sep 2010}Commissioning of missing transverse energy (MET) 
+reconstructed with the first proton-proton ({\it pp}) collisions at $\sqrt{s}=$0.9, 2.36 and 7 TeV collected by the CMS experiment \cite{JME-10-004,JME-10-002,AN-2010-219,AN-2010-029}. \\ [1em]
+%HF PMT NOISE
+\years{Nov 2009 - Sep 2010}Development and implementation of algorithms for the identification 
+of anomalous, beam-induced signals in the CMS hadronic forward calorimeter at $\sqrt{s}=$0.9, 2.36 and 7 TeV \cite{DN-2010-008}. \\ [1em]
+% TEST BEAM HCAL 2009
+\years{Jun 2009 - Jul 2009}Commissioning and calibration of the {\it ``delay wire chambers''} used for beam position measurements during the test beam of the hadronic calorimeter (HCAL) of the CMS experiment in 2009~\cite{Chatrchyan:2010zz}. \\ [1em]
+% HCAL COMMISSIONING
+\years{Jan 2008 - Jul 2008}Commissioning of the hadronic calorimeter of the CMS experiment: expert ``on-call`` for trigger and data acquisition operations during early cosmic-ray data-taking.\\ [1em]
+%GMSB (TESI DOTTORATO)
+\years{Dec 2006 - Dec 2007}Feasibility study of the search for Gauge Mediated Supersymmetry Breaking models in the prompt photon decay channel $pp \rightarrow \tilde{\chi}_1^0 \tilde{\chi}_1^0 + X \rightarrow \tilde{G} \tilde{G} \gamma \gamma + X$ 
+\cite{Santanastasio:DOTTORATO}, with simulation of the CMS detector. \\ [1em]
+%TEST BEAM ECAL+HCAL 2006
+\years{Jul 2006 - Sep 2006}Monitoring of the high voltage system of the CMS electromagnetic calorimeter (ECAL) and data-taking shifts in the combined ECAL+HCAL test beam in 2006~\cite{Abdullin:2009zz}.\\ [1em]
+%ECAL HV
+\years{Mar 2006 - Nov 2006}Analysis and test of stability of ECAL high voltage system ~\cite{Bartoloni:2007hx}. \\ [1em]
+%including development of software tools for data analysis~\cite{Bartoloni:2007hx}. \\ [1em]
+%%
+%pi0 CALIBRATION
+\years{Oct 2005 - Oct 2006}Feasibility study of the calibration of the CMS ECAL
+using $\pi^0 \rightarrow \gamma\gamma$ decays~\cite{Adzic:2008zza,DN-2007-013,IN-2006-050}. 
+%\\[1em]
+%LAUREA
+%\years{Jan 2003 - May 2004}Study and implementation of the energy flow technique applied to the calibration 
+%of the electromagnetic calorimeter of the L3 experiment at LEP (CERN) \cite{Santanastasio:LAUREA}.%[1em]
+%\clearpage
+\section*{Invited Talks at Conferences}
+\noindent
+%ICHEP2014
+\years{02-09.07.2014}\textbf{ICHEP2014} - International Conference on High Energy Physics, Valencia, Spain, \textit{``Search for heavy resonances decaying to bosons with the ATLAS and CMS detectors''}, Proceedings \cite{Santanastasio:ICHEP2014} \\ [1em]  
+%Workshop LHCpp 2013
+\years{08-10.05.2013}\textbf{Workshop LHCpp 2013} - VI Workshop Italiano sulla Fisica p-p a LHC, Genova, Italy, \textit{``Hadronic Resonances at ATLAS and CMS''}, Proceedings\cite{Santanastasio:LHCPP2013} \\ [1em]  
+%INFN - Sezione di Genova \\
+%Genova, Italy\\
+%\textit{``Hadronic Resonances''}\\ 
+%Invited talk to present a review on this topic, including results from ATLAS and CMS Collaborations\\ 
+%PIC2012
+\years{12-15.09.2012}\textbf{PIC2012} - XXXII Physics in Collision 2012, Strbske Pleso, Slovakia, \textit{``Exotic Phenomena Searches at Hadron Colliders''}, Proceedings \cite{Santanastasio:2013iz} \\  [1em]
+%Strbske Pleso, Slovakia\\
+%\textit{``Exotic Phenomena Searches at Hadron Colliders''}\\ 
+%Presentation in plenary session on behalf of the ATLAS and CMS Collaborations\\  
+%Conference 
+%MORIOND/EW
+\years{13-20.03.2011}\textbf{Moriond/EW 2011} - Rencontres de Moriond on 
+``EW Interactions and Unified Theories'', La Thuile, Italy, \textit{``Exotica Searches at CMS''}, Proceedings \cite{MoriondEW2011} \\  [1em] 
+%Presentation in plenary session on behalf of the CMS Collaboration\\
+%Talk on behalf of the CMS Collaboration\\
+%Conference proceedings will be published in date and journal still to be defined\\  [1em] 
+%Conference 
+%DIS2010
+\years{19-23.04.2010}\textbf{DIS2010} - XVIII International Workshop on Deep-Inelastic Scattering and Related Subjects, Firenze, Italy, \textit{``Searches With Early Data At CMS''}, Proceedings \cite{Santanastasio:2010zz} \\  [1em]  
+%Presentation in parallel session on behalf of the CMS Collaboration\\
+%IFAE2009
+\years{15-17.04.2009}\textbf{IFAE2009} - Incontri di Fisica delle Alte Energie, VIII Edizione, Bari, Italy,\textit{``Prospects for Exotica Searches at ATLAS and CMS Experiments''}, Proceedings \cite{Santanastasio:IFAE2009} 
+%
+%\section*{Talks in Plenary Meetings of the CMS Collaboration}
+%\noindent
+%First 7TeV Collisions
+%\years{Mar 2010}\textbf{CMS General Weekly Meeting GWM11} - Preliminary results, plots, lessons 
+%from the first 7 TeV collisions - CERN, Geneve, Switzerland \\
+%\textit{``Report from HCAL/JetMET''}\\ 
+%Presentation in plenary session on behalf of the HCAL and Jet/MET groups of the CMS experiment\\ [1em] 
+%CMS Italia 2010
+%\years{Jan 2010}\textbf{Riunione CMS Italia} - Pisa, Italy \\
+%\textit{``Example of prompt analysis at CERN: Jet/MET commissioning with first collision data''}\\  [1em] 
+%CRAFT2009
+%\years{Sep 2009}\textbf{CMS Commissioning and Run Coordination meeting} - CRAFT (Cosmic Run At Four Tesla) 
+%2009 Data Analysis Jamboree - CERN, Geneve, Switzerland \\
+%\textit{``HCAL (Hadronic Calorimeter of CMS experiment) performance during CRAFT09''}\\ 
+%Presentation in plenary session on behalf of the HCAL group of the CMS experiment\\ [1em] 
+%CRAFT2008
+%\years{Nov 2008}\textbf{CMS Commissioning and Run Coordination meeting} - CRAFT (Cosmic Run At Four Tesla) 
+%2008 Data Analysis Jamboree - CERN, Geneve, Switzerland \\
+%\textit{``HCAL (Hadronic Calorimeter of CMS experiment) achievements during CRAFT08''}\\ 
+%Presentation in plenary session on behalf of the HCAL group of the CMS experiment
+
+\section*{Student Supervision}
+%Ellie
+\years{Jun 2014 - today}PhD student, Sapienza Universit\`a di Roma, Italy \\ "Searches for Dijet Resonances at CMS with $\sqrt{s}=13$~TeV data" \\ [1em]
+\years{Sep 2011 - Dec 2014}PhD student, Princeton University, USA \\ "Searches for First-Generation Leptoquarks at CMS with $\sqrt{s}=7$ and  8 TeV data" \\ [1em]
+\years{Jul 2012 - Feb 2014}PhD student, Peking University, China\\ "Searches for beyond Standard Model WW$\rightarrow \ell\nu q\bar{q}'$ resonances at CMS" \\ [1em]
+\years{Mar 2012 - today}PhD student, Cukurova University, Turkey\\ "Searches for heavy resonances decaying to pair of jets at CMS" \\ [1em]
+\years{Jun 2013 - Aug 2013}Undergraduate student ("2013 CERN Summer Project"), University of Canterbury, New Zealand\\ "Search for dijet resonances using the novel data scouting approach at CMS" \\ [1em]
+\years{Jun 2012 - Aug 2012}Undergraduate student ("2012 CERN Summer Project"), IPNL, France\\ "Statistical tools for dijet searches at CMS" \\ [1em]
+\years{Jan 2010 - Mar 2011}PhD student, University of Maryland, USA\\ "Searches for First-Generation Leptoquarks at CMS with early $\sqrt{s}=7$ TeV data" \\ [1em]
+\years{Jan 2008 - Jul 2009}PhD student, University of Maryland, USA\\ "Feasibility study of First-Generation Leptoquark searches at CMS" 
+%\\ [1em]
+%Project: searches for new, massive resonances decaying to a pair of jets at the CMS experiment~\cite{AN-12-325}.\\ [1em]
+%
+\section*{Teaching}
+\noindent
+%Fisica Generale 1 2005-2006
+\years{Starting in Mar 2015}\textbf{Sapienza Universit\`a di Roma} - Roma, Italy \\
+Professor of ``Fisica Generale I'' at chemistry majors \\ [1em]
+\years{Oct 2005 - Feb 2006}\textbf{Sapienza Universit\`a di Roma} - Roma, Italy \\ 
+Teaching assistant of ``Fisica Generale I - Esercitazioni di meccanica classica'' at mathematics majors \\ [1em]
+%Exercises of classic mechanics for mathematics majors
+
+\section*{Citation report}
+\noindent
+
+\begin{tabular}{l l}
+Total number of publications: & ISI: 378, Inspire: 393 \\
+Total number of publications in the last 10 years: & ISI: 378, Inspire: 393 \\
+Total number of citations divided by N (6): & ISI: 8805/7$=$1257\\
+(N = number of years since the first publication)  & \\
+h factor: & ISI: 37 \\
+%Normalized h factor: (each pub contributes & ISI: 40 \\
+%as \#citations * 4 / (2013 - year of pub +1) ) &  \\
+\end{tabular}
+
+%% Aug 2013 - Rientro Cervelli
+%\begin{tabular}{l l}
+%Total number of publications: & ISI: 267, Inspire: 270 \\
+%Total number of publications in the last 10 years: & ISI: 267, Inspire: 270 \\
+%Total number of citations divided by N (6): & ISI: 5311/6$=$885\\
+%(N = number of years since the first publication)  & \\
+%h factor: & ISI: 32 \\
+%Normalized h factor: (each pub contributes & ISI: 40 \\
+%as \#citations * 4 / (2013 - year of pub +1) ) &  \\
+%\end{tabular}
+
+%Exercises of classic mechanics for mathematics majors
+
+%\section*{Physics Schools}
+%\noindent
+% FERMILAB 2008
+%\years{12-22.08.2008}\textbf{2008 Joint CERN-Fermilab Hadron Collider Physics Summer School} \\ 
+%Fermilab, Batavia, Illinois, US \\ [1em]
+% LECCE 2005
+%\years{09-14.06.2005}\textbf{Italo-Hellenic School of Physics 2005}  \\ 
+%Martignano, Lecce, Italy \\
+%{\it ``The Physics of LHC: theoretical tools and experimental challenges''}
+
+%\section*{Languages}
+%\begin{tabular}{l c l}
+%\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{English} (fluent)\\
+%\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{French} (fluent)\\
+%\textit{English} (fluent) & &\textit{German} (basic)\\
+%\end{tabular}
+
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Service work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Service work in Experiments and Collaborations}
+%\subsection*{ATLAS Experiment}
+%\noindent
+%\textbf{Data Analysis: Supersymmetry Working Group} Working on data analysis, on exploring and implementing analysis strategies and on data files production\\
+%\textbf{Development \& Upgrade} Working in the DAQ group, on the upgrade of the configuration DB system\\
+%\textbf{Detector Operation} Shifter in the control room, at the Muon System, DAQ and Run Control desks\\
+%\textbf{Software Framework} Taking part in code testing, and shifter for the build test system (RTT)\\
+%\textbf{Documentation} Responsible person for a part of the documentation of the ATLAS data-format\\
+%\textbf{Public Relations} Official ATLAS Guide, escorting VIP visits to the ATLAS cavern\\
+
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Publications & Talks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{599}
+
+%\cite{Khachatryan:2014gha}
+\bibitem{Khachatryan:2014gha} 
+  {\bf ``Search for massive resonances decaying into pairs of boosted bosons in semi-leptonic final states at $\sqrt{s} =$ 8 TeV''}
+  \\{} V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{} JHEP {\bf 1408}, 174 (2014), [arXiv:1405.3447 [hep-ex]].
+  \\{} I am one of the two contact people of this CMS analysis based on collision data, and co-editor of this public CMS document.
+  
+%\cite{Chatrchyan:2011ar}
+\bibitem{Chatrchyan:2011ar} 
+  {\bf ``Search for First Generation Scalar Leptoquarks in the evjj channel in pp collisions at sqrt(s) = 7 TeV''}
+  \\{} S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{} Phys.\ Lett.\ B {\bf 703}, 246 (2011), [arXiv:1105.5237 [hep-ex]].
+  \\ I am the contact person and one of the two analysts (from University of Maryland group) of this CMS paper based on collision data.
+  %%CITATION = ARXIV:1105.5237;%%
+
+%\cite{Khachatryan:2010mp}
+\bibitem{Khachatryan:2010mp}
+{\bf ``Search for Pair Production of First-Generation Scalar Leptoquarks in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}V.~Khachatryan {\it et al.}  [CMS Collaboration]
+    \\{} Phys.\ Rev.\ Lett.\  {\bf 106}, 201802 (2011), [arXiv:1012.4031 [hep-ex]].
+  \\I am one of the four analysts (from University of Maryland group) of this CMS paper based on collision data.
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?irn=8913501}{SPIRES entry}
+
+\bibitem{Chatrchyan:2012vza} 
+{\bf ``Search for pair production of first- and second-generation scalar leptoquarks in pp collisions at $\sqrt{s}= 7$ TeV''} 
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]  
+ \\{} Phys.\ Rev.\ D {\bf 86}, 052013 (2012) [arXiv:1207.5406 [hep-ex]]. 
+ \\I supervised the main analyst (a PhD student from Princeton University) of the first-generation search included in this CMS paper based on collision data. 
+  %%CITATION = ARXIV:1207.5406;%%
+  %7 citations counted in INSPIRE as of 14 Feb 2013
+
+%\cite{CMS:2012yf}
+\bibitem{CMS:2012yf} 
+ {\bf ``Search for narrow resonances and quantum black holes in inclusive and b-tagged dijet mass spectra from pp collisions at $\sqrt{s}=7$ TeV''}
+ \\{} S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+ \\{} JHEP {\bf 1301}, 013 (2013) [arXiv:1210.2387 [hep-ex]].
+ \\ I am one of two analysts of the inclusive dijet search reported in this CMS paper based on collision data.
+  %%CITATION = ARXIV:1210.2387;%%
+  %10 citations counted in INSPIRE as of 14 Feb 2013
+
+%\cite{Chatrchyan:2013qha}
+\bibitem{Chatrchyan:2013qha} 
+ {\bf ``Search for narrow resonances using the dijet mass spectrum in pp collisions at $\sqrt{s}=8$ TeV''}
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+ \\{}Phys.\ Rev.\ D {\bf 87}, no. 11, 114015 (2013), [arXiv:1302.4794 [hep-ex]].
+ \\ I am the contact person of this CMS paper based on collision data. I supervised one of the two analysts working on this search (a PhD student from Cukurova University, Turkey).  
+  %%CITATION = ARXIV:1302.4794;%%
+
+%\cite{Khachatryan:2014hpa}
+\bibitem{Khachatryan:2014hpa} 
+ {\bf ``Search for massive resonances in dijet systems containing jets tagged as W or Z boson decays in pp collisions at $ \sqrt{s} $ = 8 TeV''}
+ \\{}   V.~Khachatryan {\it et al.}  [CMS Collaboration]
+  \\{} JHEP {\bf 1408}, 173 (2014), [arXiv:1405.1994 [hep-ex]].
+ \\ I'm part of the analysis group involved in this CMS search which is constituted by almost 10 people from CERN, John Hopkins University, and \textit{L'Institut de Physique Nucleaire de Lyon} (IPNL).
+
+%\cite{Chatrchyan:2012yxa}
+\bibitem{Chatrchyan:2012yxa} 
+ {\bf ``Search for heavy resonances in the W/Z-tagged dijet mass spectrum in pp collisions at 7 TeV''}
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+ \\{} Phys.\ Lett.\ B {\bf 723}, 280 (2013), [arXiv:1212.1910 [hep-ex]].
+ \\ I'm part of the analysis group involved in this CMS search which is constituted by almost 10 people from CERN, John Hopkins University, and \textit{L'Institut de Physique Nucleaire de Lyon} (IPNL).
+%  %%CITATION = ARXIV:1212.1910;%%
+
+%\cite{Chatrchyan:2012rva}
+\bibitem{Chatrchyan:2012rva} 
+ {\bf ``Search for exotic resonances decaying into WZ/ZZ in pp collisions at $\sqrt{s}=7$ TeV''}
+ \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration],
+ \\{}JHEP {\bf 1302}, 036 (2013)
+  [arXiv:1211.5779 [hep-ex]]
+  \\ I was member of the {\it``Analysis Review Committee''} for the scrutiny of the ZZ search in jet plus missing transverse energy final state within the CMS collaboration. 
+  \\ This analysis with 7 TeV data is closely related with the searches for WW/ZZ resonances at 8 TeV which I'm currently involved in.
+
+%\cite{Chatrchyan:2010zz}
+\bibitem{Chatrchyan:2010zz}
+{\bf ``Study of various photomultiplier tubes with muon beams and Cherenkov light produced in electron showers''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS HCAL Collaboration]
+  \\{}JINST {\bf 5}, P06002 (2010)
+  \\ The data were collected during the HCAL Test Beam 2009. I contributed to 
+  commissioning and calibration of the {\it ``delay wire chambers''} installed along the H2 
+  beam line (CERN, Prevessin site) for beam position measurements.
+%\\{}CMS-NOTE-2010-003
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2cp06002}{SPIRES entry}
+
+%\cite{Chatrchyan:2009hy}
+\bibitem{Chatrchyan:2009hy}
+{\bf ``Identification and Filtering of Uncharacteristic Noise in the CMS Hadron Calorimeter''}
+  \\{}S.~Chatrchyan {\it et al.}  [CMS Collaboration]
+  \\{}JINST {\bf 5}, T03014 (2010)
+  [arXiv:0911.4881 [physics.ins-det]]
+%\\{}CMS-CFT-09-019
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c5\%2ct03014}{SPIRES entry}
+
+%\cite{Abdullin:2009zz}
+\bibitem{Abdullin:2009zz}
+{\bf ``The CMS Barrel Calorimeter Response To Particle Beams From 2-Gev/C To 350-Gev/C''}
+  \\{}S.~Abdullin {\it et al.}  [USCMS Collaboration and ECAL/HCAL
+                  Collaboration]
+  \\{}Eur.\ Phys.\ J.\  C {\bf 60}, 359 (2009)
+  [Erratum-ibid.\  C {\bf 61}, 353 (2009)]
+%\\{}FERMILAB-PUB-08-661-E-PPD
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=ephja\%2cc60\%2c359}{SPIRES entry}
+
+%\cite{Adzic:2008zza}
+\bibitem{Adzic:2008zza}
+{\bf ``Intercalibration of the barrel electromagnetic calorimeter of the CMS  experiment at start-up''}
+  \\{}P.~Adzic {\it et al.}  [CMS Electromagnetic Calorimeter Group]
+  \\{}JINST {\bf 3}, P10007 (2008)
+  \\  I performed a feasibility study of using $\pi^0 \rightarrow \gamma \gamma$ decays for the calibration of the ECAL crystals, with full detector simulation.
+%\\{}CERN-CMS-NOTE-2008-018
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=jinst\%2c3\%2cp10007}{SPIRES entry}
+
+%\cite{Bartoloni:2007hx}
+\bibitem{Bartoloni:2007hx}
+{\bf ``High voltage system for the CMS electromagnetic calorimeter''}
+  \\{}A.~Bartoloni {\it et al.}
+  \\{}Nucl.\ Instrum.\ Meth.\  A {\bf 582}, 462 (2007)
+  \\ I performed part of the stability tests on the high voltage boards at CERN laboratory and most of the data analysis 
+%\\{}CERN-CMS-NOTE-2007-009
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=nuima\%2ca582\%2c462}{SPIRES entry}
+
+%\clearpage
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Conference Proceedings} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%Proceedings of the XLVIth Rencontres de Moriond
+%2011 Electroweak Interactions and Unified Theories
+%La Thuile, Aosta Valley, Italy – March 13-20, 2011
+%edited by Etienne Augé, Jacques Dumarchez, and Jean Trân Thanh Vân
+%© Thê Gioi Publishers, 2011
+
+%Exotica searches at the CMS experiment 
+%F. Santanastasio 
+%Pages 125-132
+
+%\cite{Santanastasio:ICHEP2014}
+\bibitem{Santanastasio:ICHEP2014} 
+  {\bf ``Search for heavy resonances decaying to bosons with the ATLAS and CMS detectors''}
+  \\{}F.~Santanastasio
+   \\{} Proceedings will be published in Nuclear Physics B - Proceedings Supplements
+  \\{}{\it Prepared for the XXXVII International Conference on High Energy Physics, Valencia, Spain, 2-9 July 2014}
+
+%\cite{Santanastasio:LHCPP2013}
+\bibitem{Santanastasio:LHCPP2013} 
+  {\bf ``Searches for Heavy Hadronic Resonances with the ATLAS and CMS detectors at the LHC''}
+  \\{}F.~Santanastasio, C.~Doglioni
+   \\{}PoS {\bf LHCPP2013}, 015 (2013)
+  \\{}{\it Prepared for the Workshop LHCpp 2013 - VI Workshop Italiano sulla Fisica p-p a LHC, INFN - Sezione di Genova, Genova, Italy, 8-10 May 2013}
+
+%\cite{Santanastasio:2013iz}
+\bibitem{Santanastasio:2013iz} 
+  {\bf ``Exotic Phenomena Searches at Hadron Colliders''}
+  \\{}F.~Santanastasio
+  \\{}arXiv:1301.2521 [hep-ex] (2013)
+  \\{}{\it Prepared for the XXXII Physics in Collision 2012 conference (PIC2012), Strbske Pleso, Slovakia, 12-15 September 2012}
+  %%CITATION = ARXIV:1301.2521;%%
+
+\bibitem{MoriondEW2011}
+{\bf ``Exotica searches at the CMS experiment''}
+  \\{}F.~Santanastasio
+  \\{}Proceedings of the XLVIth Rencontres de Moriond 
+  2011 Electroweak Interactions and Unified Theories, 125-132 (2011), edited by Etienne Auge, Jacques Dumarchez, and Jean Tran Thanh Van $\textcopyright$ The Gioi Publishers
+\\{}{\it Prepared for XLVIth Rencontres de Moriond 2011 Electroweak Interactions and Unified Theories, La Thuile, Aosta Valley, Italy, 13-20 March 2011}
+
+\bibitem{Santanastasio:2010zz}
+{\bf ``Searches With Early Data At CMS''}
+  \\{}F.~Santanastasio
+  \\{}PoS {\bf DIS2010}, 206 (2010)
+%\href{http://www.slac.stanford.edu/spires/find/hep/www?j=posci\%2cdis2010\%2c206}{SPIRES entry}
+\\{}{\it Prepared for 18th International Workshop on Deep Inelastic Scattering and Related Subjects (DIS 2010), Florence, Italy, 19-23 Apr 2010}
+
+\bibitem{Santanastasio:IFAE2009}
+{\bf ``Prospects for Exotica Searches at ATLAS and CMS Experiments''}
+  \\{}F.~Santanastasio
+  \\{}Il Nuovo Cimento Vol.32 C, N.3-4 ncc9484 (2009)
+\\{}{\it Prepared for Incontri di Fisica delle Alte Energie (IFAE 2009), Bari, Italy, Apr 2009}
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Preliminary results of the CMS Collaboration (relative to research activities)} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%\cite{CMS-PAS-EXO-12-021}
+\bibitem{CMS-PAS-EXO-12-021} 
+ {\bf ``Search for new resonances decaying to WW to l nu q qbar' in the final state with a lepton, missing transverse energy, and single reconstructed jet''}
+   \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-12-021 (2013), http://cds.cern.ch/record/1590301/files/EXO-12-021-pas.pdf
+  \\  I am the contact person of this CMS analysis based on collision data, one of the four main analysts, and the main editor of this public CMS document. I supervised one of the two main analysts working on this search (a PhD student from Peking University, China). The analysis has  been published in 2014 in combination with a complementary search for ZZ resonances (EXO-12-022).
+
+%\cite{CMS-PAS-EXO-12-022}
+\bibitem{CMS-PAS-EXO-12-022} 
+ {\bf ``Search for a narrow spin-2 resonance decaying to Z bosons in the semileptonic final state''}
+   \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-12-022 (2013), https://cds.cern.ch/record/1596494/files/EXO-12-022-pas.pdf
+  \\  I'm part of the analysis group involved in this CMS search which is constituted by about 10 people from CERN, KIT, Peking University, SPRACE, and University of Perugia. 
+The analysis has been published in 2014 in combination with a complementary search for WW resonances (EXO-12-021).
+
+%\cite{CMS-PAS-EXO-12-024}
+%\bibitem{CMS-PAS-EXO-12-024} 
+% {\bf ``Search for heavy resonances in the W/Z-tagged dijet mass spectrum in pp collisions at 8 TeV''}
+%   \\{}[CMS Collaboration]
+%  \\{}CMS PAS EXO-12-024 (2013), http://cds.cern.ch/record/1563153/files/EXO-12-024-pas.pdf
+%  \\ I'm part of the analysis group involved in this CMS search which is constituted by almost 10 people from CERN, John Hopkins University, and \textit{L'Institut de Physique Nucleaire de Lyon} (IPNL).
+ 
+%cite{CMS-PAS-EXO-12-059}
+\bibitem{CMS-PAS-EXO-12-059}
+{\bf ``Search for Narrow Resonances using the Dijet Mass Spectrum with 19.6 fb-1 of pp Collisions at sqrt(s)=8 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-12-059 (2013), http://cds.cern.ch/record/1519066/files/EXO-12-059-pas.pdf
+  \\I'm the contact person and the main editor of this public CMS document. I supervised the main analyst working on this search (a PhD student from Cukurova University, Turkey). The analysis is aiming for publication in 2015 in combination with a search for high mass resonances decaying to pairs of b-quarks.
+
+%cite{CMS-PAS-EXO-11-094}
+\bibitem{CMS-PAS-EXO-11-094}
+{\bf ``Search for Narrow Resonances using the Dijet Mass Spectrum in pp Collisions at sqrt(s)=7 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-11-094 (2012), http://cds.cern.ch/record/1461223/files/EXO-11-094-pas.pdf
+  \\ I am the main developer of the novel trigger, data acquisition, and analysis strategy employed in this search to recover sensitivity to new physics at dijet masses below 1 TeV.
+
+%\cite{CMS-PAS-EXO-12-041}
+\bibitem{CMS-PAS-EXO-12-041} 
+ {\bf ``Search for Pair-production of First Generation Scalar Leptoquarks in pp Collisions at sqrt(s) = 8 TeV''}
+   \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-12-041 (2014), http://cds.cern.ch/record/1742179/files/EXO-12-041-pas.pdf
+  
+%\cite{EXO-10-005}
+\bibitem{EXO-10-005}
+{\bf ``Search for Pair Production of First Generation Leptoquarks Using Events Containing Two Electrons and Two Jets Produced in pp Collisions at sqrt(s) = 7 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-10-005 (2010), http://cdsweb.cern.ch/record/1289514/files/EXO-10-005-pas.pdf 
+  \\I am co-author and one of the four analysts (from University of Maryland group) of this public CMS Physics Analysis Summary based on collision data.
+
+%\cite{EXO-08-010}
+\bibitem{EXO-08-010}
+{\bf ``Search for Pair Production of First Generation Scalar Leptoquarks at the CMS Experiment''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-08-010 (2009), http://cdsweb.cern.ch/record/1196076/files/EXO-08-010-pas.pdf
+  \\I am co-author and one of the four analysts (from University of Maryland group) of this public CMS Physics Analysis Summary based on MC simulation.
+
+%\cite{CMS-DP-2012-022}
+\bibitem{CMS-DP-2012-022}
+{\bf ``Data Parking and Data Scouting at the CMS Experiment''}
+  \\{}[CMS Collaboration]
+  \\{}CMS DP-2012/022 (2012), http://cds.cern.ch/record/1480607/files/DP2012\_022.pdf 
+  \\I'm the main editor of this public CMS document.
+
+%\cite{JME-10-004}
+\bibitem{JME-10-004}
+{\bf ``Missing Transverse Energy Performance in Minimum-Bias and Jet Events from Proton-Proton Collisions at sqrt(s)=7 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS JME-10-004 (2010), http://cdsweb.cern.ch/record/1279142/files/JME-10-004-pas.pdf 
+
+%\cite{JME-10-002}
+\bibitem{JME-10-002}
+{\bf ``Performance of Missing Transverse Energy Reconstruction in sqrt(s)=900 and 2360 GeV pp Collision Data''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS JME-10-002 (2010), http://cdsweb.cern.ch/record/1247385/files/JME-10-002-pas.pdf 
+  \\ I worked mostly on the section related to calorimeter MET cleaning algorithms and performances.
+
+%\cite{CMS-PAS-TOP-11-007}
+\bibitem{CMS-PAS-TOP-11-007}
+{\bf ``Measurement of the ttbar production cross section in the fully hadronic decay channel in pp collisions at 7 TeV''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS TOP-11-007 (2011), http://cdsweb.cern.ch/record/1371755/files/TOP-11-007-pas.pdf 
+  \\ I was member of the {\it``Analysis Review Committee''} for the scrutiny of this public CMS result within the collaboration.
+  
+%\cite{CMS-PAS-EXO-11-061}
+\bibitem{CMS-PAS-EXO-11-061}
+{\bf ``Search for Randall-Sundrum Gravitons Decaying into a Jet plus Missing ET at CMS''}
+  \\{}[CMS Collaboration]
+  \\{}CMS PAS EXO-11-061 (2012), http://cdsweb.cern.ch/record/1426654/files/EXO-11-061-pas.pdf 
+  \\ I was member of the {\it``Analysis Review Committee''} for the scrutiny of this public CMS result within the collaboration.
+
+%\clearpage
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Internal notes of the CMS Collaboration (relative to research activities)} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%\cite{AN-13-045}
+\bibitem{AN-13-045}
+{\bf ``Search for a BSM resonance decaying to W vector bosons in the semileptonic final state"}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2013/045 (2013)
+  \\ I am the contact person of this CMS analysis based on collision data and one of the four main analysts. I supervised one of the two main analysts working on this search (a PhD student from Peking University, China). The analysis is has been published in 2014 in combination with a complementary search for ZZ resonances (EXO-12-022).
+
+%\cite{AN-13-040}
+\bibitem{AN-13-040}
+{\bf ``Search for a BSM resonance decaying to Z vector bosons in the semileptonic final state"}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2013/040 (2013)
+  \\ I'm part of the analysis group involved in this CMS search which is constituted by about 10 people from CERN, KIT, Peking University, SPRACE, and University of Perugia. 
+The analysis has been published in 2014 in combination with a complementary search for WW resonances (EXO-12-021).
+
+%\cite{AN-12-455}
+\bibitem{AN-12-455}
+{\bf ``Search for Narrow Resonances using the Dijet Mass Spectrum in pp Collisions at sqrt(s)=8 TeV with full 2012 dataset"}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2012/455 (2012)
+  \\ I am the contact person of this CMS analysis based on collision data. I supervised the main analyst working on this search (a PhD student from Cukurova University, Turkey). A public preliminary result has been released by the CMS collaboration on February 2013 in view of the Moriond/EW conference. The analysis is aiming for publication in 2015 in combination with a search for high mass resonances decaying to pairs of b-quarks.
+
+%\cite{AN-12-229}
+\bibitem{AN-12-229}
+{\bf ``Search for Narrow Resonances using the Dijet Mass Spectrum in pp Collisions at sqrt(s)=8 TeV"}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2012/229 (2012)
+  \\ I am the contact person of this CMS analysis based on collision data. I supervised one of the two analysts working on this search (a PhD student from Cukurova University, Turkey). This analysis has been published in 2013.
+
+%\cite{AN-12-012}
+\bibitem{AN-12-012}
+{\bf ``Search for Dijet Resonances in the Dijet Mass Spectrum in pp Collisions at sqrt(s)=7 TeV"}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2012/012 (2012)
+  \\ I am one of the two analysts (from a group of about 10 people from various 
+  institutions including CERN) of this CMS analysis based on 4.7 fb$^{-1}$ of pp collision 
+  data collected in 2011. I am the main developer of the novel trigger, data acquisition, and analysis strategy employed in this search to recover sensitivity to new physics at dijet masses below 1 TeV. This analysis has been published in 2012 in combination with a complementary search for heavy resonances decaying in pairs of b-quarks.
+
+%\cite{AN-12-012}
+\bibitem{AN-12-393}
+{\bf ``Search for heavy resonances in the W/Z-tagged dijet mass spectrum in pp collisions at 8 TeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2012/393 (2013)
+  \\ I'm part of the analysis group involved in this CMS search which is constituted by almost 10 people from CERN, John Hopkins University, and \textit{L'Institut de Physique Nucleaire de Lyon} (IPNL). This analysis has been published in 2014.
+
+%\cite{AN-12-012}
+\bibitem{AN-11-524}
+{\bf ``Search for qW/qZ/WW/WZ/ZZ Resonances in the W/Z-tagged Dijet Mass Spectrum from 7 TeV pp Collisions at CMS''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2011/524 (2011)
+  \\ I'm part of the analysis group involved in this CMS search which is constituted by almost 10 people from CERN, John Hopkins University, and \textit{L'Institut de Physique Nucleaire de Lyon} (IPNL). This analysis has been published in 2013.
+
+%\cite{AN-12-325}
+\bibitem{AN-12-325}
+{\bf ``Significance estimation for the dijet resonance search using 8 TeV pp collision data''}
+  \\{}F.~Santanastasio, C. Guichardant {\it et al.}
+  \\{}CMS AN-2012/325 (2012)
+  \\ I am the supervisor of this "2012 CERN summer student" project realized by an undergraduate student from \textit{L'Institut de Physique Nucleaire de Lyon} (INPL).
+
+%\cite{AN-2013-109}
+\bibitem{AN-2013-109}
+{\bf ``Search for Pair-production of First Generation Scalar Leptoquarks in pp Collisions at sqrt(s)=8 TeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2013/109 (2013)
+
+%\cite{AN-11-492}
+\bibitem{AN-11-492}
+{\bf ``Search for First-Generation Scalar Leptoquarks in pp Collisions at sqrt(s)=7 TeV using the CMS Detector''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2011/492 (2011)
+  \\ I am one of the two analysts (supervising a PhD student from Princeton University) of this CMS analysis based on 4.7 fb$^{-1}$ of pp collision data collected in 2011. 
+This analysis has been published in 2012 in combination with a complementary second-generation leptoquark search.
+
+%\cite{AN-2010-361}
+\bibitem{AN-2010-361}
+{\bf ``Search for Pair Production of First-Generation Scalar Leptoquarks Using Events Produced in pp Collisions at sqrt(s)=7 TeV Containing One Electron, Two Jets and Large Missing Transverse Energy''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/361 (2010)
+
+%\cite{AN-2010-230}
+\bibitem{AN-2010-230}
+{\bf ``Search for Pair Production of First Generation Leptoquarks Using Events Containing Two Electrons and Two Jets Produced in pp Collisions at sqrt(s)=7 TeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/230 (2010)
+
+%\cite{AN-2008-070}
+\bibitem{AN-2008-070}
+{\bf ``Search for Pair Production of First Generation Scalar Leptoquarks at the CMS Experiment''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2008/070 (2009)
+
+%\cite{AN-2010-219}
+\bibitem{AN-2010-219}
+{\bf ``Results of a visual scan of high MET events in 7 TeV pp collision data''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/219 (2010)
+  
+%\cite{AN-2010-029}
+\bibitem{AN-2010-029}
+{\bf ``Commissioning of Uncorrected Missing Transverse Energy in Zero Bias and Minimum Bias Events at  sqrt(s)=900 GeV and  2360 GeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS AN-2010/029 (2010)
+
+%\cite{DN-2010-008}
+\bibitem{DN-2010-008}
+{\bf ``Optimization and Performance of HF PMT Hit Cleaning Algorithms Developed Using pp Collision Data at sqrt(s)=0.9, 2.36 and 7 TeV''}
+  \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS DN-2010/008 (2010)
+
+%\cite{DN-2007-013}
+\bibitem{DN-2007-013}
+{\bf ``InterCalibration of the CMS Barrel Electromagnetic Calorimeter Using Neutral Pion Decays``}
+   \\{}F.~Santanastasio {\it et al.}
+  \\{}CMS DN-2007/013 (2007)
+
+%\cite{IN-2006-050}
+\bibitem{IN-2006-050}
+{\bf ``Study of ECAL calibration with $\pi^0 \rightarrow \gamma \gamma$ decays''}
+  \\{}F. ~Santanastasio, D.~del~Re, S.~Rahatlou
+  \\{}CMS IN-2006/050 (2006)
+
+%\clearpage
+
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+\vspace{0.1cm} \begin{center} \textsc{Theses ( \textit{Laurea} and PhD)} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\bibitem{Santanastasio:DOTTORATO}
+{\bf ``Search for Supersymmetry with Gauge-Mediated Breaking using high energy photons at CMS experiment''}
+  \\{}F.~Santanastasio
+  \\{}PhD thesis at \textit{Sapienza Universit\`a di Roma} (2007)
+\\{}{\it http://www.roma1.infn.it/cms/tesiPHD/santanastasio.pdf}
+
+\bibitem{Santanastasio:LAUREA}
+{\bf ``Calibrazione di un calorimetro elettromagnetico tramite il flusso totale di energia''}
+  \\{}F.~Santanastasio
+  \\{}\textit{Laurea} thesis at \textit{Sapienza Universit\`a di Roma} (2004)
+\\{}{\it http://www.roma1.infn.it/cms/tesi/santanastasio.pdf }
+
+
+\end{thebibliography}
+
+%\vspace{1cm}
+\vfill{}
+\hrulefill
+
+% FILL IN THE FULL URL TO YOUR CV
+\begin{center}
+%{\footnotesize \href{http://www.ias.edu/spfeatures/einstein}{http://www.ias.edu/spfeatures/einstein} ‚Äö√Ñ√Æ Last updated: \today}
+{\footnotesize Last updated: \today}
+\end{center}
+
+
+\end{document}
