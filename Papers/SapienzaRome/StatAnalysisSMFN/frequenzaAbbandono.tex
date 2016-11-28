@@ -1,0 +1,71 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[italian]{babel}
+
+\title{Frequenza di abbandono di un corso di laurea triennale}
+\author{Francesco Santanastasio, RTDb, Dipartimento di Fisica, Sapienza}
+
+\begin{document}
+
+\maketitle
+
+\section{Definizione quantita'}
+
+\begin{itemize}
+\item Si assume un corso di laurea triennale
+\item $N = $ anno in esame. \\
+{\it Esempio: $N = 2015$}
+\item $I_k(N) = $ numero di studenti immatricolati nell'anno $N$ al $k$-esimo anno di corso. \\
+$k = $ anno di corso per il quale gli studenti si sono immatricolati.\\
+{\it Esempio 1: ci sono solo 100 studenti immatricolati al primo anno di corso ($k=1$) in fisica nel 2013 $\rightarrow$ $I_1(2013) = 100 $.} \\
+{\it Esempio 2: ci sono solo 5 studenti che si immatricolano direttamente al secondo anno ($k$=2) per il corso di fisica nel 2013 (sono per esempio studenti che hanno svolto gli esami del primo anno presso un'altra universita' e decidono di immatricolarsi successivamente alla Sapienza) $\rightarrow$ $I_2(2013) = 5 $}
+\item $C_k(N) = $ numero totale di studenti (iscritti $+$ immatricolati) al $k$-esimo anno di corso.\\
+$k = N - (\mbox{anno di immatricolazione}) + (\mbox{anno di corso al quale si sono immatricolati})$ \\
+Se $k>3$ $\rightarrow$ $k \equiv F = \mbox{fuori corso}$ (sono iscritti da piu' di 3 anni al corso di studi in esame)\\
+{\it Esempio: siamo nel 2015; un dato studente si e' immatricolato nel 2014 direttamente al secondo anno di corso (per esempio, proveniva da un'altra universita' o da un altro corso di studi)} \\ 
+{\it $\rightarrow$ $k=2015 - 2014 + 2 = 3$, ovvero lo studente nel 2015 e' effettivamente al suo terzo anno di corso.}
+\item $L(N) = $ numero di studenti laureati nell'anno $N$
+\item $A_k(N) = $ numero di studenti che abbandonano il corso di studi nell'anno $N$, essendo iscritti al $k$-esimo anno di corso ({\bf questa e' la quantita' incognita da ricavare}).\\
+{\it Nota: in questa formulazione, $A_3(N)$ comprende, oltre agli
+  abbandoni al terzo anno di corso, anche gli abbandoni degli studenti fuori corso.}
+\end{itemize} 
+
+\section{Calcolo frequenza di abbandono}
+
+Sono valide le seguenti relazioni che legano le quantita' definite nella sezione precedente 
+relative agli anni $N$ ed $N-1$:
+%
+\begin{eqnarray}
+C_1(N) & = & I_1(N) \\
+C_2(N) & = & C_1(N-1) - A_1(N-1) + I_2(N) \\
+C_3(N) & = & C_2(N-1) - A_2(N-1) + I_3(N) \\
+C_F(N) & = & C_3(N-1) + C_F(N-1) - A_3(N-1) - L(N-1) ;
+\end{eqnarray}
+%
+da cui si ricava il numero di studenti $A_k(N-1)$  che hanno abbandonato 
+nell'anno $N-1$ essendo iscritti all'anno $k$-esimo di corso:
+%
+\begin{eqnarray}
+A_1(N-1) & = & C_1(N-1) - C_2(N) + I_2(N) \\
+A_2(N-1) & = & C_2(N-1) - C_3(N) + I_3(N) \\
+A_3(N-1) & = & C_3(N-1) + C_F(N-1) - C_F(N) - L(N-1) 
+\end{eqnarray}
+%
+Il calcolo di ripete in maniera ricorsiva per tutti gli anni $N$ in esame.
+%
+
+Per un dato anno $N$, possiamo dunque definire 
+le frequenze di abbandono $R_k(N)$ relative al $k$-esimo anno di corso:
+%
+\begin{eqnarray}
+R_1(N) & = & \frac{A_1(N)}{C_1(N)} \\ 
+R_2(N) & = & \frac{A_2(N)}{C_2(N)} \\
+R_3(N) & = & \frac{A_3(N)}{C_3(N)+C_F(N)-L(N)}
+\end{eqnarray}
+%
+{\it Nota: in questa formulazione, $R_3(N)$ comprende, oltre agli
+  abbandoni al terzo anno di corso, anche gli abbandoni degli studenti fuori corso.}
+
+\end{document}
+
