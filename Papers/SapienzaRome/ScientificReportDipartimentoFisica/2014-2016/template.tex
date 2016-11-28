@@ -1,0 +1,117 @@
+\documentclass[twocolumn,twoside,10pt,nodate]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{graphicx}% Include figure files
+\usepackage[english]{babel}
+\usepackage{hyperref}
+
+\newcommand{\titolo}[2]{\title{\Large\bf\vspace{-1cm}#1}}
+%\newcommand{\website}[1]{\newcommand{\site}{#1}}
+
+\setlength\oddsidemargin{-.2cm}
+\setlength\evensidemargin{-1.1cm}
+\setlength\textwidth{17.5cm}
+\setlength\topmargin{-2cm}
+\setlength\textheight{25cm}
+
+\begin{document}
+
+% ** Please do NOT remove/change anything above this line **** 
+
+\titolo{Title}
+
+
+\date{}%  ** do NOT remove this line **
+\maketitle
+\thispagestyle{fancy} % ** do NOT remove this line **
+
+
+This is a template of the $1$-page contribution to the Scientific Report 2014-2016 of the Physics Department at Sapienza University of Rome. 
+
+Please, pay attention to the following instructions while preparing your contribution:
+
+\begin{itemize}
+ \item Each contribution {\bf must} be $1$-page long;
+ \item The filename should be \url{last_name_of_the_main_contributor.tex}, as in \url{fermi.tex}.
+ \item Any acronym should be introduced at its first occurrence;
+ \item Figures can be included in the standard way, cf. Fig.~1. \url{.pdf} format is preferred, but also \url{.eps} and \url{.png} can be used. 
+ \item The name of the $N$-th figure should be \url{last_name_of_the_main_contributor_figN.pdf}, as in \url{fermi_fig1.pdf};
+ \item Tables can be also included as in Table~1;
+ \item References (max~$4$) can be introduced as in [1] and should be numbered in order of their appearance [2];
+ \item Please note the reference style: First Author \textit{et al.}, Journal \ \textbf{Volume} Page (Year)
+ \item For bibliographic entries with $4$ or more authors\footnote{The complete list of authors will be available in the final section of the Scientific Report, together with the complete list of publications affilated to the Physics Department.}, please use ``\textit{et al.}'' as in [1];
+ \item The Authors list appears at the end of the document and contains the list of people (including researchers, postdoc, PhD students) involved in the research described by the contribution;
+ \item If one of the authors is not a member of the Physics Department but is affiliated to external institutions (e.g., CNR, INAF, INFN, etc), please use the mark as in E.~Amaldi$^X$ in the author list below;  During the post-processing, we will take care of writing the correct affiliation number, which will appear in a different page;
+ \item Please select the corresponding Subject Area: Theoretical Physics, Particle Physics, Condensed Matter Physics, Biophysics, or Astronomy, Astrophysics \& Geophysics.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\textwidth,angle=0]{template_fig1.pdf}
+\caption{\small
+Entrance of the Department's main building [1].} % Please do NOT change the caption style
+\end{figure}
+
+%%%%%%%%%%%%%
+\begin{table}[htbp]
+	\centering
+  \begin{tabular}{|c|r|r|r|} 
+  \hline
+          A               & B             & C                              \\
+          A               & B             & C                              \\
+          A               & B             & C                              \\
+          A               & B             & C                              \\
+  \hline
+  \end{tabular}
+	\caption{Template of a table.}
+\end{table}	
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat augue at quam feugiat porttitor. Donec dictum vulputate quam, a dictum orci tincidunt at. Donec varius scelerisque odio ut hendrerit. Cras sed felis nisl. Nullam feugiat felis lorem, quis efficitur dui ornare vitae. Sed feugiat lorem id dignissim mattis. Ut suscipit nulla imperdiet velit efficitur, ut dapibus quam tristique.
+
+Donec nec semper elit. Praesent vulputate, mauris dapibus scelerisque bibendum, sem justo auctor diam, vel vehicula sem eros luctus massa. Donec quis tortor tristique, varius nunc vitae, accumsan libero. Nulla lorem nisi, consectetur vitae hendrerit at, tristique ac diam. Sed nec volutpat augue. Aenean arcu purus, fringilla et tristique eu, eleifend ut est. Vivamus pellentesque varius erat. Vivamus sit amet mi luctus, euismod arcu sed, semper neque. Pellentesque nisi velit, ornare at lorem in, feugiat lobortis nunc. Mauris iaculis elit ut fermentum auctor. Nullam sed ipsum vel ipsum ultricies pharetra. Ut porta mi eu magna congue, quis ultricies velit commodo. Aenean in turpis quis felis suscipit porttitor.
+%%%
+%%%%
+% \\
+% \\
+%%%%%%%%
+% Please do NOT remove the following two lines
+% \\
+% \\
+%%%%%
+\vfill
+\small{
+\noindent
+\textbf{References}
+\\
+1. E.~Fermi \textit{et al.}, Journal \ \textbf{Volume} Page (Year). 
+\\
+2. E.~Fermi, E.~Amaldi, Journal \ \textbf{Volume} Page (Year). 
+%%%%
+% Please do NOT remove the following two lines
+\\
+\\
+\noindent
+\textbf{Authors}
+\\
+N. Template, E. Fermi, E.~Amaldi$^X$
+\\
+\\
+\url{group.webpage.if.any.it}
+\\
+\\
+\noindent
+\textbf{Subject Area}
+\\
+Template
+%
+% Please choose one by removing the comment in the text:
+%
+% Theoretical Physics 
+% Particle Physics
+% Condensed Matter Physics
+% Biophysics
+% Astronomy, Astrophysics \& Geophysics 
+%
+}
+\end{document}
