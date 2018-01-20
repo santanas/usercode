@@ -1,0 +1,771 @@
+%------------------------------------
+% Dario Taraborelli
+% Typesetting your academic CV in LaTeX
+%
+% URL: http://nitens.org/taraborelli/cvtex
+% DISCLAIMER: This template is provided for free and without any guarantee 
+% that it will correctly compile on your system if you have a non-standard  
+% configuration.
+%------------------------------------ 
+
+
+% ! TEX TS-program = XeLaTeX -xdv2pdf
+% ! TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+\usepackage{fontspec} 
+\usepackage{xunicode} 
+\usepackage{xltxtra}
+% per le lettere accentate italiane sul Mac! :-)
+%\usepackage[applemac]{inputenc} %with VIM
+%FIXME%\usepackage[latin1]{inputenc} % with TeXShop
+\usepackage[utf8]{inputenc} % with TeXShop
+
+% DOCUMENT LAYOUT
+\usepackage{geometry}
+\geometry{a4paper, textwidth=5.5in, textheight=8.5in, marginparsep=7pt, marginparwidth=.6in}
+\setlength\parindent{0in}
+
+% ADDITIONAL SYMBOLS
+%\usesymbols[mvs]
+
+% FONTS
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+%\setromanfont [Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin Italic}]{Fontin}
+%\setromanfont [Ligatures={Common}, BoldFont={Linux Libertine Bold}, ItalicFont={Linux Libertine Italic}]{Linux Libertine}
+%\setsansfont [Ligatures={Common}, BoldFont={Fontin Sans Bold}, ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+\setmonofont[Scale=0.8]{Monaco} 
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Linux Libertine Bold}\selectfont\itshape\&}}
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+%GOOD ONE%%\newcommand{\years}[1]{\marginpar{\footnotesize #1}}
+%FIXME%\newcommand{\years}[1]{\makebox[0pt][l]{\hskip-1in{\footnotesize #1}}}
+%\newcommand{\years}[1]{\makebox[0pt][l]{\hskip-1in{\footnotesize #1}}}
+%\newcommand{\years}[1]{\makebox[0pt][l]{\hskip-1.2in{\footnotesize #1}}}
+% ---- MARGIN YEARS
+\usepackage{marginnote}
+%\newcommand{\years}[1]{\marginnote{\hskip-0.2in{\scriptsize #1}}}
+\newcommand{\years}[1]{\marginnote{\hskip-0.2in{\small #1}}}
+\renewcommand*{\raggedrightmarginnote}{}
+\setlength{\marginparsep}{7pt}
+%\reversemarginpar
+
+
+% HEADINGS
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\upshape\Large}
+\subsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\subsubsectionfont{\rmfamily\mdseries\upshape\normalsize} 
+%modifying section numbering
+\def\thesubsection{\arabic{subsection}.\ } 
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+%\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+\usepackage[bookmarks, colorlinks, breaklinks, pdftitle={Francesco Santanastasio - Curriculum Vitae},pdfauthor={Francesco Santanastasio}]{hyperref}
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=cyan,citecolor=blue,filecolor=black,urlcolor=cyan} 
+
+% Title of Bibliography
+\renewcommand\refname{References \\ \normalsize \begin{center} \quad
+    \quad \textsc{Publications quoted in this document}\end{center} }
+
+
+\newcommand{\HRule}{\hrule\vspace{0.2mm}}
+
+% DOCUMENT
+\begin{document}
+\reversemarginpar
+{\LARGE Relazione finale dell'attività come RTDb (2014-2017) \\di Francesco Santanastasio}\\[0.5cm]
+%Institute address
+%begin{tabular}{ l c l }
+%\emph{Institute Address}: & & \\
+%University of Maryland & & \\
+%Department of Physics - John S. Toll Physics Building & &\\
+%College Park  & & \\
+%MD  \texttt{20742-4111} & \makebox[1.2cm]{} & Tel: \texttt{+1 301 405 3401} \\
+%United States of America & & Fax: \texttt{+1 301 314 9525} \\
+%\end{tabular}\\[1em]
+
+% Work address
+\begin{tabular}{ l c l }
+%\emph{Work Address}: & \makebox[1.cm]{} & \\
+%Department of Physics, Sapienza Universit\`a di Roma & & Office Phone: \texttt{+39 06 4991 42 70} \\
+%Edificio Marconi, floor 1, room 145 & & e-mail: \\
+%Piazzale Aldo Moro, \texttt{2} 00185 Rome & & \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} \\
+%Italy &  &  \href{mailto:francesco.santanastasio@roma1.infn.it}{francesco.santanastasio@roma1.infn.it}  \\
+Born:  9 February 1980 --- Rome, Italy & \makebox[1.cm]{}& \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} \\
+Nationality:  Italian &  \makebox[1.cm]{} &  \href{mailto:francesco.santanastasio@roma1.infn.it}{francesco.santanastasio@roma1.infn.it}  \\
+\end{tabular}\\[1em]
+%% Work address
+%\begin{tabular}{ l c l }
+%\emph{Work Address}: & & \\
+%CERN (Conseil Europeen pour la Recherche Nucleaire) & \makebox[1.cm]{} & \\
+%\texttt{CH-1211} Geneve  \texttt{23} & & Office Phone.: \texttt{+41 22 76 71 689}\\
+%Building \texttt{40}, Room 1-\texttt{B01} & & Mobile Phone: \texttt{+41 76 22 86 127}\\ 
+%Switzerland &  & email: \href{mailto:francesco.santanastasio@cern.ch}{francesco.santanastasio@cern.ch} 
+%\end{tabular}\\[1em]
+%\vfill
+%Born:  9 February 1980 --- Rome, Italy\\
+%Nationality:  Italian
+%\textsc{url}: \href{http://www.ias.edu/spfeatures/einstein/}{http://www.ias.edu/spfeatures/einstein/}\\ 
+
+This document summarizes my academic and research activities during the RTDb contract.
+The complete \emph{curriculum vitae} is available at\\ 
+\href{http://www.roma1.infn.it/~santanas/FSantanastasio_CV_ENG_SHORT.pdf}{http://www.roma1.infn.it/\~santanas/FSantanastasio\_CV\_ENG\_SHORT.pdf} 
+
+%%\hrule
+\section*{Academic Positions}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\years{01/2018-today}\textbf{Associate Professor} \\
+\emph{Department of Physics, Sapienza Universit\`a di Roma, Rome, Italy}\\ [1em]
+\years{03/2014-12/2017}\textbf{Assistant Professor (Ricercatore Tempo Determinato di Tipo B)} \\
+\emph{Department of Physics, Sapienza Universit\`a di Roma, Rome, Italy}%\\ [1em]
+%\emph{Assistant Professor (Ricercatore Tempo Determinato di Tipo B)}
+%from 01/03/2014 to 31/12/2017 \\
+%Department of Physics, Sapienza Universit\`a di Roma, Rome, Italy\\% [1em]
+%\emph{CERN Research Fellow in Experimental Particle Physics} \\
+%PH Department, CERN, Geneve, Switzerland
+%\emph{Post-Doctoral Research Assistant (Post-Doc) in Particle Physics} \\
+%Department of Physics, University of Maryland, College Park, US
+%Start of the contract: 01/03/2014 
+%\\
+%End of the contract: 28/02/2017 
+%%\hrule
+%\section*{Areas of Specialization}
+%Particle Physics, Data Analysis in High Energy Physics, Physics beyond the Standard Model of Fundamental Interactions, Electromagnetic and Hadronic Calorimetry 
+%\section*{Areas of competence}
+%Software Development, IT, Particle detector physics
+
+\section*{Teaching}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\years{AA 16-17}\textbf{Fisica I, Sapienza, Corso di Laurea in Chimica Industriale (84 hours, 9 CFU)} \\
+\emph{Mechanics and Thermodynamics}\\ [1em]
+\years{}\textbf{Teaching assistant - Fisica I, Sapienza, Corso di Laurea in Fisica (8 hours)} \\
+\emph{Mechanics}\\ [1em]
+\years{}\textbf{Teaching assistant - Laboratorio di Fisica  Subnucleare, Sapienza, Corso di Laurea in Fisica} \\
+\emph{Co-tutor for experiment on NaI crystal calorimeter (``Sfera'')}\\ [1em]
+\years{AA 15-16}\textbf{Fisica I, Sapienza, Corso di Laurea in Chimica Industriale (84 hours, 9 CFU)} \\
+\emph{Mechanics and Thermodynamics}\\ [1em]
+\years{AA 14-15}\textbf{Fisica I, Sapienza, Corso di Laurea in Chimica Industriale (84 hours, 9 CFU)} \\
+\emph{Mechanics and Thermodynamics} %\\ [0.5em]
+
+%Results of student assessment of the Fisica 1 courses (``questionario Opis'') for AA15-16 and AA14-15 are attached to this document (\textsc{Allegati 2,3,4,5}).
+
+\section*{Academic Responsibilities}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+%\years{10/2014 - today}\textbf{"Referente di Con.Scienze per la Facolt\`a
+%  di SMFN"} \\
+\years{10/2014 - today}\textbf{Representative of ``Facolt\`a di SMFN''
+  at "Conferenza Nazionale dei Presidenti e dei Direttori delle
+  Strutture Universitarie di Scienze e Tecnologie (con.Scienze)"} \\
+\emph{Organization of verification-of-knowledge tests for science majors required for
+  registration at first year of university}\\[1em]
+\years{09/2015 - today}\textbf{Member of "Commissione Didattica del
+CdL in Chimica Industriale''} \\ \\[1em]
+\years{2014 - today}\textbf{Member of "Commissione di Laurea in Fisica'' (10
+  times)} \\[1em] 
+\years{2015 - today}\textbf{``Controrelatore'' of master thesis for
+  "Laurea Triennale in Fisica" (4 times)} \\[1em] 
+\years{2017 - today}\textbf{``Controrelatore'' of master thesis for
+  "Laurea Magistrale in Fisica" (1 time)} 
+
+
+\section*{Student Supervision}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+%\years{PhD} \\ [1em]  
+\subsection*{PhD (Dottorato)}
+%I have been the PhD thesis co-supervisor of the following students at Sapienza:\\[1em]
+\years{2015-2017} S. Gelli,\textit{``Search for new particles decaying into
+  $Z \gamma / W\gamma$ final states in proton-proton collisions at $\sqrt{s}=13$~TeV''}, 
+Thesis defense in February 2018 \\ [1em]  
+\years{2014-2015} G. D'Imperio, \textit{``Search for narrow
+  resonances in dijet final states at the LHC with $\sqrt{s}=13$~TeV''
+} \cite{Khachatryan:2015dcf} [\href{http://www.roma1.infn.it/cms/tesiPHD/dimperio.pdf}{thesis}]%\\[1em]
+
+\subsection*{Undergraduate (Laurea Magistrale)}
+\years{2016-2017}A. Tanga,\textit{``Ricerca di nuove risonanze in
+  stati finali con tre jet a LHC''}, [\href{http://www.roma1.infn.it/cms/tesi/tanga.pdf}{thesis}]
+
+
+\section*{Research Groups}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}%
+\years{2005 - today}\textbf{Member of the CMS collaboration at the
+  CERN Large Hadron Collider (LHC)} \\
+\emph{CMS is one of the two general purpose particle physics detectors
+operated at LHC} \\[1em] 
+\years{2014 - 2017}\textbf{Member of the i-MCP collaboration} \\
+\emph{i-MCP is an R\&D project within INFN CSN5 aimed at use of micro-channel plates for
+precise timing measurement of single particles and electromagnetic showers
+at collider experiments}
+
+%\section*{Research field}
+%\vspace{-5pt}
+%\hrule
+%\vspace{10pt}
+%My research field is the experimental high energy physics. Since 2006
+%I am part of the CMS collaboration, one of the 4 experiments running at
+%the CERN Large Hadron Collider (LHC) in Geneva.
+
+\section*{Abilitazione Scientifica Nazionale (ASN)}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\years{04/04/2017 - 04/04/2023} \textbf{Abilitazione per Professore di Seconda
+Fascia}\\ 
+\emph{Settore 02/A1 - Fisica Sperimentale delle Interazioni
+  Fondamentali} \\[0.5em]
+Quality indicators at the time of application: numer of publications = 495 (51), numer of citations =
+  19981 (1250), Hirsch H-index = 63 (18). The thresholds of the
+  indicators for the ``settore 02/A1'' qualification are reported in parenthesis. 
+%  The ASN application document (\textsc{Allegato 6}) and the judgement
+%  of the committee (\textsc{Allegato 7}) are in attachment.
+
+\section*{Publications}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\years{2017}\textbf{125 publications:} see
+\href{http://inspirehep.net/search?ln=en&ln=en&p=find+a+santanastasio+and+tc+p+and+date+2017&of=hb&action_search=Search&sf=&so=d&rm=&rg=25&sc=0}{link
+  to inspire}\\
+{\tiny
+  http://inspirehep.net/search?ln=en\&ln=en\&p=find+a+santanastasio+and+tc+p+and+date+2017\&of=hb\&action\_search=Search\&sf=\&so=d\&rm=\&rg=25\&sc=0}\\[1em]\normalsize
+\years{2016}\textbf{159 publications:} see
+\href{http://inspirehep.net/search?ln=en&ln=en&p=find+a+santanastasio+and+tc+p+and+date+2016&of=hb&action_search=Search&sf=&so=d&rm=&rg=25&sc=0}{link
+  to inspire}\\
+{\tiny
+  http://inspirehep.net/search?ln=en\&ln=en\&p=find+a+santanastasio+and+tc+p+and+date+2016\&of=hb\&action\_search=Search\&sf=\&so=d\&rm=\&rg=25\&sc=0}\\[1em]\normalsize
+\years{2015}\textbf{131 publications:} see
+\href{http://inspirehep.net/search?ln=en&ln=en&p=find+a+santanastasio+and+tc+p+and+date+2015&of=hb&action_search=Search&sf=&so=d&rm=&rg=25&sc=0}{link
+  to inspire}\\
+{\tiny
+  http://inspirehep.net/search?ln=en\&ln=en\&p=find+a+santanastasio+and+tc+p+and+date+2015\&of=hb\&action\_search=Search\&sf=\&so=d\&rm=\&rg=25\&sc=0}\\[1em]\normalsize
+\years{2014}\textbf{109 publications:} see
+\href{http://inspirehep.net/search?ln=en&ln=en&p=find+a+santanastasio+and+tc+p+and+date+2014&of=hb&action_search=Search&sf=&so=d&rm=&rg=25&sc=0}{link
+  to inspire}\\
+{\tiny
+  http://inspirehep.net/search?ln=en\&ln=en\&p=find+a+santanastasio+and+tc+p+and+date+2014\&of=hb\&action\_search=Search\&sf=\&so=d\&rm=\&rg=25\&sc=0}\normalsize \\
+
+Full citation report (all years since 2007):\\
+Total number of publications: 680 (ISI), 669 (inspire) \\
+Total number of citations: 23463 (ISI) \\
+Average citations per publication: 34.5 (ISI) \\
+h-index: 68 (ISI) 
+
+\section*{Research Grants}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\years{03/2014}\textbf{Winner of ``Programma Per Giovani
+  Ricercatori Rita Levi Montalcini''} \\ 
+ \href{http://cervelli.cineca.it/ProgGiovRic/dm050813_683.pdf}{Risultati
+   Bando 2010 del 08/2013} \\
+%Research project: \emph{Search for new physics beyond the Standard Model with the CMS detector at the CERN LHC}
+\emph{Three-year grant of about 220000 euros for research in experimental high-energy
+  physics with the CMS detector at the CERN LHC, of which 44000 euros for research costs}
+
+
+\section*{Scientific Coordination in the Period 2014-2017}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\years{09/2016 - today}\textbf{Coordination of the \emph{CMS Exotica
+    Jets+X Working Group}} \\
+I started my 2-year mandate on September 1st, 2016.
+This analysis group works on searches for new physics beyond the
+Standard Model in final states containing jets. The group, 
+constituted by more than 50 physicists working in universities and
+research institutions from all the world, performs
+about 20 physics analyses in these final states. A recent publication
+is~\cite{Sirunyan:2017nvi}. The results of all these searches are
+expected to be published in 2018. \\ [1em]
+\years{09/2014 - 09/2016}\textbf{Coordination of the \emph{Dijet Resonance
+  Team} of the CMS experiment}\\
+This analysis team works on searches for new massive resonances at the TeV
+scale decaying into a pair of jets using the dijet mass spectrum. It is
+constituted by about 15 physicists from several institutions from
+all the world. This group produced two high-impact papers using proton-proton
+collisions at $\sqrt{s}=13$~TeV~\cite{Sirunyan:2016iap,Khachatryan:2015dcf} 
+including the first published limits in the dijet final state on the
+mass of a mediator of the interaction between a hypothetical {\it dark
+  matter} particle and the Standard Model quarks.\\[1em]
+%This group produced the first paper at LHC on a
+%search for new physics using proton-proton collisions at $\sqrt{s}=13$~TeV~\cite{Khachatryan:2015dcf}. \\[1em]
+\years{01/2013 - 01/2015}\textbf{Coordination of the \emph{CMS Exotica
+    Leptons+Jets Working Group}}\\
+This analysis group works on searches for new physics beyond the
+Standard Model in final states containing leptons and jets. The group, 
+constituted by more than 50 physicists working in universities and
+research institutions from all the world, performed about 15 physics
+analyses in this final state. During my convenership, the group
+produced 3 publications~\cite{Khachatryan:2014ura,Khachatryan:2014dka,Khachatryan:2014gha}
+and 7 preliminary results that were then published or submitted for
+publication in 2015 (including~\cite{Khachatryan:2016yji,Khachatryan:2015ywa,Khachatryan:2015vaa}).
+
+\section*{Details of Research Activity in the Period 2014-2017}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+My research field is the experimental high energy physics. Since 2005
+I am part of the CMS collaboration, one of the 4 experiments running at
+the CERN Large Hadron Collider (LHC). During these years, I have been
+involved in several detector activities including calibration of the
+CMS electromagnetic calorimeter, commissioning of the CMS hadronic
+calorimeter, performance studies of the missing transverse energy
+reconstructed in the event, and I participated to several physics analyses.
+In the 2014-2017 period I focused on searches for physics beyond the
+Standard Model (SM) and on jet calibration studies. 
+From 2014 to 2017 I have been also part of the i-MCP collaboration. This is
+an R\&D project within INFN CSN5 aimed at use of micro-channel plates for
+precise timing measurement of single particles and electromagnetic showers
+at collider experiments. I'm currently involved in the design of a
+new fast-timing detector based on scintillating crystals readout by 
+silicon photomultipliers for the CMS detector upgrade foreseen for 
+the high-luminosity phase of LHC starting in 2026. \\[1em]
+
+{\bf Search for new resonances in the dijet final state}\\[0.5em]
+I have been working on a search for new resonances with mass at the TeV
+scale that decay to a pair of jets (dijet). This search is one of the most 
+sensitive probes for new physics at LHC because any hypothetical new
+particle that might be produced is originated from the
+colliding protons and therefore it must couple to quarks and/or
+gluons, thus producing jets. The analysis strategy consists in
+reconstructing the invariant mass of the dijet system and searching for a
+resonant peak in its data spectrum. I have been the leading author of this
+search in CMS since 2012 publishing a paper on this topic with the
+full dataset collected at $\sqrt{s}=8$~TeV~\cite{Khachatryan:2015sja}. After a 2-year
+shutdown, the LHC has restarted proton-proton collisions in 2015 with an increased 
+center-of-mass energy of 13 TeV. This energy jump has largely enhanced the
+sensitivity of the dijet search to new physics. In the last three years, 
+I coordinated the group
+%I am coordinating the group, 
+made of about 15 physicists devoted to the
+analysis of the early 13 TeV data. The analysis performed on the data
+collected in 2015 and 2016 has shown no sign of new particle
+production, setting the most stringent limits in this final state 
+for several new physics models. 
+I was primary author of two high-impact papers using proton-proton
+collisions at
+$\sqrt{s}=13$~TeV~\cite{Sirunyan:2016iap,Khachatryan:2015dcf}.
+These include the first published limits in the dijet final state on the
+mass of a mediator of the interaction between a hypothetical 
+{\it dark matter} particle and the SM quarks. \\[1em]
+%The results of this search, thanks to their
+%relevance for this scientific 
+%field, have been accepted for publication by
+%PRL~\cite{Khachatryan:2015dcf} in January 2016. 
+%This is also the first search for new physics in proton-proton
+%collisions at $\sqrt{s}=13$~TeV from LHC. 
+
+%{\bf Search for hadronic resonances using the novel {\it data
+%    scouting} technique}\\[0.5em]
+{\bf The novel {\it data scouting} technique in hadronic resonance searches}\\[0.5em]
+At LHC, it is important to extend the search for resonances in fully hadronic
+final states in the mass region below 1 TeV in order to probe 
+%hypothetical hadronic resonances with 
+small couplings to quarks and gluons not yet excluded by previous colliders.
+%that similar searches performed at previous
+%colliders could not exclude yet. %find yet. 
+The main experimental difficulties at LHC originate
+from the large cross section of multijet events at low jet transverse
+momentum
+%dijet mass 
+and the finite computing resources for processing and storing these
+data. To solve this issue, I proposed in 2011 a new technique - known as 
+{\it data scouting} - in the CMS experiment. This technique, by significantly reducing the event size
+compared to the standard CMS data stream, enabled to relax the
+trigger thresholds and record 1 KHz of fully hadronic events to extend
+the search in the sub-TeV mass region. With this approach, the
+analysis is performed using jets reconstructed online in the CMS
+trigger computing farm. %This new method, initially developed for the dijet
+%analysis, can have large impact on several new physics searches in
+%fully hadronic final states.
+This novel trigger strategy was fully integrated in the CMS physics program in
+2012, when I was convener of the {\it``CMS Dataset Definition Team"}, 
+allowing to collect data corresponding to almost 19 $\rm{fb}^{-1}$ of
+integrated luminosity at $\sqrt{s}=8$~TeV; 
+%in the sub-TeV dijet mass region; 
+this technique was implemented also by LHCb and ATLAS
+experiments at LHC in the following years.
+Since 2014, I worked at a search for sub-TeV dijet resonances using these data.
+No evidence for new particle production was found and the most
+stringent limits to date were set on the production cross section of dijet resonances
+in the mass range from 500 to 800 GeV. These results were published in
+2016 by PRL~\cite{Khachatryan:2016ecr}. \\[1em]
+
+{\bf Search for new resonances in diboson final states} \\[0.5em]
+Many theories beyond the SM predict the existence of massive particles
+at the TeV scale that decays into pairs of SM bosons. The bosons
+coming from the massive particle can be W, Z, H or $\gamma$. 
+As convener of the {\it CMS Exotica Leptons+Jets Working
+Group} in 2013 and 2014, I contributed to various diboson
+analyses in final states involving leptons and jets, documented in 
+3 papers~\cite{Khachatryan:2016yji,Khachatryan:2015ywa,Khachatryan:2014gha}.
+In particular, I was deeply involved in the search for massive resonances in the WW and ZZ 
+final states using proton-proton collisions at $\sqrt{s}=8$~TeV, focusing
+on the analysis of the semi-leptonic ($\ell\ell qq$ and $\ell\nu qq$)~\cite{Khachatryan:2014gha} 
+and fully-hadronic ($qqqq$) decay modes~\cite{Khachatryan:2014hpa}.
+These decay channels have the largest branching fraction, providing
+a higher sensitivity to new physics for resonance masses above 1 TeV
+compared to the fully leptonic channels.
+These are quite complex analyses. For resonances with mass above 1 TeV, the momentum of the W and Z
+bosons greatly exceeds their rest mass, and the quarks from their decay
+are emitted with a small angular separation in the laboratory
+reference frame, thus resulting into a single massive jet.  
+By exploiting the substructure of a wide jet, it is possible to
+discriminate between the dipolar structure of an hadronic boson decay (signal events)
+and a jet created by the hadronization of a single quark/gluon (background events).
+The WW and ZZ searches were among the first in CMS to include the
+jet-substructure reconstruction algorithms in a physics analysis and
+my work contributed to define the experimental
+methodology for this kind of research in CMS. \\[1em]
+
+{\bf Work on jets} \\[0.5em]
+High momentum jets, coming from hadronization of energetic quarks and
+gluons, are present in almost every collision at the LHC. The detailed
+understanding of both the energy scale and resolution of the jets is of crucial importance for
+many physics analyses. I worked at the jet energy
+calibration using photon+jet events and I studied the energy scale 
+and resolution of jets reconstructed at trigger level in the {\it data
+scouting} stream. I'm also involved in studies of jet
+substructure which are important for diboson analyses. Energetic W or Z
+bosons decaying to a pair of collimated quarks can be reconstructed as
+single massive jets in the detector. 
+%Different algorithms have been developed to reconstruct the jet mass
+%and identify the dipolar structure of energy deposits inside the
+%jets. 
+The effectiveness of algorithms to identify the jet substructure 
+is studied using simulated events and it is sensitive to the details
+of Monte Carlo parton showering. Since it is crucial to validate 
+these methods using real data, I studied these algorithms using 
+a pure sample of energetic W bosons coming from top quark 
+decays in t$\bar{\rm{t}}$ semi-leptonic events. 
+By comparing results in data and simulation, it is
+possible to derive correction factors for the jet mass
+scale/resolution and for the efficiency of the jet substructure 
+requirements. These correction factors, measured with 5-10\%
+uncertainty, are used in several searches for new physics in CMS. \\[1em]
+
+{\bf Precise timing measurements at future colliders} \\[0.5em]
+Future hadron colliders will provide instantaneous luminosities 
+exceeding $10^{35}$ cm$^{-2}$s$^{-1}$ and the large number of 
+simultaneous collisions in each interaction (pileup events) will be a
+major challenge. While one collision contains the rare signatures of interest for discoveries 
+or SM precision measurements, the contribution of the remaining
+pileup interactions must be reduced to maintain good performance of
+calorimeters in terms of energy measurements and particle
+identification. For example, in the High-Luminosity phase of the LHC
+(HL-LHC) starting in 2026, more than 140 interactions per beam crossing, with 
+a spread of approximately 10 cm and 300 ps
+along the beam axis, are anticipated. This represent an increase of
+more than a factor 5 with respect to the current LHC pileup
+conditions. A possible strategy to reduce the impact of
+increasing pileup, consists in complementing the transversal segmentation of
+the calorimeters with an extremely high time-resolution, 
+which would enable the energy deposits coming from different 
+interaction vertices to be resolved in time. Micro Channel Plates
+(MCPs) are potential candidate detectors for this scope, thanks to their
+excellent time response. I have been involved in R\&D studies on the
+ionization-MCP (i-MCP) where the avalanche formation is triggered by secondary
+emission of electrons directly on the MCP surface, when this is hit by
+relativistic charged particles. The advantage consists in the elimination of the
+photo-cathode, improving the radiation tolerance of the device.
+The demonstration of the i-MCP concept has been achieved on both 
+commercial devices and bare MCPs tested inside a custom vacuum 
+chamber designed in Rome. In some configurations, detection
+efficiencies to single particles up to 90\% are reached with time
+resolution between 20 ps and 30 ps. These measurements have been 
+published on the NIM journal~\cite{Brianza:2015jia,Barnyakov:2017twj}.
+Recently I got involved in the design of a fast-timing detector
+based on thin scintillating LYSO crystals readout by silicon
+photomultipliers (SiPMs) for the CMS upgrade at HL-LHC. This solution was preferred over 
+the novel i-MCP technology because of the time and
+cost constrains of the CMS upgrade project. 
+
+%\clearpage
+
+%{\bf Work on jets} \\ [1em]
+\section*{Invited Talks at Conferences}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+%GGI2017
+\years{10/2017}\textbf{GGI2017} - Collider Physics and the Cosmos
+International Conference, Galileo Galilei Institute, Arcetri, Italy, \textit{``Recent results and
+ future perspectives on searches for dark matter mediators''}, Slides~\cite{Santanastasio:GGI2017} \\ [1em]
+%ICHEP2014
+\years{07/2016}\textbf{ICNFP2016} - International Conference on New
+Frontiers in Physics, Kolymbari, Crete, \textit{``Searches for BSM
+  physics in ﬁnal states with jets and leptons+jets at CMS''},
+Proceedings~\cite{Santanastasio:ICNFP2016} \\ [1em]
+%ICHEP2014
+\years{07/2014}\textbf{ICHEP2014} - International Conference on High
+Energy Physics, Valencia, Spain, \textit{``Search for heavy resonances
+  decaying to bosons with the ATLAS and CMS detectors''},
+Proceedings~\cite{Santanastasio:ICHEP2014} 
+
+\section*{Review Committees}
+\vspace{-5pt}
+\hrule
+\vspace{10pt}
+\noindent
+\years{06/2016 - today}Referee of {\it New Journal of
+  Physics}~\href{http://iopscience.iop.org/journal/1367-2630}{link to
+  online journal}~(2016 impact factor = 3.786) \\  [2em] 
+
+
+%\vspace{-5pt}
+%\hrule
+%\vspace{10pt}
+
+
+%During my convenerships of analysis groups in the CMS
+%experiment, I supervised the research activity of the following
+%graduate students from foreign institutions:\\[1em]
+%\years{2012-2015} {\bf Emine Gurpinar}, Cukurova University, Turkey\\ \textit{"Searches for heavy resonances decaying to pair of jets at CMS"}~\cite{Khachatryan:2015sja} \\ [1em]
+%\years{2012-2014} {\bf Shuai Liu}, Peking University, China\\ \textit{"Searches for beyond Standard Model WW$\rightarrow \ell\nu qq$ resonances at CMS"}~\cite{Khachatryan:2014gha} \\ [1em]
+%\years{2012-2014} {\bf Edmund Berry}, Princeton University, USA \\ \textit{"Searches for first-generation leptoquarks at CMS with $\sqrt{s}=7$ and  8 TeV data"}~\cite{Khachatryan:2015vaa} %\\ [1em]
+
+
+%\section*{Citation report}
+%\noindent
+
+%\begin{tabular}{l l}
+%Total number of publications: & ISI: 378, Inspire: 393 \\
+%Total number of publications in the last 10 years: & ISI: 378, Inspire: 393 \\
+%Total number of citations divided by N (6): & ISI: 8805/7$=$1257\\
+%(N = number of years since the first publication)  & \\
+%h factor: & ISI: 37 \\
+%Normalized h factor: (each pub contributes & ISI: 40 \\
+%as \#citations * 4 / (2013 - year of pub +1) ) &  \\
+%\end{tabular}
+
+%% Aug 2013 - Rientro Cervelli
+%\begin{tabular}{l l}
+%Total number of publications: & ISI: 267, Inspire: 270 \\
+%Total number of publications in the last 10 years: & ISI: 267, Inspire: 270 \\
+%Total number of citations divided by N (6): & ISI: 5311/6$=$885\\
+%(N = number of years since the first publication)  & \\
+%h factor: & ISI: 32 \\
+%Normalized h factor: (each pub contributes & ISI: 40 \\
+%as \#citations * 4 / (2013 - year of pub +1) ) &  \\
+%\end{tabular}
+
+%Exercises of classic mechanics for mathematics majors
+
+%\section*{Physics Schools}
+%\noindent
+% FERMILAB 2008
+%\years{12-22.08.2008}\textbf{2008 Joint CERN-Fermilab Hadron Collider Physics Summer School} \\ 
+%Fermilab, Batavia, Illinois, US \\ [1em]
+% LECCE 2005
+%\years{09-14.06.2005}\textbf{Italo-Hellenic School of Physics 2005}  \\ 
+%Martignano, Lecce, Italy \\
+%{\it ``The Physics of LHC: theoretical tools and experimental challenges''}
+
+%\section*{Languages}
+%\begin{tabular}{l c l}
+%\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{English} (fluent)\\
+%\textit{Italian} (native speaker) & \makebox[4em]{} & \textit{French} (fluent)\\
+%\textit{English} (fluent) & &\textit{German} (basic)\\
+%\end{tabular}
+
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Service work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Service work in Experiments and Collaborations}
+%\subsection*{ATLAS Experiment}
+%\noindent
+%\textbf{Data Analysis: Supersymmetry Working Group} Working on data analysis, on exploring and implementing analysis strategies and on data files production\\
+%\textbf{Development \& Upgrade} Working in the DAQ group, on the upgrade of the configuration DB system\\
+%\textbf{Detector Operation} Shifter in the control room, at the Muon System, DAQ and Run Control desks\\
+%\textbf{Software Framework} Taking part in code testing, and shifter for the build test system (RTT)\\
+%\textbf{Documentation} Responsible person for a part of the documentation of the ATLAS data-format\\
+%\textbf{Public Relations} Official ATLAS Guide, escorting VIP visits to the ATLAS cavern\\
+
+
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Publications & Talks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%As of November/December 2016: ``highly cited papers'' received enough
+%citations to place it in thetop 1\% of the academic field of Physics
+%based on a highly cited threshold for the field and publication year.
+
+\begin{thebibliography}{599}
+
+\bibitem{Sirunyan:2016iap} 
+  [CMS Collaboration],
+  ``Search for dijet resonances in proton-proton collisions at sqrt(s) = 13 TeV and constraints on dark matter and other models,''
+  Accepted for publication by Phys.\ Lett.\ B, arXiv:1611.03568
+  [hep-ex]. \\
+\emph{Citations: 22 (Inspire)}
+
+\bibitem{Khachatryan:2015dcf} 
+  [CMS Collaboration].
+  ``Search for narrow resonances decaying to 
+  dijets in proton proton
+  collisions at $\sqrt{s}=13$ TeV,''
+  Phys.\ Rev.\ Lett.\  116, 071801 (2016), arXiv:1512.01224 [hep-ex]. \\
+\emph{Citations: 22 (ISI), 123
+  (Inspire)}
+
+\bibitem{Khachatryan:2016ecr} 
+[CMS Collaboration],
+  ``Search for narrow resonances in dijet final states at $\sqrt{s}=8$
+  TeV with the novel CMS technique of data scouting,''
+  Phys.\ Rev.\ Lett.\  117, 031802 (2016), arXiv:1604.08907 [hep-ex]. \\
+\emph{Citations: 5 (ISI), 43 (Inspire)}
+
+\bibitem{Sirunyan:2017nvi} 
+ [CMS Collaboration],
+  ``Search for low mass vector resonances decaying into
+  quark-antiquark pairs in proton-proton collisions at $\sqrt{s} = $
+  13 TeV,'' arXiv:1710.00159 [hep-ex].\\
+
+\bibitem{Khachatryan:2016yji} 
+[CMS Collaboration],
+  ``Search for massive WH resonances decaying into the $\ell \nu \mathrm{b} \overline{\mathrm{b}} $ final state at $\sqrt{s}=8$ TeV,''
+  Eur.\ Phys.\ J.\ C 76, 237 (2016), arXiv:1601.06431 [hep-ex]. \\
+\emph{Citations: 2 (ISI), 28 (Inspire)}
+
+\bibitem{Khachatryan:2015ywa} 
+ [CMS Collaboration],
+  ``Search for narrow high-mass resonances in proton–proton collisions
+  at $\sqrt{s}=8$ TeV decaying to a Z and a Higgs boson,''
+  Phys.\ Lett.\ B 748, 255 (2015), arXiv:1502.04994 [hep-ex].\\
+\emph{Citations: 20 (ISI), 40 (Inspire)}
+
+\bibitem{Khachatryan:2015vaa} 
+[CMS Collaboration],
+  ``Search for pair production of first and second generation
+  leptoquarks in proton-proton collisions at $\sqrt{s}=8$ TeV,''
+  Phys.\ Rev.\ D  93, 032004 (2016), arXiv:1509.03744 [hep-ex].\\
+\emph{Citations: 8 (ISI), 41 (Inspire)}
+
+\bibitem{Khachatryan:2015sja} 
+  [CMS Collaboration],
+  ``Search for resonances and quantum black holes using dijet mass
+  spectra in proton-proton collisions at $\sqrt{s}=8$ TeV,''
+  Phys.\ Rev.\ D 91, no. 5, 052009 (2015), arXiv:1501.04198 [hep-ex].\\
+\emph{Citations: 71 (ISI), 187 (Inspire)}
+
+\bibitem{Khachatryan:2014ura} 
+  [CMS Collaboration],
+  ``Search for pair production of third-generation scalar leptoquarks
+  and top squarks in proton–proton collisions at $\sqrt{s}=8$ TeV,''
+  Phys.\ Lett.\ B 739, 229 (2014), arXiv:1408.0806 [hep-ex].\\
+\emph{Citations: 44 (ISI), 68 (Inspire)}
+
+\bibitem{Khachatryan:2014dka} 
+  [CMS Collaboration],
+  ``Search for heavy neutrinos and $\mathrm {W}$ bosons with
+  right-handed couplings in proton-proton collisions at $\sqrt{s}=8$ TeV,''
+  Eur.\ Phys.\ J.\ C 74, no. 11, 3149 (2014), arXiv:1407.3683 [hep-ex].\\
+\emph{Citations: 65 (ISI), 188 (Inspire)}
+
+\bibitem{Khachatryan:2014gha} 
+  [CMS Collaboration],
+  ``Search for massive resonances decaying into pairs of boosted
+  bosons in semi-leptonic final states at $\sqrt{s}=8$ TeV,'''
+  JHEP 1408, 174 (2014), arXiv:1405.3447 [hep-ex].\\
+\emph{Citations: 43 (ISI), 189 (Inspire)}
+
+\bibitem{Khachatryan:2014hpa}
+ [CMS Collaboration],
+  ``Search for massive resonances in dijet systems containing jets
+  tagged as W or Z boson decays in pp collisions at $ \sqrt{s} $ = 8 TeV,''
+  JHEP 1408, 173 (2014), arXiv:1405.1994 [hep-ex].\\
+\emph{Citations: 49 (ISI), 205 (Inspire)}
+
+\bibitem{Brianza:2015jia} 
+[F.~Santanastasio {\it et al.}],
+  ``Response of microchannel plates to single particles and to electromagnetic showers,''
+Nucl. Instrum. Meth. A 797, 216 (2015), arXiv:1504.02728 [physics.ins-det].\\
+\emph{Citations: 6 (ISI), 6 (Inspire)}
+
+\bibitem{Barnyakov:2017twj} 
+[F.~Santanastasio {\it et al.}],
+  ``Response of microchannel plates in ionization mode to single particles and electromagnetic showers,''
+  Nucl. Instrum. Meth. A 879, 6 (2018), arXiv:1707.08503 [physics.ins-det].\\
+
+%------------------------------------------------------------------------------------------------
+\vspace{0.3cm} \begin{center} \textsc{Conference Proceedings quoted in
+    this document} \end{center} \vspace{0.05cm}
+%------------------------------------------------------------------------------------------------
+
+\bibitem{Santanastasio:GGI2017} 
+  ``Recent results and future perspectives on searches for dark matter mediators ''
+  \\{}F.~Santanastasio
+  \\{}[\href{http://www.roma1.infn.it/exp/cms/talks/conferences/GGI2017conference_SearchForDMmediators_ATLASandCMS_santanastasio_v2.pdf}{slides}]
+  \\{}{\it Prepared for the Collider Physics and the Cosmos conference
+    , Galileo Galilei Institute, Arcetri, Italy, 9-13 October 2017}
+
+\bibitem{Santanastasio:ICNFP2016} 
+  ``Searches for new physics beyond the Standard Model in final states
+  with jets and leptons+jets at CMS''
+  \\{}F.~Santanastasio
+   \\{} EPJ Web of Conferences 164, 07039 (2017)
+  \\{}{\it Prepared for the 5th International Conference on New
+    Frontiers in Physics, Kolymbari, Crete, 6-14 July 2016} 
+
+\bibitem{Santanastasio:ICHEP2014} 
+``Search for heavy resonances decaying to bosons with the ATLAS and CMS detectors,'' 
+ \\{}F.~Santanastasio 
+ \\ Nucl.\ Part.\ Phys.\ Proc.\  273-275, 649 (2016)
+  \\{}{\it Prepared for the XXXVII International Conference on High Energy Physics, Valencia, Spain, 2-9 July 2014}
+%  ``Search for heavy resonances decaying to bosons with the ATLAS and CMS detectors''
+%  \\{}F.~Santanastasio
+%   \\{} Proceedings will be published in Nuclear Physics B - Proceedings Supplements
+
+%%------------------------------------------------------------------------------------------------
+%\vspace{0.1cm} \begin{center} \textsc{Preliminary results quoted in this document} \end{center} \vspace{0.05cm}
+%%------------------------------------------------------------------------------------------------
+
+%\bibitem{CMS:2015neg} 
+% {}[CMS Collaboration],
+%  ``Search for Resonances Decaying to Dijet Final States at $\sqrt{s} = 8$ TeV with Scouting Data,''
+%  CMS-PAS-EXO-14-005 (2015). Paper in preparation.
+
+%\bibitem{CMS:2015gla} 
+%  CMS Collaboration [CMS Collaboration],
+%  ``Search for massive WH resonances decaying to $\ell \nu {\rm b \bar{b}}$ final state in the boosted regime at $\sqrt{s}=8$\,TeV,''
+%  CMS-PAS-EXO-14-010 (2015). Paper submitted in 2016 (arXiv:1601.06431 [hep-ex]).
+
+%\bibitem{CMS:2014qpa} 
+%  CMS Collaboration [CMS Collaboration],
+%  ``Search for Pair-production of First Generation Scalar Leptoquarks in pp Collisions at sqrt s = 8 TeV,''
+%  CMS-PAS-EXO-12-041 (2014). Paper submitted in 2015 (arXiv:1509.03744
+%  [hep-ex]).
+
+\end{thebibliography}
+
+%\vspace{1cm}
+\vfill{}
+\hrulefill
+
+% FILL IN THE FULL URL TO YOUR CV
+\begin{center}
+%{\footnotesize \href{http://www.ias.edu/spfeatures/einstein}{http://www.ias.edu/spfeatures/einstein} ‚Äî Last updated: \today}
+{\footnotesize Last updated: \today}
+\end{center}
+
+
+\end{document}
