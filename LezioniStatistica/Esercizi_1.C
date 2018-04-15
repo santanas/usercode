@@ -35,4 +35,30 @@
   pt1->Draw();
   c1.SaveAs("h_Temperatures.pdf");
 
+  //-------
+
+  const int N = 20;
+  double t[N]={6.2 , 6.6 , 6.4 , 6.7 , 6.2 , 6.3 , 5.9 , 6.4 , 6.5 , 6.2 , 6.3 , 6.4 , 6.0 , 6.3 , 6.2 , 6.6 , 6.1 , 6.3 , 6.5 , 7.0 };
+  float tmin = 5.85;
+  float tmax = 7.05;
+  float binSizet = 0.1; 
+  int Nbinst = int((tmax - tmin) / binSizet); 
+
+  TCanvas c2;
+  TH1F *h1_t = new TH1F("h1_t","h1_t",Nbinst,tmin,tmax);  
+  h1_t->SetTitle("");
+  h1_t->GetXaxis()->SetTitle("Tempo di caduta [s]");
+  h1_t->GetYaxis()->SetTitle("Numero di misure = entries");
+  for(int k=0; k<N;k++)
+    {
+      h1_t->Fill(t[k]);
+    }
+  h1_t->Draw();
+  binSizet = (tmax - tmin) / Nbinst; 
+  TPaveText *pt2=new TPaveText(0.72,0.72,0.95,0.87,"brNDC");
+  pt2->AddText(Form("N bins = %d",Nbinst));
+  pt2->AddText(Form("Bin size = %3.4f [C]",binSizet));
+  pt2->Draw();
+  c2.SaveAs("h_TempoCaduta.pdf");
+
 }
