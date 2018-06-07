@@ -1,0 +1,338 @@
+\documentclass[10pt,a4paper,fleqn]{article}
+%\usepackage{a4p,ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage{ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage[left=1cm, right=1cm, top=4cm]{geometry}
+
+%
+\begin{document}
+\pagestyle{empty}
+
+%
+%
+\newsavebox{\savepar}
+\newenvironment{boxit}{\begin{lrbox}{\savepar}
+\begin{minipage}[b]{16.0cm}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\savepar}}}
+\newcommand{\myblist}[1]{\begin{list}{#1}{\setlength{\topsep}{1.8mm}
+\setlength{\parskip}{0mm} \setlength{\partopsep}{0mm} \setlength{\parsep}{0mm}
+\setlength{\itemsep}{0mm}}}
+\newcommand{\myhfill}[1]{\hfill {\it #1} = \underline{$~~~~~~~~~~~~~~~~~~~~~~~~~~~$}}
+\newcommand{\myhfiyn}[0]{\hfill $\Box$~{\sc si}~~~~~~~~$\Box$~{\sc no}}
+\newcommand{\myhfild}[2]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~$};~ {\it #2}= \underline{$~~~~~~~~~~$}}
+\newcommand{\myhfilt}[3]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~~~~$};~ 
+{\it #2}= \underline{$~~~~~~~~~~~~~$};~{\it #3}= \underline{$~~~~~~~~~~~~~$}}
+%
+
+\setlength{\unitlength}{1mm} 
+\setlength{\headheight}{0mm} % footheight
+
+\newcommand{\s}{\text{s}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kg}{\text{kg}}
+
+
+\vspace*{-3.5cm}
+\Large
+%\begin{boxit}
+{
+\begin{center}
+\vspace{0.1cm}
+{\bf  Fisica 1 per Chimica (Canali A-E ed P-Z)} \\
+{\bf Simulazione esame scritto di Laboratorio/Statistica 07/06/2018}   \\
+docenti: Francesco Santanastasio, Paolo Gauzzi
+   \\
+\end{center}
+\noindent\rule{13cm}{0.4pt}  \\
+\normalsize
+%\vspace{0.1cm}
+%\begin{center}
+%{\underline {Corso di Laurea:}}
+%\end{center}
+%
+\begin{tabular}{ll}
+{\underline{Nome:}}  \hspace{6cm} & {\underline{Cognome:}} \\[0.35cm]
+{\underline {Matricola}} & {\underline {Aula:}}  \\[0.35cm]
+{\underline {Canale:}} & {\underline {Docente:}}
+\end{tabular}
+\vspace{0.5cm}
+}
+\small
+
+La durata del compito \`e 3 ore. I cellulari devono essere spenti. Non \`e possibile consultare libri
+di testo o appunti personali. \`E possibile utilizzare una
+calcolatrice ed il formulario fornito insieme al compito. \\
+Riportare a penna (non matita) sul presente foglio i risultati
+numerici finali (con unit\`a di misura
+ed incertezze di misura). Nell'elaborato riportare sia lo svolgimento
+dettagliato degli esercizi (indicando tutte le formule utilizzate ed i passaggi) che i risultati numerici. 
+
+\vspace{0.3cm}
+%\end{boxit}
+\noindent\rule{13cm}{0.4pt}  \\
+
+\enlargethispage{0.2cm}
+\normalsize
+{\bf \underline {Esercizio 1}} \\ ~\\
+Durante le votazioni per eleggere il Presidente della Repubblica, dopo
+che sono state scrutinate 1000 su 1007 schede, il candidato X ha
+ottenuto 667 preferenze. 
+\myblist{-}
+\item[a)] Sulla base delle schede gi\`a scrutinate, stimare la probabilit\`a che ha il
+  candidato X di ricevere un voto a favore. \\ ~\\
+\myhfill{$p$}
+\end{list}
+Sulla base di questa stima, determinare:
+\myblist{-}
+\item[b)] la probabilit\`a che il candidato X non riceva nessun voto
+  nelle ultime 7 schede\\~\\
+\myhfill{$p(\mbox{0 voti su 7 schede})$}
+\item[c)] la probabilit\`a che il candidato X riceva 5 o pi\`u voti
+  nelle ultime 7 schede\\~\\
+ \myhfill{$p(\ge \mbox{5 voti su 7 schede})$}
+\end{list}
+
+\vskip0.30cm {\bf \underline {Esercizio 2}} \\ ~\\
+Il numero di guasti registrati alle diverse componenti di un certo
+numero di computer della marca X, durante 5 anni, ha dato luogo
+alla seguente distribuzione di dati:\\~\\
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+$n_k$ = numero di guasti in 5 anni & 0 & 1 & 2 & 3  \\
+$O_k$ = occorrenza  & 255 & 100 & 26 & 8  \\
+\hline
+\end{tabular}~\\
+\myblist{-}
+\item[a)] Nell'ipotesi che il numero di guasti segua una distribuzione
+  Poissoniana, calcolare la miglior stima del numero medio atteso
+  ($\lambda$) di guasti in 5 anni. \\ ~\\
+\myhfill{$\lambda$}
+\end{list}
+\myblist{-}
+\item[b)] Ho acquistato 5 computer della marca X per il mio
+  ufficio. Sulla base della stima ottenuta per $\lambda$, qual`\`e
+  la probabilit\`a di non avere nessun guasto in 5 anni?\\~\\
+\myhfill{$p(\mbox{nessun guasto in 5 anni})$}
+\end{list}
+\myblist{-}
+\item[c)] Verificare la validit\`a dell'ipotesi che il numero di
+  guasti segua una distribuzione Poissoniana utilizzando un test del
+  chi-quadro con un livello di significativit\`a del 5\%. \\~\\
+ \myhfill{Il chi-quadro ridotto $\tilde{\chi}^2_{mis}=\frac{\chi^2_{mis}}{\nu}${\it ($\nu$
+  indica il numero di gradi di libert\`a)}}\\~\\
+ \myhfill{La probabilit\`a $p_{\nu}(\tilde{\chi}^2>\tilde{\chi}^2_{mis})$}\\~\\
+ IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+\end{list}
+
+
+\newpage
+
+\vskip0.30cm {\bf \underline {Esercizio 3}} \\ ~\\
+In una ripetizione dell'esperimento di Joule (per la misura
+dell'equivalente meccanico della caloria) si utilizza un motorino
+di potenza $P=10.0 \pm 0.1 W$ (1 Watt = 1 Joule/secondo) che aziona un
+mulinello inserito in un recipiente contenente un fluido di capacit\`a
+termica $C=3.41 \pm 0.01 cal/K$. Tenendo il motorino in funzione per
+un tempo $\Delta t$ viene registrata la variazione di temperatura
+$\Delta T$ all'interno del fluido. La misura viene ripetuta 
+per sei diversi valori di $\Delta t$ ed ogni volta il fluido viene
+riportato alla stessa temperatura iniziale prima di azionare
+nuovamente il motorino.  I dati dei sei esperimenti sono riportati
+nella seguente tabella:
+\\~\\
+\begin{tabular}{|l|r|r|r|r|r|r|}
+\hline
+$\Delta t$ [s] & 10 & 20 & 30 & 40 & 50 & 60  \\
+$\Delta T$ [K] & 7.1 & 13.9 & 21.3 & 28.3 & 34.9 & 41.6  \\
+\hline
+\end{tabular}~\\~\\
+Le variazioni di temperatura sono note tutte con una incertezza di 0.5 K,
+mentre l'incertezza sugli intervalli di tempo \`e trascurabile. \`E
+noto inoltre che l'equivalente meccanico della caloria si calcola a
+partire dalla seguente relazione $J_{EQ}=\frac{P\Delta t}{C \Delta
+  T}$, ovvero esiste una relazione lineare tra la variazione di
+temperatura e l'intervallo di tempo: $\Delta T=\frac{P}{C J_{EQ}}
+\Delta t$
+\myblist{-}
+\item[a)] Verificare l'ipotesi di relazione lineare tra $\Delta T$ e $\Delta t$
+  utilizzando il metodo dei minimi quadrati ed 
+un test del chi-quadro con un livello di significativit\`a del 5\%.\\ ~\\
+ \myhfill{Il chi-quadro ridotto $\tilde{\chi}^2_{mis}=\frac{\chi^2_{mis}}{\nu}${\it ($\nu$
+  indica il numero di gradi di libert\`a)}}\\~\\
+ \myhfill{La probabilit\`a $p_{\nu}(\tilde{\chi}^2>\tilde{\chi}^2_{mis})$}\\~\\
+ IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+\end{list}
+\myblist{-}
+\item[b)] Determinare la miglior stima dell'equivalente meccanico
+  della caloria $J_{EQ}$ e la sua incertezza (espresso in J/cal)\\~\\
+\myhfill{$J_{EQ}$}
+\end{list}
+\myblist{-}
+\item[c)] Stabilire se il valore misurato di $J_{EQ}$ \`e in accordo (``entro 2
+  deviazioni standard'') con il valore accettato pari a 4.1855 J/cal \\~\\
+ ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$
+\end{list}
+
+~\\~\\~\\~\\
+{\it
+NOTA:\\
+
+Metodo dei minimi quadrati non pesati per una relazione lineare del tipo $y=Bx$\\
+$B=\frac{\sum xy}{\sum x^2}$\\
+$\sigma_B=\frac{\sigma_y}{\sqrt{\sum x^2}}$\\
+Incertezze "a posteriori" sulle y (sulla base dei punti osservati):
+$\sigma_y=\sqrt{\frac{1}{N-1} \sum_{i=1}^{N}(y_i-Bx_i)^2}$\\
+}
+\newpage
+
+{\bf Soluzione Esercizio 1.}\\
+
+a) \\
+$p=\frac{667}{1000}=0.667$ \\
+
+b) \\
+$n=0$ , $N=7$ , $p=0.667$ \\
+$p(\mbox{0 voti su 7 schede})=B_{N,p}(0)=\frac{7!}{0!(7-0)!}(0.667)^0
+(1-0.667)^{7-0}=0.045\%$ \\
+
+c) \\
+$p(\ge \mbox{5 voti su 7 schede})=B_{N,p}(5) + B_{N,p}(6) + B_{N,p}(7)$ \\
+$B_{N,p}(5)=\frac{7!}{5!(7-5)!}(0.667)^5
+(1-0.667)^{7-5}=30.74\%$\\
+$B_{N,p}(6)=\frac{7!}{6!(7-6)!}(0.667)^6
+(1-0.667)^{7-6}=20.53\%$\\
+$B_{N,p}(7)=\frac{7!}{7!(7-7)!}(0.667)^7
+(1-0.667)^{7-7}=5.87\%$\\
+$p(\ge \mbox{5 voti su 7 schede})=B_{N,p}(5) + B_{N,p}(6) +
+B_{N,p}(7)\sim 57\%$ \\
+
+
+{\bf Soluzione Esercizio 2.}\\
+
+a) \\
+$\lambda=\overline{n_k}=\frac{\sum_{k=1}^{Nbin} n_k O_k }{\sum_{k=1}^{Nbin} O_k } =
+\frac{0\cdot 255 + 1 \cdot 100 + 2 \cdot 26 + 3 \cdot 8}{255+100+26+8}
+= \frac{176}{389}=0.45$\\
+
+b) \\
+``successo'' $=$ nessun guasto in 5 anni per un certo computer $\rightarrow$ $p=P_{\lambda}(0)=\frac{0.45^{0} e^{-0.45}}{0!}=0.6376$\\
+$N=5$ (numero di computer, numero di prove indipendenti)\\
+$n = $ numero di successi in $N$ prove con probabilit\`a di successo pari a $p=0.6376$\\
+$p(\mbox{nessun guasto in 5 anni})=B_{N,p}(n=5)=\frac{5!}{5!(5-5)!}(0.6376)^5 (1-0.6376)^{5-5}=0.105=10.5\%$\\
+
+ c) \\
+Il numero atteso di eventi in ciascun bin (ovvero per un certo
+valore $n_k$) e' uguale ad $E_k=N\cdot p_k$ dove:\\
+$N=\sum_k O_k=255+100+26+8=389$;\\
+$p_k$ rappresenta la probabilita' di osservare un numero $n_k$ di
+guasti assumendo una distribuzione Poissoniana
+$P_{\lambda}(n_k)=\frac{\lambda^{n_k} e^{-\lambda}}{n_k!}$con valore atteso
+$\lambda=0.45$.\\
+$p_o=P_{\lambda}(0)=\frac{0.45^{0} e^{-0.45}}{0!}=0.6376$\\
+$p_1=P_{\lambda}(1)=\frac{0.45^{1} e^{-0.45}}{1!}=0.2869$\\
+$p_2=P_{\lambda}(2)=\frac{0.45^{2} e^{-0.45}}{2!}=0.0646$\\
+$p_3=P_{\lambda}(3)=\frac{0.45^{3} e^{-0.45}}{3!}=0.0097$\\
+I valori attesi sono quindi:\\
+$E_0=N \cdot p_o=248$,
+$E_1=N \cdot p_1=111.6$,
+$E_2=N \cdot p_2=25.1$,
+$E_3=N \cdot p_3=3.77$.\\
+
+
+Per eseguire un test del chi-quadro \`e necessario avere almeno 5
+eventi attesi in ciascun bin. Si sommano quindi i valori attesi relativi ad
+$n_k=2$ ed $n_k=3$, ottenendo $E_{2+3}=E_2+E_3=28.87$\\
+
+Si calcola il chi-quadro a partire dai dati in tabella: 
+~\\~\\
+\begin{tabular}{|l|r|r|}
+\hline
+$n_k$ & $O_k$ & $E_k$  \\
+0        & 255 & 248  \\
+1        & 100 & 111.6  \\
+2 o 3  & 34 & 28.87  \\
+\hline
+\end{tabular}~\\~\\
+ottenendo:\\
+$\chi^2_{mis}=\sum_k \left(
+  \frac{O_k-E_k}{\sqrt{E_k}}\right)^2=2.35$\\
+il numero di gradi di libert\`a \`e $\nu=3-2=1$, essendo 3 i punti
+sperimentali e 2 i parametri ($\lambda$ ed $N$) calcolati a partire
+dai dati ed utilizzati per la stima dei valori attesi $E_k$.\\
+Il chi-quadro ridotto \`e quindi
+$\tilde{\chi}^2_{mis}=\frac{\chi^2_{mis}}{\nu}=\frac{2.35}{1}=2.35$.\\
+La probabilit\`a associata \`e
+$p_{\nu}(\tilde{\chi}^2>\tilde{\chi}^2_{mis})=12-14\%>\alpha=5\%$,
+dove $\alpha$ e' il livello di significativit\`a del test.\\
+L'ipotesi Poissoniana \`e quindi verificata.\\
+
+
+{\bf Soluzione Esercizio 3.}\\
+
+a) \\
+Si applica il metodo dei minimi quadrati non pesati per una relazione
+lineare del tipo $y=Bx$ dove $y=\Delta T$ ed $x=\Delta t$, con
+incertezze gaussiane su $y$ tutte uguali ($\sigma_y=0.5$~K) 
+ed incertezze su $x$ trascurabili.\\
+$\sum xy = 6361$~sK \\
+$\sum x^2=9100$~$s^2$\\
+$B=\frac{\sum xy}{\sum x^2}=0.6990$~K/s\\
+$\sigma_B=\frac{\sigma_y}{\sqrt{\sum x^2}}=0.0052$~K/s\\
+
+Si esegue un test del chi-quadro sui risultati del fit ai dati.\\
+$\chi^2_{mis}=\sum_i \left( \frac{y_i-Bx_i}{\sigma_y}
+\right)^2=1.45$\\
+numero di gradi di libert\`a $=\nu=6-1=5$ essendo 6 i punti
+sperimentali e solo 1 il parametro ($B$) stimato dai dati per il
+calcolo dei valori attesi di $y_i$. \\
+Il chi-quadro ridotto \`e quindi
+$\tilde{\chi}^2_{mis}=\frac{\chi^2_{mis}}{\nu}=\frac{1.45}{5}=0.29$.\\
+La probabilit\`a associata \`e
+$p_{\nu}(\tilde{\chi}^2>\tilde{\chi}^2_{mis})=85-96\%>\alpha=5\%$,
+dove $\alpha$ e' il livello di significativit\`a del test.\\
+L'ipotesi lineare \`e quindi accettata.\\
+
+b) \\
+
+$B=\frac{P}{C J_{EQ}}$ da cui $J_{EQ}=\frac{P}{CB}$ con:\\
+$P=10.0 \pm 0.1 $~J/s\\
+$C=3.41 \pm 0.01$~cal/K\\
+$B=0.6990\pm 0.0052$~K/s\\
+
+Utilizzando la formula di propagazione delle incertezze si ottiene:\\
+$\frac{\delta J_{EQ}}{J_{EQ}}=\sqrt{(\delta P/P)^2 + (\delta C/C)^2 +
+  (\delta B/B)^2}=1.3\%$ essendo\\
+$\delta P/P=1\%$, $\delta C/C=0.3\%$, $\delta B/B=0.7\%$\\
+$\delta_{J_{EQ}}=J_{EQ}\cdot 1.3\%$ e quindi la miglior stima di
+$J_{EQ}$:
+$J_{EQ}=(4.195 \pm 0.055)$ J/cal\\
+
+c) \\
+
+$t_{mis}=\frac{4.195-4.1855}{0.055}=0.17$ (il valore misurato dista
+0.17 deviazioni standard dal valore accettato)\\ 
+Quindi c'e' accordo (ben entro una deviazione standard) con
+il valore accettato. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+\end{document}
