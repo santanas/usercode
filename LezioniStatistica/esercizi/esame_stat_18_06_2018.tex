@@ -1,0 +1,267 @@
+\documentclass[10pt,a4paper,fleqn]{article}
+%\usepackage{a4p,ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage{ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage[left=1cm, right=1cm, top=4cm]{geometry}
+
+%
+\begin{document}
+\pagestyle{empty}
+
+%
+%
+\newsavebox{\savepar}
+\newenvironment{boxit}{\begin{lrbox}{\savepar}
+\begin{minipage}[b]{16.0cm}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\savepar}}}
+\newcommand{\myblist}[1]{\begin{list}{#1}{\setlength{\topsep}{1.8mm}
+\setlength{\parskip}{0mm} \setlength{\partopsep}{0mm} \setlength{\parsep}{0mm}
+\setlength{\itemsep}{0mm}}}
+\newcommand{\myhfill}[1]{\hfill {\it #1} = \underline{$~~~~~~~~~~~~~~~~~~~~~~~~~~~$}}
+\newcommand{\myhfiyn}[0]{\hfill $\Box$~{\sc si}~~~~~~~~$\Box$~{\sc no}}
+\newcommand{\myhfild}[2]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~$};~ {\it #2}= \underline{$~~~~~~~~~~$}}
+\newcommand{\myhfilt}[3]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~~~~$};~ 
+{\it #2}= \underline{$~~~~~~~~~~~~~$};~{\it #3}= \underline{$~~~~~~~~~~~~~$}}
+%
+
+\setlength{\unitlength}{1mm} 
+\setlength{\headheight}{0mm} % footheight
+
+\newcommand{\s}{\text{s}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kg}{\text{kg}}
+
+
+\vspace*{-3.5cm}
+\Large
+%\begin{boxit}
+{
+\begin{center}
+\vspace{0.1cm}
+{\bf  Fisica 1 per Chimica (Canali A-E ed P-Z)} \\
+{\bf Esame scritto di Laboratorio/Statistica 18/06/2018}   \\
+docenti: Francesco Santanastasio, Paolo Gauzzi
+   \\
+\end{center}
+\noindent\rule{18cm}{0.4pt}  \\
+\normalsize
+%\vspace{0.1cm}
+%\begin{center}
+%{\underline {Corso di Laurea:}}
+%\end{center}
+%
+\begin{tabular}{ll}
+{\underline{Nome:}}  \hspace{6cm} & {\underline{Cognome:}} \\[0.35cm]
+{\underline {Matricola}} & {\underline {Aula:}}  \\[0.35cm]
+{\underline {Canale:}} & {\underline {Docente:}}
+\end{tabular}
+\vspace{0.5cm}
+}
+\small
+
+La durata del compito \`e 3 ore. I cellulari devono essere spenti. Non \`e possibile consultare libri
+di testo o appunti personali. \`E possibile utilizzare una
+calcolatrice ed il formulario fornito insieme al compito. \\
+Riportare a penna (non matita) sul presente foglio i risultati
+numerici finali (con unit\`a di misura
+ed incertezze di misura). Nell'elaborato riportare sia lo svolgimento
+dettagliato degli esercizi (indicando tutte le formule utilizzate ed i passaggi) che i risultati numerici. 
+
+\vspace{0.3cm}
+%\end{boxit}
+\noindent\rule{18cm}{0.4pt}  \\
+
+\enlargethispage{0.2cm}
+\normalsize
+
+% IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+%ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$
+
+\vskip0.30cm {\bf \underline {Esercizio 1}} \\
+Per misurare la costante elastica $k$ di una molla se ne misura la
+lunghezza $\ell$ appendendovi oggetti di massa nota $M$, ottenendo i risultati riportati in
+tabella. L'incertezza sulla misura delle lunghezze \`e 0.005 m, quella sulle
+masse \`e trascurabile.
+
+\begin{table}[h]
+\begin{tabular}{|c|c|}
+\hline
+$M$ (kg) & $\ell$ (m) \\
+\hline
+0.5 & 0.112 \\ 
+0.8 & 0.143 \\
+1.0 & 0.167 \\
+1.2 & 0.192 \\
+\hline
+\end{tabular}
+\end{table}
+
+Il comportamento della molla \`e descritto dalla legge di Hooke:
+\begin{displaymath}
+Mg=k(\ell-\ell_0)
+\end{displaymath} 
+dove $\ell_0$ \`e la lunghezza della molla a riposo. L'accelerazione
+di gravit\`a \`e pari a $g=9.81$~m/s$^2$ con incertezza trascurabile.
+\myblist{-}
+\item[a)] Verificare la relazione lineare tra $\ell$ ed $M$ utilizzando
+  il metodo dei minini quadrati ed un test del $\chi^2$ con un livello di
+  significativit\`a del 5\%. \\
+$~$ \myhfill{Chi-quadro ridotto $\tilde\chi^2_{mis}$} \\
+$~$ \myhfill{Probabilit\`a $P(\tilde\chi^2>\tilde\chi^2_{mis})$} \\
+IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+\item[b)] Determinare la migliore stima della costante elastica della molla
+  con la sua incertezza. \\
+$~$\myhfill{$k$}
+\item[c)] Determinare il valore aspettato della lunghezza della molla $\ell_m$,
+  e la sua incertezza, quando vi si appende una massa $m=(2.1\pm 0.2)$ kg \\
+$~$ \myhfill{$\ell_m$}
+\end{list}
+
+{\it Suggerimento: per il punto c) utilizzare la formula di propagazione delle
+  incertezze assumendo che i parametri della relazione lineare, 
+ottenuti con il metodo dei minimi quadrati, siano variabili casuali indipendenti.}\\
+
+\newpage
+
+%\vskip 1.0cm 
+{\bf \underline {Esercizio 2}} \\
+Per studiare l'eventualit\`a che un campione di roccia sia radioattivo, si
+pone nelle sue vicinanze un contatore a scintillazione e si osservano 231
+conteggi in 10 minuti di misura. \\
+Per misurare la radioattivit\`a di fondo ambientale si toglie il campione
+di roccia e si lascia il contatore in misura per 30 minuti, durante i quali
+si ottengono 456 conteggi.\\
+
+\myblist{-}
+\item[a)] Determinare il tasso di conteggi al minuto con ($R_1$) e senza
+  ($R_2$) il campione di roccia, con le corrispondenti incertezze. \\
+$~$ \myhfill{$R_1$}\\
+$~$ \myhfill{$R_2$} \\
+\item[b)]   Qual \`e la migliore stima del tasso di attivit\`a del campione
+  di roccia ? \myhfill{$R_{roccia}$} \\
+                                                            
+  
+\item[c)] C'\`e evidenza (``oltre 3 deviazioni standard'') che la
+  roccia sia radioattiva ?
+
+SI $\Box$ ~~~~~~~ NO $\Box$
+
+\end{list}
+~\\\\
+
+{\bf \underline {Esercizio 3}} \\
+Un'azienda produce barattoli di passata di pomodoro. Una macchina si
+occupa di riempire i barattoli di passata. La quantit\`a di
+passata messa in ciascun barattolo  pu\`o essere
+regolata ed \`e una variabile casuale $X$ che
+segue una distribuzione gaussiana con media $\mu_X$ (modificabile
+attraverso le impostazioni della macchina) e deviazione standard 
+fissa $\sigma_X=25$~g. \\
+ 
+\myblist{-}
+\item[a)] Determinare il valore $\mu_{X}$ a cui deve essere impostata la macchina 
+affinch\'e solo il 2\% dei barattoli riempiti contenga meno di 500 g di passata di
+pomodoro.\\
+$~$ \myhfill{$\mu_{X}$}
+\end{list}
+
+La macchina viene quindi impostata al valore $\mu_{X}$  trovato nel
+punto a) per la produzione. I barattoli vuoti sono di metallo e la loro massa \`e una
+variabile casuale $Y$ che segue una distribuzione gaussiana con media 90 g
+e deviazione standard 8 g. Un ispettore pesa i barattoli pieni di
+passata di pomodoro e scarta quelli la cui massa totale (barattolo$+$passata) \`e inferiore a 590 g. \\
+
+\myblist{-}
+\item[b)] Calcolare la percentuale dei barattoli che viene scartata
+  dall'ispettore.\\
+$~$ \myhfill{$p$}
+\item[c)] L'ispettore esegue il controllo di 5 barattoli. Calcolare la
+  probabilit\`a che almeno 4 barattoli superino il controllo.\\\\
+$~$ \myhfill{$p$}
+\end{list}
+
+~\\
+{\it Suggerimento: la massa totale di barattolo+passata \`e una
+  variabile casuale Z=X+Y gaussiana.}
+
+
+\newpage
+
+{\bf -1 punto} ogni 3 errori di questo tipo:\\
+- unit\`a di misura non riportate o riportate incorrettamente \\
+- errori di calcolo (procedimento e formule ok ma risultato numerico 
+significativamente sbagliato)
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 1. } } {\bf (10 punti)}\\
+
+a) {\bf (4 punti)}\\
+   $\ell=\ell_0+\frac{g}{k}M$ {\bf (1)} \\ 
+   $A=\ell_0$, $B=\frac{g}{k}$ \\ 
+   $A=0.05357\pm 0.0088$ m {\bf (0.5)} \\
+   $B=0.1142\pm 0.0097$ ${\rm m^2/Ns^2}$ {\bf (0.5)}\\ 
+   $\chi^2_{mis}=\frac{\sum_i(\ell_i-A-BM_i)^2}{\sigma^2_{\ell}}=0.32$,
+   con   4 - 2 = 2 gradi di libert\`a {\bf (1)}\\
+   $\tilde\chi^2_{mis}=0.16$ \\
+   $P(\tilde\chi^2>\tilde\chi^2_{mis})>82\%>\alpha=5\%$.
+   Ipotesi accettata. {\bf (1)}
+
+b) {\bf (4 punti)} \\ 
+  $\sigma_A = 0.0088$m , $\sigma_B=0.0097$ ${\rm m^2/Ns^2}$ {\bf (1)}\\ 
+  $k=\frac{g}{B}$, $\frac{\sigma_k}{k}=\frac{\sigma_B}{B}=8.5\%$. {\bf (2)}\\
+   Migliore stima: $k=(85.9\pm 7.3)$ N/m {\bf (1)}   
+
+c) {\bf (2 punti)} \\ 
+$\ell = A + B m$\\
+$\sigma_{\ell}=\sqrt{ (\frac{\partial \ell}{\partial m} \sigma_m)^2
++ (\frac{\partial \ell}{\partial B} \sigma_B)^2 + (\frac{\partial
+  \ell}{\partial A}
+\sigma_A)^2}=\sqrt{B^2\sigma_m^2+m^2\sigma^2_B+\sigma_A^2}=0.032$~m
+{\bf (1)} \\
+ $\ell=(0.293\pm 0.032)$ m {\bf (1)}
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 2. } } {\bf (10 punti)}\\
+
+a) {\bf (4 punti)} \\
+$R_1=\frac{231\pm\sqrt{231}}{10}=(23.1\pm 1.5)$ conteggi/min {\bf (2)}\\
+$R_2=\frac{456\pm\sqrt{456}}{30}=(15.2\pm 0.7)$ conteggi/min {\bf (2)}\\
+b) {\bf (4 punti)} \\
+$\sigma_{R_{roccia}}=\sqrt{\sigma^2_{R_{1}}+\sigma^2_{R_{2}}}=1.7$~conteggi/min
+{\bf (2)} \\
+$R_{roccia}=R_1-R_2=(7.9\pm 1.7)$ conteggi/min {\bf (2)}\\
+c) {\bf (2 punti)} \\
+$t=\frac{|R_{roccia}-0|}{\sigma_{R_{roccia}}}=4.65>3$. Quindi la
+roccia \`e radioattiva. {\bf (2)}
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 3. } } {\bf (10 punti)} \\
+
+a) {\bf (4 punti)} \\
+$x_{min}=500$~g\\ 
+$P(x<x_{min})=50\% - Q(t_{min})=2\%$ ~~~~~ (dove
+$Q(t)=\int_{\mu_X}^{\mu_X+t\sigma_X} G_{\mu_X,\sigma_X} (x) dx$) {\bf (1)}\\
+$Q(t_{min})=48\%$ da cui $t_{min}=2.05$ (dalle tabelle di
+probabilit\`a gaussiana) {\bf (1)}\\
+Essendo $t_{min}=\frac{|x_{min}-\mu_X|}{\sigma_X}$ si ottiene:\\
+$\mu_X=x_{min}+t_{min}\cdot\sigma_X=551.25$~g {\bf (2)}
+
+b) {\bf (4 punti)} \\
+$Z=X+Y$ gaussiana\\
+$\mu_Z=\mu_X+\mu_Y=641.25$~g {\bf (1)} \\
+$\sigma_Z=\sqrt{\sigma^2_X+\sigma^2_Y}=26.25$~g {\bf (1)}\\
+$z_{min}=590$~g\\
+$t_{min}=\frac{|z_{min}-\mu_z|}{\sigma_z}=1.95$ {\bf (1)} \\
+Probabilit\`a di scartare il barattolo
+$=P(z<z_{min})=50\%-Q(t_{min})=2.6\%$ {\bf (1)}
+
+c) {\bf (2 punti)} \\
+Problema binomiale\\
+Successo $=$ il barattolo supera il controllo \\
+Probabilit\`a di successo $=p=100\%-2.6\%=97.4\%$ {\bf (1)} \\
+Numero di prove $N=5$ (numero di barattoli)\\
+$n = $ numero di successi in $N$ prove segue una distribuzione
+binomiale $B_{N,p}(n)$.\\
+$B_{N,p}(4)=0.1170$\\
+$B_{N,p}(5)=0.8766$\\
+$P(n\ge 4)=B_{N,p}(4)+B_{N,p}(5)=99.4\%$ {\bf (1)}
+
+\end{document}
