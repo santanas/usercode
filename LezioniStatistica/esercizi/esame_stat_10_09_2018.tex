@@ -1,0 +1,249 @@
+\documentclass[10pt,a4paper,fleqn]{article}
+%\usepackage{a4p,ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage{ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb,eurosym}
+\usepackage[left=1cm, right=1cm, top=4cm]{geometry}
+
+%
+\begin{document}
+\pagestyle{empty}
+
+%
+%
+\newsavebox{\savepar}
+\newenvironment{boxit}{\begin{lrbox}{\savepar}
+\begin{minipage}[b]{16.0cm}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\savepar}}}
+\newcommand{\myblist}[1]{\begin{list}{#1}{\setlength{\topsep}{1.8mm}
+\setlength{\parskip}{0mm} \setlength{\partopsep}{0mm} \setlength{\parsep}{0mm}
+\setlength{\itemsep}{0mm}}}
+\newcommand{\myhfill}[1]{\hfill {\it #1} = \underline{$~~~~~~~~~~~~~~~~~~~~~~~~~~~$}}
+\newcommand{\myhfiyn}[0]{\hfill $\Box$~{\sc si}~~~~~~~~$\Box$~{\sc no}}
+\newcommand{\myhfild}[2]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~$};~ {\it #2}= \underline{$~~~~~~~~~~$}}
+\newcommand{\myhfilt}[3]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~~~~$};~ 
+{\it #2}= \underline{$~~~~~~~~~~~~~$};~{\it #3}= \underline{$~~~~~~~~~~~~~$}}
+%
+
+\setlength{\unitlength}{1mm} 
+\setlength{\headheight}{0mm} % footheight
+
+\newcommand{\s}{\text{s}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kg}{\text{kg}}
+
+
+\vspace*{-3.5cm}
+\Large
+%\begin{boxit}
+{
+\begin{center}
+\vspace{0.1cm}
+{\bf  Fisica 1 per Chimica (Canali A-E ed P-Z)} \\
+{\bf Esame scritto di Laboratorio/Statistica 10/09/2018}   \\
+docenti: Francesco Santanastasio, Paolo Gauzzi
+   \\
+\end{center}
+\noindent\rule{18cm}{0.4pt}  \\
+\normalsize
+%\vspace{0.1cm}
+%\begin{center}
+%{\underline {Corso di Laurea:}}
+%\end{center}
+%
+\begin{tabular}{ll}
+{\underline{Nome:}}  \hspace{6cm} & {\underline{Cognome:}} \\[0.35cm]
+{\underline {Matricola}} & {\underline {Aula:}}  \\[0.35cm]
+{\underline {Canale:}} & {\underline {Docente:}}
+\end{tabular}
+\vspace{0.5cm}
+}
+\small
+
+La durata del compito \`e 3 ore. I cellulari devono essere spenti. Non \`e possibile consultare libri
+di testo o appunti personali. \`E possibile utilizzare una
+calcolatrice ed il formulario fornito insieme al compito. \\
+Riportare a penna (non matita) sul presente foglio i risultati
+numerici finali (con unit\`a di misura
+ed incertezze di misura). Nell'elaborato riportare sia lo svolgimento
+dettagliato degli esercizi (indicando tutte le formule utilizzate ed i passaggi) che i risultati numerici. 
+
+\vspace{0.3cm}
+%\end{boxit}
+\noindent\rule{18cm}{0.4pt}  \\
+
+\enlargethispage{0.2cm}
+\normalsize
+
+% IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+%ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$
+
+\vskip0.30cm {\bf \underline {Esercizio 1}} \\
+Uno studio sui consumi medi di carburante di automobili a benzina di diversa cilindrata
+fornisce i risultati riportati in tabella.
+Si assuma che l'incertezza sulle misure della distanza percorsa con un
+litro di carburante sia $\sigma = 0.2$ km/$\ell$, mentre si consideri
+trascurabile l'incertezza sulla cilindrata.
+\begin{table}[h]
+\begin{tabular}{|c|c|}
+\hline
+ Distanza al litro - D (km/$\ell$) & Cilindrata - C (cm$^3$) \\
+\hline
+13.1 & 1600 \\ 
+6.7 & 2800 \\
+8.2 & 2500 \\
+9.6 & 2000 \\
+12.4 & 1400 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\myblist{-}
+\item[a)]Assumendo che la relazione tra la distanza percorsa con un
+  litro di carburante e la
+cilindrata sia lineare, $D=A+B\times C$ determinare il parametri $A$ e $B$ con le
+loro incertezze. \\
+$~$\myhfill{$A$} \\
+$~$\myhfill{$B$} \\
+\item[b)] Determinare la distanza attesa percorsa per litro di
+  carburante, con la corrispondente incertezza, per un'autovettura di cilindrata 1900 cm$^3$.  \\
+$~$\myhfill{$D$}
+\item[c)] Una casa automobilistica afferma di aver ridotto
+  i consumi, producendo una vettura di cilindrata 1900
+  cm$^3$ che percorre 11.9 km/$\ell$.
+Si pu\`o affermare che sia un miglioramento significativo (assumendo un livello
+di significativit\`a dello 0.1\%)?\\
+$~$ S\`I $\Box$ ~~~~~~~ NO $\Box$
+\end{list}
+~\\\\
+
+%\vskip 1.0cm 
+{\bf \underline {Esercizio 2}} \\
+In un test a risposta multipla, ci sono 12 domande con 3 possibili
+risposte, di cui solo una corretta, per ogni domanda. 
+\myblist{-}
+\item[a)] Calcolare la probabilit\`a di rispondere correttamente a tutte le
+  domande scegliendo ogni volta la risposta a caso.\\
+$~$ \myhfill{$p$}\\
+\item[b)] Per superare il test bisogna rispondere correttamente ad almeno 7
+  domande.
+Calcolare la probablilt\`a di superare il test rispondendo a caso.\\
+$~$ \myhfill{$p$} \\                                                          
+\item[c)] In un test composto da 120 domande, calcolare la probabilit\`a
+  di dare almeno 70 risposte giuste, sempre rispondendo a caso.\\
+$~$\myhfill{$p$} \\                                                          
+
+\end{list}
+~\\\\
+
+%\vskip 1.0cm 
+{\bf \underline {Esercizio 3}} \\
+Un studente vuole studiare il fenomeno di assorbimento nella
+materia della radiazione proveniente da una sorgente radioattiva. 
+A questo scopo, pone un contatore Geiger ad una certa distanza dalla
+sorgente e misura $N_{1}=491$ conteggi in 1 minuto di misura. Ripete quindi la misura
+ponendo tra il contatore e la sorgente uno schermo di piombo ottenendo
+$N_{2}=111$ conteggi in 1 minuto. Infine, per misurare la
+radioattivit\`a di fondo ambientale, egli toglie la sorgente ed ottiene  
+$N_{3}=244$ conteggi in 5 minuti di misura.\\
+
+\myblist{-}
+\item[a)] Determinare il tasso di conteggi al minuto nei tre casi
+  considerati con le corrispondenti incertezze. \\
+$~$ \myhfill{$R_1$}\\
+$~$ \myhfill{$R_2$} \\
+$~$ \myhfill{$R_3$} \\
+\item[b)]  Determinare il tasso di conteggi al minuto relativo alla
+  sola sorgente radioattiva in assenza ($R_{sorg}$) ed in presenza
+  ($R_{sorg+Pb}$) dello schemo di piombo e le relative incertezze. 
+Determinare inoltre il rapporto $A=\frac{R_{sorg+Pb}}{R_{sorg}}$ e la
+relativa incertezza. \\
+$~$ \myhfill{$R_{sorg}$}\\
+$~$ \myhfill{$R_{sorg+Pb}$} \\
+$~$ \myhfill{$A$} \\
+  
+\item[c)] Sapendo che \`e la valida la relazione
+  $A=e^{-\frac{x}{\lambda}}$, dove $x=(5.0\pm0.1)$~cm \`e lo spessore
+  dello schermo di piombo, determinare il parametro $\lambda$ e la
+  relativa incertezza.\\
+$~$ \myhfill{$\lambda$} \\
+\end{list}
+
+\newpage
+
+{\bf -1 punto} ogni 3 errori di questo tipo:\\
+- unit\`a di misura non riportate o riportate incorrettamente \\
+- errori di calcolo (procedimento e formule ok ma risultato numerico 
+significativamente sbagliato)
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 1. } } {\bf (10 punti)}\\
+
+
+a) {\bf (5 punti)}\\
+$\Delta=N\sum_iC^2_i-(\sum_iC_i)^2=6960000$ cm$^6$ {\bf (1)}\\
+$A=\frac{\sum_iC^2_i\sum_iD_i-\sum_iC_i\sum_iC_iD_i}{\Delta}=(19.20\pm
+0.36)$ km/$\ell$ {\bf (2)}\\
+$B=\frac{N\sum_iC_iD_i-\sum_iC_i\sum_iD_i}{\Delta}=(-0.00446\pm 0.00017)$
+km /($\ell$cm$^3$) {\bf (2)}\\
+
+b) {\bf (2 punti)} \\
+$A+B\times 1900=(10.71\pm 0.48)$ km/$\ell$\\
+
+c) {\bf (3 punti)} \\
+$t=\frac{11.9-10.71}{0.48}=2.5~\sigma$ {\bf (2)}\\
+Non \`e significativo. {\bf (1)}\\
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 2. } } {\bf (10 punti)}\\
+
+a) {\bf (2 punti)}\\
+$P(12)=B_{12,\frac{1}{3}}(12)=(\frac{1}{3})^{12}=1.88\times 10^{-6}$ {\bf (2)}\\
+
+b) {\bf (5 punti)} \\ 
+$B_{12,\frac{1}{3}}(7)=\binom{12}{7}(\frac{1}{3})^7(\frac{2}{3})^5=4.77\%$\\
+$B_{12,\frac{1}{3}}(8)=\binom{12}{8}(\frac{1}{3})^8(\frac{2}{3})^4=1.49\%$\\
+$B_{12,\frac{1}{3}}(9)=\binom{12}{9}(\frac{1}{3})^9(\frac{2}{3})^3=0.33\%$\\ 
+$B_{12,\frac{1}{3}}(10)=\binom{12}{10}(\frac{1}{3})^{10}(\frac{2}{3})^2=4.97\times
+10^{-4}$ \\
+$B_{12,\frac{1}{3}}(11)=\binom{12}{11}(\frac{1}{3})^{11}\frac{2}{3}=4.52\times
+10^{-5}$ {\bf (3)}\\
+$P(\nu\geq 7)=B_{12,\frac{1}{3}}(7)+B_{12,\frac{1}{3}}(8)
++B_{12,\frac{1}{3}}(9) +B_{12,\frac{1}{3}}(10) +B_{12,\frac{1}{3}}(11)
++B_{12,\frac{1}{3}}(12)=6.64\%$ {\bf (2)}\\
+
+c) {\bf (3 punti)} \\ 
+Con $n$ grande la binomiale si approssima con una gaussiana:\\
+$\mu=np=120\times\frac{1}{3}=40$ {\bf (1)}\\
+$\sigma=\sqrt{np(1-p)}=5.16$ {\bf (1)}\\
+$t=\frac{70-40}{5.16}=5.8$ \\
+$P(t>5.8\sigma)<3\times 10^{-7}$ {\bf (1)}\\
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 3. } } {\bf (10 punti)}\\
+
+a) {\bf (3 punti)} \\
+$R_1=\frac{491\pm\sqrt{491}}{1}=(491 \pm 22)$ conteggi/min {\bf (1)}\\
+$R_2=\frac{111\pm\sqrt{111}}{1}=(111 \pm 11)$ conteggi/min {\bf (1)}\\
+$R_3=\frac{244\pm\sqrt{244}}{5}=(48.8 \pm 3.1)$ conteggi/min {\bf(1)}\\
+
+b) {\bf (5 punti)} \\
+$\sigma_{R_{sorg}}=\sqrt{\sigma^2_{R_{1}}+\sigma^2_{R_{3}}}=22$~conteggi/min \\
+$R_{sorg}=R_1-R_3=(442\pm 22)$ conteggi/min {\bf (1.5)}\\
+$\sigma_{R_{sorg+Pb}}=\sqrt{\sigma^2_{R_{2}}+\sigma^2_{R_{3}}}=11$~conteggi/min \\
+$R_{sorg+Pb}=R_2-R_3=(62\pm 11)$ conteggi/min {\bf (1.5)}\\
+$\frac{\sigma_A}{A}=\sqrt{ {(\frac{\sigma_{R_{sorg+Pb}}} {R_{sorg+Pb}})}^2
+  +{(\frac{\sigma_{R_{sorg}}} {R_{sorg}})}^2  }=18.4\%$ {\bf (1)}\\
+$\sigma_A=A \cdot \frac{\sigma_A}{A} = 0.02585$\\
+$A=(0.141 \pm 0.026)=(14.1 \pm 2.6) \% $ {\bf (1)}\\
+
+c) {\bf (2 punti)} \\
+$\lambda = -\frac{x}{ln(A)}$\\
+$\frac{\partial \lambda}{\partial x}=-\frac{1}{ln(A)}=0.5098$\\
+$\frac{\partial \lambda}{\partial A}=-\frac{x}{(ln(A))^2 \cdot
+  A}=-9.2398$~cm \\
+$\sigma_{\lambda}=\sqrt{ (\frac{\partial \lambda}{\partial
+    x})^2\sigma_x^2 + (\frac{\partial \lambda}{\partial A})^2
+  \sigma_A^2  }=0.24$~cm {\bf (1)}\\
+$\lambda=-\frac{x}{ln(A)}=(2.55 \pm 0.24)$~cm {\bf (1)}
+
+
+\end{document}
