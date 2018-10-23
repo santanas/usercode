@@ -1,0 +1,241 @@
+\documentclass[10pt,a4paper,fleqn]{article}
+%\usepackage{a4p,ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage{ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb,eurosym}
+\usepackage[left=1cm, right=1cm, top=4cm]{geometry}
+
+%
+\begin{document}
+\pagestyle{empty}
+
+%
+%
+\newsavebox{\savepar}
+\newenvironment{boxit}{\begin{lrbox}{\savepar}
+\begin{minipage}[b]{16.0cm}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\savepar}}}
+\newcommand{\myblist}[1]{\begin{list}{#1}{\setlength{\topsep}{1.8mm}
+\setlength{\parskip}{0mm} \setlength{\partopsep}{0mm} \setlength{\parsep}{0mm}
+\setlength{\itemsep}{0mm}}}
+\newcommand{\myhfill}[1]{\hfill {\it #1} = \underline{$~~~~~~~~~~~~~~~~~~~~~~~~~~~$}}
+\newcommand{\myhfiyn}[0]{\hfill $\Box$~{\sc si}~~~~~~~~$\Box$~{\sc no}}
+\newcommand{\myhfild}[2]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~$};~ {\it #2}= \underline{$~~~~~~~~~~$}}
+\newcommand{\myhfilt}[3]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~~~~$};~ 
+{\it #2}= \underline{$~~~~~~~~~~~~~$};~{\it #3}= \underline{$~~~~~~~~~~~~~$}}
+%
+
+\setlength{\unitlength}{1mm} 
+\setlength{\headheight}{0mm} % footheight
+
+\newcommand{\s}{\text{s}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kg}{\text{kg}}
+
+
+\vspace*{-3.5cm}
+\Large
+%\begin{boxit}
+{
+\begin{center}
+\vspace{0.1cm}
+{\bf  Fisica 1 per Chimica (Canali A-E ed P-Z)} \\
+{\bf Esame scritto di Laboratorio/Statistica 17/07/2018}   \\
+docenti: Francesco Santanastasio, Paolo Gauzzi
+   \\
+\end{center}
+\noindent\rule{18cm}{0.4pt}  \\
+\normalsize
+%\vspace{0.1cm}
+%\begin{center}
+%{\underline {Corso di Laurea:}}
+%\end{center}
+%
+\begin{tabular}{ll}
+{\underline{Nome:}}  \hspace{6cm} & {\underline{Cognome:}} \\[0.35cm]
+{\underline {Matricola}} & {\underline {Aula:}}  \\[0.35cm]
+{\underline {Canale:}} & {\underline {Docente:}}
+\end{tabular}
+\vspace{0.5cm}
+}
+\small
+
+La durata del compito \`e 3 ore. I cellulari devono essere spenti. Non \`e possibile consultare libri
+di testo o appunti personali. \`E possibile utilizzare una
+calcolatrice ed il formulario fornito insieme al compito. \\
+Riportare a penna (non matita) sul presente foglio i risultati
+numerici finali (con unit\`a di misura
+ed incertezze di misura). Nell'elaborato riportare sia lo svolgimento
+dettagliato degli esercizi (indicando tutte le formule utilizzate ed i passaggi) che i risultati numerici. 
+
+\vspace{0.3cm}
+%\end{boxit}
+\noindent\rule{18cm}{0.4pt}  \\
+
+\enlargethispage{0.2cm}
+\normalsize
+
+% IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+%ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$
+
+\vskip0.30cm {\bf \underline {Esercizio 1}} \\
+Uno studente vuole misurare il coefficiente di attrito dinamico $\mu_d$ tra un
+corpo ed un piano con il seguente esperimento. Il corpo viene lanciato
+su un piano orizzontale con una velocit\`a iniziale $v_0$,
+misurata con incertezza trascurabile tramite uno strumento
+digitale. Si misura la distanza $S$ percorsa dal corpo prima di
+fermarsi a seguito dell'attrito con il piano. L'incertezza su $S$ e'
+pari a $\sigma_S=0.005$m, uguale per tutte le misure. Si ripetono le
+misure per diversi valori di $v_0$ e si raccolgono i dati in tabella.
+\begin{table}[h]
+\begin{tabular}{|c|c|}
+\hline
+$v_0$ (m/s) & $S$ (m) \\
+\hline
+1 & 0.094 \\ 
+2 & 0.412 \\
+3 & 0.914 \\
+4 & 1.623 \\
+\hline
+\end{tabular}
+\end{table}
+
+Dai principi della dinamica, \`e nota la relazione lineare che lega la
+distanza $S$ al quadrato della velocit\`a $v_0^2$:
+\begin{displaymath}
+S=\frac{1}{2  \mu_d  g}  v_0^2
+\end{displaymath} 
+dove l'accelerazione di gravit\`a \`e pari a $g=9.81$~m/s$^2$ con
+incertezza trascurabile.
+\myblist{-}
+\item[a)] Assumendo la relazione lineare tra $S$ e $v_0^2$, determinare la migliore stima del coefficiente di attrito
+  dinamico con la sua incertezza utilizzando il metodo dei minimi quadrati. \\
+$~$\myhfill{$\mu_d$}
+\item[b)] Determinare la velocit\`a iniziale di lancio, con la sua
+  incertezza, tale che il corpo si fermi dopo una distanza $L=1$~m~.  \\
+$~$\myhfill{$v$}
+\item[c)] Un secondo studente ripete l'esperimento ottenendo
+  $\mu_d=(0.5205\pm 0.0015)$. Determinare se le due misure sono in
+  accordo (entro 3 deviazioni standard). \\
+$~$ ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$
+\end{list}
+
+{\it
+NOTA:\\
+Metodo dei minimi quadrati non pesati per una relazione lineare del tipo $y=Bx$\\
+$B=\frac{\sum xy}{\sum x^2}$\\
+$\sigma_B=\frac{\sigma_y}{\sqrt{\sum x^2}}$\\
+}
+
+\newpage
+
+%\vskip 1.0cm 
+{\bf \underline {Esercizio 2}} \\
+Il numero di chiamate che arrivano ogni minuto al centralino
+telefonico dell'ufficio reclami del mio comune \`e una variabile
+casuale che segue una distribuzione poissoniana con valore atteso 
+pari ad 1. 
+\myblist{-}
+\item[a)] Calcolare la probabilit\`a che in un determinato minuto 
+non arrivi nessuna chiamata.\\
+$~$ \myhfill{$p$}\\
+\item[b)] Supponendo che il centralino possa gestire al massimo 2
+  chiamate al minuto, calcolare la probabilit\`a di trovarlo occupato
+  se provo a chiamare in un determinato momento della giornata.\\
+$~$ \myhfill{$p$} \\                                                          
+\item[c)] Se effettuo 3 chiamate in diverse ore della giornata, 
+calcolare la probabilit\`a di trovare sempre libero.\\
+$~$\myhfill{$p$} \\                                                          
+\end{list}
+~\\\\
+
+{\bf \underline {Esercizio 3}} \\
+
+Una ditta produttrice di stampanti sa che la durata di una macchina (in
+migliaia di pagine) segue una distribuzione normale con $\mu=1600$ e
+$\sigma=80$.
+La ditta restituisce 1000 \euro ~ all'acquirente se la durata della macchina
+\`e inferiore a 1400 migliaia di pagine.
+Calcolare la probabilit\`a che: 
+\myblist{-}
+\item[a)] la ditta debba risarcire 1000 \euro $~$ \myhfill{$p$}\\
+\item[b)] su 5 macchine vendute debba risarcire al massimo 1000 \euro
+  \myhfill{$p$}\\
+\item[c)] su 10000 macchine vendute debba risarcire pi\`u di 90000 \euro
+  \myhfill{$p$}\\ 
+\end{list}
+
+\newpage
+
+{\bf -1 punto} ogni 3 errori di questo tipo:\\
+- unit\`a di misura non riportate o riportate incorrettamente \\
+- errori di calcolo (procedimento e formule ok ma risultato numerico 
+significativamente sbagliato)
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 1. } } {\bf (10 punti)}\\
+
+a) {\bf (4 punti)}\\
+$S=Y$, $v_0^2=X$, $Y=BX$, $B=\frac{1}{2 \mu_d g}$ {\bf (1)}\\
+$\sum XY = 35.936 \, m^3/s^2 \\
+\sum X^2 = 354 \, m^4/s^4$\\
+$B=\frac{\sum XY}{\sum X^2}$\\
+$\sigma_B=\frac{\sigma_Y}{\sqrt{\sum X^2}}$\\
+$B=0.1015 \pm 0.0003 \frac{s^2}{m}$ {\bf (1)}\\
+$\mu_d=\frac{1}{2Bg}$\\
+$\sigma_{\mu_d}/\mu_d=\sigma_{B}/B=0.003=0.3\%$ {\bf (1)}\\
+$\mu_d=(0.5021 \pm 0.0015)$ (adimensionale) {\bf (1)}\\
+
+b) {\bf (3 punti)} \\ 
+$v=\sqrt{2 \mu_d g L}$ {\bf (1)}\\
+$\frac{\sigma_v}{v}=\frac{1}{2}\frac{\sigma_{\mu_d}}{\mu_d}=0.0015=0.15\%${\bf (1)}\\
+$v=(3.139 \pm 0.005) \, m/s${\bf (1)}\\
+
+c) {\bf (3 punti)} \\ 
+$\mu_1=(0.5021 \pm 0.0015)$\\
+$\mu_2=(0.5205 \pm 0.0015)$\\
+$\Delta=|\mu_1-\mu_2|=0.0184${\bf (1)}\\
+$\sigma_{\Delta}=\sqrt{2}\sigma_{\mu}=0.0021${\bf (1)}\\
+$t=\frac{\Delta}{\sigma_{\Delta}}=8.8 >> 3 \rightarrow $ le due misure
+non sono in accordo. {\bf (1)}\\
+
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 2. } } {\bf (10 punti)}\\
+
+
+a) {\bf (3 punti)}\\
+$n=$ numero di chiamate in un minuto, segue una distribuzione di
+Poisson con
+$\lambda=1$. $P_{\lambda}(n)=\frac{\lambda^ne^{-\lambda}}{n!}$ {\bf (1)}\\
+$P_{\lambda}(n=0)=\frac{1^0e^{-1}}{0!}=36.8\%$ {\bf (2)}\\
+b) {\bf (4 punti)} \\
+Trovo libero se sono in corso zero ($n=0$) chiamate o una ($n=1$)
+chiamata in quel dato minuto:\\
+$p(libero)=P_{\lambda}(n=0)+P_{\lambda}(n=1)$ {\bf (1)} \\
+$P_{\lambda}(n=1)=\frac{1^1e^{-1}}{1!}=36.8\%$ {\bf (1)}\\
+$p(occupato)=1-p(libero)=100\%-36.8\%-36.8\%=26.4\%$ {\bf (2)}\\
+%$P_{\lambda}(n=2)=\frac{1^2e^{-1}}{2!}=18.4\%$ {\bf (1)} \\
+%$p(occupato)=100\%-36.8\%-36.8\%-18.4\%=8\%$ {\bf (1)} \\
+%$p(occupato)=100\%-36.8\%-36.8\%=26.4\%$ {\bf (1)} \\
+c) {\bf (3 punti)} \\
+Successo: centralino libero $\rightarrow$ probabilit\`a $p(libero)=1-p(occupato)=73.6\%$ {\bf (1)}\\
+$n$ numero di successi in $N=3$ prove indipendenti. {\bf (1)}\\
+$p(sempre \, libero)=B_{N,p}(n=3)=\frac{3!}{3!(3-3)!}(0.736)^3(1-0.736)^{3-3}=0.736^3=39.9\%${\bf (1)}
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 3. } } {\bf (10 punti)}
+\\
+a) {\bf (3 punti)} \\
+$1600-1400=200$; $\frac{200}{80}=2.5$ dev. standard {\bf (1)} \\
+$P(t<2.5\sigma)=50\%-49.38\%=0.62\%$ {\bf (2)}\\
+
+b) {\bf (4 punti)} \\
+Binomiale con $N=5$ e $p=0.0062$ {\bf (1)} \\
+$B_{5; 0.0062}(0)=(1-0.0062)^5=96.9\%$ {\bf (1)}\\
+$B_{5; 0.0062}(1)=5\times 0.0062\times (1-0.0062)^4=3.0\%$ {\bf (1)}\\
+$P=B_{5; 0.0062}(0)+B_{5; 0.0062}(1)=99.9\%$ {\bf (1)}\\
+c) {\bf (3 punti)} \\
+La binomiale con $N=10000$ si approssima con una gaussiana con: $\mu=Np=62$
+e $\sigma=\sqrt{Np(1-p)}=7.85$ {\bf (1)}\\
+90000 \euro ~ vuol dire almeno 90 macchine difettose, $\frac{90-62}{7.85}=3.5$ {\bf (1)}\\
+$P(t>3.5\sigma)=50\%-49.98\%=2\times 10^{-4}$ {\bf (1)}\\
+
+\end{document}
