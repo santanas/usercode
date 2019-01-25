@@ -1,0 +1,233 @@
+\documentclass[10pt,a4paper,fleqn]{article}
+%\usepackage{a4p,ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb}
+\usepackage{ifthen,multicol,pifont,epsfig,latexsym,amsmath,amssymb,eurosym}
+\usepackage[left=1cm, right=1cm, top=4cm]{geometry}
+
+%
+\begin{document}
+\pagestyle{empty}
+
+%
+%
+\newsavebox{\savepar}
+\newenvironment{boxit}{\begin{lrbox}{\savepar}
+\begin{minipage}[b]{16.0cm}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\savepar}}}
+\newcommand{\myblist}[1]{\begin{list}{#1}{\setlength{\topsep}{1.8mm}
+\setlength{\parskip}{0mm} \setlength{\partopsep}{0mm} \setlength{\parsep}{0mm}
+\setlength{\itemsep}{0mm}}}
+\newcommand{\myhfill}[1]{\hfill {\it #1} = \underline{$~~~~~~~~~~~~~~~~~~~~~~~~~~~$}}
+\newcommand{\myhfiyn}[0]{\hfill $\Box$~{\sc si}~~~~~~~~$\Box$~{\sc no}}
+\newcommand{\myhfild}[2]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~$};~ {\it #2}= \underline{$~~~~~~~~~~$}}
+\newcommand{\myhfilt}[3]
+{\hfill {\it #1}= \underline{$~~~~~~~~~~~~~$};~ 
+{\it #2}= \underline{$~~~~~~~~~~~~~$};~{\it #3}= \underline{$~~~~~~~~~~~~~$}}
+%
+
+\setlength{\unitlength}{1mm} 
+\setlength{\headheight}{0mm} % footheight
+
+\newcommand{\s}{\text{s}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kg}{\text{kg}}
+
+
+\vspace*{-3.5cm}
+\Large
+%\begin{boxit}
+{
+\begin{center}
+\vspace{0.1cm}
+{\bf  Fisica 1 per Chimica (Canali A-E ed P-Z)} \\
+{\bf Esame scritto di Laboratorio/Statistica 24/1/2019}   \\
+docenti: Francesco Santanastasio, Paolo Gauzzi
+   \\
+\end{center}
+\noindent\rule{18cm}{0.4pt}  \\
+\normalsize
+%\vspace{0.1cm}
+%\begin{center}
+%{\underline {Corso di Laurea:}}
+%\end{center}
+%
+\begin{tabular}{ll}
+{\underline{Nome:}}  \hspace{6cm} & {\underline{Cognome:}} \\[0.35cm]
+{\underline {Matricola}} & {\underline {Aula:}}  \\[0.35cm]
+{\underline {Canale:}} & {\underline {Docente:}}
+\end{tabular}
+\vspace{0.5cm}
+}
+\small
+
+La durata del compito \`e 3 ore. I cellulari devono essere spenti. Non \`e possibile consultare libri
+di testo o appunti personali. \`E possibile utilizzare una
+calcolatrice ed il formulario fornito insieme al compito. \\
+Riportare a penna (non matita) sul presente foglio i risultati
+numerici finali (con unit\`a di misura
+ed incertezze di misura). Nell'elaborato riportare sia lo svolgimento
+dettagliato degli esercizi (indicando tutte le formule utilizzate ed i passaggi) che i risultati numerici. 
+
+\vspace{0.3cm}
+%\end{boxit}
+\noindent\rule{18cm}{0.4pt}  \\
+
+\enlargethispage{0.2cm}
+\normalsize
+
+% IPOTESI ACCETTATA $\Box$ ~~~~~~~ IPOTESI RIGETTATA $\Box$
+%ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$
+
+\vskip0.30cm {\bf \underline {Esercizio 1}} \\
+
+In un account di posta elettronica arrivano in media 36 e-mail al giorno.
+
+
+\myblist{-}
+\item[a)] Qual \`e il numero (intero) pi\`u probabile di e-mail trovate in un'ora? \\
+$~$ \myhfill{$n $} \\
+
+\item[b)] Qual \`e la probabilit\`a di trovare 3 o pi\`u e-mail in un'ora ?    \\
+$~$ \myhfill{$P(n\geq 3)$} \\
+
+\item[c)] Controllando l'account dopo 16 ore, qual \`e la probabilit\`a di
+  trovare pi\`u di 38 nuove e-mail ? \\
+$~$ \myhfill{$P(n> 38)$} 
+\end{list}
+~\\\\
+
+%\vskip 1.0cm 
+{\bf \underline {Esercizio 2}} \\
+
+Una ditta fornisce resistenze di valore nominale dichiarato
+$R_{\mu}=470\, \Omega$. Il valore delle resistenze \`e distribuito secondo
+una gaussiana centrata in $R_{\mu}$ e con deviazione standard nota $\sigma=20\,\Omega$. Un
+sistema di controllo esclude dalla vendita tutte le resistenze
+prodotte superiori a 520 $\Omega$ ed inferiori a 420 $\Omega$. 
+
+\myblist{-}
+\item[a)] Determinare il numero $N$ di resistenze che vengono in
+  media scartate dalla procedura di controllo ogni 10000 resistenze prodotte.\\
+$~$ \myhfill{$N$}\\
+\end{list}
+
+Uno studente misura un campione di 25 resistenze e ne calcola la
+media ottenendo $\overline{R}=490\,\Omega$. Si assuma che la deviazione
+standard della gaussiana $\sigma$ fornita dalla ditta sia una stima corretta.
+
+\myblist{-}
+\item[b)] Determinare la miglior stima del valore nominale delle
+  resistenze e la sua incertezza.\\
+$~$ \myhfill{$R_{\mu,mis.}$} \\                                                          
+\item[c)] Determinare se il valore misurato $R_{\mu,mis.}$ \`e in buon accordo con il valore $R_{\mu}$ dichiarato dalla ditta.\\
+ACCORDO $\Box$ ~~~~~~~ DISACCORDO $\Box$\\
+\end{list}
+~\\\\
+
+\newpage
+
+%\vskip 1.0cm 
+{\bf \underline {Esercizio 3}} \\
+
+Un astronauta esegue un esperimento di fisica 
+sulla superficie della Luna. La tabella riporta le sue misure 
+di allungamento di una molla $\Delta L$ (misurato in cm) 
+in funzione della massa $m$ (misurata in kg) dei pesi applicati.
+L'incertezza sulla misura di $\Delta L$ \`e uguale per tutte le misure
+e pari a 0.05 cm, mentre l'incertezza sulle misure di massa \`e
+trascurabile. La costante elastica della molla \`e pari a $k=(11.6\pm0.1)$~N/m.
+E' noto che esiste una relazione lineare tra l'allungamento e la
+massa, $\Delta L=B \cdot m$, con $B=\frac{g_L}{k}$ dove $g_{L}$ \`e 
+l'accelerazione di gravit\`a sulla Luna.
+
+\begin{table}[h]
+\begin{tabular}{|c|c|}
+\hline
+ $\Delta L$ (cm) & $m$ (kg) \\
+\hline
+0.4 & 0.0264 \\ 
+1.2 & 0.0794 \\
+1.6 & 0.105 \\
+2.0 & 0.138 \\
+\hline
+\end{tabular}
+\end{table}
+
+\myblist{-}
+\item[a)] Assumendo la relazione lineare, calcolare la miglior stima
+  del parametro $B$ e la sua incertezza riportando il risultato finale
+  con le unit\`a di misura del sistema internazionale.\\
+$~$ \myhfill{$B$}\\
+\item[b)] Determinare la miglior stima dell'accelerazione di gravit\`a
+  sulla Luna e la sua incertezza.\\
+$~$ \myhfill{$g_{L}$} \\                                                          
+\item[c)] Determinare la miglior stima del raggio della Luna $r_L$ e
+  la sua incertezza, sapendo che $g_L=\frac{M_L \cdot G}{r^2_L}$ dove
+ la massa della Luna vale $M_L=7.348 \cdot 10^{22}$ kg e la costante di
+ gravitazione universale vale $G=6.67 \cdot 10^{-11} \frac{Nm^2}{kg^2}$ (entrambe note con incertezze trascurabili).\\
+\end{list}
+
+{\it
+NOTA:\\
+Metodo dei minimi quadrati non pesati per una relazione lineare del tipo $y=Bx$\\
+$B=\frac{\sum xy}{\sum x^2}$\\
+$\sigma_B=\frac{\sigma_y}{\sqrt{\sum x^2}}$\\
+}
+
+~\\\\
+
+
+%\vskip 1.0cm 
+
+\newpage
+
+{\bf -1 punto} ogni 3 errori di questo tipo:\\
+- unit\`a di misura non riportate o riportate incorrettamente \\
+- errori di calcolo (procedimento e formule ok ma risultato numerico 
+significativamente sbagliato)
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 1. } } {\bf (10 punti)}\\
+a) {\bf (4 punti)}\\
+  $\mu =\frac{36}{24} = 1.5 $ e-mail/h. {\bf(1)} \\
+  $P_{1.5}(\nu)=e^{-1.5}\frac{1.5^{\nu}}{\nu!}$. \\
+  $P_{1.5}(0)= e^{-1.5} = 22.3\%$.\\
+  $P_{1.5}(1)= 1.5 e^{-1.5} = 33.5\%$\\
+  $P_{1.5}(2)= \frac{1.5^2 e^{-1.5}}{2} = 25.1\%$ {\bf (2)}\\
+  Il valore pi\`u probabile in un'ora \`e $n = 1$ {\bf (1)}\\  
+b) {\bf (2 punti)} \\ 
+   $P_{1.5}(n\geq 3) = 1 - P_{1.5}(0) - P_{1.5}(1) - P_{1.5}(2) = 19.1\%$ {\bf (2)} \\
+c) {\bf (4 punti)} \\ 
+Il numero aspettato di e-mail in 16 ore \`e $1.5\times 16 = 24$. \\
+Si pu\`o usare l'approssimazione gaussiana con $\mu = 24$ e $\sigma =
+sqrt(\mu) = 4.9$ {\bf (1)}\\
+$\frac{38-24}{4.9} = 2.86$ deviazioni standard. {\bf (1)}\\
+$P(n\geq 38) = 50\% - P(t\geq 2.86) = 0.2\%${\bf (2)}\\
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 2. } } {\bf (10 punti)}\\
+a) {\bf (5 punti)}\\
+  $t=\frac{|520-470|}{20}=\frac{|420-470|}{20}=2.5$ {\bf(2)} \\
+  $p(R>520 \,\Omega \, o \, R<420 \,\Omega)=2\cdot (50\%-Q(2.5))=1.24\%$ {\bf(1.5)} \\
+  $N=10000*1.24\%=124$ {\bf(1.5)} \\
+b) {\bf (2.5 punti)}\\
+$R_{\mu,mis}=\overline{R}\pm \frac{\sigma}{\sqrt{25}}=(490\pm 4)\,\Omega$ {\bf(2.5)} \\
+c) {\bf (2.5 punti)}\\
+$t=\frac{|490-470|}{4}=5$ {\bf(1.5)} \\
+Il valore misurato \`e lontano 5 deviazioni standard dal valore
+atteso. Quindi i due valori non sono in accordo. {\bf(1)} \\
+
+\vskip0.30cm {\bf \underline {Soluzione Esercizio 3. } } {\bf (10 punti)}\\
+a) {\bf (4 punti)}\\
+  $Y=\Delta L$, $X=m$, $Y=BX$ {\bf(1)} \\
+  $B=\sum  m \Delta L / \sum m^2 = 14.83$ cm/kg {\bf(1)} \\
+  $\sigma_B=\sigma_{\Delta L} / \sqrt{\sum m^2 }= 0.26$ cm/kg {\bf(1)} \\
+  $B=(14.83 \pm 0.26) 10^{-2}$ m/kg {\bf(1)} \\
+b) {\bf (3 punti)}\\
+$g_{L}=B\cdot k$ \\
+$\sigma_{g_{L}}/g_{L}=\sqrt{(\sigma_{B}/B)^2+(\sigma_{k}/k)^2}=2\%$  {\bf(1.5)} \\
+$g_{L}=(1.720 \pm 0.034) $m/s$^2$ {\bf(1.5)} \\
+c) {\bf (3 punti)}\\
+$r_L=g_L^{-1/2}  \sqrt{M_L G} $\\
+$\sigma_{r_L}/r_L=\frac{1}{2}\sigma_{g_{L}}/g_{L} =1\%$ {\bf(1.5)} \\
+$r_L=(16.88\pm 0.17) 10^5$~m$=1688 \pm 17$~km {\bf(1.5)} \\
+
+\end{document}
